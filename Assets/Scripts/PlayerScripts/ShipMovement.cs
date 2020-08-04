@@ -13,7 +13,6 @@ public class ShipMovement : MonoBehaviour {
     private float timetillfire;
     public Transform firepoint;
     public GameObject Bullets;
-    //public Button Thrust;
 
 
 
@@ -24,15 +23,15 @@ public class ShipMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        thrust = 20f;
+        thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
-        maxVelocity = 80;
+        maxVelocity = 50;
         timetillfire = 0.2f;
     }
 
     // Update is called once per frame
     void Update() {
-        /*timetillfire -= Time.deltaTime;
+        /*
         if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
         {
             float angle = Mathf.Atan2(joystickrotate.Horizontal, joystickrotate.Vertical) * Mathf.Rad2Deg;
@@ -47,8 +46,6 @@ public class ShipMovement : MonoBehaviour {
 
         ClampVelocity();
 
-        //float yAxis = Input.GetAxis("Horizontal");
-        //float xAxis = Input.GetAxis("Vertical");
 
         if (Application.platform != RuntimePlatform.Android)
         {
@@ -88,13 +85,6 @@ public class ShipMovement : MonoBehaviour {
         }
 
 
-
-        /*if (timetillfire<=0)
-        {
-            Shoot();
-            timetillfire = 0.1f;
-        }*/
-
     }
 
     private void ClampVelocity(){
@@ -102,11 +92,6 @@ public class ShipMovement : MonoBehaviour {
         float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
         rb.velocity = new Vector2(x, y);
         //Debug.Log(y.ToString());
-    }
-
-    void Shoot()
-    {
-        Instantiate(Bullets, firepoint.position,firepoint.rotation);
     }
 
 

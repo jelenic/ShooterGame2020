@@ -15,8 +15,8 @@ public class BulletFire : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        BulletForce = 90;
-        maxVelocity = 500;
+        BulletForce = 20;
+        maxVelocity = 150;
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 5);
         rb.AddForce(transform.up * BulletForce);
@@ -41,7 +41,7 @@ public class BulletFire : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("hit an enemy");
+            //Debug.Log("hit an enemy trigger");
             Destroy(gameObject, 0.0f);
         }
 
@@ -61,20 +61,21 @@ public class BulletFire : MonoBehaviour
         rb.velocity = new Vector2(x, y);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
 
-        Debug.Log("collision");
+        //Debug.Log("collision");
 
-        if (collision.gameObject.tag == "Player")
+        /*if (collision.gameObject.tag == "Player")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
-        }
-        else if (collision.gameObject.tag == "Enemy")
+        }*/
+        if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("hit an enemy");
+            Debug.Log("hit an enemy dyn");
             Destroy(gameObject, 0.0f);
         }
 
     }
+
 }
