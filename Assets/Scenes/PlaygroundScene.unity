@@ -371,7 +371,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1.83
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -546,4 +546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ea2fe928519484082ef9804f0d02cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 140472689}
+  player: {fileID: 140472686}
+  scaleTime: 0
+  maxSize: 0
+  minSize: 0
+  minSpeed: 0
+  maxSpeed: 0
