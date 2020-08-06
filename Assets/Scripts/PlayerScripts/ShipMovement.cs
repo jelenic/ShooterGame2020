@@ -10,9 +10,8 @@ public class ShipMovement : MonoBehaviour {
     private Rigidbody2D rb;
     private float thrust;
     private float maxVelocity;
-    private float timetillfire;
-    public Transform firepoint;
-    public GameObject Bullets;
+    //public Transform firepoint;
+    //public GameObject Bullets;
 
 
 
@@ -26,7 +25,6 @@ public class ShipMovement : MonoBehaviour {
         thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
         maxVelocity = 50;
-        timetillfire = 0.2f;
     }
 
     // Update is called once per frame
