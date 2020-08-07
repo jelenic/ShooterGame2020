@@ -96,9 +96,9 @@ public class FollowPlayer : MonoBehaviour {
 
 
         //if we are currently scaling don't check movement
-        if (isScaling)
-            return;
-        CheckSize(playerRb.velocity.magnitude);
+        //if (isScaling)
+        //    return;
+        //CheckSize(playerRb.velocity.magnitude);
     }
 
 }
