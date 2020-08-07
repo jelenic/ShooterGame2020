@@ -35,16 +35,6 @@ public class BulletFire : MonoBehaviour
 
         //Debug.Log("collision");
 
-        if (collision.gameObject.tag == "Obstacle")
-        {
-            Destroy(gameObject, 0.0f);
-        }
-        else if (collision.gameObject.tag == "Enemy")
-        {
-            //Debug.Log("hit an enemy trigger");
-            Destroy(gameObject, 0.0f);
-        }
-
 
     }
 
@@ -72,7 +62,12 @@ public class BulletFire : MonoBehaviour
         }*/
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("hit an enemy dyn");
+            //Debug.Log("hit an enemy dyn");
+            Destroy(gameObject, 0.0f);
+        }
+
+        else if (collision.gameObject.tag == "Terrain")
+        {
             Destroy(gameObject, 0.0f);
         }
 
