@@ -1176,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2532582037704857609, guid: e996ae1bf7cae6948ad82cded920e9ef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2532582037704857610, guid: e996ae1bf7cae6948ad82cded920e9ef, type: 3}
       propertyPath: target
@@ -1252,6 +1252,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4079549043246176451, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
+      propertyPath: m_AngularDrag
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4079549043246176452, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
       propertyPath: m_Enabled
       value: 1

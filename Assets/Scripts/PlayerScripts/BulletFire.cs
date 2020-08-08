@@ -15,8 +15,8 @@ public class BulletFire : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        BulletForce = 20;
-        maxVelocity = 150;
+        BulletForce = 4;
+        maxVelocity = 100;
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 5);
         rb.AddForce(transform.up * BulletForce);

@@ -23,7 +23,7 @@ public class CustomAI : MonoBehaviour
     void Start()
     {
         speed = 400f;
-        nextWaypontDistance = 3f;
+        nextWaypontDistance = 10f;
         currentWaypoint = 0;
         reachedEndOfPath = false;
         AngleSpeed = 20;
