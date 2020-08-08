@@ -1191,18 +1191,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4185295042685300326, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185295042685300326, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185295042685300326, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5759946022023187988, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 140472687}
     - target: {fileID: 7761543011473416914, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.02
@@ -1250,10 +1242,6 @@ PrefabInstance:
     - target: {fileID: 7761543011473416926, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
       propertyPath: m_Name
       value: EnemyAstar
-      objectReference: {fileID: 0}
-    - target: {fileID: 7761543011473416926, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
@@ -1330,54 +1318,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
---- !u!1 &5759946022023187987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7761543011473416926, guid: f95be1ee5119cb94ea85666c86d4d55a, type: 3}
-  m_PrefabInstance: {fileID: 2619399934085180621}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5759946022023187988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759946022023187987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e242cb6b3baaf45a4ca64712bfd90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 140472687}
-  speed: 0
-  nextWaypontDistance: 0
---- !u!114 &5759946022023187989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759946022023187987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!1001 &9164938498019245152
 PrefabInstance:
   m_ObjectHideFlags: 0
