@@ -45,8 +45,12 @@ public class Fired : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject, 0.0f);
-        Debug.LogFormat("hit:{0}", collision.gameObject.tag);
+        if (collision.gameObject.tag != "Projectile")
+        {
+            Destroy(gameObject, 0.0f);
+            Debug.LogFormat("hit:{0}", collision.gameObject.tag);
+        }
+        
         
 
     }
