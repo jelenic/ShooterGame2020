@@ -21,9 +21,14 @@ public class CustomAI : MonoBehaviour
     private bool lineOfSight;
     RaycastHit2D hit;
     private float timeTillRaycastSight;
+    private float timeTillFire;
 
     //public BoxCollider2D dodgeDetector;
     private float timeTillDodge;
+    private float speedDodge;
+
+    public GameObject Bullets;
+    public Transform firepoint;
 
 
     // Start is called before the first frame update
@@ -37,6 +42,7 @@ public class CustomAI : MonoBehaviour
         lineOfSight = false;
         timeTillRaycastSight = 0.2f;
         timeTillDodge = 3f;
+        speedDodge = 20f;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -64,12 +70,12 @@ public class CustomAI : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         timeTillDodge -= Time.deltaTime;
-
-
+        #region pathfinder
+        //plot path
         if (path == null)
         {
             return;
@@ -96,6 +102,11 @@ public class CustomAI : MonoBehaviour
         }
 
 
+        #endregion
+
+
+
+
 
         //rotate towards player
         Vector2 directionPlayer = target.position - transform.position;
@@ -103,9 +114,10 @@ public class CustomAI : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, AngleSpeed * Time.deltaTime);
 
-
+        #region firecontrols
         //check line of sight
         timeTillRaycastSight -= Time.deltaTime;
+        timeTillFire -= Time.deltaTime;
         if (timeTillRaycastSight <= 0)
         {
             timeTillRaycastSight = 0.2f;
@@ -124,6 +136,20 @@ public class CustomAI : MonoBehaviour
 
         }
 
+        if (lineOfSight && timeTillFire <= 0)
+        {
+            timeTillFire = 0.5f;
+            Shoot();
+        }
+
+
+
+
+
+
+
+
+        #endregion
 
 
 
@@ -144,6 +170,9 @@ public class CustomAI : MonoBehaviour
         return hits[1];
     }
 
+
+
+    //dodging here
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //very bad stuff
@@ -159,10 +188,33 @@ public class CustomAI : MonoBehaviour
             }
             Debug.Log("atempted dodge");
         }*/
+
+        //enemy teleports
+        /*if (collision.tag == "PlayerProjectile" && timeTillDodge <= 0)
+        {
+            timeTillDodge = 3f;
+            int randDir = Random.Range(0, 2) * 2 - 1;
+            rb.MovePosition(transform.position += transform.right * randDir * speedDodge);
+        }*/
+
         if (collision.tag == "PlayerProjectile" && timeTillDodge <= 0)
         {
-            
+            timeTillDodge = 3f;
+            int randDir = Random.Range(0, 2) * 2 - 1;
+            transform.Translate(transform.right * Time.deltaTime * speedDodge, Space.Self);
         }
 
+    }
+
+
+    private void Shoot()
+    {
+        Instantiate(Bullets, firepoint.position, firepoint.rotation);
+    }
+
+    private void Dodge()
+    {
+        int randDir = Random.Range(0, 2) * 2 - 1;
+        rb.MovePosition(transform.position += transform.right * randDir * Time.deltaTime * speedDodge);
     }
 }
