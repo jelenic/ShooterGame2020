@@ -209,7 +209,7 @@ MonoBehaviour:
   range: 0
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
-  bullet: {fileID: 8462117823125023395, guid: 1eeb2082dcb56f344896f41402bc02ab, type: 3}
+  bullet: {fileID: 6373722828183997816, guid: a12687b23b909a54c9f00b8f6abef205, type: 3}
   rateOfFire: 0
   fireWait: 0
 --- !u!212 &333571875
