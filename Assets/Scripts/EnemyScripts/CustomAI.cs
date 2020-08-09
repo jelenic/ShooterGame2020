@@ -26,6 +26,9 @@ public class CustomAI : MonoBehaviour
     //public BoxCollider2D dodgeDetector;
     private float timeTillDodge;
     private float speedDodge;
+    private bool dodging;
+    private int n;
+    private int randDir;
 
     public GameObject Bullets;
     public Transform firepoint;
@@ -42,7 +45,8 @@ public class CustomAI : MonoBehaviour
         lineOfSight = false;
         timeTillRaycastSight = 0.2f;
         timeTillDodge = 3f;
-        speedDodge = 20f;
+        speedDodge = 10f;
+        dodging = false;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -138,6 +142,7 @@ public class CustomAI : MonoBehaviour
 
         if (lineOfSight && timeTillFire <= 0)
         {
+            //Debug.Log("fireing");
             timeTillFire = 0.5f;
             Shoot();
         }
@@ -151,6 +156,21 @@ public class CustomAI : MonoBehaviour
 
         #endregion
 
+        #region dodging
+
+        if (dodging && n <= 10)
+        {
+            Debug.Log(n.ToString());
+            transform.Translate(transform.right * randDir * Time.deltaTime * speedDodge, Space.Self);
+            n += 1;
+        }
+        else if (dodging && n > 10)
+        {
+            dodging = false;
+        }
+
+
+        #endregion
 
 
 
@@ -197,12 +217,22 @@ public class CustomAI : MonoBehaviour
             rb.MovePosition(transform.position += transform.right * randDir * speedDodge);
         }*/
 
-        if (collision.tag == "PlayerProjectile" && timeTillDodge <= 0)
+        //still teleports
+        /*if (collision.tag == "PlayerProjectile" && timeTillDodge <= 0)
         {
             timeTillDodge = 3f;
             int randDir = Random.Range(0, 2) * 2 - 1;
-            transform.Translate(transform.right * Time.deltaTime * speedDodge, Space.Self);
+            transform.Translate(transform.right * randDir * Time.deltaTime * speedDodge, Space.Self);
+        }*/
+        if (collision.tag == "PlayerProjectile" && timeTillDodge <= 0)
+        {
+            timeTillDodge = 3f;
+            randDir = Random.Range(0, 2) * 2 - 1;
+            n = 0;
+            Debug.Log("startDodging");
+            dodging = true;
         }
+
 
     }
 
