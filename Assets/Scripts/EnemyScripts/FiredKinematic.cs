@@ -12,7 +12,7 @@ public class FiredKinematic : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        velocity = 6;
+        velocity = 9;
         lifeDuration = 5f;
         Destroy(gameObject, lifeDuration);
         transform = GetComponent<Transform>();
@@ -35,10 +35,11 @@ public class FiredKinematic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.LogFormat("kinematic bullet hit:{0}", collision.gameObject.tag);
         if (collision.gameObject.tag != "Projectile")
         {
             Destroy(gameObject, 0.0f);
-            Debug.LogFormat("kinematic bullet hit:{0}", collision.gameObject.tag);
+            
         }
     }
 }

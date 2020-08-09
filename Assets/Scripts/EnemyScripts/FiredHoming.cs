@@ -13,7 +13,7 @@ public class FiredHoming : MonoBehaviour
     void Start()
     {
         
-        lifeDuration = 5f;
+        lifeDuration = 20f;
         Destroy(gameObject, lifeDuration);
         transform = GetComponent<Transform>();
 
