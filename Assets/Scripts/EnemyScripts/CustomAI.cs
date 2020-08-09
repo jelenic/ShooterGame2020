@@ -160,7 +160,7 @@ public class CustomAI : MonoBehaviour
 
         if (dodging && n <= 10)
         {
-            Debug.Log(n.ToString());
+            //Debug.Log(n.ToString());
             transform.Translate(transform.right * randDir * Time.deltaTime * speedDodge, Space.Self);
             n += 1;
         }
@@ -229,7 +229,7 @@ public class CustomAI : MonoBehaviour
             timeTillDodge = 3f;
             randDir = Random.Range(0, 2) * 2 - 1;
             n = 0;
-            Debug.Log("startDodging");
+            //Debug.Log("startDodging");
             dodging = true;
         }
 
@@ -240,11 +240,5 @@ public class CustomAI : MonoBehaviour
     private void Shoot()
     {
         Instantiate(Bullets, firepoint.position, firepoint.rotation);
-    }
-
-    private void Dodge()
-    {
-        int randDir = Random.Range(0, 2) * 2 - 1;
-        rb.MovePosition(transform.position += transform.right * randDir * Time.deltaTime * speedDodge);
     }
 }
