@@ -1290,30 +1290,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ship
       objectReference: {fileID: 0}
-    - target: {fileID: 5268324227005487912, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5268324227005487912, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.9333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5268324227005487912, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0.25882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 5268324227005487912, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.13725491
-      objectReference: {fileID: 0}
-    - target: {fileID: 5268324227005487912, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
-      propertyPath: m_UseWorldSpace
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5268324227005487912, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a259c4b9ed754274282633a22c0dab51, type: 3}
 --- !u!1 &5759946022023187987 stripped
