@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFire : MonoBehaviour
 {
-    public int bulletDamage = 10;
+    public int bulletDamage = 3;
     public float BulletForce;
     private float maxVelocity;
     private Rigidbody2D rb;

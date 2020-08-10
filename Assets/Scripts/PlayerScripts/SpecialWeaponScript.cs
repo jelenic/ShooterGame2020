@@ -27,7 +27,7 @@ public class SpecialWeaponScript : MonoBehaviour
         if (equipedWeaponID == 0)
         {
             //beam weapon
-            dmgBase = 10;
+            dmgBase = 30;
             cooldown = 3f;
             timeTillUse = 0f;
             lineRenderer = GetComponent<LineRenderer>();
@@ -61,6 +61,10 @@ public class SpecialWeaponScript : MonoBehaviour
             {
                 Debug.Log("should Destroy");
                 Destroy(hit.collider.gameObject, 0f);
+
+            } else if (hit.collider.tag == "Enemy")
+            {
+                hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
             }
 
 
