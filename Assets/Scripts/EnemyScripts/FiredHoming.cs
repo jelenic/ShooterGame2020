@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FiredHoming : MonoBehaviour
 {
-    
+    public int projectileDamage = 3;
     public float lifeDuration;
     public GameObject explosion;
     public Transform transform;
@@ -30,13 +30,16 @@ public class FiredHoming : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Projectile")
+        GameObject hit = collision.gameObject;
+        Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
+        if (hit.tag != "Projectile" || hit.tag != "Enemy")
         {
+            if (hit.tag == "Player") hit.GetComponent<CombatVariables>().DecreaseHP(projectileDamage);
             Destroy(gameObject, 0.0f);
-            Debug.LogFormat("homing bullet hit:{0}", collision.gameObject.tag);
+
         }
-
-
-
     }
+
+
 }
+

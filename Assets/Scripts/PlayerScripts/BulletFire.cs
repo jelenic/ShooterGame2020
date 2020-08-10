@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFire : MonoBehaviour
 {
-
+    public int bulletDamage = 10;
     public float BulletForce;
     private float maxVelocity;
     private Rigidbody2D rb;
@@ -63,6 +63,7 @@ public class BulletFire : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //Debug.Log("hit an enemy dyn");
+            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage);
             Destroy(gameObject, 0.0f);
         }
 

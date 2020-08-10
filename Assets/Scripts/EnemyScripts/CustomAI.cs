@@ -52,7 +52,7 @@ public class CustomAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
-
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
 
