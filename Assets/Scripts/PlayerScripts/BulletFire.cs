@@ -30,13 +30,19 @@ public class BulletFire : MonoBehaviour
         ClampVelocity();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    // use if want to have it kinematic
+    /*private void FixedUpdate()
+    {
+        rb.MovePosition(transform.position += transform.up * Time.deltaTime * speed);
+    }*/
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
 
         //Debug.Log("collision");
 
 
-    }
+    }*/
 
 
     private void OnDestroy()
