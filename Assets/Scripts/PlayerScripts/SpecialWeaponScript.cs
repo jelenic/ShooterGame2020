@@ -49,23 +49,30 @@ public class SpecialWeaponScript : MonoBehaviour
             Debug.Log("I'ma fireing my lazer");
             timeTillUse = cooldown;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
-            //Debug.DrawLine(transform.position, hit.point);
-            laserHitPoint.position = hit.point;
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, laserHitPoint.position);
-            lineRenderer.enabled = true;
-            activeFor = activeTime;
-            Debug.Log("laser hit " + hit.collider.tag);
-            if (hit.collider.tag == "Projectile")
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
+            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+            
+            foreach(RaycastHit2D hit in allHit)
             {
-                Debug.Log("should Destroy");
-                Destroy(hit.collider.gameObject, 0f);
+                //Debug.DrawLine(transform.position, hit.point);
+                laserHitPoint.position = hit.point;
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, laserHitPoint.position);
+                lineRenderer.enabled = true;
+                activeFor = activeTime;
+                Debug.Log("lazer hit " + hit.collider.tag);
+                if (hit.collider.tag == "Projectile")
+                {
+                    Debug.Log("should Destroy");
+                    Destroy(hit.collider.gameObject, 0f);
 
-            } else if (hit.collider.tag == "Enemy")
-            {
-                hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                }
+                else if (hit.collider.tag == "Enemy")
+                {
+                    hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                }
             }
+            
 
 
         }

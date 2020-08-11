@@ -31,7 +31,6 @@ public class CustomAI : MonoBehaviour
     private int randDir;
 
     public GameObject Bullets;
-    public Transform firepoint;
 
 
     // Start is called before the first frame update
@@ -144,7 +143,7 @@ public class CustomAI : MonoBehaviour
         {
             //Debug.Log("fireing");
             timeTillFire = 0.5f;
-            Shoot();
+            //Shoot();
         }
 
 
@@ -237,8 +236,8 @@ public class CustomAI : MonoBehaviour
     }
 
 
-    private void Shoot()
-    {
-        Instantiate(Bullets, firepoint.position, firepoint.rotation);
-    }
+    //private void Shoot()
+    //{
+    //    Instantiate(Bullets, firepoint.position, firepoint.rotation);
+    //}
 }
