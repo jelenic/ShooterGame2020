@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!61 &5643630070753232558
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093654107459921408}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.045124054, y: -0.06768465}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 3, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4585152, y: 2.6841326}
+  m_EdgeRadius: 0
 --- !u!114 &96823715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,11 +50,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7508159457734652969, guid: fec5db03894592b4e81fb8bc58944556, type: 3}
       propertyPath: m_Name
-      value: TurretHoming
+      value: TurretHomingHP
       objectReference: {fileID: 0}
     - target: {fileID: 7508159457734652969, guid: fec5db03894592b4e81fb8bc58944556, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508159457734652970, guid: fec5db03894592b4e81fb8bc58944556, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508159457734652970, guid: fec5db03894592b4e81fb8bc58944556, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508159457734652970, guid: fec5db03894592b4e81fb8bc58944556, type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508159457734652973, guid: fec5db03894592b4e81fb8bc58944556, type: 3}
       propertyPath: m_LocalPosition.x

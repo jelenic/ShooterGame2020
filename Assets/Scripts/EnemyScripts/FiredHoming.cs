@@ -28,11 +28,11 @@ public class FiredHoming : MonoBehaviour
 
     
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject hit = collision.gameObject;
         //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
-        if (hit.tag != "Projectile" || hit.tag != "Enemy")
+        if (hit.tag != "Projectile" && hit.tag != "Enemy")
         {
             if (hit.tag == "Player") hit.GetComponent<CombatVariables>().DecreaseHP(projectileDamage);
             Destroy(gameObject, 0.0f);

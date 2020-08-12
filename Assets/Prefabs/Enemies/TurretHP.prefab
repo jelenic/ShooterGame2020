@@ -15,7 +15,7 @@ MonoBehaviour:
   total_hp: 100
   hp: 0
   hpBar: {fileID: 8538480862172689537}
---- !u!61 &2144645970312892425
+--- !u!61 &-534307431737611331
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,7 +28,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.045124054, y: -0.06768465}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -39,7 +39,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2.4585152, y: 2.6841326}
   m_EdgeRadius: 0
 --- !u!1001 &5326409303069822536
 PrefabInstance:
@@ -48,6 +48,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2506645935867502752, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502752, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502752, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2506645935867502755, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
       propertyPath: m_Name
       value: TurretHP
