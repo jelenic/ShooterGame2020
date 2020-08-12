@@ -15,7 +15,7 @@ public class CombatVariables : MonoBehaviour
     public int DecreaseHP(int amount)
     {
         hp = Math.Max(0, hp - amount);
-        Debug.LogFormat("object {0} hp decreased by {1}, current hp: {2}", gameObject.tag, amount, hp);
+        //Debug.LogFormat("object {0} hp decreased by {1}, current hp: {2}", gameObject.tag, amount, hp);
         if (hp == 0) Destroy(gameObject);
         hpBar.enabled = true;
         hpBar.fillAmount = (float)hp / total_hp;
@@ -25,7 +25,7 @@ public class CombatVariables : MonoBehaviour
     public int InreaseHP(int amount)
     {
         hp = Math.Min(total_hp, hp + amount);
-        Debug.LogFormat("object {0} hp increased by {1}, current hp: {2}", gameObject.tag, amount, hp);
+        //Debug.LogFormat("object {0} hp increased by {1}, current hp: {2}", gameObject.tag, amount, hp);
         hpBar.fillAmount = (float)hp / total_hp;
         return hp;
     }

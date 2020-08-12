@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4116203293040891249}
   - component: {fileID: 4116203293040891248}
   - component: {fileID: 7374851068649834477}
+  - component: {fileID: -7282879257306841973}
   m_Layer: 0
   m_Name: EnemyAutomaticAstar
   m_TagString: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4116203293040891251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -6.4, z: -2.281849}
+  m_LocalPosition: {x: -2, y: -6.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4116203293888559175}
@@ -129,6 +130,19 @@ MonoBehaviour:
   total_hp: 100
   hp: 0
   hpBar: {fileID: 5803434076230719223}
+--- !u!114 &-7282879257306841973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116203293040891251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9878819661b424b8f33c3d60c4502b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationSetter: {fileID: 0}
 --- !u!1 &4116203293888559192
 GameObject:
   m_ObjectHideFlags: 0
