@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 4079549043246176450}
   - component: {fileID: 4079549043246176449}
   - component: {fileID: 4079549043246176448}
+  - component: {fileID: 140472695}
   m_Layer: 0
   m_Name: shipBoxColliders
   m_TagString: Player
@@ -420,6 +421,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6974877, y: 0.09618497}
   m_EdgeRadius: 0
+--- !u!114 &140472695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079549043246176478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  total_hp: 100
+  hp: 0
+  hpBar: {fileID: 0}
 --- !u!1 &4079549044421610173
 GameObject:
   m_ObjectHideFlags: 0

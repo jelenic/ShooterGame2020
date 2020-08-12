@@ -50,29 +50,124 @@ public class SpecialWeaponScript : MonoBehaviour
             timeTillUse = cooldown;
 
             //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
-            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
-            
-            foreach(RaycastHit2D hit in allHit)
+
+
+            //this is a slim hitbox
+            /*RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+            foreach (RaycastHit2D hit in allHit)
             {
                 //Debug.DrawLine(transform.position, hit.point);
                 laserHitPoint.position = hit.point;
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, laserHitPoint.position);
-                lineRenderer.enabled = true;
-                activeFor = activeTime;
-                Debug.Log("lazer hit " + hit.collider.tag);
+                //lineRenderer.enabled = true;
+                //activeFor = activeTime;
+                //Debug.Log("lazer hit " + hit.collider.tag);
                 if (hit.collider.tag == "Projectile")
                 {
-                    Debug.Log("should Destroy");
+                    //Debug.Log("should Destroy");
                     Destroy(hit.collider.gameObject, 0f);
 
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
                     hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
                 }
+                else if (hit.collider.tag == "Terrain")
+                {
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
+                }
+            }*/
+
+            //this is a fat hitbox
+            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+            RaycastHit2D[] allHitL = Physics2D.RaycastAll(transform.position + transform.right*(-1*0.125f), transform.up);
+            RaycastHit2D[] allHitR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.125f), transform.up);
+            RaycastHit2D[] allHitLL = Physics2D.RaycastAll(transform.position + transform.right * (-1 * 0.25f), transform.up);
+            RaycastHit2D[] allHitRR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.25f), transform.up);
+            int i = 0;
+            while (i<10)
+            {
+                //Debug.DrawLine(transform.position, hit.point);
+                laserHitPoint.position = allHit[i].point;
+                if (allHit[i].collider.tag == "Projectile")
+                {
+                    Destroy(allHit[i].collider.gameObject, 0f);
+                }
+                else if (allHitL[i].collider.tag == "Projectile")
+                {
+                    Destroy(allHitL[i].collider.gameObject, 0f);
+                }
+                else if (allHitR[i].collider.tag == "Projectile")
+                {
+                    Destroy(allHitR[i].collider.gameObject, 0f);
+                }
+                else if (allHitLL[i].collider.tag == "Projectile")
+                {
+                    Destroy(allHitLL[i].collider.gameObject, 0f);
+                }
+                else if (allHitRR[i].collider.tag == "Projectile")
+                {
+                    Destroy(allHitR[i].collider.gameObject, 0f);
+                }
+
+                if (allHit[i].collider.tag == "Enemy")
+                {
+                    allHit[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
+                }
+
+                else if (allHitL[i].collider.tag == "Enemy")
+                {
+                    allHitL[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
+                }
+
+                else if (allHitR[i].collider.tag == "Enemy")
+                {
+                    allHitR[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
+                }
+
+
+
+                if (allHit[i].collider.tag == "Terrain" || allHitL[i].collider.tag == "Terrain" || allHitR[i].collider.tag == "Terrain")
+                {
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
+                }
+                //Debug.DrawLine(transform.position, laserHitPoint.position);
+                //Debug.DrawLine(transform.position + transform.right * (-1 * 0.2f), allHitL[i].point);
+                //Debug.DrawLine(transform.position + transform.right * (1 * 0.2f), allHitR[i].point);
+                i++;
+                break;
+                //lineRenderer.enabled = true;
+                //activeFor = activeTime;
             }
-            
+
+
 
 
         }
