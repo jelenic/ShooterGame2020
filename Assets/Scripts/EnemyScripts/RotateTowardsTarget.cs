@@ -26,6 +26,7 @@ public class RotateTowardsTarget : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+        //TO DO add checkign line of fire for non homing projectiles, just copy from CustomAI and delete it there
         fireWait = Math.Max(0.0f, fireWait - Time.deltaTime);
         if (Vector2.Distance(transform.position, target.position) <= range)
         {

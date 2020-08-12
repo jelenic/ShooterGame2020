@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2506645935867502759}
   - component: {fileID: 2506645935867502752}
   - component: {fileID: 2506645935867502753}
-  - component: {fileID: 2506645935867502754}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Enemy
@@ -103,29 +102,3 @@ MonoBehaviour:
   bullet: {fileID: 6373722828183997816, guid: a12687b23b909a54c9f00b8f6abef205, type: 3}
   rateOfFire: 0
   fireWait: 0
---- !u!61 &2506645935867502754
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2506645935867502755}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 3, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2.7}
-  m_EdgeRadius: 0

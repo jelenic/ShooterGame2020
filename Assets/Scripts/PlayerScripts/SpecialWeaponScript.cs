@@ -96,7 +96,8 @@ public class SpecialWeaponScript : MonoBehaviour
             while (i<10)
             {
                 //Debug.DrawLine(transform.position, hit.point);
-                laserHitPoint.position = allHit[i].point;
+                //laserHitPoint.position = allHit[i].point;
+                //Debug.Log(allHit[i].collider.tag);
                 if (allHit[i].collider.tag == "Projectile")
                 {
                     Destroy(allHit[i].collider.gameObject, 0f);
@@ -122,7 +123,7 @@ public class SpecialWeaponScript : MonoBehaviour
                 {
                     allHit[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.SetPosition(1, allHit[i].point);
                     lineRenderer.enabled = true;
                     activeFor = activeTime;
                     break;
@@ -132,7 +133,7 @@ public class SpecialWeaponScript : MonoBehaviour
                 {
                     allHitL[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.SetPosition(1, allHitL[i].point);
                     lineRenderer.enabled = true;
                     activeFor = activeTime;
                     break;
@@ -142,7 +143,27 @@ public class SpecialWeaponScript : MonoBehaviour
                 {
                     allHitR[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.SetPosition(1, allHitR[i].point);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
+                }
+
+                else if (allHitRR[i].collider.tag == "Enemy")
+                {
+                    allHitRR[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, allHitRR[i].point);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
+                    break;
+                }
+
+                else if (allHitLL[i].collider.tag == "Enemy")
+                {
+                    allHitLL[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, allHitLL[i].point);
                     lineRenderer.enabled = true;
                     activeFor = activeTime;
                     break;
@@ -150,10 +171,10 @@ public class SpecialWeaponScript : MonoBehaviour
 
 
 
-                if (allHit[i].collider.tag == "Terrain" || allHitL[i].collider.tag == "Terrain" || allHitR[i].collider.tag == "Terrain")
+                if (allHit[i].collider.tag == "Terrain")
                 {
                     lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, laserHitPoint.position);
+                    lineRenderer.SetPosition(1, allHit[i].point);
                     lineRenderer.enabled = true;
                     activeFor = activeTime;
                     break;
@@ -162,7 +183,10 @@ public class SpecialWeaponScript : MonoBehaviour
                 //Debug.DrawLine(transform.position + transform.right * (-1 * 0.2f), allHitL[i].point);
                 //Debug.DrawLine(transform.position + transform.right * (1 * 0.2f), allHitR[i].point);
                 i++;
-                break;
+                if (i >= 10)
+                {
+                    break;
+                }
                 //lineRenderer.enabled = true;
                 //activeFor = activeTime;
             }
