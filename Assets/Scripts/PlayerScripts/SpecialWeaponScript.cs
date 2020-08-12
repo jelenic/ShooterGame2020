@@ -185,6 +185,10 @@ public class SpecialWeaponScript : MonoBehaviour
                 i++;
                 if (i >= 10)
                 {
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, allHit[i].point);
+                    lineRenderer.enabled = true;
+                    activeFor = activeTime;
                     break;
                 }
                 //lineRenderer.enabled = true;
