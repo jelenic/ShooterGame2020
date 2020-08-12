@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserHitPoint: {fileID: 463668384}
+  invisible: {fileID: 3241238996482785686, guid: 3d584a7db25d0414aacb2e55d0674aa2, type: 3}
 --- !u!120 &5268324227005487912
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class SpecialWeaponScript : MonoBehaviour
     private LineRenderer lineRenderer;
     public Transform laserHitPoint;
 
+    public GameObject invisible;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class SpecialWeaponScript : MonoBehaviour
         {
             //beam weapon
             dmgBase = 30;
-            cooldown = 3f;
+            cooldown = 1f;
             timeTillUse = 0f;
             lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.enabled = false;
@@ -48,12 +50,13 @@ public class SpecialWeaponScript : MonoBehaviour
         {
             Debug.Log("I'ma fireing my lazer");
             timeTillUse = cooldown;
+            Instantiate(invisible, transform.position, transform.rotation);
 
             //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
 
 
             //this is a slim hitbox
-            /*RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
             foreach (RaycastHit2D hit in allHit)
             {
                 //Debug.DrawLine(transform.position, hit.point);
@@ -84,42 +87,42 @@ public class SpecialWeaponScript : MonoBehaviour
                     activeFor = activeTime;
                     break;
                 }
-            }*/
+            }
 
             //this is a fat hitbox
-            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
-            RaycastHit2D[] allHitL = Physics2D.RaycastAll(transform.position + transform.right*(-1*0.125f), transform.up);
-            RaycastHit2D[] allHitR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.125f), transform.up);
-            RaycastHit2D[] allHitLL = Physics2D.RaycastAll(transform.position + transform.right * (-1 * 0.25f), transform.up);
-            RaycastHit2D[] allHitRR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.25f), transform.up);
+            /*RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+            RaycastHit2D[] allHitL = Physics2D.RaycastAll(transform.position + transform.right*(-1*0.02f), transform.up);
+            RaycastHit2D[] allHitR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.02f), transform.up);
+            RaycastHit2D[] allHitLL = Physics2D.RaycastAll(transform.position + transform.right * (-1 * 0.04f), transform.up);
+            RaycastHit2D[] allHitRR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.04f), transform.up);
             int i = 0;
             while (i<10)
             {
                 //Debug.DrawLine(transform.position, hit.point);
                 //laserHitPoint.position = allHit[i].point;
                 //Debug.Log(allHit[i].collider.tag);
-                if (allHit[i].collider.tag == "Projectile")
+                if (allHit.Length>i && allHit[i].collider.tag == "Projectile")
                 {
                     Destroy(allHit[i].collider.gameObject, 0f);
                 }
-                else if (allHitL[i].collider.tag == "Projectile")
+                else if (allHitL.Length > i && allHitL[i].collider.tag == "Projectile")
                 {
                     Destroy(allHitL[i].collider.gameObject, 0f);
                 }
-                else if (allHitR[i].collider.tag == "Projectile")
+                else if (allHitR.Length > i && allHitR[i].collider.tag == "Projectile")
                 {
                     Destroy(allHitR[i].collider.gameObject, 0f);
                 }
-                else if (allHitLL[i].collider.tag == "Projectile")
+                else if (allHitLL.Length > i && allHitLL[i].collider.tag == "Projectile")
                 {
                     Destroy(allHitLL[i].collider.gameObject, 0f);
                 }
-                else if (allHitRR[i].collider.tag == "Projectile")
+                else if (allHitRR.Length > i && allHitRR[i].collider.tag == "Projectile")
                 {
-                    Destroy(allHitR[i].collider.gameObject, 0f);
+                    Destroy(allHitRR[i].collider.gameObject, 0f);
                 }
 
-                if (allHit[i].collider.tag == "Enemy")
+                if (allHit.Length > i && allHit[i].collider.tag == "Enemy")
                 {
                     allHit[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
@@ -129,7 +132,7 @@ public class SpecialWeaponScript : MonoBehaviour
                     break;
                 }
 
-                else if (allHitL[i].collider.tag == "Enemy")
+                else if (allHitL.Length > i && allHitL[i].collider.tag == "Enemy")
                 {
                     allHitL[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
@@ -139,7 +142,7 @@ public class SpecialWeaponScript : MonoBehaviour
                     break;
                 }
 
-                else if (allHitR[i].collider.tag == "Enemy")
+                else if (allHitR.Length > i && allHitR[i].collider.tag == "Enemy")
                 {
                     allHitR[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
@@ -149,7 +152,7 @@ public class SpecialWeaponScript : MonoBehaviour
                     break;
                 }
 
-                else if (allHitRR[i].collider.tag == "Enemy")
+                else if (allHitRR.Length > i && allHitRR[i].collider.tag == "Enemy")
                 {
                     allHitRR[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
@@ -159,7 +162,7 @@ public class SpecialWeaponScript : MonoBehaviour
                     break;
                 }
 
-                else if (allHitLL[i].collider.tag == "Enemy")
+                else if (allHitLL.Length > i && allHitLL[i].collider.tag == "Enemy")
                 {
                     allHitLL[i].collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
                     lineRenderer.SetPosition(0, transform.position);
@@ -171,7 +174,7 @@ public class SpecialWeaponScript : MonoBehaviour
 
 
 
-                if (allHit[i].collider.tag == "Terrain")
+                if (allHit.Length > i && allHit[i].collider.tag == "Terrain")
                 {
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, allHit[i].point);
@@ -193,7 +196,7 @@ public class SpecialWeaponScript : MonoBehaviour
                 }
                 //lineRenderer.enabled = true;
                 //activeFor = activeTime;
-            }
+            }*/
 
 
 
