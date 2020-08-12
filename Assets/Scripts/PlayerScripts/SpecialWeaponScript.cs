@@ -18,6 +18,8 @@ public class SpecialWeaponScript : MonoBehaviour
     private LineRenderer lineRenderer;
     public Transform laserHitPoint;
 
+    public GameObject invisible;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,12 +50,13 @@ public class SpecialWeaponScript : MonoBehaviour
         {
             Debug.Log("I'ma fireing my lazer");
             timeTillUse = cooldown;
+            Instantiate(invisible, transform.position, transform.rotation);
 
             //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
 
 
             //this is a slim hitbox
-            /*RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
             foreach (RaycastHit2D hit in allHit)
             {
                 //Debug.DrawLine(transform.position, hit.point);
@@ -84,14 +87,14 @@ public class SpecialWeaponScript : MonoBehaviour
                     activeFor = activeTime;
                     break;
                 }
-            }*/
+            }
 
             //this is a fat hitbox
-            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
-            RaycastHit2D[] allHitL = Physics2D.RaycastAll(transform.position + transform.right*(-1*0.125f), transform.up);
-            RaycastHit2D[] allHitR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.125f), transform.up);
-            RaycastHit2D[] allHitLL = Physics2D.RaycastAll(transform.position + transform.right * (-1 * 0.25f), transform.up);
-            RaycastHit2D[] allHitRR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.25f), transform.up);
+            /*RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+            RaycastHit2D[] allHitL = Physics2D.RaycastAll(transform.position + transform.right*(-1*0.02f), transform.up);
+            RaycastHit2D[] allHitR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.02f), transform.up);
+            RaycastHit2D[] allHitLL = Physics2D.RaycastAll(transform.position + transform.right * (-1 * 0.04f), transform.up);
+            RaycastHit2D[] allHitRR = Physics2D.RaycastAll(transform.position + transform.right * (1 * 0.04f), transform.up);
             int i = 0;
             while (i<10)
             {
@@ -193,7 +196,7 @@ public class SpecialWeaponScript : MonoBehaviour
                 }
                 //lineRenderer.enabled = true;
                 //activeFor = activeTime;
-            }
+            }*/
 
 
 
