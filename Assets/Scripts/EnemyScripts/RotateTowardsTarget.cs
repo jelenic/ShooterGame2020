@@ -18,7 +18,7 @@ public class RotateTowardsTarget : MonoBehaviour
     void Start () {
         speed = 10f;
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        range = 26f;
+        range = 15f;
         rateOfFire = 0.5f;
         fireWait = rateOfFire;
         defaultRotation = transform.rotation;

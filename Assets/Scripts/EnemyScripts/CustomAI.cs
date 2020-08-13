@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Tilemaps;
 
 public class CustomAI : MonoBehaviour
 {
 
-    public Transform target;
     private float speed;
     private float nextWaypontDistance;
     private float AngleSpeed;
+    public float range;
 
     Path path;
     int currentWaypoint;
@@ -17,6 +18,9 @@ public class CustomAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+    public Transform target;
+    private Transform player;
+    private Transform startPosition;
 
     private bool lineOfSight;
     RaycastHit2D hit;
@@ -30,12 +34,24 @@ public class CustomAI : MonoBehaviour
     private int n;
     private int randDir;
 
-    public GameObject Bullets;
+    //public GameObject Bullets;
 
 
+
+    void setTarget()
+    {
+        if (Vector2.Distance(rb.position, player.transform.position) <= range)
+        {
+            target = player;
+        } else
+        {
+            target = startPosition;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
+        range = 15f;
         speed = 400f;
         nextWaypontDistance = 3f;
         currentWaypoint = 0;
@@ -50,13 +66,22 @@ public class CustomAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
+        GameObject gb = new GameObject();
+        gb.transform.position = rb.position + Random.insideUnitCircle*5;
+        gb.transform.rotation = rb.transform.rotation;
+        startPosition = gb.transform;
+
+
         InvokeRepeating("UpdatePath", 0f, 0.5f);
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        setTarget();
 
     }
 
     void UpdatePath()
     {
+        setTarget();
+
         if (seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
