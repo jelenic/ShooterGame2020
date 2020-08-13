@@ -1201,18 +1201,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 4405311437814559830, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 9112674167665135740, guid: cbc31b9cfc1b09843aade12bf1cb6713, type: 3}
-    - target: {fileID: 4405311437814559830, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
-      propertyPath: enemyNumber
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405311437814559830, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
-      propertyPath: cooldownTime
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4405311437814559832, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.3
@@ -1511,18 +1499,6 @@ PrefabInstance:
     - target: {fileID: 4405311437814559829, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405311437814559830, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 9215138442970987378, guid: 5afe5e5a9acc0554ea0c3a28940ea188, type: 3}
-    - target: {fileID: 4405311437814559830, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
-      propertyPath: enemyNumber
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405311437814559830, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
-      propertyPath: cooldownTime
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4405311437814559832, guid: 03eaa79d4caa725439266249d8c8f4b8, type: 3}
       propertyPath: m_LocalPosition.x

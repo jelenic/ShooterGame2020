@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4405311437814559830}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Enemy
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd45da30720d0aa45a9853916748586e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  enemyNumber: 0
+  enemy: {fileID: 9112674167665135740, guid: cbc31b9cfc1b09843aade12bf1cb6713, type: 3}
+  enemyNumber: 5
   activated: 0
-  cooldownTime: 0
+  cooldownTime: 10
