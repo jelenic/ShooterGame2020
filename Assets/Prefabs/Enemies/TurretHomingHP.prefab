@@ -309,7 +309,7 @@ MonoBehaviour:
   name: TurretHoming
   hp: 75
   scoreValue: 7
-  damageModifier: 1.05
+  damageModifier: 0.8
   speed: 10
   range: 17
   mass: 0

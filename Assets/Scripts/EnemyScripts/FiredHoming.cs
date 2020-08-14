@@ -2,43 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FiredHoming : MonoBehaviour
+public class FiredHoming : FiredProjectile
 {
-    public int projectileDamage = 3;
-    public float lifeDuration;
-    public GameObject explosion;
-    public Transform transform;
-
-    // Use this for initialization
-    void Start()
+    public override void Initialize()
     {
-        
-        lifeDuration = 20f;
-        Destroy(gameObject, lifeDuration);
-        transform = GetComponent<Transform>();
-
+        base.Initialize();
+        projectileDamage = 3;
+        lifeDuration = 10f;
+        Debug.LogFormat("homing bullet modifier: {0}", damageModifier);
     }
 
-   
 
-    private void OnDestroy()
-    {
-        Instantiate(explosion, transform.position, transform.rotation);
-    }
-
-    
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameObject hit = collision.gameObject;
-        //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
-        if (hit.tag != "Projectile" && hit.tag != "Enemy" && hit.tag != "Spawner")
-        {
-            if (hit.tag == "Player") hit.GetComponent<CombatVariables>().DecreaseHP(projectileDamage);
-            Destroy(gameObject, 0.0f);
-
-        }
-    }
 
 
 }

@@ -17,8 +17,11 @@ public class RotateTowardsTarget : MonoBehaviour
         stats = GetComponent<Stats>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
+        
+
         fireWait = stats.rateOfFire;
         defaultRotation = transform.rotation;
+
 	}
 	
 	// Update is called once per frame
@@ -33,7 +36,7 @@ public class RotateTowardsTarget : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.speed * Time.deltaTime);
             if (fireWait == 0.0f)
             {
-                Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation);
+                Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation).GetComponent<FiredProjectile>().damageModifier = stats.damageModifier;
                 fireWait = stats.rateOfFire;
             }
         }
