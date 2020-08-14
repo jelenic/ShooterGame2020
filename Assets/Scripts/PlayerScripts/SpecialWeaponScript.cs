@@ -48,7 +48,7 @@ public class SpecialWeaponScript : MonoBehaviour
         activeFor -= Time.deltaTime;
         if (timeTillUse <= 0 && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("I'ma fireing my lazer");
+            //Debug.Log("I'ma fireing my lazer");
             timeTillUse = cooldown;
             Instantiate(invisible, transform.position, transform.rotation);
 

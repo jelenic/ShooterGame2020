@@ -27,6 +27,7 @@ public class FireInvisible : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject hit = collision.gameObject;
+        //Debug.Log("Trigger");
         //Debug.Log(hit.tag);
         //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
         if (hit.tag == "Projectile")
@@ -35,7 +36,7 @@ public class FireInvisible : MonoBehaviour
         }
         else if (hit.tag == "Enemy" || hit.tag == "Terrain")
         {
-            Debug.Log("destroying");
+            //Debug.Log("destroying");
             Destroy(gameObject, 0f);
         }
     }
@@ -53,8 +54,12 @@ public class FireInvisible : MonoBehaviour
         }
         else if (hit.tag == "Enemy" || hit.tag == "Terrain")
         {
-            Debug.Log("destroying");
+            //Debug.Log("destroying");
             Destroy(gameObject, 0f);
+        }
+        else if (collision.gameObject.tag == "PlayerProjectile")
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
     }
 }
