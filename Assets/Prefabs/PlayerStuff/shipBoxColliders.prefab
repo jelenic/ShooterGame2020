@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda282be0e4c1ce469e7d8e366f6ef46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  YouDiedMenu: {fileID: 0}
 --- !u!50 &4079549043246176451
 Rigidbody2D:
   serializedVersion: 4
@@ -434,7 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  total_hp: 100
   hp: 0
   hpBar: {fileID: 0}
 --- !u!1 &4079549044421610173

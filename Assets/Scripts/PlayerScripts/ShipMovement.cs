@@ -13,6 +13,8 @@ public class ShipMovement : MonoBehaviour {
     //public Transform firepoint;
     //public GameObject Bullets;
 
+    public GameObject YouDiedMenu;
+
 
 
 
@@ -25,6 +27,7 @@ public class ShipMovement : MonoBehaviour {
         thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
         maxVelocity = 50;
+        YouDiedMenu = GameObject.Find("YouDiedMenu");
     }
 
     // Update is called once per frame
@@ -90,6 +93,11 @@ public class ShipMovement : MonoBehaviour {
         float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
         rb.velocity = new Vector2(x, y);
         //Debug.Log(y.ToString());
+    }
+
+    private void OnDestroy()
+    {
+        YouDiedMenu.SetActive(true);
     }
 
 
