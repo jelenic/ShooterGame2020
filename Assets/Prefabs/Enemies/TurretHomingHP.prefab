@@ -179,8 +179,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8821214516555272938}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.4, y: -10.6, z: 357.2529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8821214516575071630}
@@ -250,12 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d042b116307f7d845963a26eba9520cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  range: 0
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
   bullet: {fileID: 8880536212983783795, guid: 3c6e350d65c701543bb4d0cba21ff20d, type: 3}
-  rateOfFire: 0
   fireWait: 0
 --- !u!61 &8821214516555272940
 BoxCollider2D:

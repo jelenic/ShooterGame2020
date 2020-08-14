@@ -34,11 +34,8 @@ public class CombatVariables : MonoBehaviour
     {
         stats = GetComponent<Stats>();
         hp = stats.hp;
+        Debug.LogFormat("total hp: {0}", stats.hp);
     }
 
 
-    void Update()
-    {
-        
-    }
 }

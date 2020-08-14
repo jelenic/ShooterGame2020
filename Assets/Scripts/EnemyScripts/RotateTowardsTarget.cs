@@ -7,12 +7,9 @@ using UnityEngine.SocialPlatforms;
 public class RotateTowardsTarget : MonoBehaviour
 {
     private Stats stats;
-    public float speed;
-    public float range;
     public Quaternion defaultRotation;
     public Transform target;
     public GameObject bullet;
-    public float rateOfFire;
     public float fireWait;
 
     // Use this for initialization
@@ -20,8 +17,7 @@ public class RotateTowardsTarget : MonoBehaviour
         stats = GetComponent<Stats>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
-        rateOfFire = 0.5f;
-        fireWait = rateOfFire;
+        fireWait = stats.rateOfFire;
         defaultRotation = transform.rotation;
 	}
 	
@@ -38,7 +34,7 @@ public class RotateTowardsTarget : MonoBehaviour
             if (fireWait == 0.0f)
             {
                 Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation);
-                fireWait = rateOfFire;
+                fireWait = stats.rateOfFire;
             }
         }
         else

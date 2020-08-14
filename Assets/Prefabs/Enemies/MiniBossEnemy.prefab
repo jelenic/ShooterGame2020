@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1391803114476161557}
   - component: {fileID: 1391803114476161554}
   - component: {fileID: 1391803114476161555}
+  - component: {fileID: 4981599505440494465}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Enemy
@@ -95,13 +96,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d042b116307f7d845963a26eba9520cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  range: 0
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
   bullet: {fileID: 6373722828183997816, guid: a12687b23b909a54c9f00b8f6abef205, type: 3}
-  rateOfFire: 0
   fireWait: 0
+--- !u!114 &4981599505440494465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391803114476161553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: turret_right
+  hp: 0
+  scoreValue: 0
+  damageModifier: 1
+  speed: 0
+  range: 15
+  mass: 0
+  rateOfFire: 0.4
 --- !u!1 &1391803114529284300
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +131,7 @@ GameObject:
   - component: {fileID: 1391803114529284296}
   - component: {fileID: 1391803114529284303}
   - component: {fileID: 1391803114529284302}
+  - component: {fileID: 774115407192696182}
   m_Layer: 8
   m_Name: Turret (1)
   m_TagString: Enemy
@@ -197,13 +216,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d042b116307f7d845963a26eba9520cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  range: 0
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
   bullet: {fileID: 6373722828183997816, guid: a12687b23b909a54c9f00b8f6abef205, type: 3}
-  rateOfFire: 0
   fireWait: 0
+--- !u!114 &774115407192696182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391803114529284300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: turret_left
+  hp: 0
+  scoreValue: 0
+  damageModifier: 1
+  speed: 0
+  range: 15
+  mass: 0
+  rateOfFire: 0.4
 --- !u!1 &3574108489847686301
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +600,7 @@ GameObject:
   - component: {fileID: 6498485919846972598}
   - component: {fileID: 6498485919846972599}
   - component: {fileID: 1564741247975276637}
-  - component: {fileID: 8468310819316879506}
+  - component: {fileID: 8391705673984042714}
   m_Layer: 0
   m_Name: MiniBossEnemy
   m_TagString: Enemy
@@ -693,10 +729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  total_hp: 187
   hp: 0
   hpBar: {fileID: 3574108490087121089}
---- !u!114 &8468310819316879506
+--- !u!114 &8391705673984042714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,9 +744,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: MiniBoss
-  hp: 200
+  hp: 60
   scoreValue: 15
   damageModifier: 1.15
-  speed: 700
+  speed: 800
   range: 20
   mass: 2
+  rateOfFire: 0.5

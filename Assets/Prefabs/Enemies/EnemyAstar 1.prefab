@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  total_hp: 100
   hp: 0
   hpBar: {fileID: 2778110049645388874}
 --- !u!114 &8836005952316756815
@@ -160,9 +159,10 @@ MonoBehaviour:
   hp: 50
   scoreValue: 2
   damageModifier: 0.5
-  speed: 1000
+  speed: 200
   range: 14
   mass: 0.5
+  rateOfFire: 0
 --- !u!1 &9215138444864329305
 GameObject:
   m_ObjectHideFlags: 0
