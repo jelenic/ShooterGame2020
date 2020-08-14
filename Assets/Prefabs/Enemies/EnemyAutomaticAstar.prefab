@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7374851068649834477}
   - component: {fileID: -7282879257306841973}
   - component: {fileID: 3811401344503089122}
+  - component: {fileID: 405747232764962876}
+  - component: {fileID: 8418099107892172148}
   m_Layer: 0
   m_Name: EnemyAutomaticAstar
   m_TagString: Enemy
@@ -128,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  total_hp: 100
   hp: 0
   hpBar: {fileID: 5803434076230719223}
 --- !u!114 &-7282879257306841973
@@ -163,6 +164,56 @@ MonoBehaviour:
   speed: 1000
   range: 15
   mass: 0.5
+  rateOfFire: 0
+--- !u!50 &405747232764962876
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116203293040891251}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!60 &8418099107892172148
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116203293040891251}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.36514166, y: -0.54999024}
+      - {x: 0.0099467635, y: 0.36022276}
+      - {x: 0.37, y: -0.56}
 --- !u!1 &4116203293888559192
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,8 +224,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4116203293888559175}
   - component: {fileID: 4116203293888559174}
-  - component: {fileID: 4116203293888559193}
-  - component: {fileID: 4116203293888559172}
   m_Layer: 0
   m_Name: NotSoDummyTarget
   m_TagString: Enemy
@@ -247,55 +296,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &4116203293888559193
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4116203293888559192}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.36514166, y: -0.54999024}
-      - {x: 0.0099467635, y: 0.36022276}
-      - {x: 0.37, y: -0.56}
---- !u!50 &4116203293888559172
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4116203293888559192}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 7
 --- !u!1001 &5608502887162430867
 PrefabInstance:
   m_ObjectHideFlags: 0
