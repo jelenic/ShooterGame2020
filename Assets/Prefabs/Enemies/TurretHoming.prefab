@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7508159457734652973}
   - component: {fileID: 7508159457734652970}
   - component: {fileID: 7508159457734652971}
+  - component: {fileID: -1916800259018712284}
   m_Layer: 8
   m_Name: TurretHoming
   m_TagString: Enemy
@@ -102,3 +103,23 @@ MonoBehaviour:
   bullet: {fileID: 8880536212983783795, guid: 3c6e350d65c701543bb4d0cba21ff20d, type: 3}
   rateOfFire: 0
   fireWait: 0
+--- !u!114 &-1916800259018712284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7508159457734652969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: TurretAddOnHoming
+  hp: 0
+  scoreValue: 0
+  damageModifier: 1
+  speed: 0
+  range: 15
+  mass: 0
+  rateOfFire: 0.5

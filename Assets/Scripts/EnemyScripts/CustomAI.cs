@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class CustomAI : MonoBehaviour
 {
-
+    Stats stats;
     private float speed;
     private float nextWaypontDistance;
     private float AngleSpeed;
@@ -40,7 +40,7 @@ public class CustomAI : MonoBehaviour
 
     void setTarget()
     {
-        if (Vector2.Distance(rb.position, player.transform.position) <= range)
+        if (Vector2.Distance(rb.position, player.transform.position) <= stats.range)
         {
             target = player;
         } else
@@ -51,10 +51,9 @@ public class CustomAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        range = 15f;
-        speed = 400f;
-        nextWaypontDistance = 3f;
-        currentWaypoint = 0;
+        stats = GetComponent<Stats>();
+
+
         reachedEndOfPath = false;
         AngleSpeed = 20;
         lineOfSight = false;
@@ -62,6 +61,9 @@ public class CustomAI : MonoBehaviour
         timeTillDodge = 3f;
         speedDodge = 10f;
         dodging = false;
+
+        nextWaypontDistance = 3f;
+        currentWaypoint = 0;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -119,7 +121,7 @@ public class CustomAI : MonoBehaviour
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = direction * stats.speed * Time.deltaTime;
         //Debug.Log("Adding force" + force.ToString());
         rb.AddForce(force);
 

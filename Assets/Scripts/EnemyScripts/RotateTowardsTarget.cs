@@ -6,6 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class RotateTowardsTarget : MonoBehaviour
 {
+    private Stats stats;
     public float speed;
     public float range;
     public Quaternion defaultRotation;
@@ -16,9 +17,9 @@ public class RotateTowardsTarget : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-        speed = 10f;
+        stats = GetComponent<Stats>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        range = 15f;
+
         rateOfFire = 0.5f;
         fireWait = rateOfFire;
         defaultRotation = transform.rotation;
@@ -28,12 +29,12 @@ public class RotateTowardsTarget : MonoBehaviour
 	void Update () {
         //TO DO add checkign line of fire for non homing projectiles, just copy from CustomAI and delete it there
         fireWait = Math.Max(0.0f, fireWait - Time.deltaTime);
-        if (Vector2.Distance(transform.position, target.position) <= range)
+        if (Vector2.Distance(transform.position, target.position) <= stats.range)
         {
             Vector2 direction = target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.speed * Time.deltaTime);
             if (fireWait == 0.0f)
             {
                 Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation);
@@ -42,7 +43,7 @@ public class RotateTowardsTarget : MonoBehaviour
         }
         else
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, defaultRotation, speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, defaultRotation, stats.speed * Time.deltaTime);
         }
         
 	}

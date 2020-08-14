@@ -38,9 +38,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  total_hp: 100
   hp: 0
   hpBar: {fileID: 8538480862172689537}
+--- !u!114 &2207571262203535361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719820916152020715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Turret
+  hp: 85
+  scoreValue: 6
+  damageModifier: 1.1
+  speed: 10
+  range: 20
+  mass: 0
+  rateOfFire: 0.5
 --- !u!1001 &5326409303069822536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50,15 +69,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2506645935867502752, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.6247775
       objectReference: {fileID: 0}
     - target: {fileID: 2506645935867502752, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.6247775
       objectReference: {fileID: 0}
     - target: {fileID: 2506645935867502752, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.6792453
       objectReference: {fileID: 0}
     - target: {fileID: 2506645935867502755, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
       propertyPath: m_Name

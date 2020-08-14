@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4116203293040891248}
   - component: {fileID: 7374851068649834477}
   - component: {fileID: -7282879257306841973}
+  - component: {fileID: 3811401344503089122}
   m_Layer: 0
   m_Name: EnemyAutomaticAstar
   m_TagString: Enemy
@@ -143,6 +144,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationSetter: {fileID: 0}
+--- !u!114 &3811401344503089122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116203293040891251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: BasicAutoEnemy
+  hp: 50
+  scoreValue: 2
+  damageModifier: 0.5
+  speed: 1000
+  range: 15
+  mass: 0.5
 --- !u!1 &4116203293888559192
 GameObject:
   m_ObjectHideFlags: 0

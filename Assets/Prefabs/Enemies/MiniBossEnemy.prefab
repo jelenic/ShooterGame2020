@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 6498485919846972598}
   - component: {fileID: 6498485919846972599}
   - component: {fileID: 1564741247975276637}
+  - component: {fileID: 8468310819316879506}
   m_Layer: 0
   m_Name: MiniBossEnemy
   m_TagString: Enemy
@@ -650,8 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e242cb6b3baaf45a4ca64712bfd90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 0
   target: {fileID: 0}
-  Bullets: {fileID: 0}
 --- !u!114 &6498485919846972599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,3 +696,22 @@ MonoBehaviour:
   total_hp: 187
   hp: 0
   hpBar: {fileID: 3574108490087121089}
+--- !u!114 &8468310819316879506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112674167665135740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: MiniBoss
+  hp: 200
+  scoreValue: 15
+  damageModifier: 1.15
+  speed: 700
+  range: 20
+  mass: 2
