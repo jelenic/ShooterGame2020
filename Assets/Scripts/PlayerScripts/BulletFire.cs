@@ -11,30 +11,32 @@ public class BulletFire : MonoBehaviour
     public static bool canHit;
     public GameObject explosion;
     private Transform bullet;
+    private float speed;
 
     // Use this for initialization
     void Start()
     {
         BulletForce = 4;
+        speed = 40;
         maxVelocity = 100;
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 5);
-        rb.AddForce(transform.up * BulletForce);
+        //rb.AddForce(transform.up * BulletForce);
         bullet = GetComponent<Transform>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         ClampVelocity();
-    }
+    }*/
 
     // use if want to have it kinematic
-    /*private void FixedUpdate()
+    private void FixedUpdate()
     {
         rb.MovePosition(transform.position += transform.up * Time.deltaTime * speed);
-    }*/
+    }
 
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,6 +60,35 @@ public class BulletFire : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        //Debug.Log("collision");
+
+        /*if (collision.gameObject.tag == "Player")
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+        }*/
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //Debug.Log("hit an enemy dyn");
+            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage);
+            Destroy(gameObject, 0.0f);
+        }
+
+        else if (collision.gameObject.tag == "Terrain")
+        {
+            Destroy(gameObject, 0.0f);
+        }
+
+        else //if (collision.gameObject.name == "LaserPath(Clone)")
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
         //Debug.Log("collision");

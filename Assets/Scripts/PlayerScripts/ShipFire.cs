@@ -46,4 +46,5 @@ public class ShipFire : MonoBehaviour
     {
         Instantiate(Bullets, firepoint.position, firepoint.rotation);
     }
+
 }
