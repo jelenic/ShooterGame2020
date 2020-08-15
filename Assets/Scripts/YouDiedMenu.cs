@@ -13,8 +13,8 @@ public class YouDiedMenu : MonoBehaviour
     }
     public void ReturnToMainMenu()
     {
-        Debug.Log("MainMenu");
+        Debug.Log("MenuScene");
 
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuScene");
     }
 }

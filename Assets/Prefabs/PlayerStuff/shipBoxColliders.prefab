@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 4079549043246176449}
   - component: {fileID: 4079549043246176448}
   - component: {fileID: 140472695}
+  - component: {fileID: 140472696}
   m_Layer: 0
   m_Name: shipBoxColliders
   m_TagString: Player
@@ -437,6 +438,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   hpBar: {fileID: 0}
+--- !u!114 &140472696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079549043246176478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Player
+  hp: 150
+  scoreValue: 0
+  damageModifier: 1.2
+  speed: 200
+  range: 0
+  mass: 1
+  rateOfFire: 1
+  turretRotationSpeed: 0
+  projectileResistance: 0.99
+  beamResistance: 0.5
+  physicalResistance: 0.5
 --- !u!1 &4079549044421610173
 GameObject:
   m_ObjectHideFlags: 0

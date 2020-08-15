@@ -27,7 +27,7 @@ public class ShipMovement : MonoBehaviour {
         thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
         maxVelocity = 50;
-        YouDiedMenu = GameObject.Find("YouDiedMenu");
+        //YouDiedMenu = GameObject.Find("YouDiedMenu");
     }
 
     // Update is called once per frame
