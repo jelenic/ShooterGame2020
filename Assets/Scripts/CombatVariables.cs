@@ -14,13 +14,27 @@ public class CombatVariables : MonoBehaviour
 
     private Dictionary<string, float> resistances;
 
+    public GameObject floatingNumberText;
+
+    Transform transform;
+
+    public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
+    {
+        if (color == null) color = Color.white;
+        GameObject floatingNumber = Instantiate(floatingNumberText, position, Quaternion.identity);
+        TextMesh tm = floatingNumber.GetComponent<TextMesh>();
+        tm.text = text;
+        tm.color = color;
+
+    }
+
 
     public int DecreaseHP(int amount, string dmgType = "default")
     {
         int receivedDmg = (int)Math.Round(amount * (1f - resistances[dmgType]));
         Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
         hp = Math.Max(0, hp - receivedDmg);
-        //Debug.LogFormat("object {0} hp decreased by {1}, current hp: {2}", gameObject.tag, amount, hp);
+        createFloatingNumberText(transform.position, Color.red, receivedDmg.ToString());
         if (hp == 0) Destroy(gameObject);
         hpBar.enabled = true;
         hpBar.fillAmount = (float)hp / stats.hp;
@@ -36,6 +50,8 @@ public class CombatVariables : MonoBehaviour
     }
     void Start()
     {
+        floatingNumberText = Resources.Load("FloatingNumberText") as GameObject;
+        transform = GetComponent<Transform>();
         stats = GetComponent<Stats>();
         hp = stats.hp;
         //Debug.LogFormat("total hp: {0}", stats.hp);
