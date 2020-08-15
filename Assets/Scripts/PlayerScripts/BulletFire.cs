@@ -71,7 +71,7 @@ public class BulletFire : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //Debug.Log("hit an enemy dyn");
-            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage);
+            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage, "projectile");
             Destroy(gameObject, 0.0f);
         }
 
@@ -100,7 +100,7 @@ public class BulletFire : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //Debug.Log("hit an enemy dyn");
-            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage);
+            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage, "projectile");
             Destroy(gameObject, 0.0f);
         }
 

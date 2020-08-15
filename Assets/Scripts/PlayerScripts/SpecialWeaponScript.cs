@@ -72,7 +72,7 @@ public class SpecialWeaponScript : MonoBehaviour
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
-                    hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase);
+                    hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase, "beam");
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, laserHitPoint.position);
                     lineRenderer.enabled = true;

@@ -6,18 +6,20 @@ using UnityEngine.SocialPlatforms;
 
 public class RotateTowardsTarget : MonoBehaviour
 {
-    private Stats stats;
+    protected Stats stats;
     public Quaternion defaultRotation;
     public Transform target;
     public GameObject bullet;
     public float fireWait;
 
     // Use this for initialization
-    void Start () {
+    protected virtual void SetStats()
+    {
         stats = GetComponent<Stats>();
+    }
+    void Start () {
+        SetStats();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
-        
 
         fireWait = stats.rateOfFire;
         defaultRotation = transform.rotation;
@@ -33,7 +35,7 @@ public class RotateTowardsTarget : MonoBehaviour
             Vector2 direction = target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.turretRotationSpeed * Time.deltaTime);
             if (fireWait == 0.0f)
             {
                 Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation).GetComponent<FiredProjectile>().damageModifier = stats.damageModifier;
@@ -42,7 +44,7 @@ public class RotateTowardsTarget : MonoBehaviour
         }
         else
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, defaultRotation, stats.speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, defaultRotation, stats.turretRotationSpeed * Time.deltaTime);
         }
         
 	}

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2506645935867502759}
   - component: {fileID: 2506645935867502752}
-  - component: {fileID: 2506645935867502753}
+  - component: {fileID: 6052513404678616253}
   m_Layer: 8
-  m_Name: Turret
+  m_Name: TurretModule
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2506645935867502755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.39, y: 0.68, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.16249359, y: 0.16249359, z: 0.16249359}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2506645935867502753
+--- !u!114 &6052513404678616253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2506645935867502755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d042b116307f7d845963a26eba9520cd, type: 3}
+  m_Script: {fileID: 11500000, guid: bcf1c982d9f6a0b4bb389214016a5974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
   bullet: {fileID: 6373722828183997816, guid: a12687b23b909a54c9f00b8f6abef205, type: 3}
-  rateOfFire: 0
   fireWait: 0

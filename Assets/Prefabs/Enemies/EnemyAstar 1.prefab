@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e242cb6b3baaf45a4ca64712bfd90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
   target: {fileID: 0}
 --- !u!114 &6609953619137583033
 MonoBehaviour:
@@ -163,6 +162,10 @@ MonoBehaviour:
   range: 14
   mass: 0.5
   rateOfFire: 0
+  turretRotationSpeed: 0
+  projectileResistance: 0.5
+  beamResistance: 0.5
+  physicalResistance: 0.5
 --- !u!1 &9215138444864329305
 GameObject:
   m_ObjectHideFlags: 0

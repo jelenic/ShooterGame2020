@@ -9,7 +9,6 @@ public class FiredHoming : FiredProjectile
         base.Initialize();
         projectileDamage = 3;
         lifeDuration = 10f;
-        Debug.LogFormat("homing bullet modifier: {0}", damageModifier);
     }
 
 

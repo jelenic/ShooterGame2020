@@ -164,6 +164,10 @@ MonoBehaviour:
   range: 20
   mass: 2
   rateOfFire: 0
+  turretRotationSpeed: 0
+  projectileResistance: 0.5
+  beamResistance: 0.5
+  physicalResistance: 0.5
 --- !u!60 &2676998603099555522
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7508159457734652973}
   - component: {fileID: 7508159457734652970}
-  - component: {fileID: 7508159457734652971}
-  - component: {fileID: 8011300487719342659}
+  - component: {fileID: -7738834897879395425}
   m_Layer: 8
-  m_Name: TurretHoming
+  m_Name: TurretHomingModule
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7508159457734652969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13, y: -16.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.16249359, y: 0.16249359, z: 0.16249359}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7508159457734652971
+--- !u!114 &-7738834897879395425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,30 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7508159457734652969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d042b116307f7d845963a26eba9520cd, type: 3}
+  m_Script: {fileID: 11500000, guid: bcf1c982d9f6a0b4bb389214016a5974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
   bullet: {fileID: 8880536212983783795, guid: 3c6e350d65c701543bb4d0cba21ff20d, type: 3}
   fireWait: 0
---- !u!114 &8011300487719342659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7508159457734652969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: TurretAddOnHoming
-  hp: 0
-  scoreValue: 0
-  damageModifier: 1
-  speed: 10
-  range: 20
-  mass: 0
-  rateOfFire: 0.5

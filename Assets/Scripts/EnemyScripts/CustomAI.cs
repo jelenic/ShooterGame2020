@@ -7,10 +7,10 @@ using UnityEngine.Tilemaps;
 public class CustomAI : MonoBehaviour
 {
     Stats stats;
-    private float speed;
+    //private float speed;
     private float nextWaypontDistance;
     private float AngleSpeed;
-    public float range;
+    //public float range;
 
     Path path;
     int currentWaypoint;

@@ -12,10 +12,14 @@ public class CombatVariables : MonoBehaviour
 
     public Image hpBar;
 
+    private Dictionary<string, float> resistances;
 
-    public int DecreaseHP(int amount)
+
+    public int DecreaseHP(int amount, string dmgType = "default")
     {
-        hp = Math.Max(0, hp - amount);
+        int receivedDmg = (int)Math.Round(amount * (1f - resistances[dmgType]));
+        Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
+        hp = Math.Max(0, hp - receivedDmg);
         //Debug.LogFormat("object {0} hp decreased by {1}, current hp: {2}", gameObject.tag, amount, hp);
         if (hp == 0) Destroy(gameObject);
         hpBar.enabled = true;
@@ -35,6 +39,11 @@ public class CombatVariables : MonoBehaviour
         stats = GetComponent<Stats>();
         hp = stats.hp;
         Debug.LogFormat("total hp: {0}", stats.hp);
+        resistances = new Dictionary<string, float>();
+        resistances.Add("projectile", stats.projectileResistance);
+        resistances.Add("beam", stats.beamResistance);
+        resistances.Add("physical", stats.physicalResistance);
+        resistances.Add("default", 0f);
     }
 
 

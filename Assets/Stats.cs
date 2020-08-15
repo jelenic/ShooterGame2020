@@ -12,5 +12,8 @@ public class Stats : MonoBehaviour
     public float range;
     public float mass;
     public float rateOfFire;
-
+    public float turretRotationSpeed;
+    public float projectileResistance;
+    public float beamResistance;
+    public float physicalResistance;
 }

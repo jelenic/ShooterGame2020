@@ -39,7 +39,7 @@ public abstract class FiredProjectile : MonoBehaviour
         //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
         if (hit.tag != "Projectile" && hit.tag != "Enemy" && hit.tag != "Spawner")
         {
-            if (hit.tag == "Player") hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier));
+            if (hit.tag == "Player") hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), "projectile");
             Destroy(gameObject, 0.0f);
 
         }
