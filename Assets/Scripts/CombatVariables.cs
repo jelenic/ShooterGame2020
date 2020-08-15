@@ -38,7 +38,7 @@ public class CombatVariables : MonoBehaviour
     {
         stats = GetComponent<Stats>();
         hp = stats.hp;
-        Debug.LogFormat("total hp: {0}", stats.hp);
+        //Debug.LogFormat("total hp: {0}", stats.hp);
         resistances = new Dictionary<string, float>();
         resistances.Add("projectile", stats.projectileResistance);
         resistances.Add("beam", stats.beamResistance);

@@ -37,6 +37,10 @@ public class FollowPlayer : MonoBehaviour {
         speedRange = maxSpeed - minSpeed;
         sizeDelta = (maxSize - minSize) / scaleTime;
 
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //Debug.LogFormat("player found: {0}", player);
+
+
     }
 
     void CheckSize(float speed)
@@ -89,6 +93,8 @@ public class FollowPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Debug.LogFormat("player position: {0}", player.transform.position);
+
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y,player.transform.position.z - 10f);
 
         //Debug.LogFormat("player speed: {0}", player.GetComponent<Rigidbody2D>().velocity.magnitude);
