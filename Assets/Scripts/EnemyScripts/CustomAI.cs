@@ -153,7 +153,13 @@ public class CustomAI : MonoBehaviour
             timeTillRaycastSight = 0.2f;
             hit = GetFirstRaycastHit(target.transform.position - transform.position);
             //hit = Physics2D.Raycast(transform.position, target.transform.position - transform.position);
-            if (hit.collider.gameObject.tag == "Player")
+            //Debug.Log(hit.collider);
+            if (hit.collider == null)
+            {
+                Debug.Log("nothing in sight");
+                lineOfSight = false;
+            }
+            else if (hit.collider.gameObject.tag == "Player")
             {
                 //Debug.Log("ClearLineOfSight");
                 lineOfSight = true;
@@ -213,6 +219,7 @@ public class CustomAI : MonoBehaviour
         RaycastHit2D[] hits = new RaycastHit2D[2];
         Physics2D.RaycastNonAlloc(transform.position, direction, hits);
         //hits[0] will always be the Collider2D you are casting from.
+        //Debug.Log(hits);
         return hits[1];
     }
 

@@ -18,6 +18,8 @@ public class CombatVariables : MonoBehaviour
 
     Transform transform;
 
+    private Score scoreScript;
+
     public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
     {
         if (color == null) color = Color.white;
@@ -60,6 +62,12 @@ public class CombatVariables : MonoBehaviour
         resistances.Add("beam", stats.beamResistance);
         resistances.Add("physical", stats.physicalResistance);
         resistances.Add("default", 0f);
+        scoreScript = GameObject.Find("LevelScore").GetComponent<Score>();
+    }
+
+    private void OnDestroy()
+    {
+        scoreScript.increaseScore(stats.scoreValue);
     }
 
 
