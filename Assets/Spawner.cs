@@ -35,8 +35,9 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         transform = GetComponent<Transform>();
-        enemyNumber = 10;
-        cooldownTime = 5.0f;
+        Debug.LogFormat("enemy number: {0}", enemyNumber);
+        enemyNumber = enemyNumber == 0 ? 10 : enemyNumber;
+        cooldownTime = cooldownTime == 0f ? 5f : cooldownTime;
     }
 
     private void Update()
@@ -47,6 +48,7 @@ public class Spawner : MonoBehaviour
         {
             Instantiate(enemy, transform.position, transform.rotation);
             spawnedNumber += 1;
+            if (spawnedNumber == enemyNumber) activated = false;
             remainingTime = cooldownTime;
         }
     }
