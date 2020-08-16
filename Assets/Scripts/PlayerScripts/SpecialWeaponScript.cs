@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,10 +21,15 @@ public class SpecialWeaponScript : MonoBehaviour
 
     public GameObject invisible;
 
+    private Stats stats;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+        stats = GetComponentInParent<Stats>();
+
         equipedWeaponID = 0;
 
         if (equipedWeaponID == 0)
@@ -72,7 +78,7 @@ public class SpecialWeaponScript : MonoBehaviour
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
-                    hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP(dmgBase, "beam");
+                    hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(dmgBase * stats.calculateFinalDmgModifier()), "beam");
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, laserHitPoint.position);
                     lineRenderer.enabled = true;

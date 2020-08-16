@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   hpBar: {fileID: 4671886974188639578}
+  floatingNumberText: {fileID: 0}
 --- !u!114 &9145183351227818082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +281,8 @@ MonoBehaviour:
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  critChance: 0.2
+  critMultiplier: 1.6
 --- !u!1 &4671886974188639556
 GameObject:
   m_ObjectHideFlags: 0

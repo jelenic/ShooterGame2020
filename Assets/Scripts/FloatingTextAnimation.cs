@@ -23,7 +23,7 @@ public class FloatingTextAnimation : MonoBehaviour
         duration -= Time.deltaTime;
         if (duration <= 0) Destroy(gameObject);
 
-        transform.Translate(Vector3.up*speed, Space.Self);
+        transform.Translate((Vector3.up*0.8f + Vector3.right*0.2f)*speed, Space.Self);
         transform.localScale *= scaleFactor;
 
         

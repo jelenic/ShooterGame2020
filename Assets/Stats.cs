@@ -16,4 +16,13 @@ public class Stats : MonoBehaviour
     public float projectileResistance;
     public float beamResistance;
     public float physicalResistance;
+    public float critChance;
+    public float critMultiplier;
+
+
+
+    public float calculateFinalDmgModifier()
+    {
+        return (Random.value <= critChance ? critMultiplier : 1) * damageModifier;
+    }
 }

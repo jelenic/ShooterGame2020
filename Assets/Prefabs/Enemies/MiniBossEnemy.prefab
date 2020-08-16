@@ -490,6 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   hpBar: {fileID: 3574108490087121089}
+  floatingNumberText: {fileID: 0}
 --- !u!114 &8391705673984042714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +515,8 @@ MonoBehaviour:
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  critChance: 0.15
+  critMultiplier: 1.5
 --- !u!1001 &6477493979074786774
 PrefabInstance:
   m_ObjectHideFlags: 0

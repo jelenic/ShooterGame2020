@@ -15,15 +15,12 @@ public class Score : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        score.text = "Score:" + currentScore.ToString();
-    }
+    
 
 
     public void increaseScore(int n)
     {
         currentScore += n;
-
+        score.text = "Score:" + currentScore.ToString();
     }
 }

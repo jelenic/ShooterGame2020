@@ -9,13 +9,16 @@ public class ShipFire : MonoBehaviour
     public Transform firepoint;
     public GameObject Bullets;
     private bool autofire;
+    private Stats stats;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        timetillfire = 0.2f;
+        stats = GetComponent<Stats>();
+        timetillfire = stats.rateOfFire;
         autofire = false;
+        
     }
 
     // Update is called once per frame
@@ -38,13 +41,13 @@ public class ShipFire : MonoBehaviour
         if (timetillfire<=0 && autofire)
         {
             Shoot();
-            timetillfire = 0.2f;
+            timetillfire = stats.rateOfFire;
         }
     }
 
     void Shoot()
     {
-        Instantiate(Bullets, firepoint.position, firepoint.rotation);
+        Instantiate(Bullets, firepoint.position, firepoint.rotation).GetComponent<BulletFire>().damageModifier = stats.calculateFinalDmgModifier();
     }
 
 }

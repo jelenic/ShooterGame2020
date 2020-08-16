@@ -1,17 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletFire : MonoBehaviour
 {
     public int bulletDamage = 3;
+    public float damageModifier;
+    private float speed;
+
     public float BulletForce;
     private float maxVelocity;
     private Rigidbody2D rb;
-    public static bool canHit;
     public GameObject explosion;
+    public static bool canHit;
     private Transform bullet;
-    private float speed;
 
     // Use this for initialization
     void Start()
@@ -100,7 +103,7 @@ public class BulletFire : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //Debug.Log("hit an enemy dyn");
-            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage, "projectile");
+            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(bulletDamage * damageModifier), "projectile");
             Destroy(gameObject, 0.0f);
         }
 
