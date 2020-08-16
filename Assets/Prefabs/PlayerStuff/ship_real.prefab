@@ -493,5 +493,5 @@ MonoBehaviour:
   projectileResistance: 0.36
   beamResistance: 0.5
   physicalResistance: 0.5
-  critChance: 0.1
+  critChance: 0.31
   critMultiplier: 1.5
