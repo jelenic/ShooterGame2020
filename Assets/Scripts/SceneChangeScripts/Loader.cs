@@ -17,7 +17,7 @@ public static class Loader {
     private static Action onLoaderCallback;
     private static AsyncOperation loadingAsyncOperation;
 
-    public static void Load(Scene scene) {
+    public static void Load(string scene) {
         Debug.LogFormat("loading {0}", scene.ToString());
         // Set the loader callback action to load the target scene
         onLoaderCallback = () => {
@@ -29,10 +29,10 @@ public static class Loader {
         SceneManager.LoadScene(Scene.Loading.ToString());
     }
 
-    private static IEnumerator LoadSceneAsync(Scene scene) {
+    private static IEnumerator LoadSceneAsync(string scene) {
         yield return null;
 
-        loadingAsyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
+        loadingAsyncOperation = SceneManager.LoadSceneAsync(scene);
 
         while (!loadingAsyncOperation.isDone) {
             yield return null;

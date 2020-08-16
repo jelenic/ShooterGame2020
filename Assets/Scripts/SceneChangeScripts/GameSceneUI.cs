@@ -8,6 +8,6 @@ public class GameSceneUI : MonoBehaviour {
     public void MainMenu()
     {
         Debug.Log("Click Main Menu");
-        Loader.Load(Loader.Scene.MenuScene);
+        Loader.Load(Loader.Scene.MenuScene.ToString());
     }
 }
