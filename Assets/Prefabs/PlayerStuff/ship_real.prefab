@@ -495,3 +495,5 @@ MonoBehaviour:
   physicalResistance: 0.5
   critChance: 0.31
   critMultiplier: 1.5
+  maxVelocity: 50
+  thrust: 10

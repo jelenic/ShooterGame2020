@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - PlayerProjectile
   - Spawner
+  - LevelManager
   layers:
   - Default
   - TransparentFX

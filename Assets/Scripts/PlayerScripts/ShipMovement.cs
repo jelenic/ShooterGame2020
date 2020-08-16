@@ -10,6 +10,7 @@ public class ShipMovement : MonoBehaviour {
     private Rigidbody2D rb;
     private float thrust;
     private float maxVelocity;
+    private Stats stats;
     //public Transform firepoint;
     //public GameObject Bullets;
 
@@ -24,6 +25,7 @@ public class ShipMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        stats = GetComponent<Stats>();
         thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
         maxVelocity = 50;
@@ -52,13 +54,13 @@ public class ShipMovement : MonoBehaviour {
         {
             if (Input.GetKey("w"))
             {
-                Vector2 force = Vector3.up * thrust;
+                Vector2 force = Vector3.up * stats.thrust;
                 rb.AddForce(force);
             }
 
             if (Input.GetKey("s"))
             {
-                Vector2 force = Vector3.down * thrust;
+                Vector2 force = Vector3.down * stats.thrust;
                 rb.AddForce(force);
                 //Debug.Log("s");
             }
@@ -66,13 +68,13 @@ public class ShipMovement : MonoBehaviour {
 
             if (Input.GetKey("a"))
             {
-                Vector2 force = Vector3.left * thrust;
+                Vector2 force = Vector3.left * stats.thrust;
                 rb.AddForce(force);
             }
 
             if (Input.GetKey("d"))
             {
-                Vector2 force = Vector3.right * thrust;
+                Vector2 force = Vector3.right * stats.thrust;
                 rb.AddForce(force);
             }
             //rotate to mouse
@@ -89,8 +91,8 @@ public class ShipMovement : MonoBehaviour {
     }
 
     private void ClampVelocity(){
-        float x = Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity);
-        float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
+        float x = Mathf.Clamp(rb.velocity.x, -stats.maxVelocity, stats.maxVelocity);
+        float y = Mathf.Clamp(rb.velocity.y, -stats.maxVelocity, stats.maxVelocity);
         rb.velocity = new Vector2(x, y);
         //Debug.Log(y.ToString());
     }

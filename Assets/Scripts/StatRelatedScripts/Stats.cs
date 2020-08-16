@@ -18,6 +18,9 @@ public class Stats : MonoBehaviour
     public float physicalResistance;
     public float critChance;
     public float critMultiplier;
+    public float maxVelocity;
+    public float thrust;
+
 
 
 
