@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5127391826224593733}
   - component: {fileID: 5127391826224593734}
   - component: {fileID: 2523645270646869738}
-  - component: {fileID: -4748142879589854543}
+  - component: {fileID: 1140974287318386054}
   m_Layer: 0
   m_Name: LaserBullet
   m_TagString: PlayerProjectile
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &-4748142879589854543
+--- !u!114 &1140974287318386054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,10 +141,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5127391826224593735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45afd87d8b5f874d9f77564a25d8b01, type: 3}
+  m_Script: {fileID: 11500000, guid: dfd8ca160201cf44bb5ec45761267005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 3
-  damageModifier: 0
-  BulletForce: 0
+  projectileDamage: 4
+  lifeDuration: 5
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
+  damageModifier: 0
+  passThrough: []
+  damageable: []
+  destroyable: []

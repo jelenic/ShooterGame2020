@@ -56,6 +56,7 @@ public class ShipFire : MonoBehaviour
         {
             Shoot();
             Debug.Log(stats.rateOfFire);
+            Debug.Log(timetillfire.ToString());
             timetillfire = stats.rateOfFire;
         }
 
@@ -73,11 +74,11 @@ public class ShipFire : MonoBehaviour
     {
         if (activeWeapon == 1)
         {
-            Instantiate(w1, firepoint.position, firepoint.rotation).GetComponent<BulletFire>().damageModifier = stats.calculateFinalDmgModifier();
+            Instantiate(w1, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
         }
         else if (activeWeapon == 2)
         {
-            Instantiate(w2, firepoint.position, firepoint.rotation).GetComponent<BulletFire>().damageModifier = stats.calculateFinalDmgModifier();
+            Instantiate(w2, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
         }
     }
 
