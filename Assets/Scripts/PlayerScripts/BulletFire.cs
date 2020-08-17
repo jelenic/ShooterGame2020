@@ -41,13 +41,6 @@ public class BulletFire : MonoBehaviour
         rb.MovePosition(transform.position += transform.up * Time.deltaTime * speed);
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        //Debug.Log("collision");
-
-
-    }*/
 
 
     private void OnDestroy()
@@ -55,40 +48,13 @@ public class BulletFire : MonoBehaviour
         Instantiate(explosion, bullet.position, bullet.rotation);
     }
 
-    private void ClampVelocity()
+    /*private void ClampVelocity()
     {
         float x = Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity);
         float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
         rb.velocity = new Vector2(x, y);
-    }
+    }*/
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        //Debug.Log("collision");
-
-        /*if (collision.gameObject.tag == "Player")
-        {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
-        }*/
-        if (collision.gameObject.tag == "Enemy")
-        {
-            //Debug.Log("hit an enemy dyn");
-            collision.gameObject.GetComponent<CombatVariables>().DecreaseHP(bulletDamage, "projectile");
-            Destroy(gameObject, 0.0f);
-        }
-
-        else if (collision.gameObject.tag == "Terrain")
-        {
-            Destroy(gameObject, 0.0f);
-        }
-
-        else //if (collision.gameObject.name == "LaserPath(Clone)")
-        {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-        }
-
-    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)

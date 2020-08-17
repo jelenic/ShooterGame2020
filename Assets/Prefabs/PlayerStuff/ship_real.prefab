@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firepoint: {fileID: 3249265327973348251}
   Bullets: {fileID: 1104773745397654, guid: d4fb8e720f08e8b4ba3342c2f3bd4067, type: 3}
+  MiniLaser: {fileID: 0}
 --- !u!61 &3249265328867893735
 BoxCollider2D:
   m_ObjectHideFlags: 0
