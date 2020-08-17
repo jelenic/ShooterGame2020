@@ -12,6 +12,7 @@ public abstract class FiredProjectile : MonoBehaviour
     public float damageModifier;
     public List<String> passThrough;
     public List<String> damageable;
+    public List<String> destroyable;
 
     public virtual void Initialize()
     {
@@ -44,6 +45,10 @@ public abstract class FiredProjectile : MonoBehaviour
         if (!passThrough.Contains(hit.tag))
         {
             if (damageable.Contains(hit.tag)) hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), "projectile");
+            if (destroyable.Contains(hit.tag))
+            {
+                Destroy(hit, 0f);
+            }
             Destroy(gameObject, 0.0f);
 
         }

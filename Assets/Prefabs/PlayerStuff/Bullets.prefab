@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 212903400224277466}
   - component: {fileID: 50872669203900846}
   - component: {fileID: 60119270134355204}
-  - component: {fileID: 114351583306486962}
+  - component: {fileID: -2148010992747414403}
   m_Layer: 0
   m_Name: Bullets
   m_TagString: PlayerProjectile
@@ -139,7 +139,7 @@ PolygonCollider2D:
       - {x: 0.16685915, y: 0.02605634}
       - {x: 0.18167606, y: 0.0012394497}
       - {x: 0.19, y: 0.021309884}
---- !u!114 &114351583306486962
+--- !u!114 &-2148010992747414403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +148,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1104773745397654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45afd87d8b5f874d9f77564a25d8b01, type: 3}
+  m_Script: {fileID: 11500000, guid: dfd8ca160201cf44bb5ec45761267005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 3
-  BulletForce: 0
+  projectileDamage: 2
+  lifeDuration: 5
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
+  damageModifier: 0
+  passThrough: []
+  damageable: []
+  destroyable: []
