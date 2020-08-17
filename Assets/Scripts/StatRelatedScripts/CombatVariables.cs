@@ -18,7 +18,8 @@ public class CombatVariables : MonoBehaviour
 
     Transform transform;
 
-    private Score scoreScript;
+    private LevelManager levelManager;
+
 
     public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
     {
@@ -62,12 +63,12 @@ public class CombatVariables : MonoBehaviour
         resistances.Add("beam", stats.beamResistance);
         resistances.Add("physical", stats.physicalResistance);
         resistances.Add("default", 0f);
-        scoreScript = GameObject.Find("LevelScore").GetComponent<Score>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
     private void OnDestroy()
     {
-        scoreScript.increaseScore(stats.scoreValue);
+        levelManager.increaseScore(stats.scoreValue);
     }
 
 

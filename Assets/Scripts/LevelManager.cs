@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 
 public class LevelManager : MonoBehaviour
 {
     public GameObject finishMenu;
-    public GameObject levelScore;
+    public GameObject scoreObject;
+    private TextMeshProUGUI score;
+
+    public int currentScore;
     public string levelName;
 
     public void Restart()
@@ -32,7 +37,13 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        score = scoreObject.GetComponent<TextMeshProUGUI>();
+    }
 
+    public void increaseScore(int n)
+    {
+        currentScore += n;
+        score.text = "Score:" + currentScore.ToString();
     }
 
     public void finishLevel()
@@ -42,7 +53,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         ChangeTexts ct = finishMenu.GetComponent<ChangeTexts>();
         ct.completed(levelName);
-        ct.scored(levelScore.GetComponent<Score>().currentScore);
+        ct.scored(currentScore);
 
     }
 }
