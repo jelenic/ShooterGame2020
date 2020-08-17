@@ -9,6 +9,12 @@ public class FiredHoming : FiredProjectile
         base.Initialize();
         projectileDamage = 3;
         lifeDuration = 10f;
+
+        passThrough.Add("Enemy");
+        passThrough.Add("Spawner");
+        passThrough.Add("Projectile");
+
+        damageable.Add("Player");
     }
 
 

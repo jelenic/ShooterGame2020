@@ -10,6 +10,8 @@ public abstract class FiredProjectile : MonoBehaviour
     public GameObject explosion;
     private Transform transform;
     public float damageModifier;
+    public List<String> passThrough;
+    public List<String> damageable;
 
     public virtual void Initialize()
     {
@@ -23,6 +25,8 @@ public abstract class FiredProjectile : MonoBehaviour
         lifeDuration = 5f;
         Destroy(gameObject, lifeDuration);
         transform = GetComponent<Transform>();
+        passThrough = new List<string>();
+        damageable = new List<string>();
         Initialize();
     }
 
@@ -37,9 +41,9 @@ public abstract class FiredProjectile : MonoBehaviour
     {
         GameObject hit = collision.gameObject;
         //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
-        if (hit.tag != "Projectile" && hit.tag != "Enemy" && hit.tag != "Spawner")
+        if (!passThrough.Contains(hit.tag))
         {
-            if (hit.tag == "Player") hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), "projectile");
+            if (damageable.Contains(hit.tag)) hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), "projectile");
             Destroy(gameObject, 0.0f);
 
         }
