@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public string itemId;
+    // Start is called before the first frame update
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.LogFormat("items just collided with {0}", collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.LogFormat("player just collected item: {0}", itemId);
+            Destroy(gameObject);
+        }
     }
 }
