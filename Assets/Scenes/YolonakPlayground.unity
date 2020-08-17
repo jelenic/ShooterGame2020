@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5018243721910359919, guid: 66fe5d6a2b9a88f4cafd700b11bfe460, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.5400085
+      value: 2.540039
       objectReference: {fileID: 0}
     - target: {fileID: 5018243721910359919, guid: 66fe5d6a2b9a88f4cafd700b11bfe460, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1771,10 +1771,6 @@ PrefabInstance:
       propertyPath: YouDiedMenu
       value: 
       objectReference: {fileID: 213428335}
-    - target: {fileID: 3249265328867893729, guid: 93c3620488524c5448de57cb090d9554, type: 3}
-      propertyPath: MiniLaser
-      value: 
-      objectReference: {fileID: 5127391826224593735, guid: 99a263a0abed7124b9a9a630310782e1, type: 3}
     - target: {fileID: 3249265328867893730, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
