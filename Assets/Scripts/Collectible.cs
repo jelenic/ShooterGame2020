@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
 
-    public string itemId;
+    public string itemName;
     public GameObject gameManager;
     // Start is called before the first frame update
 
@@ -19,8 +19,8 @@ public class Collectible : MonoBehaviour
         Debug.LogFormat("items just collided with {0}", collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.LogFormat("player just collected item: {0}", itemId);
-            gameManager.GetComponent<Inventory>().addItem(itemId);
+            Debug.LogFormat("player just collected item: {0}", itemName);
+            gameManager.GetComponent<Inventory>().addItem(itemName);
 
             Destroy(gameObject);
         }
