@@ -6,7 +6,13 @@ public class Collectible : MonoBehaviour
 {
 
     public string itemId;
+    public GameObject gameManager;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +20,8 @@ public class Collectible : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.LogFormat("player just collected item: {0}", itemId);
+            gameManager.GetComponent<Inventory>().addItem(itemId);
+
             Destroy(gameObject);
         }
     }
