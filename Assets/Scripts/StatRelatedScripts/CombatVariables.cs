@@ -25,20 +25,11 @@ public class CombatVariables : MonoBehaviour
 
     public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
     {
-        if (involunrable)
-        {
-            Debug.Log("involunrable");
-            return;
-        }
-        else
-        {
-            if (color == null) color = Color.white;
-            GameObject floatingNumber = Instantiate(floatingNumberText, position, Quaternion.identity);
-            TextMesh tm = floatingNumber.GetComponent<TextMesh>();
-            tm.text = text;
-            tm.color = color;
-        }
-
+        if (color == null) color = Color.white;
+        GameObject floatingNumber = Instantiate(floatingNumberText, position, Quaternion.identity);
+        TextMesh tm = floatingNumber.GetComponent<TextMesh>();
+        tm.text = text;
+        tm.color = color;
     }
 
 
