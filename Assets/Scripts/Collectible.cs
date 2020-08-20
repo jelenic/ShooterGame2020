@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-
+    bool triggered = false;
     public Item item;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!triggered && collision.gameObject.CompareTag("Player"))
         {
+            triggered = true;
             pickUp();
             
         }

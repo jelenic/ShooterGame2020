@@ -28,6 +28,8 @@ public class Inventory : MonoBehaviour
     {
         items.Add(item);
 
+        Debug.LogFormat("item of class {0} was added", item.GetType().Name);
+
         if (OnInventoryChangedCallback != null) OnInventoryChangedCallback.Invoke();
 
         return true;

@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6981e925ef854347b88cc3d6ab91541, type: 3}
-  m_Name: gun
+  m_Script: {fileID: 11500000, guid: dbbe75753eb4b54479b3ee811abd38b7, type: 3}
+  m_Name: booster
   m_EditorClassIdentifier: 
-  name: gun
-  value: 1
-  level: 1
-  icon: {fileID: 21300000, guid: c4e1bc673979e8b4e8253f71df701824, type: 3}
-  description: it's a gun
+  name: booster
+  value: 5
+  level: 44
+  icon: {fileID: 21300000, guid: b19c2a4303fc06d45a4500aa2a381438, type: 3}
+  description: booooster
+  color: {r: 0, g: 1, b: 1, a: 1}
