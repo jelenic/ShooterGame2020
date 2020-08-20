@@ -5,24 +5,19 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
 
-    public string itemName;
-    public GameObject gameManager;
-    // Start is called before the first frame update
-
-    private void Awake()
-    {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
-    }
-
+    public Item item;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.LogFormat("items just collided with {0}", collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.LogFormat("player just collected item: {0}", itemName);
-            gameManager.GetComponent<Inventory>().addItem(itemName);
-
-            Destroy(gameObject);
+            pickUp();
+            
         }
+    }
+
+    void pickUp()
+    {
+        Debug.LogFormat("player just collected {0}", item.name);
+        if (Inventory.instance.add(item)) Destroy(gameObject);
     }
 }

@@ -1,34 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+
+[CreateAssetMenu(fileName = "New item", menuName = "Inventory/Item") ]
+public class Item : ScriptableObject
 {
-    public string id;
-    public string name;
+    new public string name = "New item";
     public int value;
-    public int rarity;
-    public string type { get; protected set; }
+    public int level;
+    public Sprite icon = null;
     public string description;
-
-    protected GameObject gameManager;
-
-    public virtual void Initialize()
-    {
-
-    }
-
-    void Awake()
-    {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        Initialize();
-    }
-
-    public void addToInventory()
-    {
-        gameManager.GetComponent<Inventory>().addItem(name);
-    }
-
-
 
 }

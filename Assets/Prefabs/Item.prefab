@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2111c5c33a6c7ba418ee4c00d38fc943, type: 3}
-  m_Color: {r: 0.7264151, g: 0.119927004, b: 0.6100383, a: 1}
+  m_Color: {r: 0.77254903, g: 0.119927004, b: 0.6100383, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0d529a93b5b254cb660a16a8aedfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: ggg
+  itemName: 
   gameManager: {fileID: 0}
 --- !u!60 &910159706754052292
 PolygonCollider2D:
