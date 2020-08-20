@@ -20,28 +20,46 @@ public class CombatVariables : MonoBehaviour
 
     private LevelManager levelManager;
 
+    public bool involunrable;
+
 
     public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
     {
-        if (color == null) color = Color.white;
-        GameObject floatingNumber = Instantiate(floatingNumberText, position, Quaternion.identity);
-        TextMesh tm = floatingNumber.GetComponent<TextMesh>();
-        tm.text = text;
-        tm.color = color;
+        if (involunrable)
+        {
+            Debug.Log("involunrable");
+            return;
+        }
+        else
+        {
+            if (color == null) color = Color.white;
+            GameObject floatingNumber = Instantiate(floatingNumberText, position, Quaternion.identity);
+            TextMesh tm = floatingNumber.GetComponent<TextMesh>();
+            tm.text = text;
+            tm.color = color;
+        }
 
     }
 
 
     public int DecreaseHP(int amount, string dmgType = "default")
     {
-        int receivedDmg = (int)Math.Round(amount * (1f - resistances[dmgType]));
-        Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
-        hp = Math.Max(0, hp - receivedDmg);
-        createFloatingNumberText(transform.position, Color.red, receivedDmg.ToString());
-        if (hp == 0) Destroy(gameObject);
-        hpBar.enabled = true;
-        hpBar.fillAmount = (float)hp / stats.hp;
-        return hp;
+        if (involunrable)
+        {
+            Debug.Log("involunrable");
+            return hp;
+        }
+        else
+        {
+            int receivedDmg = (int)Math.Round(amount * (1f - resistances[dmgType]));
+            Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
+            hp = Math.Max(0, hp - receivedDmg);
+            createFloatingNumberText(transform.position, Color.red, receivedDmg.ToString());
+            if (hp == 0) Destroy(gameObject);
+            hpBar.enabled = true;
+            hpBar.fillAmount = (float)hp / stats.hp;
+            return hp;
+        }
     }
 
     public int InreaseHP(int amount)
@@ -64,6 +82,7 @@ public class CombatVariables : MonoBehaviour
         resistances.Add("physical", stats.physicalResistance);
         resistances.Add("default", 0f);
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        involunrable = false;
     }
 
     private void OnDestroy()
