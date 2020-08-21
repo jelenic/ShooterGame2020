@@ -6,6 +6,7 @@ using UnityEngine;
 public class FiredKinematic : FiredProjectile
 {
     private float velocity;
+    private bool deflected;
 
     public override void Initialize()
     {
@@ -19,12 +20,29 @@ public class FiredKinematic : FiredProjectile
         passThrough.Add("Projectile");
 
         damageable.Add("Player");
+        deflected = false;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.up * Time.deltaTime * velocity, Space.Self);
+        if (deflected)
+        {
+            transform.Translate(- Vector2.up * Time.deltaTime * velocity, Space.Self);
+        }
+        else
+        {
+            transform.Translate(Vector2.up * Time.deltaTime * velocity, Space.Self);
+        }
+    }
+
+    public void Deflect()
+    {
+        Debug.Log("deflected");
+        deflected = true;
+        passThrough.Remove("Enemy");
+        passThrough.Add("Player");
+        damageable.Add("Enemy");
     }
 }
