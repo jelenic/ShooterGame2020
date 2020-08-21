@@ -25,10 +25,15 @@ public class EquipementSlotUI : MonoBehaviour
     {
         if (changedSlot == slot)
         {
+            
             Debug.LogFormat("equip slot {0} {1} {2} was modified", changedSlot.ToString(), (int)slot, equipementManager.currentlyEquiped[(int)slot].name);
-            equiped = equipementManager.currentlyEquiped[(int)slot];
-            icon.sprite = equiped.icon;
-            icon.enabled = true;
+
+            if (icon != null)
+            {
+                icon.sprite = equipementManager.currentlyEquiped[(int)slot].icon;
+                icon.enabled = true;
+            }
+            
 
         }
     }
