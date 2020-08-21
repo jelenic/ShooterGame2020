@@ -13,7 +13,6 @@ public class ItemDetailsController : MonoBehaviour
     public TextMeshProUGUI itemDescription;
 
     public GameObject equipBtn;
-    public GameObject unequipBtn;
 
     private EquipementManager equipementManager;
     private Equipement eq;
@@ -53,15 +52,13 @@ public class ItemDetailsController : MonoBehaviour
         itemStats.SetText(stats);
     }
 
-
+    public void enableEquipBtn(bool enabled)
+    {
+        equipBtn.SetActive(enabled);
+    }
     public void equip()
     {
         equipementManager.equip(eq);
-    }
-
-
-    public void unequip()
-    {
-
+        enableEquipBtn(false);
     }
 }

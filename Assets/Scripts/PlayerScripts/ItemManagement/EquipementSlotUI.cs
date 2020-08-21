@@ -11,14 +11,18 @@ public class EquipementSlotUI : MonoBehaviour
     private EquipementManager equipementManager;
     public GameObject InventoryPanel;
     private InventoryUI inventoryUI;
+    private Equipement eq;
+    public GameObject itemDetails;
+    private ItemDetailsController idc;
 
 
-    private void Start()
+
+    private void Awake()
     {
         equipementManager = EquipementManager.instance;
         equipementManager.OnEquipementChangedCallback += equip;
         inventoryUI = InventoryPanel.GetComponent<InventoryUI>();
-
+        idc = itemDetails.GetComponent<ItemDetailsController>();
 
     }
     public void equip(EquipementSlot changedSlot)
@@ -30,7 +34,8 @@ public class EquipementSlotUI : MonoBehaviour
 
             if (icon != null)
             {
-                icon.sprite = equipementManager.currentlyEquiped[(int)slot].icon;
+                eq = equipementManager.currentlyEquiped[(int)slot];
+                icon.sprite = eq.icon;
                 icon.enabled = true;
             }
             
@@ -43,5 +48,12 @@ public class EquipementSlotUI : MonoBehaviour
 
         equipementManager.currentlySelected = slot;
         inventoryUI.loadItemCategory(slot);
+
+        if (eq != null)
+        {
+            idc.setItemDetails(eq);
+            idc.enableEquipBtn(false);
+            itemDetails.SetActive(true);
+        }
     }
 }

@@ -6,7 +6,13 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     Item item;
     public GameObject itemDetails;
+    private ItemDetailsController idc;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        idc = itemDetails.GetComponent<ItemDetailsController>();
+    }
 
     public void addItem(Item newItem)
     {
@@ -29,7 +35,8 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null) 
         {
-            itemDetails.GetComponent<ItemDetailsController>().setItemDetails(item);
+            idc.setItemDetails(item);
+            idc.enableEquipBtn(true);
             itemDetails.SetActive(true);
         }
     }
