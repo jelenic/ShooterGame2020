@@ -9,5 +9,11 @@ public class Item : ScriptableObject
     public int level;
     public Sprite icon = null;
     public string description;
+    public Color color = Color.white;
 
+
+    public void removeFromInventory()
+    {
+        Inventory.instance.remove(this);
+    }
 }

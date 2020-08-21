@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "New module", menuName = "Inventory/Module")]
-public class Module : Item
+public class Module : Equipement
 {
-    public Color color = Color.cyan;
+    public float cooldown;
 }

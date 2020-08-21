@@ -5,8 +5,8 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     Item item;
+    public GameObject itemDetails;
     // Start is called before the first frame update
-    
 
     public void addItem(Item newItem)
     {
@@ -22,5 +22,15 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = null;
         icon.enabled = false;
+    }
+
+
+    public void setItemDetails()
+    {
+        if (item != null) 
+        {
+            itemDetails.GetComponent<ItemDetailsController>().setItemDetails(item);
+            itemDetails.SetActive(true);
+        }
     }
 }

@@ -55,8 +55,8 @@ public class ShipFire : MonoBehaviour
         if (timetillfire<=0 && autofire)
         {
             Shoot();
-            Debug.Log(stats.rateOfFire);
-            Debug.Log(timetillfire.ToString());
+            //Debug.Log(stats.rateOfFire);
+            //Debug.Log(timetillfire.ToString());
             timetillfire = stats.rateOfFire;
         }
 
