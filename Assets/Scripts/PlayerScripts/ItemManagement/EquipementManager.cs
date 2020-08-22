@@ -45,6 +45,13 @@ public class EquipementManager : MonoBehaviour
         if (OnEquipementChangedCallback != null) OnEquipementChangedCallback.Invoke(currentlySelected);
     }
 
+
+    public void equip(Equipement newEquip, EquipementSlot slot)
+    {
+        currentlySelected = slot;
+        equip(newEquip);
+    }
+
     public void unequip()
     {
 

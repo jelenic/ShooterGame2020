@@ -24,6 +24,15 @@ public class EquipementSlotUI : MonoBehaviour
         inventoryUI = InventoryPanel.GetComponent<InventoryUI>();
         idc = itemDetails.GetComponent<ItemDetailsController>();
 
+        equip();
+
+    }
+
+    public void equip()
+    {
+        eq = equipementManager.currentlyEquiped[(int)slot];
+        icon.sprite = eq.icon;
+        icon.enabled = true;
     }
     public void equip(EquipementSlot changedSlot)
     {
@@ -34,9 +43,7 @@ public class EquipementSlotUI : MonoBehaviour
 
             if (icon != null)
             {
-                eq = equipementManager.currentlyEquiped[(int)slot];
-                icon.sprite = eq.icon;
-                icon.enabled = true;
+                equip();
             }
             
 
