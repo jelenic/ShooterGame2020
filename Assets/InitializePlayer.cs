@@ -43,6 +43,7 @@ public class InitializePlayer : MonoBehaviour
         w2.transform.parent = player;
         w2.GetComponent<WeaponFire>().setDmgModifier(weapon2.weaponDamageModifier);
         mod.transform.parent = player;
+        mod.GetComponent<ModuleScript>().setParams(module.cooldown, module.duration);
 
         ShipFire sf = gameObject.GetComponent<ShipFire>();
 

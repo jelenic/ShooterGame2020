@@ -7,4 +7,5 @@ using UnityEngine;
 public class Module : Equipement
 {
     public float cooldown;
+    public float duration;
 }

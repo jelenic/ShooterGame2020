@@ -19,5 +19,6 @@ MonoBehaviour:
   description: it's a super gun
   color: {r: 1, g: 0, b: 0, a: 1}
   codeName: weaponBullets
-  baseDamage: 100
-  damageType: projectile
+  weaponDamageModifier: 10
+  rateOfFireModifier: 1
+  bulletType: projectile

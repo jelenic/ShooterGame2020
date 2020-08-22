@@ -156,5 +156,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb28d1c01cefa43ab1e4bd831157ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coooldown: 2
+  coooldown: 0
   duration: 2

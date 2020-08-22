@@ -19,5 +19,6 @@ MonoBehaviour:
   description: it's a laser gun
   color: {r: 1, g: 0, b: 0, a: 1}
   codeName: weaponMiniLaser
-  baseDamage: 120
-  damageType: beam
+  weaponDamageModifier: 20
+  rateOfFireModifier: 3
+  bulletType: beam

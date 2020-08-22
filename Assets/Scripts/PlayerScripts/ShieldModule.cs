@@ -7,7 +7,6 @@ public class ShieldModule : ModuleScript
     // Start is called before the first frame update
     private float remainingCooldown;
     private float remainingTime;
-    public float duration;
     private GameObject ship;
     private GameObject shield;
     private bool active;
@@ -15,7 +14,6 @@ public class ShieldModule : ModuleScript
     void Start()
     {
         remainingCooldown = coooldown;
-        duration = 3f;
         active = false;
         ship = GameObject.FindGameObjectWithTag("Player");
         shield = gameObject.transform.Find("Shield").gameObject;
@@ -23,9 +21,6 @@ public class ShieldModule : ModuleScript
     }
 
 
-    private void findGameObjects()
-    {
-    }
 
     // Update is called once per frame
     void Update()

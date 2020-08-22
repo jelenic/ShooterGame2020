@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!4 &149671136 stripped
@@ -696,6 +700,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -953,6 +961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1001 &328130223
@@ -1014,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1001 &335227670
@@ -1074,6 +1090,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -1287,6 +1307,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -1669,6 +1693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1001 &479665116
@@ -1729,6 +1757,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -2230,6 +2262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1 &703092096
@@ -2365,7 +2401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 774437823}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2513,6 +2549,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -2736,6 +2776,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -3012,6 +3056,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!4 &990816330 stripped
@@ -3077,6 +3125,10 @@ PrefabInstance:
     - target: {fileID: 3249265328867893730, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249265328867893741, guid: 93c3620488524c5448de57cb090d9554, type: 3}
+      propertyPath: rateOfFire
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3249265328867893755, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: m_Name
@@ -3147,6 +3199,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -3348,7 +3404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIexhn87jcwIAABsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoXxB+DSW+sQ0kMSJqSTiy/CXmMNsuSR5ABh+O9dyTZ2XS7I7+3H26e1r4QJXUFqpNoolj3LDMiPCbFn8m3Sk09wpgcpduwLupgPlpnCBlEX80YNk4j7Nk3LEoxi6U9x4DbYQ7AWLJeqXGcHiKU2GuGccg1IKWlstkDoOiFn/JuubMoFT0FkT194WnmTGx5TEAZUHxr4s1U095aL723GIpiF88j3u7RZuPTm3nw99ZauQC1STssKMjtNX8dfrGYe/vxFW8cPQhcvcOA21NZMJedMt2qJuVTOjZhWusZZMSBjFKd3Ev1ZiEAB7FAYK3WY/prnGkxrjqKXB6bQxqYu+SUbb0uqj43ET8pr2ylYNFM0RZ//46e+o3Mly6eur+/ZHqZg6fGNXlKqzcD8IfwwkO6cOlF+pHsOHwWIF7lRshYZkkbVNrXWEDz0j/fR4gLSY483UkdgXfXWd3fd3bSd4eamP8eclXtLzeYNsOPSOe4WBBTezW8U7NZHtyUQtSr+aHinh+GetcQjU9og1U4prLy9rJUNJWvnmZ2mNrFUAhzciq5AUG4uWyxjxlc44gZtR8wjtW9U27zluhdllOLgPt7zRtRWnu6XpQt5egZdvNaGMzEsZpkXNCqWQjQrpkeszdvVKqfpMO9Qs+zf5SLUW4Y0Wu1zGgFG59MwyOerPfXDyPO9KFsSt31M4KSUbxuprUF4b6K3UuCmdZ+ayUbRyu17puhpw75KOVTIRC53qQIQr02Ju3RQ2AVfzWydMfRoB8Yw4a6cXBPCZXqELLn3TNys67NRNOmrJKRin9JYJCGx+7gk5EZufwFQSwMEFAAACAgAAAgh7LQizl1tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFKigZlxorllUlqieWpaYnKarrFRmollUqKhsbmBoYF5iplSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7GGfzuNzAgAAGwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7LQizl1tAAAAeAAAAAkAJAAAAAAAAAAAAAAAwAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB4AwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIewngFmbagIAAA4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMlyozAQ/RWXzmMX4A3PbYY4zhyyVJypXLjIkjAqC4nSEttJ+d+nJcAQDxdEv15ev27xhbg0NSNW6Y3m9FFRhn6OkD+jH6MefGAnvFdyyz9Z5/POqS29Ew4+r9hyBfbYhxlVMas5+SX3wjtHYHSSF0pXa7pnmTLWgLnAwjCAtLI+WoLpa4RO8BqvfMgZTsnSnz7htIpGFzgSJi3Tves0maz80/rPoskMvtLZsg1bTpJZvFrE63G0CAmcJAJXNaO+mz5PEncl4+k8OErotPXxXRElBDctTWTPdZAhw7Vx0CQ4UI6h7cDN+5eM70vrMw+Dn4vCMNtqovH5jmtQr8mKfqtG0gqbQ8PsAwvn6yTzhnyT9PE/vNGm0Kp66MrGkS9hS04Or/hMsLEDyYfmu++8nTxiccA7wd5LJp/URisnKYBWOx/qDEvu+s9rZ1nJyKG3N0xvjK7uBe/k7uY7jkeXS2j+lAle7Tw0mTWGrVBB7rAWTMNg/gDhsDSmTQFWz+KvYW94P9yuFrjn2liA2i6lp7dTTntXtA6a+W6czZSWLJhb0jWTWNjzC6SxtxO8wQZlb5B77O9RW7zFuutxExLMvX8U3UAv6ngdlinV8ZGZ8tlZwSXrSXvgCXTKlJTNgg016cK2TheYDML2jtPvm4XonND5spjSFJN4MV2MyYrglMCVShOyS9MUhd3jEvrE4qUh2soDU5N9cgl71v1eRhuN67DsVOPjhn9WaiA5l4XaEs2YfG4yXIkzDUXgUtI15SDQllnLZZg3+sqRUOTAaH5NlIdO1yercd5nyVHNP5T1lhxl4X+Sowu6/ANQSwMEFAAACAgAAAgh7FmZcqBtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFKKaXKKqXmacYpFYrKhmbGZbrJlcqJFsqWZoYVRcpKFhYVSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7CeAWZtqAgAADgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7FmZcqBtAAAAeAAAAAkAJAAAAAAAAAAAAAAAtwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABvAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -3706,6 +3762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!4 &1397401895 stripped
@@ -3909,6 +3969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1001 &1477795821
@@ -3969,6 +4033,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -4098,6 +4166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1001 &1676431676
@@ -4162,6 +4234,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -4463,6 +4539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1001 &1802567229
@@ -4523,6 +4603,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -4750,6 +4834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!4 &1859460483 stripped
@@ -4820,6 +4908,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
@@ -5141,6 +5233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallStraightFatSide (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!4 &2045375825 stripped
@@ -5206,6 +5302,10 @@ PrefabInstance:
     - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
       propertyPath: m_Name
       value: WallStraightFatSide (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
