@@ -9,11 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6981e925ef854347b88cc3d6ab91541, type: 3}
-  m_Name: gun
+  m_Script: {fileID: 11500000, guid: b2c8af6819ec11a48b91e0032d875c9e, type: 3}
+  m_Name: weaponMiniLaser
   m_EditorClassIdentifier: 
-  name: gun
-  value: 1
-  level: 1
+  name: laser gun
+  value: 10
+  level: 3
   icon: {fileID: 21300000, guid: c4e1bc673979e8b4e8253f71df701824, type: 3}
-  description: it's a gun
+  description: it's a laser gun
+  color: {r: 1, g: 0, b: 0, a: 1}
+  codeName: weaponMiniLaser
+  baseDamage: 120
+  damageType: beam

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbbe75753eb4b54479b3ee811abd38b7, type: 3}
-  m_Name: shield
+  m_Name: deflective_shield
   m_EditorClassIdentifier: 
-  name: shield
-  value: 5
-  level: 5
+  name: deflect shield
+  value: 10
+  level: 6
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  description: shield
+  description: shield that deflects non-homing projectiles
   color: {r: 0, g: 1, b: 1, a: 1}
-  codeName: ShieldModule
-  cooldown: 3
+  codeName: DeflectorModule
+  cooldown: 5

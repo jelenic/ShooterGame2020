@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6981e925ef854347b88cc3d6ab91541, type: 3}
-  m_Name: screw
+  m_Name: explosion
   m_EditorClassIdentifier: 
-  name: screw
-  value: 1
-  level: 1
-  icon: {fileID: 21300000, guid: 7b0024d2db2f41a48831943a5b71e9a0, type: 3}
-  description: it's a screeew
+  name: bombastic
+  value: 444
+  level: 444
+  icon: {fileID: 21300000, guid: 517fc5bb4c9ca11439537f51b315b9fe, type: 3}
+  description: boom
+  color: {r: 1, g: 0.4526977, b: 0, a: 1}
+  codeName: 

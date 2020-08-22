@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a88f71e1b7baee43a943f696b0905fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 3
+  sceneToLoad: 1
 --- !u!4 &1826424465
 Transform:
   m_ObjectHideFlags: 0
@@ -211,7 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   module: {fileID: 11400000, guid: 47cff82ff34c28c43b2a15e875ec1f6b, type: 2}
   weapon1: {fileID: 11400000, guid: 482df2e84dd9e3548a56cb1a13491a7b, type: 2}
-  weapon2: {fileID: 11400000, guid: f4812b9857328d349b561f2bbcbecb79, type: 2}
+  weapon2: {fileID: 11400000, guid: 8c48a98754d80a14880d4563ba8bc8f4, type: 2}
+  addToInventory:
+  - {fileID: 11400000, guid: 8f1ece5de1635964b9af87a45c025815, type: 2}
 --- !u!1 &1905954402
 GameObject:
   m_ObjectHideFlags: 0

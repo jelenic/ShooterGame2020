@@ -10,6 +10,7 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     public string description;
     public Color color = Color.white;
+    public string codeName;
 
 
     public void removeFromInventory()

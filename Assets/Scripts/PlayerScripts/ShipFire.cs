@@ -16,7 +16,11 @@ public class ShipFire : MonoBehaviour
 
 
 
-
+    public void setWeapons(GameObject weapon1, GameObject weapon2)
+    {
+        w1 = weapon1;
+        w2 = weapon2;
+    }
 
 
     //public GameObject Bullets;

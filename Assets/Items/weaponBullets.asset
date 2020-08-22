@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c8af6819ec11a48b91e0032d875c9e, type: 3}
-  m_Name: supergun
+  m_Name: weaponBullets
   m_EditorClassIdentifier: 
-  name: super gun
+  name: gun
   value: 5
   level: 2
   icon: {fileID: 21300000, guid: c4e1bc673979e8b4e8253f71df701824, type: 3}
   description: it's a super gun
-  baseDamage: 100
   color: {r: 1, g: 0, b: 0, a: 1}
+  codeName: weaponBullets
+  baseDamage: 100
+  damageType: projectile
