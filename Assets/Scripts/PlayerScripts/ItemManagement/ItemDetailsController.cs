@@ -37,7 +37,7 @@ public class ItemDetailsController : MonoBehaviour
             case "Weapon":
                 eq = (Equipement)item;
                 Weapon weapon = (Weapon)item;
-                stats = string.Format("Base damage : {0}\nDamage type : {1}", weapon.baseDamage, weapon.damageType);
+                stats = string.Format("Damage modifier: {0}\nBullet type : {1}", weapon.weaponDamageModifier, weapon.bulletType);
                 break;
             case "Module":
                 eq = (Equipement)item;

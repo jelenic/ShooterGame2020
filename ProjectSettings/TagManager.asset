@@ -12,6 +12,7 @@ TagManager:
   - LevelManager
   - Item
   - GameManager
+  - Shield
   layers:
   - Default
   - TransparentFX

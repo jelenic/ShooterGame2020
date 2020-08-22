@@ -17,7 +17,7 @@ public class LoadPlayerData : MonoBehaviour
     {
         inv = Inventory.instance;
         em = EquipementManager.instance;
-        Invoke("init", 2f);
+        Invoke("init", 1f);
     }
 
     void init()

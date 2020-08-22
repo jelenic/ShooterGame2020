@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New weapon", menuName = "Inventory/Weapon")]
 public class Weapon : Equipement
 {
-    public int baseDamage = 10;
-    public string damageType;   
+    public float weaponDamageModifier = 1f;
+    public float rateOfFireModifier;
+    public string bulletType;
 }

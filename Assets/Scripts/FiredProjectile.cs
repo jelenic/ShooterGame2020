@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class FiredProjectile : MonoBehaviour
 {
     public int projectileDamage;
+    public string projectileDamageType;
     public float lifeDuration;
     public GameObject explosion;
     private Transform transform;
@@ -44,7 +45,7 @@ public abstract class FiredProjectile : MonoBehaviour
         Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
         if (!passThrough.Contains(hit.tag))
         {
-            if (damageable.Contains(hit.tag)) hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), "projectile");
+            if (damageable.Contains(hit.tag)) hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), projectileDamageType);
             if (destroyable.Contains(hit.tag))
             {
                 Destroy(hit, 0f);

@@ -8,6 +8,8 @@ public class FiredHoming : FiredProjectile
     {
         base.Initialize();
         projectileDamage = 3;
+        projectileDamageType = "projectile";
+
         lifeDuration = 10f;
 
         passThrough.Add("Enemy");

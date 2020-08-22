@@ -12,11 +12,14 @@ public class FiredKinematic : FiredProjectile
     {
         base.Initialize();
         projectileDamage = 5;
+        projectileDamageType = "projectile";
+
         lifeDuration = 5f;
         velocity = 9;
 
         passThrough.Add("Enemy");
         passThrough.Add("Spawner");
+        passThrough.Add("Shield");
         passThrough.Add("Projectile");
 
         damageable.Add("Player");

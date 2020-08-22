@@ -15,7 +15,9 @@ public class PlayerFiredBullet : FiredProjectile
 
         passThrough.Add("Player");
         passThrough.Add("Spawner");
+        passThrough.Add("Shield");
         passThrough.Add("PlayerProjectile");
+        passThrough.Add("Item");
 
         damageable.Add("Enemy");
 

@@ -6,7 +6,7 @@ public class DeflectorModule : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Projectile" && collision.gameObject.GetComponent<FiredKinematic>()!=null)
+        if (collision.gameObject.CompareTag("Projectile") && collision.gameObject.GetComponent<FiredProjectile>().GetType().Equals(typeof(FiredKinematic)))
         {
             collision.gameObject.GetComponent<FiredKinematic>().Deflect();
         }

@@ -6,6 +6,13 @@ public class WeaponFire : MonoBehaviour
 {
     public GameObject prefab;
     private Stats stats;
+    private float weaponDamageModifier = 1f;
+
+    public void setDmgModifier(float modifier)
+    {
+        if (modifier >= 0f) weaponDamageModifier = modifier;
+    }
+
 
     private void Start()
     {
@@ -13,6 +20,6 @@ public class WeaponFire : MonoBehaviour
     }
     public void Shoot()
     {
-        Instantiate(prefab, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
+        Instantiate(prefab, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier() * weaponDamageModifier;
     }
 }

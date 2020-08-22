@@ -15,10 +15,16 @@ public class ShieldModule : ModuleScript
     void Start()
     {
         remainingCooldown = coooldown;
-        ship = GameObject.FindGameObjectWithTag("Player").gameObject;
         duration = 3f;
-        shield = gameObject.transform.Find("Shield").gameObject;
         active = false;
+        ship = GameObject.FindGameObjectWithTag("Player");
+        shield = gameObject.transform.Find("Shield").gameObject;
+
+    }
+
+
+    private void findGameObjects()
+    {
     }
 
     // Update is called once per frame
