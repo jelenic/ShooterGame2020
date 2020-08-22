@@ -3082,33 +3082,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ship_real
       objectReference: {fileID: 0}
-    - target: {fileID: 3289605419615396321, guid: 93c3620488524c5448de57cb090d9554, type: 3}
-      propertyPath: m_Name
-      value: Shield
-      objectReference: {fileID: 0}
-    - target: {fileID: 3289605419615396321, guid: 93c3620488524c5448de57cb090d9554, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c3620488524c5448de57cb090d9554, type: 3}
---- !u!1 &1002896445 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3289605419615396321, guid: 93c3620488524c5448de57cb090d9554, type: 3}
-  m_PrefabInstance: {fileID: 1002896444}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1002896449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002896445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa62eed3b5f78347af6ad419ca1a35c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1006590345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}

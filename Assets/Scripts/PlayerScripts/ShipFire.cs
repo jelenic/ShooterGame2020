@@ -10,16 +10,17 @@ public class ShipFire : MonoBehaviour
     private bool autofire;
     private Stats stats;
     private int activeWeapon;
-    private GameObject w1;
-    private GameObject w2;
+    public GameObject w1;
+    public GameObject w2;
 
 
 
 
 
 
-    public GameObject Bullets;
-    public GameObject MiniLaser;
+
+    //public GameObject Bullets;
+    //public GameObject MiniLaser;
 
 
     // Start is called before the first frame update
@@ -30,8 +31,8 @@ public class ShipFire : MonoBehaviour
         autofire = false;
 
         activeWeapon = 1;
-        w1 = Bullets;
-        w2 = MiniLaser;
+        //w1 = Bullets;
+        //w2 = MiniLaser;
         
     }
 
@@ -74,11 +75,13 @@ public class ShipFire : MonoBehaviour
     {
         if (activeWeapon == 1)
         {
-            Instantiate(w1, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
+            //Instantiate(w1, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
+            w1.GetComponent<WeaponFire>().Shoot();
         }
         else if (activeWeapon == 2)
         {
-            Instantiate(w2, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
+            //Instantiate(w2, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
+            w2.GetComponent<WeaponFire>().Shoot();
         }
     }
 
