@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 3249265328867893733}
   - component: {fileID: 1552279127620290642}
   - component: {fileID: 3249265328867893741}
+  - component: {fileID: 2537693317517817283}
   m_Layer: 0
   m_Name: ship_real
   m_TagString: Player
@@ -393,6 +394,8 @@ MonoBehaviour:
   firepoint: {fileID: 3249265327973348251}
   w1: {fileID: 0}
   w2: {fileID: 0}
+  w1_stats: {fileID: 0}
+  w2_stats: {fileID: 0}
 --- !u!61 &3249265328867893735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -515,3 +518,15 @@ MonoBehaviour:
   critMultiplier: 1.55
   maxVelocity: 50
   thrust: 10
+--- !u!114 &2537693317517817283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249265328867893755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567f6ee295fd5e24c926ac92e380db8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -19,4 +19,5 @@ MonoBehaviour:
   description: shield
   color: {r: 0, g: 1, b: 1, a: 1}
   codeName: ShieldModule
-  cooldown: 3
+  cooldown: 5
+  duration: 4
