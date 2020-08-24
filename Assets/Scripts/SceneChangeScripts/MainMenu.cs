@@ -5,10 +5,10 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
 
-    public void Play(string scene)
+    public void Play(string level)
     {
         Debug.Log("Click Play");
-        Loader.Load(scene);
+        Levels.instance.loadLevel(level);
     }
 
     public void Exit()

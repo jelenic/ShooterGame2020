@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class YouDiedMenu : MonoBehaviour
 {
 
+    private void Awake()
+    {
+        Levels.instance.scoreLevel(0);
+    }
+
     public void Restart()
     {
         Debug.Log("Scene:" + SceneManager.GetActiveScene().buildIndex);
@@ -15,6 +20,6 @@ public class YouDiedMenu : MonoBehaviour
     {
         Debug.Log("MenuScene");
 
-        SceneManager.LoadScene("MenuScene");
+        Levels.instance.finishLevel();
     }
 }

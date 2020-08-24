@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DummyLevel.unity
     guid: 4417346961deb7c449da0f46e3e54129
+  - enabled: 1
+    path: Assets/Scenes/DummyLevel2.unity
+    guid: 5f83b6ce18d92f042af06268d6510eac
   m_configObjects: {}

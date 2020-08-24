@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 1826424463}
   - component: {fileID: 1826424466}
   - component: {fileID: 1826424467}
+  - component: {fileID: 1826424468}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -214,6 +215,20 @@ MonoBehaviour:
   weapon2: {fileID: 11400000, guid: 482df2e84dd9e3548a56cb1a13491a7b, type: 2}
   addToInventory:
   - {fileID: 11400000, guid: 47cff82ff34c28c43b2a15e875ec1f6b, type: 2}
+--- !u!114 &1826424468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826424462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c031f3dd1b638b48ad05e3a676dcd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentlyPlayed: 0
+  levels: []
 --- !u!1 &1905954402
 GameObject:
   m_ObjectHideFlags: 0

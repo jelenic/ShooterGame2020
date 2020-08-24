@@ -21,14 +21,13 @@ public class ItemDetailsController : MonoBehaviour
     {
         equipementManager = EquipementManager.instance;
     }
-    // Start is called before the first frame update
 
     public void setItemDetails(Item item)
     {
 
         itemName.SetText(item.name);
-        itemValue.SetText(item.value.ToString());
-        itemLevel.SetText(item.level.ToString());
+        itemValue.SetText("value: " + item.value.ToString());
+        itemLevel.SetText("level: " + item.level.ToString());
         itemDescription.SetText(item.description);
 
         string stats;
