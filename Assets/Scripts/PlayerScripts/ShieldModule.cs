@@ -17,7 +17,6 @@ public class ShieldModule : ModuleScript
         base.activeAction();
         ship.GetComponent<CombatVariables>().involunrable = true;
         shield.SetActive(true);
-        Debug.Log("shield active");
     }
     
     protected override void inactiveAction()

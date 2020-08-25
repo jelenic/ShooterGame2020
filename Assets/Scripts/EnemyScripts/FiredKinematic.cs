@@ -42,7 +42,6 @@ public class FiredKinematic : FiredProjectile
 
     public void Deflect()
     {
-        Debug.Log("deflected");
         deflected = true;
         passThrough.Remove("Enemy");
         passThrough.Add("Player");

@@ -29,6 +29,7 @@ public abstract class FiredProjectile : MonoBehaviour
         transform = GetComponent<Transform>();
         passThrough = new List<string>();
         damageable = new List<string>();
+        passThrough.Add("Item");
         Initialize();
     }
 
@@ -42,7 +43,7 @@ public abstract class FiredProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject hit = collision.gameObject;
-        Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
+        //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
         if (!passThrough.Contains(hit.tag))
         {
             if (damageable.Contains(hit.tag)) hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), projectileDamageType);

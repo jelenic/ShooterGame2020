@@ -71,31 +71,26 @@ public class ShipFire : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             activeWeapon = 1;
-            Debug.Log("changed active weapon to " + activeWeapon.ToString());
         }
         else if (Input.GetKeyDown("2"))
         {
             activeWeapon = 2;
-            Debug.Log("changed active weapon to " + activeWeapon.ToString());
         }
     }
 
     void Shoot()
     {
-        Debug.Log("active weapon " + activeWeapon.ToString() + " " + activeWeapon.Equals(1) + "-" + activeWeapon.Equals(2));
 
         if (activeWeapon.Equals(1))
         {
             //Instantiate(w1, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
             w1.GetComponent<WeaponFire>().Shoot();
-            Debug.Log("shootting with weapon 1");
 
         }
         else if (activeWeapon.Equals(2))
         {
             //Instantiate(w2, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
             w2.GetComponent<WeaponFire>().Shoot();
-            Debug.Log("shootting with weapon 2");
 
         }
     }

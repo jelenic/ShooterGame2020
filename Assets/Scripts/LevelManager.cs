@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
 
     public int currentScore;
     public string levelName;
+    public bool levelOver = false;
 
     public void Restart()
     {
@@ -30,7 +31,7 @@ public class LevelManager : MonoBehaviour
     
     public void NextLevel()
     {
-        Debug.Log("NextScene");
+        Levels.instance.nextLevel();
 
     }
 
@@ -48,19 +49,33 @@ public class LevelManager : MonoBehaviour
 
     public void increaseScore(int n)
     {
-        currentScore += n;
-        score.text = "Score:" + currentScore.ToString();
+        if (!levelOver)
+        {
+            currentScore += n;
+            score.text = "Score:" + currentScore.ToString();
+        }
     }
 
     public void finishLevel()
     {
+        levelOver = true;
+
         Debug.Log("level is finished");
         finishMenu.SetActive(true);
         Time.timeScale = 0;
         ChangeTexts ct = finishMenu.GetComponent<ChangeTexts>();
         ct.completed(levelName);
         ct.scored(currentScore);
-        levels.scoreLevel(currentScore);
+        int highscore = levels.scoreLevel(currentScore);
+        ct.displayhighscore(highscore);
 
+    }
+
+    private void FixedUpdate()
+    {
+        if (currentScore > 100)
+        {
+            Debug.LogFormat("CURRENT SCORE: {0} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", currentScore);
+        }
     }
 }

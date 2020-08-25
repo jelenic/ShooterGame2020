@@ -44,18 +44,29 @@ public class Levels : MonoBehaviour
     }
 
 
-    public void scoreLevel(int newScore)
+    public int scoreLevel(int newScore)
     {
         Debug.Log("new score " + newScore);
         if (!scores.ContainsKey(currentlyPlayed) || newScore > scores[currentlyPlayed]) scores[currentlyPlayed] = newScore;
-        foreach (string key in scores.Keys) Debug.LogFormat("level {0} score: {1}", key, scores[key]);
+        foreach (string key in scores.Keys) Debug.LogFormat("level |{0}| score: {1}", key, scores[key]);
+
+        return scores[currentlyPlayed];
 
     }
 
     public void finishLevel()
     {
         Loader.Load(Loader.Scene.MenuScene.ToString());
-        currentlyPlayed = "";
+    }
+
+    public string nextLevel()
+    {
+        int next = levels.IndexOf(currentlyPlayed) + 1;
+        if (next == levels.Count) return "Message about next level not being available";
+
+        currentlyPlayed = levels[next];
+        Loader.Load(levels[next]);
+        return "";
     }
 
 
