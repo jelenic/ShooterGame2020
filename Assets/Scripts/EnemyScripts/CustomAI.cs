@@ -144,49 +144,7 @@ public class CustomAI : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, AngleSpeed * Time.deltaTime);
 
-        #region firecontrols
-        //check line of sight
-        timeTillRaycastSight -= Time.deltaTime;
-        timeTillFire -= Time.deltaTime;
-        if (timeTillRaycastSight <= 0)
-        {
-            timeTillRaycastSight = 0.2f;
-            hit = GetFirstRaycastHit(target.transform.position - transform.position);
-            //hit = Physics2D.Raycast(transform.position, target.transform.position - transform.position);
-            //Debug.Log(hit.collider);
-            if (hit.collider == null)
-            {
-                Debug.Log("nothing in sight");
-                lineOfSight = false;
-            }
-            else if (hit.collider.gameObject.tag == "Player")
-            {
-                //Debug.Log("ClearLineOfSight");
-                lineOfSight = true;
-            }
-            else if (hit.collider.gameObject.tag == "Walls")
-            {
-                lineOfSight = false;
-                //Debug.Log("I found something else with name = " + hit.collider.name);
-            }
-
-        }
-
-        if (lineOfSight && timeTillFire <= 0)
-        {
-            //Debug.Log("fireing");
-            timeTillFire = 0.5f;
-            //Shoot();
-        }
-
-
-
-
-
-
-
-
-        #endregion
+        
 
         #region dodging
 
@@ -223,7 +181,34 @@ public class CustomAI : MonoBehaviour
         return hits[1];
     }
 
+    #region firecontrols
+    //check line of sight
 
+    public bool CheckLineOfSight()
+    {
+        Vector2 direction = player.transform.position - transform.position;
+        //Check "Queries Start in Colliders" in Edit > Project Settings > Physics2D
+        RaycastHit2D[] hits = new RaycastHit2D[10];
+        Physics2D.RaycastNonAlloc(transform.position, direction, hits);
+        //hits[0] will always be the Collider2D you are casting from.
+        //Debug.Log(hits);
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.gameObject.tag == "Walls")
+            {
+                return false;
+            }
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+
+    #endregion
 
     //dodging here
     private void OnTriggerEnter2D(Collider2D collision)
