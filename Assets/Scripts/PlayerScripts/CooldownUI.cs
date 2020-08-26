@@ -15,7 +15,11 @@ public class CooldownUI : MonoBehaviour
     void lol()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ModuleScript>().OnCooldownChangedCallback += change;
+    }
 
+    private void OnDestroy()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ModuleScript>().OnCooldownChangedCallback -= change;
     }
 
     private void change(float filled)
