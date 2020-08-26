@@ -42,7 +42,7 @@ public class CombatVariables : MonoBehaviour
         }
         else
         {
-            int receivedDmg = (int)Math.Round(amount * (1f - resistances[dmgType]));
+            int receivedDmg = Math.Max(1, (int)Math.Round(amount * (1f - resistances[dmgType])));
             //Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
             hp = Math.Max(0, hp - receivedDmg);
             createFloatingNumberText(transform.position, Color.red, receivedDmg.ToString());

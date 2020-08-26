@@ -38,7 +38,11 @@ public class RotateTowardsTarget : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.turretRotationSpeed * Time.deltaTime);
             if (fireWait == 0.0f)
             {
-                Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation).GetComponent<FiredProjectile>().damageModifier = stats.calculateFinalDmgModifier();
+                FiredProjectile fp = Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation).GetComponent<FiredProjectile>();
+                fp.damageModifier = stats.calculateFinalDmgModifier();
+                Debug.Log("vel modddd " + stats.projectileVelocityModifier);
+
+                fp.velocityModifier = stats.projectileVelocityModifier;
                 fireWait = stats.rateOfFire;
             }
         }

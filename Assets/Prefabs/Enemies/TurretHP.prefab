@@ -257,6 +257,7 @@ MonoBehaviour:
   hp: 0
   hpBar: {fileID: 4192432124092780665}
   floatingNumberText: {fileID: 0}
+  involunrable: 0
 --- !u!114 &5977010676747076857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +284,9 @@ MonoBehaviour:
   physicalResistance: 0.5
   critChance: 0.3
   critMultiplier: 1.8
+  maxVelocity: 0
+  thrust: 0
+  projectileVelocityModifier: 1
 --- !u!1 &2999593438275795759
 GameObject:
   m_ObjectHideFlags: 0

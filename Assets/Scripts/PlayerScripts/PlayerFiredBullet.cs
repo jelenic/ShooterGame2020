@@ -33,7 +33,7 @@ public class PlayerFiredBullet : FiredProjectile
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position += transform.up * Time.deltaTime * speed);
+        rb.MovePosition(transform.position += transform.up * Time.deltaTime * speed * velocityModifier);
     }
 
 

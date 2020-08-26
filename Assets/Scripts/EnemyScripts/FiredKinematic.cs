@@ -30,13 +30,14 @@ public class FiredKinematic : FiredProjectile
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("vel mod " + velocityModifier);
         if (deflected)
         {
-            transform.Translate(- Vector2.up * Time.deltaTime * velocity, Space.Self);
+            transform.Translate(- Vector2.up * Time.deltaTime * velocity * velocityModifier, Space.Self);
         }
         else
         {
-            transform.Translate(Vector2.up * Time.deltaTime * velocity, Space.Self);
+            transform.Translate(Vector2.up * Time.deltaTime * velocity * velocityModifier, Space.Self);
         }
     }
 

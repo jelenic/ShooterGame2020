@@ -518,6 +518,7 @@ MonoBehaviour:
   critMultiplier: 1.55
   maxVelocity: 50
   thrust: 10
+  projectileVelocityModifier: 1
 --- !u!114 &2537693317517817283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,3 +531,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567f6ee295fd5e24c926ac92e380db8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cdbar: {fileID: 0}

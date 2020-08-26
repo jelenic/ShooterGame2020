@@ -11,6 +11,7 @@ public abstract class FiredProjectile : MonoBehaviour
     public GameObject explosion;
     private Transform transform;
     public float damageModifier;
+    public float velocityModifier;
     public List<String> passThrough;
     public List<String> damageable;
     public List<String> destroyable;

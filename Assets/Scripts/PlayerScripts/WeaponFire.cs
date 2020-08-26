@@ -20,6 +20,8 @@ public class WeaponFire : MonoBehaviour
     }
     public void Shoot()
     {
-        Instantiate(prefab, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier() * weaponDamageModifier;
+        PlayerFiredBullet pfb = Instantiate(prefab, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>();
+        pfb.damageModifier = stats.calculateFinalDmgModifier() * weaponDamageModifier;
+        pfb.velocityModifier = stats.projectileVelocityModifier;
     }
 }
