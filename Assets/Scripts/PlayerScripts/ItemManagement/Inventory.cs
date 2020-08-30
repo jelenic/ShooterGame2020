@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -44,4 +46,24 @@ public class Inventory : MonoBehaviour
 
         return true;
     }
+
+    // can be used to save serializable
+    /*public void saveItems()
+    {
+        FileStream fs = new FileStream("save.dat", FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, itemsIDs);
+        fs.Close();
+    }
+
+    public void loadItems()
+    {
+        using (Stream stream = File.Open("save.dat", FileMode.Open))
+        {
+            var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+            List<Item> items = (List<Item>)bformatter.Deserialize(stream);
+        }
+    }*/
+    // plan: have one list of all items and one list of id's currently in inventory
 }
