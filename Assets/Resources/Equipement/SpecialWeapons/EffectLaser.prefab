@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5841364602435301240}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: EffectLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5841364602729125711}
-  - component: {fileID: 5084697505178248084}
+  - component: {fileID: 3159394608880559029}
   - component: {fileID: 1732877401835153810}
   m_Layer: 0
   m_Name: spawnCast
@@ -94,7 +94,7 @@ Transform:
   m_Father: {fileID: 5841364602435301240}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5084697505178248084
+--- !u!114 &3159394608880559029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,11 +103,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5841364602729125710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0e986c1ededc946b789fff63af53b7, type: 3}
+  m_Script: {fileID: 11500000, guid: a9a07965e7599334a808f17ebff7cea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   laserHitPoint: {fileID: 5841364601772684826}
   invisible: {fileID: 3241238996482785686, guid: 3d584a7db25d0414aacb2e55d0674aa2, type: 3}
+  duration: 10
 --- !u!120 &1732877401835153810
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9333334, g: 0.25882354, b: 0.13725491, a: 1}
+      key0: {r: 0.2642587, g: 0.13725486, b: 0.93333334, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
