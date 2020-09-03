@@ -11,7 +11,7 @@ public class SpecialWeaponScript : MonoBehaviour
     private float cooldown;
     private float timeTillUse;
     private int dmgBase;
-    private int dmgType;
+    private string dmgType;
     private float activeTime;
     private float activeFor;
 
@@ -24,6 +24,13 @@ public class SpecialWeaponScript : MonoBehaviour
     private Stats stats;
 
 
+    public void setParams(int dmgBase, string dmgType, float cooldown)
+    {
+        this.dmgBase = dmgBase;
+        this.dmgType = dmgType;
+        this.cooldown = cooldown;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +42,8 @@ public class SpecialWeaponScript : MonoBehaviour
         if (equipedWeaponID == 0)
         {
             //beam weapon
-            dmgBase = 30;
-            cooldown = 1f;
+            //dmgBase = 30;
+            //cooldown = 1f;
             timeTillUse = 0f;
             lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.enabled = false;
@@ -78,7 +85,7 @@ public class SpecialWeaponScript : MonoBehaviour
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
-                    hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(dmgBase * stats.calculateFinalDmgModifier()), "beam");
+                    hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(dmgBase * stats.calculateFinalDmgModifier()), dmgType);
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, laserHitPoint.position);
                     lineRenderer.enabled = true;

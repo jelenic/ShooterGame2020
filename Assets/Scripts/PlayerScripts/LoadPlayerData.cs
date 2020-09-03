@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class LoadPlayerData : MonoBehaviour
 {
-    public Module module;
-    public Weapon weapon1;
-    public Weapon weapon2;
+    
 
     public List<Item> addToInventory = new List<Item>();
 
@@ -22,14 +22,23 @@ public class LoadPlayerData : MonoBehaviour
 
     void init()
     {
-        em.equip(module, EquipementSlot.Module);
-        em.equip(weapon1, EquipementSlot.Weapon1);
-        em.equip(weapon2, EquipementSlot.Weapon2);
-
-
         foreach(Item item in addToInventory)
         {
             inv.add(item);
         }
+
+
+        SaveData saveData = SaveManager.instance.loadFromFile();
+
+        Equipement[] eq = saveData.equipement.Select(e => Inventory.instance.itemToId[e] as Equipement).ToArray();
+
+        em.equip(eq[0], EquipementSlot.Weapon1);
+        em.equip(eq[1], EquipementSlot.Weapon2);
+        em.equip(eq[2], EquipementSlot.SpecialWeapon);
+        em.equip(eq[3], EquipementSlot.Module);
+
+
+
+
     }
 }

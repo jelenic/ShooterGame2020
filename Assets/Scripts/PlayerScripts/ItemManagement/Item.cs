@@ -12,7 +12,10 @@ public class Item : ScriptableObject
     public Color color = Color.white;
     public string codeName;
 
-
+    public string toJson()
+    {
+        return JsonUtility.ToJson(this);
+    }
     public void removeFromInventory()
     {
         Inventory.instance.remove(this);

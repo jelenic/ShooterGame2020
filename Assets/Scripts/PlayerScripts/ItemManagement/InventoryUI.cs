@@ -27,7 +27,7 @@ public class InventoryUI : MonoBehaviour
 
     public void loadItemCategory(EquipementSlot slot)
     {
-
+        Debug.Log("loading invneotry catgeroy " + slot.ToString());
         switch(slot)
         {
             case EquipementSlot.Weapon1:
@@ -36,6 +36,9 @@ public class InventoryUI : MonoBehaviour
                 break;
             case EquipementSlot.Module:
                 currentCategory = new Module();
+                break;
+            case EquipementSlot.SpecialWeapon:
+                currentCategory = new SpecialWeapon();
                 break;
             default:
                 currentCategory = new Equipement();

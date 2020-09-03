@@ -52,6 +52,7 @@ public class EquipementManager : MonoBehaviour
         equip(newEquip);
     }
 
+ 
     public void unequip()
     {
 

@@ -16,4 +16,15 @@ public class MainMenu : MonoBehaviour
         Debug.Log("EXITING");
         Application.Quit();
     }
+
+    public void Save()
+    {
+        SaveManager.instance.save();
+    }
+    
+    
+
+
+
+
 }

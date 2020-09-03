@@ -43,6 +43,11 @@ public class ItemDetailsController : MonoBehaviour
                 Module module = (Module)item;
                 stats = string.Format("Cooldown : {0}", module.cooldown);
                 break;
+            case "SpecialWeapon":
+                eq = (Equipement)item;
+                SpecialWeapon specialWeapon = (SpecialWeapon)item;
+                stats = string.Format("Base damage : {0}\nDamage type: {1}\nSpecial Effect : {2}\nCooldown : {3}", specialWeapon.damageBase, specialWeapon.damageType, specialWeapon.specialEffect, specialWeapon.cooldown);
+                break;
             default:
                 stats = "";
                 break;
