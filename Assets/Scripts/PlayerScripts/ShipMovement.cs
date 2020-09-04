@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour {
 
-    //public Joystick joystickrotate;
-    //public Joystick joystickspeed;
+    public Joystick joystickrotate;
+    public Joystick joystickspeed;
     private Rigidbody2D rb;
     private float thrust;
     private float maxVelocity;
@@ -34,18 +34,21 @@ public class ShipMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        /*
-        if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
+
+        if (Application.platform == RuntimePlatform.Android)
         {
-            float angle = Mathf.Atan2(joystickrotate.Horizontal, joystickrotate.Vertical) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+            if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
+            {
+                float angle = Mathf.Atan2(joystickrotate.Horizontal, joystickrotate.Vertical) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+            }
+            if (joystickspeed.Horizontal != 0 && joystickspeed.Vertical != 0)
+            {
+                float angleSpeed = Mathf.Atan2(joystickspeed.Horizontal, joystickspeed.Vertical) * Mathf.Rad2Deg;
+                Vector3 dir = Quaternion.Euler(0f, 0f, -angleSpeed) * Vector3.up;
+                rb.AddForce(dir * stats.thrust);
+            }
         }
-        if (joystickspeed.Horizontal !=0 && joystickspeed.Vertical != 0)
-        {
-            float angleSpeed = Mathf.Atan2(joystickspeed.Horizontal, joystickspeed.Vertical) * Mathf.Rad2Deg;
-            Vector3 dir = Quaternion.Euler(0f, 0f, -angleSpeed)*Vector3.up;
-            rb.AddForce(dir * thrust * Time.deltaTime);
-        }*/
 
         ClampVelocity();
 
