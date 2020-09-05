@@ -17,14 +17,4 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Save()
-    {
-        SaveManager.instance.save();
-    }
-    
-    
-
-
-
-
 }

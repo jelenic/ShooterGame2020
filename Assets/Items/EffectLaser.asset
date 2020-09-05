@@ -20,6 +20,6 @@ MonoBehaviour:
   color: {r: 0.8018868, g: 0.72763526, b: 0.011347434, a: 1}
   codeName: EffectLaser
   damageBase: 10
-  cooldown: 1
+  cooldown: 0.5
   damageType: beam
   specialEffect: affects everything

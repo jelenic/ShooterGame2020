@@ -26,6 +26,8 @@ public class Levels : MonoBehaviour
 
     public List<string> levels = new List<string>();
 
+    private string dataPath = "/lvl.data";
+
 
     private void Start()
     {
@@ -50,8 +52,21 @@ public class Levels : MonoBehaviour
         if (!scores.ContainsKey(currentlyPlayed) || newScore > scores[currentlyPlayed]) scores[currentlyPlayed] = newScore;
         foreach (string key in scores.Keys) Debug.LogFormat("level |{0}| score: {1}", key, scores[key]);
 
+        SaveManager.instance.saveToFile(new SaveData(scores), dataPath);
+
         return scores[currentlyPlayed];
 
+    }
+
+    public void loadScores()
+    {
+        SaveData saveData = SaveManager.instance.loadFromFile(dataPath);
+        Debug.Log("loading level data");
+        for(int i = 0; i < saveData.levelNames.Length; i++)
+        {
+            Debug.Log(saveData.levelNames[i] + " : " + saveData.levelScores[i]);
+            scores.Add(saveData.levelNames[i], saveData.levelScores[i]);
+        }
     }
 
     public void finishLevel()

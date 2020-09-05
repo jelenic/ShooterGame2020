@@ -9,7 +9,6 @@ public class CustomAI : MonoBehaviour
     Stats stats;
     //private float speed;
     private float nextWaypontDistance;
-    private float AngleSpeed;
     //public float range;
 
     Path path;
@@ -55,7 +54,6 @@ public class CustomAI : MonoBehaviour
 
 
         reachedEndOfPath = false;
-        AngleSpeed = 20;
         lineOfSight = false;
         timeTillRaycastSight = 0.2f;
         timeTillDodge = 3f;
@@ -142,7 +140,7 @@ public class CustomAI : MonoBehaviour
         Vector2 directionPlayer = target.position - transform.position;
         float angle = Mathf.Atan2(directionPlayer.y, directionPlayer.x) * Mathf.Rad2Deg - 90;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, AngleSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.angleSpeed * Time.deltaTime);
 
         
 

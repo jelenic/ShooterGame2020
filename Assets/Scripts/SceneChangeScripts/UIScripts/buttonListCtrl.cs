@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class buttonListCtrl : MonoBehaviour
 {
@@ -20,6 +23,14 @@ public class buttonListCtrl : MonoBehaviour
             button.GetComponent<buttonListBtn>().setText(level);
 
             button.transform.SetParent(buttonTemplate.transform.parent, false);
+
+            button.GetComponent<Button>().onClick.AddListener(() => loadLvl(level));
         }
+    }
+
+    public void loadLvl(string sceneName)
+    {
+        Debug.Log("loading " + sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -162,6 +162,7 @@ MonoBehaviour:
   scoreValue: 2
   damageModifier: 1
   speed: 550
+  angleSpeed: 20
   range: 14
   mass: 0.5
   rateOfFire: 0.5

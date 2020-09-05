@@ -4,26 +4,14 @@ using UnityEngine;
 
 public class EffectLaserScript : LaserScript
 {
-    public float duration;
-    private Stats affectedStats;
-    private float baseSpeed;
+    
     protected override void specialEffect(GameObject affected)
     {
         base.specialEffect(affected);
 
-        affectedStats = affected.GetComponent<Stats>();
-
-        baseSpeed = affectedStats.speed;
-
-        affectedStats.speed = 0f;
-
-        Invoke("returnToNormal", duration);
+        //affected.GetComponent<CombatVariables>().inflictStatus((StatusEffect)Random.Range(0, System.Enum.GetValues(typeof(StatusEffect)).Length));
+        affected.GetComponent<CombatVariables>().inflictStatus(StatusEffect.Speedup);
 
     }
 
-
-    void returnToNormal()
-    {
-        affectedStats.speed = baseSpeed;
-    }
 }

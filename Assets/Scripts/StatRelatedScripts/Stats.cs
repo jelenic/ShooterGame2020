@@ -9,6 +9,7 @@ public class Stats : MonoBehaviour
     public int scoreValue;
     public float damageModifier;
     public float speed;
+    public float angleSpeed;
     public float range;
     public float mass;
     public float rateOfFire;

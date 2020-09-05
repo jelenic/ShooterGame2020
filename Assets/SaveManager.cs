@@ -20,37 +20,19 @@ public class SaveManager : MonoBehaviour
     #endregion
 
 
-    public void save()
-    {
-        Debug.Log("SAVING");
-
-        Equipement[] eq = EquipementManager.instance.currentlyEquiped;
-
-        Debug.LogFormat("saving {0} equipement", eq.Length);
-
-        int[] equipementForSaving = new int[eq.Length];
-        for(int i = 0; i < eq.Length; i++)
-        {
-            equipementForSaving[i] = Inventory.instance.itemToId.IndexOf(eq[i]);
-        }
-
-        saveToFile(new SaveData(equipementForSaving));
-
-    }
-
-    private void saveToFile(SaveData saveData)
+    public void saveToFile(SaveData saveData, string location)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/save.data";
+        string path = Application.persistentDataPath + location;
         FileStream stream = new FileStream(path, FileMode.Create);
 
         formatter.Serialize(stream, saveData);
         stream.Close();
     }
 
-    public SaveData loadFromFile()
+    public SaveData loadFromFile(string location)
     {
-        string path = Application.persistentDataPath + "/save.data";
+        string path = Application.persistentDataPath + location;
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -67,5 +49,7 @@ public class SaveManager : MonoBehaviour
             return null;
         }
     }
+
+  
 
 }

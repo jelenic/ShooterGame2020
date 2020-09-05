@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Reflection;
+
+
 
 public class CombatVariables : MonoBehaviour
 {
     private Stats stats;
+    private Stats originalStats;
 
     public int hp;
 
@@ -22,6 +26,7 @@ public class CombatVariables : MonoBehaviour
 
     public bool involunrable;
 
+    public List<StatusEffect> currentlyAfflicted = new List<StatusEffect>();
 
     public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
     {
@@ -65,6 +70,10 @@ public class CombatVariables : MonoBehaviour
         floatingNumberText = Resources.Load("FloatingNumberText") as GameObject;
         transform = GetComponent<Transform>();
         stats = GetComponent<Stats>();
+        originalStats = stats;
+        Debug.Log("statsi " + JsonUtility.ToJson(stats));
+        //originalStats = JsonUtility.FromJson<Stats>(JsonUtility.ToJson(stats));
+
         hp = stats.hp;
         //Debug.LogFormat("total hp: {0}", stats.hp);
         resistances = new Dictionary<string, float>();
@@ -76,10 +85,65 @@ public class CombatVariables : MonoBehaviour
         involunrable = false;
     }
 
+
+    IEnumerator stopStatus(StatusEffect status, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        currentlyAfflicted.Remove(status);
+        activateDeactivateStatus(status, false, 0f);
+    }
+
+    private void activateDeactivateStatus(StatusEffect status, bool activate, float value)
+    {
+        switch(status){
+            case StatusEffect.Stun:
+                stats.speed = activate ? 0 : originalStats.speed;
+                stats.angleSpeed = activate ? 0 : originalStats.angleSpeed;
+                stats.rateOfFire = activate ? value : originalStats.rateOfFire;
+                break;
+            case StatusEffect.Slowdown:
+                stats.speed = activate ? originalStats.speed / 2 : originalStats.speed;
+                stats.angleSpeed = activate ? originalStats.angleSpeed / 2 : originalStats.angleSpeed;
+                stats.rateOfFire = activate ? originalStats.rateOfFire * 2 : originalStats.rateOfFire;
+                break;
+            case StatusEffect.Speedup:
+                stats.speed = activate ? originalStats.speed * 2 : originalStats.speed;
+                stats.angleSpeed = activate ? originalStats.angleSpeed * 2 : originalStats.angleSpeed;
+                stats.rateOfFire = activate ? originalStats.rateOfFire / 2 : originalStats.rateOfFire;
+                break;
+            case StatusEffect.DamageDecrease:
+                stats.speed = activate ? originalStats.damageModifier / 2 : originalStats.damageModifier;
+                break;
+            case StatusEffect.DamageIncrease:
+                stats.speed = activate ? originalStats.damageModifier * 2 : originalStats.damageModifier;
+                break;
+        }
+    }
+    public void inflictStatus(StatusEffect status, float duration = 20f)
+    {
+        Debug.Log(gameObject.name + " getting inflicted by " + status.ToString());
+        Debug.Log(originalStats.speed);
+        Debug.Log(stats.speed);
+        if (!currentlyAfflicted.Contains(status))
+        {
+            currentlyAfflicted.Add(status);
+            StartCoroutine(stopStatus(status, duration));
+            activateDeactivateStatus(status, true, duration);
+        }
+    }
+
     private void OnDestroy()
     {
         levelManager.increaseScore(stats.scoreValue);
     }
+}
 
 
+public enum StatusEffect
+{
+    Stun,
+    Slowdown,
+    Speedup,
+    DamageDecrease,
+    DamageIncrease,
 }

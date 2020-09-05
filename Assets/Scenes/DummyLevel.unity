@@ -1934,11 +1934,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1409383998877146085, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95.6
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 1409383998877146085, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 1409383998877146085, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1979,6 +1979,10 @@ PrefabInstance:
     - target: {fileID: 1409383998877146089, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
       propertyPath: m_Name
       value: BasicEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653472290370106324, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
+      propertyPath: hp
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
@@ -3144,6 +3148,10 @@ PrefabInstance:
     - target: {fileID: 3249265328867893741, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: rateOfFire
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249265328867893741, guid: 93c3620488524c5448de57cb090d9554, type: 3}
+      propertyPath: hp
+      value: 15000
       objectReference: {fileID: 0}
     - target: {fileID: 3249265328867893755, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: m_Name
@@ -5554,7 +5562,7 @@ PrefabInstance:
       objectReference: {fileID: 856487889}
     - target: {fileID: 7488769117669302302, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
       propertyPath: levelScore
-      value: 
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7488769117669302302, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
       propertyPath: score

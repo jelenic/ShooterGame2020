@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
 
     public int currentScore;
     public string levelName;
+    public int levelScore;
     public bool levelOver = false;
 
     public void Restart()
@@ -58,6 +59,8 @@ public class LevelManager : MonoBehaviour
 
     public void finishLevel()
     {
+        increaseScore(levelScore);
+
         levelOver = true;
 
         Debug.Log("level is finished");
@@ -71,11 +74,4 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        if (currentScore > 100)
-        {
-            Debug.LogFormat("CURRENT SCORE: {0} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", currentScore);
-        }
-    }
 }

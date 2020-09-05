@@ -27,21 +27,10 @@ public class LoadPlayerData : MonoBehaviour
             inv.add(item);
         }
 
+        em.loadEquipement();
 
-        SaveData saveData = SaveManager.instance.loadFromFile();
-
-        Debug.Log("loadedddd");
-        foreach (int i in saveData.equipement) Debug.Log(i);
-
-        Equipement[] eq = saveData.equipement.Select(e => Inventory.instance.itemToId[e] as Equipement).ToArray();
-
-        em.equip(eq[0], EquipementSlot.Weapon1);
-        em.equip(eq[1], EquipementSlot.Weapon2);
-        em.equip(eq[2], EquipementSlot.SpecialWeapon);
-        em.equip(eq[3], EquipementSlot.Module);
-
-
-
+        Levels.instance.loadScores();
 
     }
+
 }

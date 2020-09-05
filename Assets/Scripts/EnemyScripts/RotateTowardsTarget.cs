@@ -40,7 +40,6 @@ public class RotateTowardsTarget : MonoBehaviour
             {
                 FiredProjectile fp = Instantiate(bullet, transform.position + transform.up * 1.5f, transform.rotation).GetComponent<FiredProjectile>();
                 fp.damageModifier = stats.calculateFinalDmgModifier();
-                Debug.Log("vel modddd " + stats.projectileVelocityModifier);
 
                 fp.velocityModifier = stats.projectileVelocityModifier;
                 fireWait = stats.rateOfFire;

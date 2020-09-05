@@ -5554,7 +5554,7 @@ PrefabInstance:
       objectReference: {fileID: 856487889}
     - target: {fileID: 7488769117669302302, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
       propertyPath: levelScore
-      value: 
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7488769117669302302, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
       propertyPath: score
