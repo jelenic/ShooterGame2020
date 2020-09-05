@@ -10,7 +10,8 @@ using System.Reflection;
 public class CombatVariables : MonoBehaviour
 {
     private Stats stats;
-    private Stats originalStats;
+
+    OriginalStats originalStats;
 
     public int hp;
 
@@ -36,6 +37,8 @@ public class CombatVariables : MonoBehaviour
         tm.text = text;
         tm.color = color;
     }
+
+    
 
 
     public int DecreaseHP(int amount, string dmgType = "default")
@@ -70,9 +73,8 @@ public class CombatVariables : MonoBehaviour
         floatingNumberText = Resources.Load("FloatingNumberText") as GameObject;
         transform = GetComponent<Transform>();
         stats = GetComponent<Stats>();
-        originalStats = stats;
-        Debug.Log("statsi " + JsonUtility.ToJson(stats));
-        //originalStats = JsonUtility.FromJson<Stats>(JsonUtility.ToJson(stats));
+
+        originalStats = new OriginalStats(stats.speed, stats.angleSpeed, stats.rateOfFire, stats.turretRotationSpeed, stats.damageModifier, stats.projectileVelocityModifier);
 
         hp = stats.hp;
         //Debug.LogFormat("total hp: {0}", stats.hp);
@@ -112,10 +114,10 @@ public class CombatVariables : MonoBehaviour
                 stats.rateOfFire = activate ? originalStats.rateOfFire / 2 : originalStats.rateOfFire;
                 break;
             case StatusEffect.DamageDecrease:
-                stats.speed = activate ? originalStats.damageModifier / 2 : originalStats.damageModifier;
+                stats.damageModifier = activate ? originalStats.damageModifier / 2 : originalStats.damageModifier;
                 break;
             case StatusEffect.DamageIncrease:
-                stats.speed = activate ? originalStats.damageModifier * 2 : originalStats.damageModifier;
+                stats.damageModifier = activate ? originalStats.damageModifier * 2 : originalStats.damageModifier;
                 break;
         }
     }
@@ -135,6 +137,15 @@ public class CombatVariables : MonoBehaviour
     private void OnDestroy()
     {
         levelManager.increaseScore(stats.scoreValue);
+    }
+
+    public struct OriginalStats
+    {
+        public float speed; public float angleSpeed; public float rateOfFire; public float turretRotationSpeed; public float damageModifier; public float projectileVelocityModifier;
+        public OriginalStats(float speed, float angleSpeed, float rateOfFire, float turretRotationSpeed, float damageModifier, float projectileVelocityModifier)
+        {
+            this.speed = speed; this.angleSpeed = angleSpeed; this.rateOfFire = rateOfFire; this.turretRotationSpeed = turretRotationSpeed; this.damageModifier = damageModifier; this.projectileVelocityModifier = projectileVelocityModifier;
+        }
     }
 }
 

@@ -9,8 +9,8 @@ public class EffectLaserScript : LaserScript
     {
         base.specialEffect(affected);
 
-        //affected.GetComponent<CombatVariables>().inflictStatus((StatusEffect)Random.Range(0, System.Enum.GetValues(typeof(StatusEffect)).Length));
-        affected.GetComponent<CombatVariables>().inflictStatus(StatusEffect.Speedup);
+        affected.GetComponent<CombatVariables>().inflictStatus((StatusEffect)Random.Range(0, System.Enum.GetValues(typeof(StatusEffect)).Length));
+        //affected.GetComponent<CombatVariables>().inflictStatus(StatusEffect.Speedup);
 
     }
 
