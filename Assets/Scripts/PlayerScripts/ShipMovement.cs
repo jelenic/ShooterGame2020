@@ -14,7 +14,7 @@ public class ShipMovement : MonoBehaviour {
     //public Transform firepoint;
     //public GameObject Bullets;
 
-    private GameObject YouDiedMenu;
+    //private GameObject YouDiedMenu;
     private GameObject MobileControlMenu;
 
 
@@ -30,9 +30,9 @@ public class ShipMovement : MonoBehaviour {
         thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
         maxVelocity = 50;
-        YouDiedMenu = GameObject.Find("YouDiedMenu");
+        //YouDiedMenu = GameObject.Find("YouDiedMenu");
         MobileControlMenu = GameObject.Find("MobileControlls");
-        YouDiedMenu.SetActive(false);
+        //YouDiedMenu.SetActive(false);
         if (Application.platform != RuntimePlatform.Android && true)
         {
             MobileControlMenu.SetActive(false);
@@ -120,7 +120,7 @@ public class ShipMovement : MonoBehaviour {
 
     private void OnDestroy()
     {
-        YouDiedMenu.SetActive(true);
+        //YouDiedMenu.SetActive(true);
     }
 
 
