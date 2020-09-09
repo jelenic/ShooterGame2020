@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour {
 
-    public Joystick joystickrotate;
-    public Joystick joystickspeed;
+    private Joystick joystickrotate;
+    private Joystick joystickspeed;
     private Rigidbody2D rb;
     private float thrust;
     private float maxVelocity;
@@ -14,7 +14,8 @@ public class ShipMovement : MonoBehaviour {
     //public Transform firepoint;
     //public GameObject Bullets;
 
-    public GameObject YouDiedMenu;
+    private GameObject YouDiedMenu;
+    private GameObject MobileControlMenu;
 
 
 
@@ -29,13 +30,30 @@ public class ShipMovement : MonoBehaviour {
         thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
         maxVelocity = 50;
-        //YouDiedMenu = GameObject.Find("YouDiedMenu");
+        YouDiedMenu = GameObject.Find("YouDiedMenu");
+        MobileControlMenu = GameObject.Find("MobileControlls");
+        YouDiedMenu.SetActive(false);
+        if (Application.platform != RuntimePlatform.Android && true)
+        {
+            MobileControlMenu.SetActive(false);
+        }
+        else
+        {
+            //Debug.Log(joystickrotate);
+            GameObject joystickSpeed = GameObject.Find("JoystickMovement");
+            GameObject joystickRotate = GameObject.Find("JoystickRotation");
+            //Debug.Log(joystickRotate);
+            joystickrotate = joystickRotate.GetComponent<Joystick>();
+            joystickspeed = joystickSpeed.GetComponent<Joystick>();
+            //Debug.Log(joystickrotate);
+        }
+        //Debug.Log(MobileControlMenu.ToString());
     }
 
     // Update is called once per frame
     void Update() {
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (Application.platform == RuntimePlatform.Android || false)
         {
             if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
             {
@@ -53,7 +71,7 @@ public class ShipMovement : MonoBehaviour {
         ClampVelocity();
 
 
-        if (Application.platform != RuntimePlatform.Android)
+        if (Application.platform != RuntimePlatform.Android && true)
         {
             if (Input.GetKey("w"))
             {
