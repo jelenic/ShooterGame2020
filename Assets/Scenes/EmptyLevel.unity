@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ea2fe928519484082ef9804f0d02cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1979443620}
   scaleTime: 0
   maxSize: 0
   minSize: 0
@@ -1164,6 +1164,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1979443620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249265328867893755, guid: 93c3620488524c5448de57cb090d9554, type: 3}
+  m_PrefabInstance: {fileID: 1757828337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &174503667840201205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1265,7 +1270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 174503668279360393, guid: c635520d572c6d04d959d7b39eff40bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c635520d572c6d04d959d7b39eff40bd, type: 3}
