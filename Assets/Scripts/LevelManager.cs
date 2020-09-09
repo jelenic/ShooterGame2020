@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public GameObject finishMenu;
+    public GameObject youDiedMenu;
     public GameObject scoreObject;
     private TextMeshProUGUI score;
     private Levels levels;
