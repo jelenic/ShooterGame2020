@@ -11,10 +11,8 @@ public class ShipMovement : MonoBehaviour {
     private float thrust;
     private float maxVelocity;
     private Stats stats;
-    //public Transform firepoint;
-    //public GameObject Bullets;
 
-    //private GameObject YouDiedMenu;
+    public bool android;
     private GameObject MobileControlMenu;
 
 
@@ -30,10 +28,8 @@ public class ShipMovement : MonoBehaviour {
         thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
         maxVelocity = 50;
-        //YouDiedMenu = GameObject.Find("YouDiedMenu");
         MobileControlMenu = GameObject.Find("MobileControlls");
-        //YouDiedMenu.SetActive(false);
-        if (Application.platform != RuntimePlatform.Android && true)
+        if (Application.platform != RuntimePlatform.Android && !android)
         {
             MobileControlMenu.SetActive(false);
         }
@@ -53,7 +49,7 @@ public class ShipMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (Application.platform == RuntimePlatform.Android || false)
+        if (Application.platform == RuntimePlatform.Android || android)
         {
             if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
             {
@@ -62,8 +58,9 @@ public class ShipMovement : MonoBehaviour {
             }
             if (joystickspeed.Horizontal != 0 && joystickspeed.Vertical != 0)
             {
+                Vector3 movement = new Vector3(joystickspeed.Horizontal, joystickspeed.Vertical, 0f);
                 float angleSpeed = Mathf.Atan2(joystickspeed.Horizontal, joystickspeed.Vertical) * Mathf.Rad2Deg;
-                Vector3 dir = Quaternion.Euler(0f, 0f, -angleSpeed) * Vector3.up;
+                Vector3 dir = Quaternion.Euler(0f, 0f, -angleSpeed) * Vector3.up * movement.magnitude;
                 rb.AddForce(dir * stats.thrust);
             }
         }
@@ -71,7 +68,7 @@ public class ShipMovement : MonoBehaviour {
         ClampVelocity();
 
 
-        if (Application.platform != RuntimePlatform.Android && true)
+        if (Application.platform != RuntimePlatform.Android && !android)
         {
             if (Input.GetKey("w"))
             {
@@ -118,10 +115,6 @@ public class ShipMovement : MonoBehaviour {
         //Debug.Log(y.ToString());
     }
 
-    private void OnDestroy()
-    {
-        //YouDiedMenu.SetActive(true);
-    }
 
 
 }

@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1552279127620290642}
   - component: {fileID: 3249265328867893741}
   - component: {fileID: 2537693317517817283}
+  - component: {fileID: 8757528778963825885}
   m_Layer: 0
   m_Name: ship_real
   m_TagString: Player
@@ -87,6 +88,7 @@ MonoBehaviour:
   weapon1: {fileID: 0}
   weapon2: {fileID: 0}
   module: {fileID: 0}
+  specialWeapon: {fileID: 0}
 --- !u!212 &3249265328867893731
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -150,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda282be0e4c1ce469e7d8e366f6ef46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  YouDiedMenu: {fileID: 0}
 --- !u!50 &3249265328867893734
 Rigidbody2D:
   serializedVersion: 4
@@ -283,6 +284,7 @@ MonoBehaviour:
   hpBar: {fileID: 0}
   floatingNumberText: {fileID: 0}
   involunrable: 0
+  currentlyAfflicted: 
 --- !u!114 &3249265328867893741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +302,7 @@ MonoBehaviour:
   scoreValue: 0
   damageModifier: 0.7
   speed: 2000
+  angleSpeed: 0
   range: 0
   mass: 1
   rateOfFire: -0.3
@@ -325,3 +328,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cdbar: {fileID: 0}
+--- !u!114 &8757528778963825885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249265328867893755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5453f87f9dfb62d4599e88e150d15979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

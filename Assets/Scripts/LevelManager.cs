@@ -74,5 +74,14 @@ public class LevelManager : MonoBehaviour
         ct.displayhighscore(highscore);
 
     }
+    
+    public void die()
+    {
+        levelOver = true;
+        Debug.Log("level is ded");
+        youDiedMenu.SetActive(true);
+        Time.timeScale = 0;
+
+    }
 
 }
