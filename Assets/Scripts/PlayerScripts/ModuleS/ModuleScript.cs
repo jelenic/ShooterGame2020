@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class ModuleScript : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public abstract class ModuleScript : MonoBehaviour
     private enum type{WithSprite, WithParticles, NoEffect};
     [SerializeField] protected float coooldown;
     [SerializeField] protected float duration;
+
+    //this part is for btns
+    protected Button moduleBtn;
+    private bool clicked;
 
     // Start is called before the first frame update
     protected float remainingCooldown;
@@ -33,7 +38,14 @@ public abstract class ModuleScript : MonoBehaviour
     {
         remainingCooldown = coooldown;
         active = false;
+        clicked = false;
         ship = GameObject.FindGameObjectWithTag("Player");
+        if (Application.platform == RuntimePlatform.Android || true)
+        {
+            GameObject moduleBtnn = GameObject.Find("ModuleBtn");
+            moduleBtn = moduleBtnn.GetComponent<Button>();
+            moduleBtn.onClick.AddListener(useModule);
+        }
         initialize();
 
     }
@@ -46,23 +58,34 @@ public abstract class ModuleScript : MonoBehaviour
 
         remainingCooldown = Math.Max(0f, remainingCooldown - Time.deltaTime);
         remainingTime -= Time.deltaTime;
-        if (remainingCooldown <= 0 && Input.GetMouseButtonDown(1))
+        if (remainingCooldown <= 0 && (Input.GetMouseButtonDown(1) || clicked))
         {
             remainingCooldown = coooldown + duration;
             remainingTime = duration;
             activeAction();
             active = true;
+            clicked = false;
+            //moduleBtn.onClick.RemoveListener(useModule);
 
         }
         if (remainingTime <= 0 && active)
         {
             inactiveAction();
             active = false;
+            //moduleBtn.onClick.AddListener(useModule);
         }
 
         if (OnCooldownChangedCallback != null)
         {
             OnCooldownChangedCallback.Invoke((coooldown - remainingCooldown) / coooldown);
+        }
+    }
+
+    public void useModule()
+    {
+        if (!active && remainingCooldown<=0)
+        {
+            clicked = true;
         }
     }
 

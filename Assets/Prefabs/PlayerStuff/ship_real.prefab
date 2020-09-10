@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda282be0e4c1ce469e7d8e366f6ef46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  android: 1
 --- !u!50 &3249265328867893734
 Rigidbody2D:
   serializedVersion: 4

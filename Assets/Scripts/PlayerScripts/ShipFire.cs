@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipFire : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class ShipFire : MonoBehaviour
     public GameObject w2;
     public Weapon w1_stats;
     public Weapon w2_stats;
+
+    private Button toggleBtn;
+    private Button switchBtn;
+
 
 
     public void setWeapons(GameObject weapon1, Weapon weapon_stats1, GameObject weapon2, Weapon weapon_stats2)
@@ -40,7 +45,19 @@ public class ShipFire : MonoBehaviour
         activeWeapon = 1;
         //w1 = Bullets;
         //w2 = MiniLaser;
-        
+
+        if (Application.platform == RuntimePlatform.Android || true)
+        {
+            GameObject toggleBtnn = GameObject.Find("ToggleAttackBtn");
+            toggleBtn = toggleBtnn.GetComponent<Button>();
+            toggleBtn.onClick.AddListener(ToggleFire);
+
+
+            GameObject switchBtnn = GameObject.Find("SwitchWeaponBtn");
+            switchBtn = switchBtnn.GetComponent<Button>();
+            switchBtn.onClick.AddListener(SwitchWeapons);
+        }
+
     }
 
     // Update is called once per frame
@@ -92,6 +109,30 @@ public class ShipFire : MonoBehaviour
             //Instantiate(w2, firepoint.position, firepoint.rotation).GetComponent<PlayerFiredBullet>().damageModifier = stats.calculateFinalDmgModifier();
             w2.GetComponent<WeaponFire>().Shoot();
 
+        }
+    }
+
+    private void SwitchWeapons()
+    {
+        if (activeWeapon == 1)
+        {
+            activeWeapon = 2;
+        }
+        else
+        {
+            activeWeapon = 1;
+        }
+    }
+
+    private void ToggleFire()
+    {
+        if (autofire)
+        {
+            autofire = false;
+        }
+        else
+        {
+            autofire = true;
         }
     }
 
