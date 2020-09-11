@@ -1934,11 +1934,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1409383998877146085, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 1409383998877146085, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8
+      value: 16.13
       objectReference: {fileID: 0}
     - target: {fileID: 1409383998877146085, guid: 9a30b33d44b666048bc868e3f2469564, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2252,11 +2252,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9112674167665135728, guid: cbc31b9cfc1b09843aade12bf1cb6713, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.554682
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 9112674167665135728, guid: cbc31b9cfc1b09843aade12bf1cb6713, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 84.38672
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 9112674167665135728, guid: cbc31b9cfc1b09843aade12bf1cb6713, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3281,7 +3281,7 @@ PrefabInstance:
       objectReference: {fileID: 703092096}
     - target: {fileID: 3249265328867893728, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: android
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3249265328867893730, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: m_LocalPosition.x

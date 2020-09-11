@@ -19,6 +19,8 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     private bool clicked;
     protected bool active;
 
+    public bool android;
+
 
     public void setParams(int dmgBase, string dmgType, float cooldown)
     {
@@ -37,7 +39,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         clicked = false;
         active = false;
 
-        if (Application.platform == RuntimePlatform.Android || true)
+        if (Application.platform == RuntimePlatform.Android || android)
         {
             GameObject specialWBtnn = GameObject.Find("SpecialAttackBtn");
             specialWBtn = specialWBtnn.GetComponent<Button>();
@@ -68,7 +70,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         updateStart();
 
 
-        if (/*Input.GetMouseButtonDown(0)*/ clicked)
+        if (Input.GetMouseButtonDown(0) || clicked)
         {
             clicked = false;
             active = true;

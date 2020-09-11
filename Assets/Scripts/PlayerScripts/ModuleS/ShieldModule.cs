@@ -15,13 +15,13 @@ public class ShieldModule : ModuleScript
     protected override void activeAction()
     {
         base.activeAction();
-        ship.GetComponent<CombatVariables>().involunrable = true;
+        ship.GetComponent<CombatVariables>().immune = true;
         shield.SetActive(true);
     }
     
     protected override void inactiveAction()
     {
-        ship.GetComponent<CombatVariables>().involunrable = false;
+        ship.GetComponent<CombatVariables>().immune = false;
         shield.SetActive(false);
     }
 }

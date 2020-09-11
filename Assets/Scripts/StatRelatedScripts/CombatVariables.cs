@@ -9,9 +9,9 @@ using System.Reflection;
 
 public class CombatVariables : MonoBehaviour
 {
-    private Stats stats;
+    protected Stats stats;
 
-    OriginalStats originalStats;
+    public OriginalStats originalStats;
 
     public int hp;
 
@@ -25,9 +25,12 @@ public class CombatVariables : MonoBehaviour
 
     private LevelManager levelManager;
 
-    public bool involunrable;
+    public bool immune;
 
     public List<StatusEffect> currentlyAfflicted = new List<StatusEffect>();
+
+    public delegate void onHpChanged(int amount);
+    public onHpChanged onHpChangedCallback;
 
     public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
     {
@@ -43,7 +46,7 @@ public class CombatVariables : MonoBehaviour
 
     public int DecreaseHP(int amount, string dmgType = "default")
     {
-        if (involunrable)
+        if (immune)
         {
             Debug.Log("involunrable");
             return hp;
@@ -54,9 +57,15 @@ public class CombatVariables : MonoBehaviour
             //Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
             hp = Math.Max(0, hp - receivedDmg);
             createFloatingNumberText(transform.position, Color.red, receivedDmg.ToString());
-            if (hp == 0) Destroy(gameObject);
+            if (hp == 0)
+            {
+                Destroy(gameObject);
+                return 0;
+            }
             hpBar.enabled = true;
             hpBar.fillAmount = (float)hp / stats.hp;
+
+            if (onHpChangedCallback != null) onHpChangedCallback.Invoke(receivedDmg * (-1));
             return hp;
         }
     }
@@ -66,6 +75,8 @@ public class CombatVariables : MonoBehaviour
         hp = Math.Min(stats.hp, hp + amount);
         //Debug.LogFormat("object {0} hp increased by {1}, current hp: {2}", gameObject.tag, amount, hp);
         hpBar.fillAmount = (float)hp / stats.hp;
+        if (onHpChangedCallback != null) onHpChangedCallback.Invoke(amount);
+
         return hp;
     }
     void Start()
@@ -74,7 +85,7 @@ public class CombatVariables : MonoBehaviour
         transform = GetComponent<Transform>();
         stats = GetComponent<Stats>();
 
-        originalStats = new OriginalStats(stats.speed, stats.angleSpeed, stats.rateOfFire, stats.turretRotationSpeed, stats.damageModifier, stats.projectileVelocityModifier);
+        originalStats = new OriginalStats(stats.speed, stats.angleSpeed, stats.rateOfFire, stats.turretRotationSpeed, stats.damageModifier, stats.projectileVelocityModifier, stats.hp);
 
         hp = stats.hp;
         //Debug.LogFormat("total hp: {0}", stats.hp);
@@ -84,7 +95,7 @@ public class CombatVariables : MonoBehaviour
         resistances.Add("physical", stats.physicalResistance);
         resistances.Add("default", 0f);
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        involunrable = false;
+        immune = false;
     }
 
 
@@ -141,10 +152,10 @@ public class CombatVariables : MonoBehaviour
 
     public struct OriginalStats
     {
-        public float speed; public float angleSpeed; public float rateOfFire; public float turretRotationSpeed; public float damageModifier; public float projectileVelocityModifier;
-        public OriginalStats(float speed, float angleSpeed, float rateOfFire, float turretRotationSpeed, float damageModifier, float projectileVelocityModifier)
+        public float speed; public float angleSpeed; public float rateOfFire; public float turretRotationSpeed; public float damageModifier; public float projectileVelocityModifier; public int hp;
+        public OriginalStats(float speed, float angleSpeed, float rateOfFire, float turretRotationSpeed, float damageModifier, float projectileVelocityModifier, int hp)
         {
-            this.speed = speed; this.angleSpeed = angleSpeed; this.rateOfFire = rateOfFire; this.turretRotationSpeed = turretRotationSpeed; this.damageModifier = damageModifier; this.projectileVelocityModifier = projectileVelocityModifier;
+            this.speed = speed; this.angleSpeed = angleSpeed; this.rateOfFire = rateOfFire; this.turretRotationSpeed = turretRotationSpeed; this.damageModifier = damageModifier; this.projectileVelocityModifier = projectileVelocityModifier; this.hp = hp;
         }
     }
 }
