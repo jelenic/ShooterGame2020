@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 411be7fe013848345bc26641b5f2e34d, type: 3}
-  m_Color: {r: 0.5763203, g: 0.1517444, b: 0.5849056, a: 1}
+  m_Color: {r: 0.7924528, g: 0.15571539, b: 0.13082945, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,9 +108,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5856770492584337886}
-  - component: {fileID: 5189853341678870548}
+  - component: {fileID: 1995888625417090149}
   m_Layer: 0
-  m_Name: EnemyImmunityShield
+  m_Name: EnemyHPShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5189853341678870548
+--- !u!114 &1995888625417090149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,11 +140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9112586342929993802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6ef4bf1bb08c5b409d9709408b45bc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ca6259eadc66d746be3f5a1614c80ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 7
+  cooldown: 5
   remainingCooldown: 0
   active: 0
-  duration: 3
+  duration: 100
   remainingTime: 0
+  dmgStack: 0
+  dmgThreshold: 25

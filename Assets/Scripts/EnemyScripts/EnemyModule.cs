@@ -8,6 +8,7 @@ public abstract class EnemyModule : MonoBehaviour
     public float cooldown;
     public float remainingCooldown;
     public bool active;
+    public bool cooldownActive;
 
 
     protected virtual void initialize() { }
@@ -27,8 +28,12 @@ public abstract class EnemyModule : MonoBehaviour
     {
         updateStart();
 
-        if (active) remainingCooldown = Math.Max(0f, remainingCooldown - Time.deltaTime);
-        if (remainingCooldown.Equals(0f)) active = false;
+        if (cooldownActive)
+        {
+            remainingCooldown = Math.Max(0f, remainingCooldown - Time.deltaTime);
+            if (remainingCooldown.Equals(0f)) cooldownActive = false;
+        }
+
         updateEnd();
     }
 

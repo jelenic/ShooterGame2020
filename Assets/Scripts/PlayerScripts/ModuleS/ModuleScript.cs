@@ -27,6 +27,7 @@ public abstract class ModuleScript : MonoBehaviour
     protected virtual void initialize() { }
     protected virtual void activeAction() { }
     protected virtual void inactiveAction() { }
+    protected virtual void updateAction() { }
 
     public void setParams(float cooldown, float duration)
     {
@@ -55,7 +56,7 @@ public abstract class ModuleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        updateAction();
         remainingCooldown = Math.Max(0f, remainingCooldown - Time.deltaTime);
         remainingTime -= Time.deltaTime;
         if (remainingCooldown <= 0 && (Input.GetMouseButtonDown(1) || clicked))

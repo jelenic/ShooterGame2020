@@ -15,6 +15,7 @@ public class FiredHoming : FiredProjectile
         passThrough.Add("Enemy");
         passThrough.Add("Spawner");
         passThrough.Add("Projectile");
+        passThrough.Add("EnemyShield");
 
         damageable.Add("Player");
     }

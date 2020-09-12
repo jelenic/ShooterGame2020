@@ -21,6 +21,8 @@ public class FiredKinematic : FiredProjectile
         passThrough.Add("Spawner");
         passThrough.Add("Shield");
         passThrough.Add("Projectile");
+        passThrough.Add("EnemyShield");
+
 
         damageable.Add("Player");
         deflected = false;

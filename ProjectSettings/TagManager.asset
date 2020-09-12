@@ -13,6 +13,7 @@ TagManager:
   - Item
   - GameManager
   - Shield
+  - EnemyShield
   layers:
   - Default
   - TransparentFX

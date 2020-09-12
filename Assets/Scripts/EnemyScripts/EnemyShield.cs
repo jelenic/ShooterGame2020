@@ -9,7 +9,7 @@ public abstract class EnemyShield : EnemyModule
     protected CombatVariables cv;
 
     protected GameObject shield;
-
+    protected SpriteRenderer shield_sprite;
 
 
     protected override void initialize()
@@ -18,6 +18,7 @@ public abstract class EnemyShield : EnemyModule
         cv = GetComponentInParent<CombatVariables>();
         cv.onHpChangedCallback += damageFilter;
         shield = gameObject.transform.Find("Shield").gameObject;
+        shield_sprite = shield.GetComponent<SpriteRenderer>();
         remainingTime = duration;
     }
 
@@ -38,29 +39,15 @@ public abstract class EnemyShield : EnemyModule
         cv.onHpChangedCallback -= damageFilter;
     }
 
-    protected override void activateModule()
+
+    protected override void updateEnd()
     {
-        base.activateModule();
-        remainingCooldown += duration;
-        remainingTime = duration;
-        //Debug.Log("shield activated remaining time = " + remainingTime);
-        activateShield();
-    }
-
-
-
-
-    protected override void updateStart()
-    {
-        base.updateStart();
+        base.updateEnd();
         if (active)
         {
-            remainingTime = Mathf.Max(0, remainingTime - Time.deltaTime);
-            //Debug.Log("remaining time decreased to " + remainingTime);
-        }
-        if (active && remainingTime.Equals(0f))
-        { 
-            deactivateShield();
+            Color c = shield_sprite.color;
+            c.a = remainingTime / duration + 0.1f;
+            shield_sprite.color = c;
         }
     }
 

@@ -17,6 +17,12 @@ public class EnemyImmunityShield : EnemyShield
         }
     }
 
+    protected override void activateModule()
+    {
+        base.activateModule();
+        remainingTime = duration;
+        activateShield();
+    }
 
     protected override void activateShield()
     {
@@ -32,8 +38,23 @@ public class EnemyImmunityShield : EnemyShield
         shield.SetActive(false);
         cv.immune = false;
         Debug.Log("enemy mune");
+        cooldownActive = true;
+        active = false;
 
 
+    }
+
+    protected override void updateStart()
+    {
+        base.updateStart();
+        if (active)
+        {
+            remainingTime = Mathf.Max(0, remainingTime - Time.deltaTime);
+            if (remainingTime.Equals(0f))
+            {
+                deactivateShield();
+            }
+        }
     }
 
 
