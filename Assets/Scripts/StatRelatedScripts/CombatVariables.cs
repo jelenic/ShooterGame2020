@@ -7,7 +7,7 @@ using System.Reflection;
 
 
 
-public class CombatVariables : MonoBehaviour
+public class CombatVariables : MonoBehaviour, Damageable
 {
     protected Stats stats;
 
@@ -70,7 +70,7 @@ public class CombatVariables : MonoBehaviour
         }
     }
 
-    public int InreaseHP(int amount)
+    public int IncreaseHP(int amount)
     {
         hp = Math.Min(stats.hp, hp + amount);
         //Debug.LogFormat("object {0} hp increased by {1}, current hp: {2}", gameObject.tag, amount, hp);

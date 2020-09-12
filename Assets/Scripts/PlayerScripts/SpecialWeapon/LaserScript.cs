@@ -60,7 +60,7 @@ public class LaserScript : SpecialWeaponScript
             }
             else if (hit.collider.tag == "Enemy")
             {
-                hit.collider.gameObject.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(dmgBase * stats.calculateFinalDmgModifier()), dmgType);
+                hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * stats.calculateFinalDmgModifier()), dmgType);
                 specialEffect(hit.collider.gameObject);
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, laserHitPoint.position);
@@ -68,7 +68,7 @@ public class LaserScript : SpecialWeaponScript
                 activeFor = activeTime;
                 break;
             }
-            else if (hit.collider.tag == "Terrain")
+            else if (hit.collider.CompareTag("Terrain") || hit.collider.CompareTag("EnemyShield"))
             {
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, laserHitPoint.position);

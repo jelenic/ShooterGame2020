@@ -18,10 +18,14 @@ public class EnemyHPShield : EnemyShield
             Debug.Log("enemy hp shield activated");
         }
 
-        else if (active)
+    }
+
+    public void getDmg(int amount)
+    {
+        remainingTime += amount;
+        if (remainingTime <= 0f)
         {
-            remainingTime += receivedDmg; // since it's negative amount (damage)
-            Debug.Log("hp shield got damaged by " + receivedDmg);
+            deactivateShield();
         }
     }
 

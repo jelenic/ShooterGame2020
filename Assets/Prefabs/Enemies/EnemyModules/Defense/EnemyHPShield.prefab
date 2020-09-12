@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4737353649397455400}
   - component: {fileID: 2865438090740151403}
   - component: {fileID: 3191503882278175712}
+  - component: {fileID: 3141243960529499368}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: EnemyShield
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +100,18 @@ CircleCollider2D:
   m_Offset: {x: -0.13, y: 0.06}
   serializedVersion: 2
   m_Radius: 1.84
+--- !u!114 &3141243960529499368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630293482187261901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1fdf38a04bbaa42be3f25d023946e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9112586342929993802
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +159,7 @@ MonoBehaviour:
   cooldown: 5
   remainingCooldown: 0
   active: 0
+  cooldownActive: 0
   duration: 100
   remainingTime: 0
   dmgStack: 0

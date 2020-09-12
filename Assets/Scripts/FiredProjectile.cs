@@ -47,7 +47,7 @@ public abstract class FiredProjectile : MonoBehaviour
         //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
         if (!passThrough.Contains(hit.tag))
         {
-            if (damageable.Contains(hit.tag)) hit.GetComponent<CombatVariables>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), projectileDamageType);
+            if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), projectileDamageType);
             if (destroyable.Contains(hit.tag))
             {
                 Destroy(hit, 0f);
