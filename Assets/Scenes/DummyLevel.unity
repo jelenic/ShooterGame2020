@@ -2636,6 +2636,7 @@ Transform:
   - {fileID: 1449819959}
   - {fileID: 134622655}
   - {fileID: 1397401895}
+  - {fileID: 2035296751}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5310,6 +5311,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c42ac56c5854a4442a64cd71240681be, type: 3}
+--- !u!1001 &1950646140
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 774437823}
+    m_Modifications:
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.99993676
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.011250158
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -178.711
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.4404
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Name
+      value: WallStraightFatSide (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164938499969771868, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
 --- !u!1001 &1959601762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5445,6 +5515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+--- !u!4 &2035296751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
+  m_PrefabInstance: {fileID: 1950646140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2045375825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9112674167665135728, guid: cbc31b9cfc1b09843aade12bf1cb6713, type: 3}
@@ -5674,8 +5749,9 @@ GameObject:
   - component: {fileID: 4033734990319200913}
   - component: {fileID: 5723924093073942393}
   - component: {fileID: 5894553300575396141}
-  - component: {fileID: 2615789402222800840}
   - component: {fileID: 2615789402222800841}
+  - component: {fileID: 2615789402222800840}
+  - component: {fileID: 2615789402222800842}
   m_Layer: 8
   m_Name: TurretHPLaser
   m_TagString: Enemy
@@ -5692,16 +5768,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2615789402222800839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d09ee36b8d373f479070a5362d84341, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d5d4b109e315044b836175ce91665a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
-  bullet: {fileID: 734059200167185266, guid: c67626ce91f86c84dbf5ae99489cb579, type: 3}
+  bullet: {fileID: 0}
   fireWait: 0
-  firing_laser: 0
-  activeTime: 0
-  activeFor: 0
 --- !u!120 &2615789402222800841
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5747,7 +5820,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.25
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5800,6 +5873,29 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &2615789402222800842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615789402222800839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e050f88189b28439459a0f1ad76d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCharging: 0
+  chargeLevel: 0
+  chargeSpeed: 1
+  minCharge: 0.5
+  maxCharge: 5
+  cooldown: 3
+  timeTillUse: 0
+  dmgBase: 10
+  dmgType: beam
+  chargeAnimation: {fileID: 734059200167185266, guid: 678c4969b4dc48b41829bc15c55f18dd, type: 3}
+  laserHitPoint: {fileID: 0}
 --- !u!1 &3071315458605473531
 GameObject:
   m_ObjectHideFlags: 0
@@ -6164,7 +6260,7 @@ MonoBehaviour:
   damageModifier: 1.1
   speed: 0
   angleSpeed: 0
-  range: 20
+  range: 15
   mass: 0
   rateOfFire: 5
   turretRotationSpeed: 10

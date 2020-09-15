@@ -9,7 +9,7 @@ public class CustomAI : MonoBehaviour
     Stats stats;
     //private float speed;
     private float nextWaypontDistance;
-    //public float range;
+    public float minDistance;
 
     Path path;
     int currentWaypoint;
