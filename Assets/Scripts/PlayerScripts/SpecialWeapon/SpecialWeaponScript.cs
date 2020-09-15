@@ -10,7 +10,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected float cooldown;
     protected float timeTillUse;
     protected int dmgBase;
-    protected string dmgType;
+    protected DamageType dmgType;
 
     protected Stats stats;
 

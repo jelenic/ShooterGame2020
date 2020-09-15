@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 326409faacc7c0448a5375351d485fae, type: 3}
-  m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
+  m_Color: {r: 0.754717, g: 0.12459949, b: 0.12459949, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -219,6 +219,6 @@ MonoBehaviour:
   cooldown: 2
   timeTillUse: 0
   dmgBase: 7
-  dmgType: beam
+  dmgType: 0
   parentStats: 1
   chargeAnimation: {fileID: 734059200167185266, guid: 678c4969b4dc48b41829bc15c55f18dd, type: 3}

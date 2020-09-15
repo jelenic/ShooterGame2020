@@ -5,5 +5,5 @@ using UnityEngine;
 public interface Damageable
 {
     int IncreaseHP(int amount);
-    int DecreaseHP(int amount, string type);
+    int DecreaseHP(int amount, DamageType type);
 }

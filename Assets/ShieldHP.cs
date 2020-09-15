@@ -10,5 +10,5 @@ public class ShieldHP : MonoBehaviour, Damageable
         ehp = gameObject.GetComponentInParent<EnemyHPShield>();
     }
     public int IncreaseHP(int amount) { ehp.getDmg(amount); return (int) ehp.remainingTime; }
-    public int DecreaseHP(int amount, string type) { ehp.getDmg(-amount); return (int) ehp.remainingTime; }
+    public int DecreaseHP(int amount, DamageType type) { ehp.getDmg(-amount); return (int) ehp.remainingTime; }
 }

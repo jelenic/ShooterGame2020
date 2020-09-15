@@ -90,6 +90,11 @@ public class LaserTurretFire : ChargeTurret
         chargeController = null;
     }
 
+    private void OnDestroy()
+    {
+        Destroy(chargeAnimationInstance);
+    }
+
 
 
 }

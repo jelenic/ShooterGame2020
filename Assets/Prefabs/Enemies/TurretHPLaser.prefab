@@ -268,7 +268,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 326409faacc7c0448a5375351d485fae, type: 3}
-  m_Color: {r: 0.6792453, g: 0.6247775, b: 0.6247775, a: 1}
+  m_Color: {r: 0.754717, g: 0.23295857, b: 0.10323961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -485,9 +485,9 @@ MonoBehaviour:
   cooldown: 3
   timeTillUse: 0
   dmgBase: 10
-  dmgType: beam
+  dmgType: 0
+  parentStats: 0
   chargeAnimation: {fileID: 734059200167185266, guid: 678c4969b4dc48b41829bc15c55f18dd, type: 3}
-  laserHitPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &8771208306564785075
 GameObject:
   m_ObjectHideFlags: 0

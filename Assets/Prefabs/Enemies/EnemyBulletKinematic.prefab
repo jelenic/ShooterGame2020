@@ -124,8 +124,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileDamage: 5
+  projectileDamageType: 2
   lifeDuration: 0
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
+  damageModifier: 0
+  velocityModifier: 0
+  passThrough: []
+  damageable: []
+  destroyable: []
 --- !u!50 &9129062289220686554
 Rigidbody2D:
   serializedVersion: 4

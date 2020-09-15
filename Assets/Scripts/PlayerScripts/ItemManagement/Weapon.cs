@@ -9,5 +9,5 @@ public class Weapon : Equipement
 {
     public float weaponDamageModifier = 1f;
     public float rateOfFireModifier;
-    public string bulletType;
+    public DamageType bulletType;
 }

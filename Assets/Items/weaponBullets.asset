@@ -21,4 +21,4 @@ MonoBehaviour:
   codeName: weaponBullets
   weaponDamageModifier: 10
   rateOfFireModifier: 1
-  bulletType: projectile
+  bulletType: 2

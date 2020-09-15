@@ -17,7 +17,8 @@ public class CombatVariables : MonoBehaviour, Damageable
 
     public Image hpBar;
 
-    private Dictionary<string, float> resistances;
+    private Dictionary<DamageType, float> resistances;
+    private Dictionary<DamageType, Color> dmgColor;
 
     public GameObject floatingNumberText;
 
@@ -44,7 +45,7 @@ public class CombatVariables : MonoBehaviour, Damageable
     
 
 
-    public int DecreaseHP(int amount, string dmgType = "default")
+    public int DecreaseHP(int amount, DamageType dmgType = DamageType.Default)
     {
         if (immune)
         {
@@ -56,7 +57,7 @@ public class CombatVariables : MonoBehaviour, Damageable
             int receivedDmg = Math.Max(1, (int)Math.Round(amount * (1f - resistances[dmgType])));
             //Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
             hp = Math.Max(0, hp - receivedDmg);
-            createFloatingNumberText(transform.position, Color.red, receivedDmg.ToString());
+            createFloatingNumberText(transform.position, dmgColor[dmgType], receivedDmg.ToString());
             if (hp == 0)
             {
                 Destroy(gameObject);
@@ -89,11 +90,18 @@ public class CombatVariables : MonoBehaviour, Damageable
 
         hp = stats.hp;
         //Debug.LogFormat("total hp: {0}", stats.hp);
-        resistances = new Dictionary<string, float>();
-        resistances.Add("projectile", stats.projectileResistance);
-        resistances.Add("beam", stats.beamResistance);
-        resistances.Add("physical", stats.physicalResistance);
-        resistances.Add("default", 0f);
+        dmgColor = new Dictionary<DamageType, Color>();
+        dmgColor.Add(DamageType.Projectile, Color.red);
+        dmgColor.Add(DamageType.Beam, Color.blue);
+        dmgColor.Add(DamageType.Physical, Color.gray);
+        dmgColor.Add(DamageType.Default, Color.white);
+
+
+        resistances = new Dictionary<DamageType, float>();
+        resistances.Add(DamageType.Projectile, stats.projectileResistance);
+        resistances.Add(DamageType.Beam, stats.beamResistance);
+        resistances.Add(DamageType.Projectile, stats.physicalResistance);
+        resistances.Add(DamageType.Default, 0f);
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         immune = false;
     }
@@ -168,4 +176,12 @@ public enum StatusEffect
     Speedup,
     DamageDecrease,
     DamageIncrease,
+}
+
+public enum DamageType
+{
+    Beam,
+    Physical,
+    Projectile,
+    Default
 }

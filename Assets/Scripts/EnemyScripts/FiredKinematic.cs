@@ -12,7 +12,7 @@ public class FiredKinematic : FiredProjectile
     {
         base.Initialize();
         projectileDamage = 5;
-        projectileDamageType = "projectile";
+        projectileDamageType = DamageType.Projectile;
 
         lifeDuration = 5f;
         velocity = 9;

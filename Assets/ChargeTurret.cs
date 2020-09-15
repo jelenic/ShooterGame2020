@@ -12,7 +12,7 @@ public class ChargeTurret : MonoBehaviour
     public float cooldown;
     public float timeTillUse;
     public int dmgBase;
-    public string dmgType;
+    public DamageType dmgType;
     public bool parentStats;
 
     protected Transform transform;
