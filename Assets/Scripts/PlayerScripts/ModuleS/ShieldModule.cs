@@ -34,4 +34,6 @@ public class ShieldModule : ModuleScript
         c.a = remainingTime / duration + 0.1f;
         shield_renderer.color = c;
     }
+
+    
 }

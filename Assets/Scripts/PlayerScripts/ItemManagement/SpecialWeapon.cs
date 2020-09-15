@@ -10,4 +10,7 @@ public class SpecialWeapon : Equipement
     public float cooldown;
     public string damageType;
     public string specialEffect;
+    public float chargeSpeed;
+    public float minCharge;
+    public float maxCharge;
 }

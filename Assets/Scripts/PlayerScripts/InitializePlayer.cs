@@ -49,7 +49,7 @@ public class InitializePlayer : MonoBehaviour
         mod.transform.parent = player;
         mod.GetComponent<ModuleScript>().setParams(module.cooldown, module.duration);
         spw.transform.parent = player;
-        spw.GetComponentInChildren<SpecialWeaponScript>().setParams(specialWeapon.damageBase, specialWeapon.damageType, specialWeapon.cooldown);
+        spw.GetComponentInChildren<SpecialWeaponScript>().setParams(specialWeapon);
 
         ShipFire sf = gameObject.GetComponent<ShipFire>();
 

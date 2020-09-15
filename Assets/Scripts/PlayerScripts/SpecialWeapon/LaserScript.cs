@@ -37,6 +37,7 @@ public class LaserScript : SpecialWeaponScript
     {
         base.stuff();
 
+        lineRenderer.widthMultiplier = calculateCharge() / 20f;
         //Debug.Log("I'ma fireing my lazer");
         Instantiate(invisible, transform.position, transform.rotation);
 
@@ -60,7 +61,7 @@ public class LaserScript : SpecialWeaponScript
             }
             else if (hit.collider.tag == "Enemy")
             {
-                hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * stats.calculateFinalDmgModifier()), dmgType);
+                hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * calculateCharge() * stats.calculateFinalDmgModifier()), dmgType);
                 specialEffect(hit.collider.gameObject);
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, laserHitPoint.position);

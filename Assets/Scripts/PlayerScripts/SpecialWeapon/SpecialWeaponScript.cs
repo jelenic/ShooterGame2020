@@ -21,12 +21,22 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
     public bool android;
 
+    public bool isCharging;
+    public float chargeLevel;
+    protected float chargeSpeed;
+    protected float minCharge;
+    protected float maxCharge;
 
-    public void setParams(int dmgBase, string dmgType, float cooldown)
+
+
+    public void setParams(SpecialWeapon sw)
     {
-        this.dmgBase = dmgBase;
-        this.dmgType = dmgType;
-        this.cooldown = cooldown;
+        this.dmgBase = sw.damageBase;
+        this.dmgType = sw.damageType;
+        this.cooldown = sw.cooldown;
+        this.chargeSpeed = sw.chargeSpeed;
+        this.minCharge = sw.minCharge;
+        this.maxCharge = sw.maxCharge;
     }
 
     // Start is called before the first frame update
@@ -36,8 +46,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         stats = GetComponentInParent<Stats>();
 
         timeTillUse = 0f;
-        clicked = false;
-        active = false;
+        
 
         if (Application.platform == RuntimePlatform.Android || android)
         {
@@ -55,10 +64,13 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected virtual void stuff() { }
     private void doStuff()
     {
+
+        Debug.Log("charged up " + chargeLevel);
         if (timeTillUse <= 0)
         {
             timeTillUse = cooldown;
             stuff();
+            chargeLevel = 0f;
         }
     }
 
@@ -69,14 +81,22 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
         updateStart();
 
-
-        if (Input.GetMouseButtonDown(0) || clicked)
+        if (timeTillUse <= 0f && (Input.GetMouseButton(0) || clicked))
         {
+            isCharging = true;
+            chargeLevel += Time.deltaTime * chargeSpeed;
             clicked = false;
+        }
+        else if(isCharging && !Input.GetMouseButton(0) && !clicked)
+        {
+
+            isCharging = false;
             active = true;
             doStuff();
             active = false;
+
         }
+
 
         updateFinish();
     }
@@ -87,5 +107,10 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         {
             clicked = true;
         }
+    }
+
+    protected float calculateCharge()
+    {
+        return Mathf.Min(maxCharge, minCharge + chargeLevel);
     }
 }
