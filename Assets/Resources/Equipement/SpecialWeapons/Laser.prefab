@@ -106,8 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0e986c1ededc946b789fff63af53b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  android: 0
+  isCharging: 0
+  chargeLevel: 0
   laserHitPoint: {fileID: 5841364601772684826}
   invisible: {fileID: 3241238996482785686, guid: 3d584a7db25d0414aacb2e55d0674aa2, type: 3}
+  chargeAnimation: {fileID: 734059200167185266, guid: 678c4969b4dc48b41829bc15c55f18dd, type: 3}
 --- !u!120 &1732877401835153810
 LineRenderer:
   m_ObjectHideFlags: 0

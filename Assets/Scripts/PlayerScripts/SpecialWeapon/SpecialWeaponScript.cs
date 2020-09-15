@@ -27,6 +27,8 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected float minCharge;
     protected float maxCharge;
 
+    protected Transform transform;
+
 
 
     public void setParams(SpecialWeapon sw)
@@ -46,6 +48,8 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         stats = GetComponentInParent<Stats>();
 
         timeTillUse = 0f;
+
+        transform = GetComponent<Transform>();
         
 
         if (Application.platform == RuntimePlatform.Android || android)
@@ -62,6 +66,9 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected virtual void updateStart() { }
     protected virtual void updateFinish() { }
     protected virtual void stuff() { }
+    protected virtual void onChargeBegin() { }
+    protected virtual void onChargeChange() { }
+    protected virtual void onChargeEnd() { }
     private void doStuff()
     {
 
@@ -71,6 +78,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
             timeTillUse = cooldown;
             stuff();
             chargeLevel = 0f;
+            onChargeEnd();
         }
     }
 
@@ -83,13 +91,15 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
         if (timeTillUse <= 0f && (Input.GetMouseButton(0) || clicked))
         {
+            if (!isCharging) onChargeBegin();
             isCharging = true;
+            onChargeChange();
             chargeLevel += Time.deltaTime * chargeSpeed;
             clicked = false;
         }
         else if(isCharging && !Input.GetMouseButton(0) && !clicked)
         {
-
+            onChargeEnd();
             isCharging = false;
             active = true;
             doStuff();

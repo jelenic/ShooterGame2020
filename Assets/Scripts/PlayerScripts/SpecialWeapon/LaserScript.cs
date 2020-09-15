@@ -15,6 +15,10 @@ public class LaserScript : SpecialWeaponScript
 
     public GameObject invisible;
 
+    public GameObject chargeAnimation;
+    private GameObject chargeAnimationInstance;
+    private ChargeController chargeController;
+
 
     protected override void initialize()
     {
@@ -88,6 +92,24 @@ public class LaserScript : SpecialWeaponScript
         {
             lineRenderer.enabled = false;
         }
+    }
+
+    protected override void onChargeBegin()
+    {
+        chargeAnimationInstance = Instantiate(chargeAnimation, transform.position + transform.up, transform.rotation);
+        chargeController = chargeAnimationInstance.GetComponent<ChargeController>();
+    }
+
+    protected override void onChargeChange()
+    {
+        chargeController.refresh(calculateCharge() / 30f, transform.position + transform.up);
+
+    }
+
+    protected override void onChargeEnd()
+    {
+        Destroy(chargeAnimationInstance);
+        chargeController = null;
     }
 
 }

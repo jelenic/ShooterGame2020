@@ -23,3 +23,6 @@ MonoBehaviour:
   cooldown: 0.5
   damageType: beam
   specialEffect: affects everything
+  chargeSpeed: 1
+  minCharge: 0.5
+  maxCharge: 3
