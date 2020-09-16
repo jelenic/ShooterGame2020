@@ -86,7 +86,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         transform = GetComponent<Transform>();
         stats = GetComponent<Stats>();
 
-        originalStats = new OriginalStats(stats.speed, stats.angleSpeed, stats.rateOfFire, stats.turretRotationSpeed, stats.damageModifier, stats.projectileVelocityModifier, stats.hp);
+        originalStats = new OriginalStats(stats);
 
         hp = stats.hp;
         //Debug.LogFormat("total hp: {0}", stats.hp);

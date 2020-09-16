@@ -64,41 +64,25 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
     public float thrust;
     public OriginalStats
         (
-        int hp,
-        float mass,
-        float projectileResistance,
-        float beamResistance,
-        float physicalResistance,
-        float damageModifier,
-        float critChance,
-        float critMultiplier,
-        float projectileVelocityModifier,
-        int scoreValue,
-        float range,
-        float angleSpeed,
-        float rateOfFire,
-        float turretRotationSpeed,
-        float speed,
-        float maxVelocity,
-        float thrust
+        Stats stats
         )
     {
-        this.hp = hp;
-        this.mass = mass;
-        this.projectileResistance = projectileResistance;
-        this.beamResistance = beamResistance;
-        this.physicalResistance = physicalResistance;
-        this.damageModifier = damageModifier;
-        this.critChance = critChance;
-        this.critMultiplier = critMultiplier;
-        this.projectileVelocityModifier = projectileVelocityModifier;
-        this.scoreValue = scoreValue;
-        this.range = range;
-        this.angleSpeed = angleSpeed;
-        this.rateOfFire = rateOfFire;
-        this.turretRotationSpeed = turretRotationSpeed;
-        this.speed = speed;
-        this.maxVelocity = maxVelocity;
-        this.thrust = thrust;
+        this.hp = stats.hp;
+        this.mass = stats.mass;
+        this.projectileResistance = stats.projectileResistance;
+        this.beamResistance = stats.beamResistance;
+        this.physicalResistance = stats.physicalResistance;
+        this.damageModifier = stats.damageModifier;
+        this.critChance = stats.critChance;
+        this.critMultiplier = stats.critMultiplier;
+        this.projectileVelocityModifier = stats.projectileVelocityModifier;
+        this.scoreValue = stats.scoreValue;
+        this.range = stats.range;
+        this.angleSpeed = stats.angleSpeed;
+        this.rateOfFire = stats.rateOfFire;
+        this.turretRotationSpeed = stats.turretRotationSpeed;
+        this.speed = stats.speed;
+        this.maxVelocity = stats.maxVelocity;
+        this.thrust = stats.thrust;
 }
 }
