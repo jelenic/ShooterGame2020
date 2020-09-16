@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public string name;
+    public new string name;
 
     public float mass;
 
@@ -45,9 +45,60 @@ public class Stats : MonoBehaviour
 
 public struct OriginalStats // for making duplicates which is annoyingly hard with monobehaviour classes
 {
-    public float speed; public float angleSpeed; public float rateOfFire; public float turretRotationSpeed; public float damageModifier; public float projectileVelocityModifier; public int hp;
-    public OriginalStats(float speed, float angleSpeed, float rateOfFire, float turretRotationSpeed, float damageModifier, float projectileVelocityModifier, int hp)
+    public int hp;
+    public float mass;
+    public float projectileResistance;
+    public float beamResistance;
+    public float physicalResistance;
+    public float damageModifier;
+    public float critChance;
+    public float critMultiplier;
+    public float projectileVelocityModifier;
+    public int scoreValue;
+    public float range;
+    public float angleSpeed;
+    public float rateOfFire;
+    public float turretRotationSpeed;
+    public float speed;
+    public float maxVelocity;
+    public float thrust;
+    public OriginalStats
+        (
+        int hp,
+        float mass,
+        float projectileResistance,
+        float beamResistance,
+        float physicalResistance,
+        float damageModifier,
+        float critChance,
+        float critMultiplier,
+        float projectileVelocityModifier,
+        int scoreValue,
+        float range,
+        float angleSpeed,
+        float rateOfFire,
+        float turretRotationSpeed,
+        float speed,
+        float maxVelocity,
+        float thrust
+        )
     {
-        this.speed = speed; this.angleSpeed = angleSpeed; this.rateOfFire = rateOfFire; this.turretRotationSpeed = turretRotationSpeed; this.damageModifier = damageModifier; this.projectileVelocityModifier = projectileVelocityModifier; this.hp = hp;
-    }
+        this.hp = hp;
+        this.mass = mass;
+        this.projectileResistance = projectileResistance;
+        this.beamResistance = beamResistance;
+        this.physicalResistance = physicalResistance;
+        this.damageModifier = damageModifier;
+        this.critChance = critChance;
+        this.critMultiplier = critMultiplier;
+        this.projectileVelocityModifier = projectileVelocityModifier;
+        this.scoreValue = scoreValue;
+        this.range = range;
+        this.angleSpeed = angleSpeed;
+        this.rateOfFire = rateOfFire;
+        this.turretRotationSpeed = turretRotationSpeed;
+        this.speed = speed;
+        this.maxVelocity = maxVelocity;
+        this.thrust = thrust;
+}
 }
