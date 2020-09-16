@@ -29,7 +29,8 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
     protected Transform transform;
 
-
+    public delegate void OnCooldownChanged(float filled);
+    public OnCooldownChanged OnCooldownChangedCallback;
 
     public void setParams(SpecialWeapon sw)
     {
@@ -65,7 +66,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected virtual void initialize() { }
     protected virtual void updateStart() { }
     protected virtual void updateFinish() { }
-    protected virtual void stuff() { }
+    protected virtual void stuff(float modifier = 1f) { }
     protected virtual void onChargeBegin() { }
     protected virtual void onChargeChange() { }
     protected virtual void onChargeEnd() { }
@@ -86,6 +87,11 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     void Update()
     {
         timeTillUse -= Time.deltaTime;
+
+        if (OnCooldownChangedCallback != null)
+        {
+            OnCooldownChangedCallback.Invoke((cooldown - timeTillUse) / cooldown);
+        }
 
         updateStart();
 

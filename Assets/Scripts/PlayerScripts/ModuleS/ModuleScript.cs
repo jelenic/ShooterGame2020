@@ -37,7 +37,7 @@ public abstract class ModuleScript : MonoBehaviour
 
     void Start()
     {
-        remainingCooldown = coooldown;
+        remainingCooldown = coooldown / 10f;
         active = false;
         clicked = false;
         ship = GameObject.FindGameObjectWithTag("Player");

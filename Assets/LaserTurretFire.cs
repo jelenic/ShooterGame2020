@@ -34,7 +34,7 @@ public class LaserTurretFire : ChargeTurret
 
         lineRenderer.widthMultiplier = calculateCharge() / 20f;
 
-        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up + transform.right * Random.Range(-chanceToMiss, chanceToMiss)); // moves the aim a chanceToMiss to left or right
         foreach (RaycastHit2D hit in allHit)
         {
             laserHitPoint = hit.point;

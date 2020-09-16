@@ -55,7 +55,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         else
         {
             int receivedDmg = Math.Max(1, (int)Math.Round(amount * (1f - resistances[dmgType])));
-            //Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
+            Debug.LogFormat("{0} received {1} dmg of type {2}, original amount: {3}", stats.name, receivedDmg, dmgType, amount);
             hp = Math.Max(0, hp - receivedDmg);
             createFloatingNumberText(transform.position, dmgColor[dmgType], receivedDmg.ToString());
             if (hp == 0)
@@ -92,7 +92,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         //Debug.LogFormat("total hp: {0}", stats.hp);
         dmgColor = new Dictionary<DamageType, Color>();
         dmgColor.Add(DamageType.Projectile, Color.red);
-        dmgColor.Add(DamageType.Beam, Color.blue);
+        dmgColor.Add(DamageType.Beam, Color.magenta);
         dmgColor.Add(DamageType.Physical, Color.gray);
         dmgColor.Add(DamageType.Default, Color.white);
 
@@ -100,7 +100,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         resistances = new Dictionary<DamageType, float>();
         resistances.Add(DamageType.Projectile, stats.projectileResistance);
         resistances.Add(DamageType.Beam, stats.beamResistance);
-        resistances.Add(DamageType.Projectile, stats.physicalResistance);
+        resistances.Add(DamageType.Physical, stats.physicalResistance);
         resistances.Add(DamageType.Default, 0f);
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         immune = false;

@@ -37,10 +37,8 @@ public class LaserScript : SpecialWeaponScript
 
     protected virtual void specialEffect(GameObject affected) { }
 
-    protected override void stuff()
+    protected override void stuff(float modifier = 1f)
     {
-        base.stuff();
-
         lineRenderer.widthMultiplier = calculateCharge() / 20f;
         //Debug.Log("I'ma fireing my lazer");
         Instantiate(invisible, transform.position, transform.rotation);
@@ -65,13 +63,13 @@ public class LaserScript : SpecialWeaponScript
             }
             else if (hit.collider.tag == "Enemy")
             {
-                int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * calculateCharge() * stats.calculateFinalDmgModifier()), dmgType);
+                int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(modifier * dmgBase * calculateCharge() * stats.calculateFinalDmgModifier()), dmgType);
                 specialEffect(hit.collider.gameObject);
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, laserHitPoint.position);
                 lineRenderer.enabled = true;
                 activeFor = activeTime;
-                if (target_hp.Equals(0)) stuff();
+                if (target_hp.Equals(0)) stuff(modifier * 0.9f);
                 break;
             }
             else if (hit.collider.CompareTag("Terrain") || hit.collider.CompareTag("EnemyShield"))

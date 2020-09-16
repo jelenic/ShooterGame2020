@@ -216,8 +216,11 @@ MonoBehaviour:
   chargeSpeed: 1
   minCharge: 0.5
   maxCharge: 3
+  chargeHold: 4
+  currentChargeHold: 0
   cooldown: 2
   timeTillUse: 0
+  chanceToMiss: 0.085
   dmgBase: 7
   dmgType: 0
   parentStats: 1

@@ -9,8 +9,11 @@ public class ChargeTurret : MonoBehaviour
     public float chargeSpeed;
     public float minCharge;
     public float maxCharge;
+    public float chargeHold;
+    public float currentChargeHold;
     public float cooldown;
     public float timeTillUse;
+    public float chanceToMiss;
     public int dmgBase;
     public DamageType dmgType;
     public bool parentStats;
@@ -40,6 +43,7 @@ public class ChargeTurret : MonoBehaviour
         Debug.Log("charged up " + chargeLevel);
         timeTillUse = cooldown;
         stuff();
+        currentChargeHold = chargeHold;
         chargeLevel = 0f;
         onChargeEnd();
         isCharging = false;
@@ -53,6 +57,7 @@ public class ChargeTurret : MonoBehaviour
         transform = GetComponent<Transform>();
         timeTillUse = 0.5f;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        currentChargeHold = chargeHold;
         initialize();
     }
 
@@ -72,10 +77,15 @@ public class ChargeTurret : MonoBehaviour
 
                 if (calculateCharge().Equals(maxCharge))
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up * 1.5f, transform.up);
-                    if (hit.collider.CompareTag("Player"))
+                    currentChargeHold = Mathf.Max(0f, currentChargeHold - Time.deltaTime);
+                    if (currentChargeHold.Equals(0f)) doStuff();
+                    else
                     {
-                        doStuff();
+                        RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up * 1.5f, transform.up);
+                        if (hit.collider.CompareTag("Player"))
+                        {
+                            doStuff();
+                        }
                     }
                 }
             }
@@ -85,6 +95,8 @@ public class ChargeTurret : MonoBehaviour
                 {
                     chargeLevel = Mathf.Max(0f, chargeLevel - Time.deltaTime * chargeSpeed);
                     onChargeChange();
+                    currentChargeHold = chargeHold;
+
                     if (chargeLevel.Equals(0f))
                     {
                         onChargeEnd();
