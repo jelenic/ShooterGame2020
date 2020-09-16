@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4116203293040891262}
   - component: {fileID: 4116203293040891249}
   - component: {fileID: 4116203293040891248}
-  - component: {fileID: 7374851068649834477}
   - component: {fileID: -7282879257306841973}
   - component: {fileID: 9041624062297404704}
   - component: {fileID: 2676998603099555522}
+  - component: {fileID: 8726445945639911052}
   m_Layer: 0
   m_Name: EnemyAutomaticAstar
   m_TagString: Enemy
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4116203293040891251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -6.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4116203293888559175}
@@ -117,22 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &7374851068649834477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4116203293040891251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 5803434076230719223}
-  floatingNumberText: {fileID: 0}
-  involunrable: 0
 --- !u!114 &-7282879257306841973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,22 +143,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: BasicEnemyAuto
-  hp: 60
-  scoreValue: 3
-  damageModifier: 0.5
-  speed: 600
-  range: 20
   mass: 2
-  rateOfFire: 0
-  turretRotationSpeed: 0
+  hp: 60
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  damageModifier: 0.5
   critChance: 0.05
   critMultiplier: 1.1
+  projectileVelocityModifier: 1
+  scoreValue: 3
+  range: 20
+  angleSpeed: 0
+  rateOfFire: 0
+  turretRotationSpeed: 0
+  speed: 600
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 1
 --- !u!60 &2676998603099555522
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -203,6 +188,23 @@ PolygonCollider2D:
     - - {x: -0.36514166, y: -0.54999024}
       - {x: 0.0099467635, y: 0.36022276}
       - {x: 0.37, y: -0.56}
+--- !u!114 &8726445945639911052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116203293040891251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 5803434076230719223}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 
 --- !u!1 &4116203293888559192
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.2818604
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
       propertyPath: m_LocalRotation.x
@@ -364,11 +366,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5.110406
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -13.967621
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
       propertyPath: m_SizeDelta.x

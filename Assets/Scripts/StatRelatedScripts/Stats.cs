@@ -62,10 +62,7 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
     public float speed;
     public float maxVelocity;
     public float thrust;
-    public OriginalStats
-        (
-        Stats stats
-        )
+    public OriginalStats(Stats stats)
     {
         this.hp = stats.hp;
         this.mass = stats.mass;

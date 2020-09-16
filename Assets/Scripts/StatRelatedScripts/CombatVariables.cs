@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Reflection;
 
 
 
@@ -114,32 +113,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         activateDeactivateStatus(status, false, 0f);
     }
 
-    private void activateDeactivateStatus(StatusEffect status, bool activate, float value)
-    {
-        switch(status){
-            case StatusEffect.Stun:
-                stats.speed = activate ? 0 : originalStats.speed;
-                stats.angleSpeed = activate ? 0 : originalStats.angleSpeed;
-                stats.rateOfFire = activate ? value : originalStats.rateOfFire;
-                break;
-            case StatusEffect.Slowdown:
-                stats.speed = activate ? originalStats.speed / 2 : originalStats.speed;
-                stats.angleSpeed = activate ? originalStats.angleSpeed / 2 : originalStats.angleSpeed;
-                stats.rateOfFire = activate ? originalStats.rateOfFire * 2 : originalStats.rateOfFire;
-                break;
-            case StatusEffect.Speedup:
-                stats.speed = activate ? originalStats.speed * 2 : originalStats.speed;
-                stats.angleSpeed = activate ? originalStats.angleSpeed * 2 : originalStats.angleSpeed;
-                stats.rateOfFire = activate ? originalStats.rateOfFire / 2 : originalStats.rateOfFire;
-                break;
-            case StatusEffect.DamageDecrease:
-                stats.damageModifier = activate ? originalStats.damageModifier / 2 : originalStats.damageModifier;
-                break;
-            case StatusEffect.DamageIncrease:
-                stats.damageModifier = activate ? originalStats.damageModifier * 2 : originalStats.damageModifier;
-                break;
-        }
-    }
+    protected virtual void activateDeactivateStatus(StatusEffect status, bool activate, float value) { }
     public void inflictStatus(StatusEffect status, float duration = 20f)
     {
         Debug.Log(gameObject.name + " getting inflicted by " + status.ToString());

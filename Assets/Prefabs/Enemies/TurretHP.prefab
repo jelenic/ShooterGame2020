@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 2842358434670938640}
   - component: {fileID: 2842358434670938641}
   - component: {fileID: 3802594924580769605}
-  - component: {fileID: 5498971935421612717}
   - component: {fileID: 5977010676747076857}
+  - component: {fileID: 2008777618249584944}
   m_Layer: 8
   m_Name: TurretHP
   m_TagString: Enemy
@@ -242,22 +242,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6286497, y: 2.2691994}
   m_EdgeRadius: 0
---- !u!114 &5498971935421612717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2842358434670938643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 4192432124092780665}
-  floatingNumberText: {fileID: 0}
-  involunrable: 0
 --- !u!114 &5977010676747076857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,22 +255,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Turret
-  hp: 85
-  scoreValue: 6
-  damageModifier: 1.1
-  speed: 0
-  range: 20
   mass: 0
-  rateOfFire: 0.5
-  turretRotationSpeed: 10
+  hp: 85
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  damageModifier: 1.1
   critChance: 0.3
   critMultiplier: 1.8
+  projectileVelocityModifier: 1
+  scoreValue: 6
+  range: 20
+  angleSpeed: 0
+  rateOfFire: 0.5
+  turretRotationSpeed: 10
+  speed: 0
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 1
+--- !u!114 &2008777618249584944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842358434670938643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 4192432124092780665}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 
 --- !u!1 &2999593438275795759
 GameObject:
   m_ObjectHideFlags: 0

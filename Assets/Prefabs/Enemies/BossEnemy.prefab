@@ -282,9 +282,9 @@ GameObject:
   - component: {fileID: 2103323555689908332}
   - component: {fileID: 7551083468947712030}
   - component: {fileID: 7551083468947712031}
-  - component: {fileID: 6395925055851111926}
   - component: {fileID: 5327300115233303785}
   - component: {fileID: 5517802574472266967}
+  - component: {fileID: 4246855169808580987}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Enemy
@@ -378,23 +378,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &6395925055851111926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5517802574472266964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 1584220320636427244}
-  floatingNumberText: {fileID: 0}
-  immune: 0
-  currentlyAfflicted: 
 --- !u!114 &5327300115233303785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,23 +391,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: BossEnemy
-  hp: 500
-  scoreValue: 30
-  damageModifier: 1.8
-  speed: 7500
-  angleSpeed: 30
-  range: 30
   mass: 5
-  rateOfFire: 1
-  turretRotationSpeed: 0.05
+  hp: 500
   projectileResistance: -0.2
   beamResistance: 0.9
   physicalResistance: 0.9
+  damageModifier: 1.8
   critChance: 0.2
   critMultiplier: 1.7
+  projectileVelocityModifier: 1
+  scoreValue: 30
+  range: 30
+  angleSpeed: 30
+  rateOfFire: 1
+  turretRotationSpeed: 0.05
+  speed: 7500
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 1
 --- !u!60 &5517802574472266967
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -457,6 +440,23 @@ PolygonCollider2D:
       - {x: 1.1351, y: -1.7066133}
       - {x: 2.1113634, y: 0.0025214553}
       - {x: 2.1113634, y: 0.0025214553}
+--- !u!114 &4246855169808580987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517802574472266964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 1584220320636427244}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 
 --- !u!1 &7807443053640668842
 GameObject:
   m_ObjectHideFlags: 0

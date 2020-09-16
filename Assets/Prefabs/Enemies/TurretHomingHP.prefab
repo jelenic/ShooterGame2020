@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 4671886974160959261}
   - component: {fileID: 4671886974160959262}
   - component: {fileID: 4671886974160959263}
-  - component: {fileID: 4671886974160959256}
   - component: {fileID: 9145183351227818082}
+  - component: {fileID: 10296207148987291}
   m_Layer: 8
   m_Name: TurretHomingHP
   m_TagString: Enemy
@@ -242,22 +242,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4642153, y: 2.1960225}
   m_EdgeRadius: 0
---- !u!114 &4671886974160959256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4671886974160959257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 4671886974188639578}
-  floatingNumberText: {fileID: 0}
-  involunrable: 0
 --- !u!114 &9145183351227818082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,22 +255,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: TurretHoming
-  hp: 75
-  scoreValue: 7
-  damageModifier: 0.8
-  speed: 0
-  range: 17
   mass: 0
-  rateOfFire: 0.5
-  turretRotationSpeed: 10
+  hp: 75
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  damageModifier: 0.8
   critChance: 0.2
   critMultiplier: 1.6
+  projectileVelocityModifier: 1
+  scoreValue: 7
+  range: 17
+  angleSpeed: 0
+  rateOfFire: 0.5
+  turretRotationSpeed: 10
+  speed: 0
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 1
+--- !u!114 &10296207148987291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4671886974160959257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 4671886974188639578}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 
 --- !u!1 &4671886974188639556
 GameObject:
   m_ObjectHideFlags: 0

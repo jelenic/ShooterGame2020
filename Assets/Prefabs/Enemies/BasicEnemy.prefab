@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5669947223231555690}
   - component: {fileID: 4023642028144670499}
   - component: {fileID: 4023642028144670498}
-  - component: {fileID: 567150641371183819}
   - component: {fileID: 1653472290370106324}
+  - component: {fileID: 1790024337216583337}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e242cb6b3baaf45a4ca64712bfd90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistance: 0
   target: {fileID: 0}
 --- !u!114 &4023642028144670498
 MonoBehaviour:
@@ -129,22 +130,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &567150641371183819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409383998877146089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 5395392135097451729}
-  floatingNumberText: {fileID: 0}
-  involunrable: 0
 --- !u!114 &1653472290370106324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,23 +143,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: BasicEnemy
-  hp: 50
-  scoreValue: 2
-  damageModifier: 1
-  speed: 550
-  angleSpeed: 20
-  range: 14
   mass: 0.5
-  rateOfFire: 0.5
-  turretRotationSpeed: 0
+  hp: 50
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  damageModifier: 1
   critChance: 0.05
   critMultiplier: 1.8
+  projectileVelocityModifier: 1
+  scoreValue: 2
+  range: 14
+  angleSpeed: 20
+  rateOfFire: 0.5
+  turretRotationSpeed: 0
+  speed: 550
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 1
+--- !u!114 &1790024337216583337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409383998877146089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 5395392135097451729}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 
 --- !u!1 &1409384000237795010
 GameObject:
   m_ObjectHideFlags: 0

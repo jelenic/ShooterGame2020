@@ -359,8 +359,8 @@ GameObject:
   - component: {fileID: 2546268188381012991}
   - component: {fileID: 6498485919846972598}
   - component: {fileID: 6498485919846972599}
-  - component: {fileID: 1564741247975276637}
   - component: {fileID: 8391705673984042714}
+  - component: {fileID: 3082155066558025706}
   m_Layer: 0
   m_Name: MiniBossEnemy
   m_TagString: Enemy
@@ -478,23 +478,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &1564741247975276637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9112674167665135740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 3574108490087121089}
-  floatingNumberText: {fileID: 0}
-  immune: 0
-  currentlyAfflicted: 
 --- !u!114 &8391705673984042714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,23 +491,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: MiniBoss
-  hp: 60
-  scoreValue: 15
-  damageModifier: 1.15
-  speed: 800
-  angleSpeed: 20
-  range: 20
   mass: 2
-  rateOfFire: 0.5
-  turretRotationSpeed: 0
+  hp: 60
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  damageModifier: 1.15
   critChance: 0.15
   critMultiplier: 1.5
+  projectileVelocityModifier: 1
+  scoreValue: 15
+  range: 20
+  angleSpeed: 20
+  rateOfFire: 0.5
+  turretRotationSpeed: 0
+  speed: 800
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 1
+--- !u!114 &3082155066558025706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112674167665135740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 3574108490087121089}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 
 --- !u!1001 &5022863014520373918
 PrefabInstance:
   m_ObjectHideFlags: 0

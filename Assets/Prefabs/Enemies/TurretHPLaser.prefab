@@ -200,11 +200,11 @@ GameObject:
   - component: {fileID: 8605025125393175179}
   - component: {fileID: 8605025125393175180}
   - component: {fileID: 7267862855275091929}
-  - component: {fileID: 2038266934899726897}
   - component: {fileID: 210471435066448997}
   - component: {fileID: 8605025125393175169}
   - component: {fileID: 8605025125393175168}
   - component: {fileID: 8605025125393175170}
+  - component: {fileID: 3019463928677029300}
   m_Layer: 8
   m_Name: TurretHPLaser
   m_TagString: Enemy
@@ -304,23 +304,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6286497, y: 2.2691994}
   m_EdgeRadius: 0
---- !u!114 &2038266934899726897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8605025125393175183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 7653770674968070373}
-  floatingNumberText: {fileID: 0}
-  immune: 0
-  currentlyAfflicted: 
 --- !u!114 &210471435066448997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,23 +317,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Turret
-  hp: 8500
-  scoreValue: 6
-  damageModifier: 1.1
-  speed: 0
-  angleSpeed: 0
-  range: 15
   mass: 0
-  rateOfFire: 5
-  turretRotationSpeed: 10
+  hp: 8500
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  damageModifier: 1.1
   critChance: 0.3
   critMultiplier: 1.8
+  projectileVelocityModifier: 1
+  scoreValue: 6
+  range: 15
+  angleSpeed: 0
+  rateOfFire: 5
+  turretRotationSpeed: 10
+  speed: 0
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 1
 --- !u!120 &8605025125393175169
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -491,6 +474,23 @@ MonoBehaviour:
   dmgType: 0
   parentStats: 0
   chargeAnimation: {fileID: 734059200167185266, guid: 678c4969b4dc48b41829bc15c55f18dd, type: 3}
+--- !u!114 &3019463928677029300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8605025125393175183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 7653770674968070373}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 
 --- !u!1 &8771208306564785075
 GameObject:
   m_ObjectHideFlags: 0

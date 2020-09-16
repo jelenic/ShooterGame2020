@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5443015383580810687}
   - component: {fileID: 5443015383580810684}
   - component: {fileID: 5443015383580810685}
-  - component: {fileID: 5443015383580810682}
+  - component: {fileID: 5359063839678846502}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Enemy
@@ -115,24 +115,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: dummy
-  hp: 500
-  scoreValue: 0
-  damageModifier: 0
-  speed: 0
-  angleSpeed: 0
-  range: 0
   mass: 0
-  rateOfFire: 0
-  turretRotationSpeed: 0
+  hp: 500
   projectileResistance: 0.5
   beamResistance: 0.5
   physicalResistance: 0.5
+  damageModifier: 0
   critChance: 0
   critMultiplier: 0
+  projectileVelocityModifier: 0
+  scoreValue: 0
+  range: 0
+  angleSpeed: 0
+  rateOfFire: 0
+  turretRotationSpeed: 0
+  speed: 0
   maxVelocity: 0
   thrust: 0
-  projectileVelocityModifier: 0
---- !u!114 &5443015383580810682
+--- !u!114 &5359063839678846502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5443015383580810680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
+  m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
