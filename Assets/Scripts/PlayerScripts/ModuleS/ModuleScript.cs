@@ -15,6 +15,8 @@ public abstract class ModuleScript : MonoBehaviour
     protected Button moduleBtn;
     private bool clicked;
 
+    public bool android;
+
     // Start is called before the first frame update
     protected float remainingCooldown;
     protected float remainingTime;
@@ -27,7 +29,7 @@ public abstract class ModuleScript : MonoBehaviour
     protected virtual void initialize() { }
     protected virtual void activeAction() { }
     protected virtual void inactiveAction() { }
-    protected virtual void updateAction() { }
+    protected virtual void activeUpdate() { }
 
     public void setParams(float cooldown, float duration)
     {
@@ -37,11 +39,12 @@ public abstract class ModuleScript : MonoBehaviour
 
     void Start()
     {
+        android = false;
         remainingCooldown = coooldown / 10f;
         active = false;
         clicked = false;
         ship = GameObject.FindGameObjectWithTag("Player");
-        if (Application.platform == RuntimePlatform.Android || true)
+        if (Application.platform == RuntimePlatform.Android || android)
         {
             GameObject moduleBtnn = GameObject.Find("ModuleBtn");
             moduleBtn = moduleBtnn.GetComponent<Button>();
@@ -56,7 +59,7 @@ public abstract class ModuleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateAction();
+        if (active) activeUpdate();
         remainingCooldown = Math.Max(0f, remainingCooldown - Time.deltaTime);
         remainingTime -= Time.deltaTime;
         if (remainingCooldown <= 0 && (Input.GetMouseButtonDown(1) || clicked))

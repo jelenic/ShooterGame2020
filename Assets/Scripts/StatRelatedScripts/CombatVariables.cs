@@ -143,8 +143,6 @@ public class CombatVariables : MonoBehaviour, Damageable
     public void inflictStatus(StatusEffect status, float duration = 20f)
     {
         Debug.Log(gameObject.name + " getting inflicted by " + status.ToString());
-        Debug.Log(originalStats.speed);
-        Debug.Log(stats.speed);
         if (!currentlyAfflicted.Contains(status))
         {
             currentlyAfflicted.Add(status);
@@ -158,14 +156,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         levelManager.increaseScore(stats.scoreValue);
     }
 
-    public struct OriginalStats
-    {
-        public float speed; public float angleSpeed; public float rateOfFire; public float turretRotationSpeed; public float damageModifier; public float projectileVelocityModifier; public int hp;
-        public OriginalStats(float speed, float angleSpeed, float rateOfFire, float turretRotationSpeed, float damageModifier, float projectileVelocityModifier, int hp)
-        {
-            this.speed = speed; this.angleSpeed = angleSpeed; this.rateOfFire = rateOfFire; this.turretRotationSpeed = turretRotationSpeed; this.damageModifier = damageModifier; this.projectileVelocityModifier = projectileVelocityModifier; this.hp = hp;
-        }
-    }
+    
 }
 
 

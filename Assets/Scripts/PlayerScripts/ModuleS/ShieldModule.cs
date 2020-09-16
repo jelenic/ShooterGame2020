@@ -27,9 +27,8 @@ public class ShieldModule : ModuleScript
         shield.SetActive(false);
     }
 
-    protected override void updateAction()
+    protected override void activeUpdate()
     {
-        base.updateAction();
         Color c = shield_renderer.color;
         c.a = remainingTime / duration + 0.1f;
         shield_renderer.color = c;
