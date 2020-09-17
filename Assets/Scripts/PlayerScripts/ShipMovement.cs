@@ -8,8 +8,6 @@ public class ShipMovement : MonoBehaviour {
     private Joystick joystickrotate;
     private Joystick joystickspeed;
     private Rigidbody2D rb;
-    private float thrust;
-    private float maxVelocity;
     private Stats stats;
 
     public bool android;
@@ -25,9 +23,7 @@ public class ShipMovement : MonoBehaviour {
     // Use this for initialization
     void Start() {
         stats = GetComponent<Stats>();
-        thrust = 15f;
         rb = GetComponent<Rigidbody2D>();
-        maxVelocity = 50;
         MobileControlMenu = GameObject.Find("MobileControlls");
         if (Application.platform != RuntimePlatform.Android && !android)
         {

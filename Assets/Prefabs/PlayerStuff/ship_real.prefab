@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 2537693317517817283}
   - component: {fileID: 8757528778963825885}
   - component: {fileID: 5557718496890589826}
+  - component: {fileID: 1345142533855782659}
   m_Layer: 0
   m_Name: ship_real
   m_TagString: Player
@@ -282,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Player
-  mass: 1
+  mass: 0.65
   _hp: 100
   _projectileResistance: 0.5
   _beamResistance: 0.5
@@ -342,3 +343,15 @@ MonoBehaviour:
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+--- !u!114 &1345142533855782659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249265328867893755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b373ab52e9c8449af430360a4e87f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

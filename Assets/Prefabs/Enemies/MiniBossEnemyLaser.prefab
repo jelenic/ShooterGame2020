@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: MiniBoss
-  mass: 2
+  mass: 2.2
   _hp: 130
   _projectileResistance: 0.5
   _beamResistance: 0.7

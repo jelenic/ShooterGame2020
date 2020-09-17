@@ -95,6 +95,8 @@ public class Stats : MonoBehaviour
             difficultyModifier = levelManager.levelDifficultyModifier;
             Debug.Log(difficultyModifier + " orewa enemy da! " + name);
         }
+
+        GetComponent<Rigidbody2D>().mass = mass;
     }
 
 }

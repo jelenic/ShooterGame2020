@@ -3711,6 +3711,10 @@ PrefabInstance:
       propertyPath: beamResistance
       value: -7.9
       objectReference: {fileID: 0}
+    - target: {fileID: 3249265328867893741, guid: 93c3620488524c5448de57cb090d9554, type: 3}
+      propertyPath: _hp
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 3249265328867893755, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: m_Name
       value: ship_real
