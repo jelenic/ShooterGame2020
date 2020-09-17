@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
-    public GameObject levelManager;
+    public LevelManager levelManager;
     public float duration;
     private float remaining;
     private bool playerIn;
@@ -29,7 +29,7 @@ public class Finish : MonoBehaviour
     {
         duration = duration == 0 ? 5f : duration;
         remaining = duration;
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager");
+        levelManager = LevelManager.instance;
         transform = GetComponent<Transform>();
         floatingNumberText = Resources.Load("FloatingNumberText") as GameObject;
 
@@ -68,7 +68,7 @@ public class Finish : MonoBehaviour
         
         if (remaining <= 0)
         {
-            levelManager.GetComponent<LevelManager>().finishLevel();
+            levelManager.finishLevel();
         }
     }
 }

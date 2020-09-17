@@ -28,9 +28,9 @@ public class buttonListCtrl : MonoBehaviour
         }
     }
 
-    public void loadLvl(string sceneName)
+    public void loadLvl(string levelName)
     {
-        Debug.Log("loading " + sceneName);
-        SceneManager.LoadScene(sceneName);
+        Debug.Log("loading " + levelName);
+        Levels.instance.loadLevel(levelName);
     }
 }

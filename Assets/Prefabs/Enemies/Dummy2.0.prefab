@@ -117,20 +117,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: dummy
   mass: 0
-  hp: 500
-  projectileResistance: 0.5
-  beamResistance: 0.5
-  physicalResistance: 0.5
-  damageModifier: 0
-  critChance: 0
-  critMultiplier: 0
-  projectileVelocityModifier: 0
-  scoreValue: 0
-  range: 0
-  angleSpeed: 0
-  rateOfFire: 0
-  turretRotationSpeed: 0
-  speed: 0
+  _hp: 500
+  _projectileResistance: 0.5
+  _beamResistance: 0.5
+  _physicalResistance: 0.5
+  _damageModifier: 0
+  _critChance: 0
+  _critMultiplier: 0
+  _projectileVelocityModifier: 0
+  _scoreValue: 0
+  _range: 0
+  _angleSpeed: 0
+  _rateOfFire: 0
+  _turretRotationSpeed: 0
+  _speed: 0
   maxVelocity: 0
   thrust: 0
 --- !u!114 &1573166799225552624

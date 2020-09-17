@@ -256,20 +256,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: TurretHoming
   mass: 0
-  hp: 75
-  projectileResistance: 0.5
-  beamResistance: 0.5
-  physicalResistance: 0.5
-  damageModifier: 0.8
-  critChance: 0.2
-  critMultiplier: 1.6
-  projectileVelocityModifier: 1
-  scoreValue: 7
-  range: 17
-  angleSpeed: 0
-  rateOfFire: 0.5
-  turretRotationSpeed: 10
-  speed: 0
+  _hp: 100
+  _projectileResistance: 0.5
+  _beamResistance: 0.5
+  _physicalResistance: 0.5
+  _damageModifier: 1.2
+  _critChance: 0.3
+  _critMultiplier: 1.7
+  _projectileVelocityModifier: 2
+  _scoreValue: 12
+  _range: 20
+  _angleSpeed: 0
+  _rateOfFire: 0.3
+  _turretRotationSpeed: 10
+  _speed: 0
   maxVelocity: 0
   thrust: 0
 --- !u!114 &10296207148987291

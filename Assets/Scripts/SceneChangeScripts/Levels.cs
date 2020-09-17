@@ -22,6 +22,8 @@ public class Levels : MonoBehaviour
 
     public Dictionary<string, int> scores = new Dictionary<string, int>();
 
+    public Dictionary<string, float> difficultyModifiers = new Dictionary<string, float>();
+
     public List<string> levels = new List<string>();
 
     private string dataPath = "/lvl.data";
@@ -30,7 +32,11 @@ public class Levels : MonoBehaviour
     private void Start()
     {
         levels.Add("DummyLevel");
+        difficultyModifiers.Add("DummyLevel", 1f);
+
         levels.Add("DummyLevel2");
+        difficultyModifiers.Add("DummyLevel2", 1.3f);
+
     }
 
 

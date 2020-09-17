@@ -256,20 +256,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Turret
   mass: 0
-  hp: 85
-  projectileResistance: 0.5
-  beamResistance: 0.5
-  physicalResistance: 0.5
-  damageModifier: 1.1
-  critChance: 0.3
-  critMultiplier: 1.8
-  projectileVelocityModifier: 1
-  scoreValue: 6
-  range: 20
-  angleSpeed: 0
-  rateOfFire: 0.5
-  turretRotationSpeed: 10
-  speed: 0
+  _hp: 100
+  _projectileResistance: 0.5
+  _beamResistance: 0.5
+  _physicalResistance: 0.5
+  _damageModifier: 1
+  _critChance: 0.1
+  _critMultiplier: 3
+  _projectileVelocityModifier: 2.5
+  _scoreValue: 11
+  _range: 17
+  _angleSpeed: 0
+  _rateOfFire: 0.33
+  _turretRotationSpeed: 8
+  _speed: 0
   maxVelocity: 0
   thrust: 0
 --- !u!114 &2008777618249584944

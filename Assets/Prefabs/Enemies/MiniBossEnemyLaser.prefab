@@ -492,20 +492,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: MiniBoss
   mass: 2
-  hp: 60
-  projectileResistance: 0.5
-  beamResistance: 0.5
-  physicalResistance: 0.5
-  damageModifier: 1.15
-  critChance: 0.15
-  critMultiplier: 1.5
-  projectileVelocityModifier: 1
-  scoreValue: 15
-  range: 20
-  angleSpeed: 20
-  rateOfFire: 0.5
-  turretRotationSpeed: 0
-  speed: 800
+  _hp: 130
+  _projectileResistance: 0.5
+  _beamResistance: 0.7
+  _physicalResistance: 0.5
+  _damageModifier: 1.14
+  _critChance: 0.25
+  _critMultiplier: 2
+  _projectileVelocityModifier: 1
+  _scoreValue: 20
+  _range: 23
+  _angleSpeed: 12
+  _rateOfFire: 1
+  _turretRotationSpeed: 0.03
+  _speed: 650
   maxVelocity: 0
   thrust: 0
 --- !u!114 &920411308125105698

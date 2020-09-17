@@ -143,20 +143,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: BasicEnemy
   mass: 0.5
-  hp: 50
-  projectileResistance: 0.5
-  beamResistance: 0.5
-  physicalResistance: 0.5
-  damageModifier: 0.5
-  critChance: 0.05
-  critMultiplier: 1.2
-  projectileVelocityModifier: 1
-  scoreValue: 2
-  range: 14
-  angleSpeed: 20
-  rateOfFire: 0
-  turretRotationSpeed: 0
-  speed: 200
+  _hp: 50
+  _projectileResistance: 0.5
+  _beamResistance: 0
+  _physicalResistance: 0
+  _damageModifier: 1
+  _critChance: 0
+  _critMultiplier: 1
+  _projectileVelocityModifier: 1
+  _scoreValue: 5
+  _range: 16
+  _angleSpeed: 10
+  _rateOfFire: 1
+  _turretRotationSpeed: 0
+  _speed: 550
   maxVelocity: 0
   thrust: 0
 --- !u!114 &2654324855967094525

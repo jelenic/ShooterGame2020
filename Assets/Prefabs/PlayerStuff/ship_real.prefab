@@ -284,7 +284,7 @@ MonoBehaviour:
   hp: 0
   hpBar: {fileID: 0}
   floatingNumberText: {fileID: 0}
-  involunrable: 0
+  immune: 0
   currentlyAfflicted: 
 --- !u!114 &3249265328867893741
 MonoBehaviour:
@@ -299,23 +299,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Player
-  hp: 150
-  scoreValue: 0
-  damageModifier: 0.7
-  speed: 2000
-  angleSpeed: 0
-  range: 0
   mass: 1
-  rateOfFire: -0.3
-  turretRotationSpeed: 0
-  projectileResistance: 0.36
-  beamResistance: 0.5
-  physicalResistance: 0.5
-  critChance: 0.49
-  critMultiplier: 1.55
+  _hp: 100
+  _projectileResistance: 0.5
+  _beamResistance: 0.5
+  _physicalResistance: 0.5
+  _damageModifier: 1
+  _critChance: 0.2
+  _critMultiplier: 1.5
+  _projectileVelocityModifier: 1
+  _scoreValue: 0
+  _range: 0
+  _angleSpeed: 0
+  _rateOfFire: 0.3
+  _turretRotationSpeed: 0
+  _speed: 0
   maxVelocity: 50
   thrust: 10
-  projectileVelocityModifier: 1
 --- !u!114 &2537693317517817283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567f6ee295fd5e24c926ac92e380db8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdbar: {fileID: 0}
+  module_cdbar: {fileID: 0}
+  special_weapon_cdbar: {fileID: 0}
 --- !u!114 &8757528778963825885
 MonoBehaviour:
   m_ObjectHideFlags: 0

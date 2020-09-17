@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    #region LevelManagerSingelot
+    public static LevelManager instance;
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("more than one instance of LevelManager found!");
+        }
+        instance = this;
+
+        levels = Levels.instance;
+        levelName = levels.currentlyPlayed;
+        levelDifficultyModifier = levels.difficultyModifiers[levelName];
+
+
+    }
+    #endregion
+
+
     public GameObject finishMenu;
     public GameObject youDiedMenu;
     public GameObject scoreObject;
@@ -16,6 +36,7 @@ public class LevelManager : MonoBehaviour
 
     public int currentScore;
     public string levelName;
+    public float levelDifficultyModifier;
     public int levelScore;
     public bool levelOver = false;
 
@@ -37,16 +58,12 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
-        levels = Levels.instance;
-    }
 
     private void Start()
     {
         Time.timeScale = 1;
         score = scoreObject.GetComponent<TextMeshProUGUI>();
-        levelName = levels.currentlyPlayed;
+        
     }
 
     public void increaseScore(int n)

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class DeathNotify : MonoBehaviour
 {
-    GameObject levelManager;
+    LevelManager levelManager;
     CombatVariables cv;
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager");
+        levelManager = LevelManager.instance;
         cv = GetComponent<CombatVariables>();
     }
 
     private void OnDestroy()
     {
-        if (cv.hp == 0) levelManager.GetComponent<LevelManager>().finishLevel();
+        if (cv.hp == 0) levelManager.finishLevel();
     }
     // Update is called once per frame
 }

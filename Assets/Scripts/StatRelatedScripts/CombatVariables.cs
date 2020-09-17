@@ -101,7 +101,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         resistances.Add(DamageType.Beam, stats.beamResistance);
         resistances.Add(DamageType.Physical, stats.physicalResistance);
         resistances.Add(DamageType.Default, 0f);
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        levelManager = LevelManager.instance;
         immune = false;
     }
 

@@ -392,20 +392,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: BossEnemy
   mass: 5
-  hp: 500
-  projectileResistance: -0.2
-  beamResistance: 0.9
-  physicalResistance: 0.9
-  damageModifier: 1.8
-  critChance: 0.2
-  critMultiplier: 1.7
-  projectileVelocityModifier: 1
-  scoreValue: 30
-  range: 30
-  angleSpeed: 30
-  rateOfFire: 1
-  turretRotationSpeed: 0.05
-  speed: 7500
+  _hp: 1000
+  _projectileResistance: 0.2
+  _beamResistance: 0.8
+  _physicalResistance: 0.5
+  _damageModifier: 1.4
+  _critChance: 0.3
+  _critMultiplier: 1.6
+  _projectileVelocityModifier: 2
+  _scoreValue: 50
+  _range: 25
+  _angleSpeed: 25
+  _rateOfFire: 0.4
+  _turretRotationSpeed: 0.05
+  _speed: 8000
   maxVelocity: 0
   thrust: 0
 --- !u!60 &5517802574472266967

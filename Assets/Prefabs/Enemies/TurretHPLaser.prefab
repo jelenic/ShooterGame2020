@@ -316,22 +316,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Turret
+  name: TurretLaser
   mass: 0
-  hp: 8500
-  projectileResistance: 0.5
-  beamResistance: 0.5
-  physicalResistance: 0.5
-  damageModifier: 1.1
-  critChance: 0.3
-  critMultiplier: 1.8
-  projectileVelocityModifier: 1
-  scoreValue: 6
-  range: 15
-  angleSpeed: 0
-  rateOfFire: 5
-  turretRotationSpeed: 10
-  speed: 0
+  _hp: 130
+  _projectileResistance: 0.5
+  _beamResistance: 0.7
+  _physicalResistance: 0.5
+  _damageModifier: 1.2
+  _critChance: 0.3
+  _critMultiplier: 1.5
+  _projectileVelocityModifier: 1
+  _scoreValue: 19
+  _range: 20
+  _angleSpeed: 0
+  _rateOfFire: 1
+  _turretRotationSpeed: 11
+  _speed: 0
   maxVelocity: 0
   thrust: 0
 --- !u!120 &8605025125393175169
