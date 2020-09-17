@@ -3152,6 +3152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ship_real
       objectReference: {fileID: 0}
+    - target: {fileID: 5557718496890589826, guid: 93c3620488524c5448de57cb090d9554, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 600912803}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c3620488524c5448de57cb090d9554, type: 3}
 --- !u!4 &1006590345 stripped
@@ -4539,7 +4543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8999125664658042668, guid: af7d346c2fd338f45a54fab9164f42f5, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8999125664658042668, guid: af7d346c2fd338f45a54fab9164f42f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5476,7 +5480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363349671991279069, guid: c3f8fcdabf00b6a4aa9674c134430672, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1363349671991279069, guid: c3f8fcdabf00b6a4aa9674c134430672, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5591,7 +5595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 25316700465537267, guid: 2b3dcd694457a8443a025d6d47f63da6, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 25316700465537267, guid: 2b3dcd694457a8443a025d6d47f63da6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

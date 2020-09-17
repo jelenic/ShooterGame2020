@@ -87,7 +87,6 @@ public class CombatVariables : MonoBehaviour, Damageable
 
         originalStats = new OriginalStats(stats);
 
-        hp = stats.hp;
         //Debug.LogFormat("total hp: {0}", stats.hp);
         dmgColor = new Dictionary<DamageType, Color>();
         dmgColor.Add(DamageType.Projectile, Color.red);
@@ -103,7 +102,11 @@ public class CombatVariables : MonoBehaviour, Damageable
         resistances.Add(DamageType.Default, 0f);
         levelManager = LevelManager.instance;
         immune = false;
+        Invoke("sethp", 0.5f);
+        //hp = stats.hp;
     }
+
+    void sethp() { hp = stats.hp; } // since level modifier takes some time to set up
 
 
     IEnumerator stopStatus(StatusEffect status, float duration)

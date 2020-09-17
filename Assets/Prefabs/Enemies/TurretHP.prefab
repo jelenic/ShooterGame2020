@@ -267,7 +267,7 @@ MonoBehaviour:
   _scoreValue: 11
   _range: 17
   _angleSpeed: 0
-  _rateOfFire: 0.33
+  _rateOfFire: 0.7
   _turretRotationSpeed: 8
   _speed: 0
   maxVelocity: 0

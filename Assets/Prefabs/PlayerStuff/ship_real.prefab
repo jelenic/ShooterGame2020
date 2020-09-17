@@ -47,10 +47,10 @@ GameObject:
   - component: {fileID: 3249265328867893735}
   - component: {fileID: 3249265328867893732}
   - component: {fileID: 3249265328867893733}
-  - component: {fileID: 1552279127620290642}
   - component: {fileID: 3249265328867893741}
   - component: {fileID: 2537693317517817283}
   - component: {fileID: 8757528778963825885}
+  - component: {fileID: 5557718496890589826}
   m_Layer: 0
   m_Name: ship_real
   m_TagString: Player
@@ -269,23 +269,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6974877, y: 0.09618497}
   m_EdgeRadius: 0
---- !u!114 &1552279127620290642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3249265328867893755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc991ba2e4afd4aa636c36b80ce9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  hpBar: {fileID: 0}
-  floatingNumberText: {fileID: 0}
-  immune: 0
-  currentlyAfflicted: 
 --- !u!114 &3249265328867893741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,3 +325,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5453f87f9dfb62d4599e88e150d15979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5557718496890589826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249265328867893755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86e7bfa64d7d3f48afd9e4f605fffc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 0}
+  floatingNumberText: {fileID: 0}
+  immune: 0
+  currentlyAfflicted: 

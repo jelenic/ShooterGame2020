@@ -3715,6 +3715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ship_real
       objectReference: {fileID: 0}
+    - target: {fileID: 5557718496890589826, guid: 93c3620488524c5448de57cb090d9554, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 1309594494}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c3620488524c5448de57cb090d9554, type: 3}
 --- !u!4 &1006590345 stripped
