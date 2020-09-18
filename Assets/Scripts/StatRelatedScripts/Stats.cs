@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
+
+    public OriginalStats og;
     private LevelManager levelManager;
 
     public new string name;
@@ -63,7 +65,7 @@ public class Stats : MonoBehaviour
     public float range { get => Mathf.Clamp( difficultyModifier *  _range, 8f, 30f); set => range = value; }
     public float angleSpeed { get => Mathf.Clamp( difficultyModifier *  _angleSpeed, 3f, 30f); set => _angleSpeed = value; }
     public float rateOfFire { get => Mathf.Clamp(  _rateOfFire / difficultyModifier, 0f, 10f); set => _rateOfFire = value; }
-    public float turretRotationSpeed { get => Mathf.Clamp( difficultyModifier *  _turretRotationSpeed, 0f, 30f); set => _turretRotationSpeed = value; }
+    public float turretRotationSpeed { get => Mathf.Clamp( difficultyModifier *  _turretRotationSpeed, 3f, 30f); set => _turretRotationSpeed = value; }
     public float speed { get => Mathf.Clamp( difficultyModifier * _speed, 100f, 50000f); set => _speed = value; }
     public int hp { get => (int) Mathf.Clamp((difficultyModifier * _hp), 20f, 50000f); set => _hp = value; }
     public float projectileResistance { get => Mathf.Clamp( difficultyModifier * _projectileResistance, 0f, 1f); set => _projectileResistance = value; }
@@ -93,10 +95,12 @@ public class Stats : MonoBehaviour
         if (gameObject.CompareTag("Enemy"))
         {
             difficultyModifier = levelManager.levelDifficultyModifier;
-            Debug.Log(difficultyModifier + " orewa enemy da! " + name);
+
         }
 
         GetComponent<Rigidbody2D>().mass = mass;
+
+        og = new OriginalStats(this);
     }
 
 }

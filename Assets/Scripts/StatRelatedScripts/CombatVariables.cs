@@ -8,9 +8,8 @@ using UnityEngine.UI;
 
 public class CombatVariables : MonoBehaviour, Damageable
 {
-    protected Stats stats;
+    public Stats stats;
 
-    public OriginalStats originalStats;
 
     public int hp;
 
@@ -85,7 +84,6 @@ public class CombatVariables : MonoBehaviour, Damageable
         transform = GetComponent<Transform>();
         stats = GetComponent<Stats>();
 
-        originalStats = new OriginalStats(stats);
 
         //Debug.LogFormat("total hp: {0}", stats.hp);
         dmgColor = new Dictionary<DamageType, Color>();
@@ -144,6 +142,7 @@ public enum StatusEffect
     Speedup,
     DamageDecrease,
     DamageIncrease,
+    None,
 }
 
 public enum DamageType

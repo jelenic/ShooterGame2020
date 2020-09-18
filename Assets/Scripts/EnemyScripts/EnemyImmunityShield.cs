@@ -7,10 +7,10 @@ public class EnemyImmunityShield : EnemyShield
 
     protected override void reactToDmg(int receivedDmg)
     {
-        Debug.LogFormat("enemy received {0} dmg, hp is {1}", receivedDmg, cv.originalStats.hp);
+        Debug.LogFormat("enemy received {0} dmg, hp is {1}", receivedDmg, cv.stats.og.hp);
 
         base.reactToDmg(receivedDmg);
-        if (-10 * receivedDmg > cv.originalStats.hp)
+        if (-10 * receivedDmg > cv.stats.og.hp)
         {
             activate();
             Debug.Log("enemy shield activated");

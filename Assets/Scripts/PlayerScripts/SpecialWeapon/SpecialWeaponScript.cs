@@ -84,7 +84,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         timeTillUse -= Time.deltaTime;
 

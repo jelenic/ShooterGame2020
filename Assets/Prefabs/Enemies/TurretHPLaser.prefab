@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 8605025125393175168}
   - component: {fileID: 8605025125393175170}
   - component: {fileID: 3019463928677029300}
+  - component: {fileID: -7664622823670587432}
   m_Layer: 8
   m_Name: TurretHPLaser
   m_TagString: Enemy
@@ -491,6 +492,27 @@ MonoBehaviour:
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+--- !u!50 &-7664622823670587432
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8605025125393175183}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8771208306564785075
 GameObject:
   m_ObjectHideFlags: 0
