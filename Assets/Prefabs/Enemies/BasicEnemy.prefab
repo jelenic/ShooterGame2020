@@ -172,11 +172,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
   hp: 0
   hpBar: {fileID: 5395392135097451729}
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+  hp_bar_object: {fileID: 8768294026667183605}
+  hideHP: 0
 --- !u!1 &1409384000237795010
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HP
       objectReference: {fileID: 0}
+    - target: {fileID: 3320247317767264832, guid: 620d298341a660745b0162f74eb67400, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -422,6 +429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620d298341a660745b0162f74eb67400, type: 3}
+--- !u!1 &8768294026667183605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3320247317767264832, guid: 620d298341a660745b0162f74eb67400, type: 3}
+  m_PrefabInstance: {fileID: 6322173915009079221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1903253533578276392 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}

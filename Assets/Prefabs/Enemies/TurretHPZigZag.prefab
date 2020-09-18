@@ -264,11 +264,11 @@ MonoBehaviour:
   _damageModifier: 1
   _critChance: 0.1
   _critMultiplier: 3
-  _projectileVelocityModifier: 2.5
+  _projectileVelocityModifier: 4
   _scoreValue: 11
   _range: 17
   _angleSpeed: 0
-  _rateOfFire: 0.7
+  _rateOfFire: 0.3
   _turretRotationSpeed: 8
   _speed: 0
   maxVelocity: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+  hp_bar_object: {fileID: 676092687081429341}
 --- !u!50 &-6039525189029244876
 Rigidbody2D:
   serializedVersion: 4

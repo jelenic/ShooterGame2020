@@ -19,5 +19,5 @@ MonoBehaviour:
   description: shield that deflects non-homing projectiles
   color: {r: 0, g: 1, b: 1, a: 1}
   codeName: DeflectorModule
-  cooldown: 3
-  duration: 2
+  cooldown: 7
+  duration: 4

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyCombatVariables : CombatVariables
 {
+    public GameObject hp_bar_object;
+    public float hideHP;
+
     protected override void activateDeactivateStatus(StatusEffect status, bool activate, float value)
     {
         switch (status)
@@ -37,5 +40,37 @@ public class EnemyCombatVariables : CombatVariables
                 stats.damageModifier = activate ? stats.og.damageModifier * 2 : stats.og.damageModifier;
                 break;
         }
+    }
+
+    protected override void initialize()
+    {
+        hideHP = PlayerPrefs.GetFloat("hp_timer", 3f);
+        if (hideHP.Equals(0f)) hp_bar_object.SetActive(false);
+        else if (hideHP.Equals(15f)) hp_bar_object.SetActive(true);
+        else
+        {
+            hp_bar_object.SetActive(false);
+            StartCoroutine(hideHpBar());
+        }
+    }
+
+    protected override void changeHpBar(float filled)
+    {
+        Debug.LogWarning(stats.name + " filled hp is " + filled);
+        if (!PlayerPrefs.GetFloat("hp_timer", 3f).Equals(0f)) hp_bar_object.SetActive(true);
+        base.changeHpBar(filled);
+
+        hideHP = PlayerPrefs.GetFloat("hp_timer", 3f);
+    }
+
+    IEnumerator hideHpBar()
+    {
+        while (true)
+        {
+            hideHP = Mathf.Max(0f, hideHP - 0.5f);
+            if (hideHP.Equals(0f)) hp_bar_object.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
+        
     }
 }

@@ -146,11 +146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
   hp: 0
   hpBar: {fileID: 6257169513354872180}
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+  hp_bar_object: {fileID: 7321334565646961744}
 --- !u!50 &-7697407632358830773
 Rigidbody2D:
   serializedVersion: 4
@@ -269,6 +271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620d298341a660745b0162f74eb67400, type: 3}
+--- !u!1 &7321334565646961744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3320247317767264832, guid: 620d298341a660745b0162f74eb67400, type: 3}
+  m_PrefabInstance: {fileID: 5443015384009217552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &458260004935364493 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}

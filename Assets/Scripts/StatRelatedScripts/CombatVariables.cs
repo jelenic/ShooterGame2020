@@ -40,7 +40,11 @@ public class CombatVariables : MonoBehaviour, Damageable
         tm.color = color;
     }
 
-    
+    protected virtual void changeHpBar(float filled)
+    {
+        hpBar.fillAmount = filled;
+
+    }
 
 
     public int DecreaseHP(int amount, DamageType dmgType = DamageType.Default)
@@ -61,8 +65,8 @@ public class CombatVariables : MonoBehaviour, Damageable
                 Destroy(gameObject);
                 return 0;
             }
-            hpBar.enabled = true;
-            hpBar.fillAmount = (float)hp / stats.hp;
+
+            changeHpBar((float)hp / stats.hp);
 
             if (onHpChangedCallback != null) onHpChangedCallback.Invoke(receivedDmg * (-1));
             return hp;
@@ -73,11 +77,14 @@ public class CombatVariables : MonoBehaviour, Damageable
     {
         hp = Math.Min(stats.hp, hp + amount);
         //Debug.LogFormat("object {0} hp increased by {1}, current hp: {2}", gameObject.tag, amount, hp);
-        hpBar.fillAmount = (float)hp / stats.hp;
+        changeHpBar((float)hp / stats.hp);
         if (onHpChangedCallback != null) onHpChangedCallback.Invoke(amount);
 
         return hp;
     }
+
+    protected virtual void initialize() { }
+
     void Start()
     {
         floatingNumberText = Resources.Load("FloatingNumberText") as GameObject;
@@ -100,11 +107,13 @@ public class CombatVariables : MonoBehaviour, Damageable
         resistances.Add(DamageType.Default, 0f);
         levelManager = LevelManager.instance;
         immune = false;
-        Invoke("sethp", 0.5f);
-        //hp = stats.hp;
+
+        StartCoroutine(sethp());
+
+        initialize();
     }
 
-    void sethp() { hp = stats.hp; } // since level modifier takes some time to set up
+    private IEnumerator sethp() { yield return new WaitForSeconds(0.5f); hp = stats.hp; } // since level modifier takes some time to set up
 
 
     IEnumerator stopStatus(StatusEffect status, float duration)

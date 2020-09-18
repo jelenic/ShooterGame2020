@@ -487,11 +487,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
   hp: 0
   hpBar: {fileID: 7653770674968070373}
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+  hp_bar_object: {fileID: 6447135528381891009}
 --- !u!50 &-7664622823670587432
 Rigidbody2D:
   serializedVersion: 4

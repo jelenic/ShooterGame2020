@@ -7,9 +7,14 @@ public class FiredZigZag : FiredProjectile
 {
     private float velocity;
     private bool deflected;
-    private int zig;
-    private bool zag;
+    public int zig;
+    public bool zag;
+
+    [Range(10, 90)]
     public int angle;
+
+    [Range(2, 20)]
+    public int frequency;
 
     public override void Initialize()
     {
@@ -38,7 +43,7 @@ public class FiredZigZag : FiredProjectile
         {
             if (zig.Equals(0)) transform.Rotate(0, 0, angle / 2);
             zig += 1;
-            if (zig.Equals(5))
+            if (zig.Equals(frequency/2))
             {
                 zag = false;
                 zig = 0;
@@ -46,8 +51,8 @@ public class FiredZigZag : FiredProjectile
         } else
         {
             if (zig.Equals(0)) transform.Rotate(0, 0, -angle);
-            if (zig.Equals(10)) transform.Rotate(0, 0, angle);
-            zig = (zig + 1) % 20;
+            if (zig.Equals(frequency)) transform.Rotate(0, 0, angle);
+            zig = (zig + 1) % (frequency*2);
         }
         
         

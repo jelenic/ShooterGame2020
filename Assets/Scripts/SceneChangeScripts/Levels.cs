@@ -35,10 +35,10 @@ public class Levels : MonoBehaviour
         difficultyModifiers.Add("DummyLevel", 1f);
 
         levels.Add("DummyLevel2");
-        difficultyModifiers.Add("DummyLevel2", 0.05f);
+        difficultyModifiers.Add("DummyLevel2", 0.55f);
         
         levels.Add("PerformanceTestLevel");
-        difficultyModifiers.Add("PerformanceTestLevel", 1.5f);
+        difficultyModifiers.Add("PerformanceTestLevel", 1.2f);
 
     }
 

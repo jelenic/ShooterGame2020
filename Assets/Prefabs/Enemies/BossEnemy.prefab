@@ -452,11 +452,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
   hp: 0
   hpBar: {fileID: 1584220320636427244}
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+  hp_bar_object: {fileID: 2788629247520641736}
+  hideHP: 0
 --- !u!1 &7807443053640668842
 GameObject:
   m_ObjectHideFlags: 0

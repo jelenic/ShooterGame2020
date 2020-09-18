@@ -171,11 +171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd70c8897a3554d42b5d09090cf983b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
   hp: 0
   hpBar: {fileID: 1829546680165125147}
   floatingNumberText: {fileID: 0}
   immune: 0
   currentlyAfflicted: 
+  hp_bar_object: {fileID: 3038996784119153983}
 --- !u!1 &9215138444864329305
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +361,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620d298341a660745b0162f74eb67400, type: 3}
+--- !u!1 &3038996784119153983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3320247317767264832, guid: 620d298341a660745b0162f74eb67400, type: 3}
+  m_PrefabInstance: {fileID: 306047005829635967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5326109701441054434 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
