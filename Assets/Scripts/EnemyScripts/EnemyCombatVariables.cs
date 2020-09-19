@@ -56,6 +56,7 @@ public class EnemyCombatVariables : CombatVariables
 
     protected override void changeHpBar(float filled)
     {
+        Debug.LogWarning(stats.name + " filled hp is " + filled);
         if (!PlayerPrefs.GetFloat("hp_timer", 3f).Equals(0f)) hp_bar_object.SetActive(true);
         base.changeHpBar(filled);
 
