@@ -43,7 +43,7 @@ public class ShipMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
 
         if (Application.platform == RuntimePlatform.Android || android)
         {

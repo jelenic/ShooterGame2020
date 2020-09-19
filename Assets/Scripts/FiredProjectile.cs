@@ -31,12 +31,15 @@ public abstract class FiredProjectile : MonoBehaviour
         passThrough = new List<string>();
         damageable = new List<string>();
         passThrough.Add("Item");
+        AudioManager.instance.PlayEffect("bullet3");
+
         Initialize();
     }
 
     private void OnDestroy()
     {
         Instantiate(explosion, transform.position, transform.rotation);
+        AudioManager.instance.PlayEffect("explosion1");
 
     }
 

@@ -40,7 +40,7 @@ public class ChargeTurret : MonoBehaviour
 
     private void doStuff()
     {
-        Debug.Log("charged up " + chargeLevel);
+        //Debug.Log("charged up " + chargeLevel);
         timeTillUse = cooldown;
         stuff();
         currentChargeHold = chargeHold;
@@ -53,7 +53,6 @@ public class ChargeTurret : MonoBehaviour
     private void Awake()
     {
         stats = parentStats ? gameObject.GetComponentInParent<Stats>() : GetComponent<Stats>();
-        Debug.Log("checking stats " + stats.range);
         transform = GetComponent<Transform>();
         timeTillUse = 0.5f;
         target = GameObject.FindGameObjectWithTag("Player").transform;

@@ -15,40 +15,49 @@ public class Levels : MonoBehaviour
         }
         instance = this;
 
+        int i = 0;
+        foreach(LevelDetails l in levelDetails)
+        {
+            _levelDetails.Add(l.name, i++);
+        }
+
     }
     #endregion
+
+    private void Start()
+    {
+        audioManager = AudioManager.instance;
+
+    }
+
+    public LevelDetails[] levelDetails;
+    private Dictionary<string, int> _levelDetails = new Dictionary<string, int>();
 
     public string currentlyPlayed;
 
     public Dictionary<string, int> scores = new Dictionary<string, int>();
 
-    public Dictionary<string, float> difficultyModifiers = new Dictionary<string, float>();
-
-    public List<string> levels = new List<string>();
 
     private string dataPath = "/lvl.data";
 
+    public AudioManager audioManager;
 
-    private void Start()
+
+    public LevelDetails getCurrentLevelDetails()
     {
-        levels.Add("DummyLevel");
-        difficultyModifiers.Add("DummyLevel", 1f);
-
-        levels.Add("DummyLevel2");
-        difficultyModifiers.Add("DummyLevel2", 0.55f);
-        
-        levels.Add("PerformanceTestLevel");
-        difficultyModifiers.Add("PerformanceTestLevel", 1.2f);
-
+        return levelDetails[_levelDetails[currentlyPlayed]];
     }
+
 
 
     public void loadLevel(string levelName)
     {
-        if (levels.Contains(levelName))
+        if (_levelDetails.ContainsKey(levelName))
         {
             currentlyPlayed = levelName;
             Loader.Load(levelName);
+            audioManager.PlayMusic(getCurrentLevelDetails().music_name);
+
         }
     }
 
@@ -71,7 +80,6 @@ public class Levels : MonoBehaviour
         Debug.Log("loading level data");
         for(int i = 0; i < saveData.levelNames.Length; i++)
         {
-            Debug.Log(saveData.levelNames[i] + " : " + saveData.levelScores[i]);
             scores.Add(saveData.levelNames[i], saveData.levelScores[i]);
         }
     }
@@ -83,16 +91,13 @@ public class Levels : MonoBehaviour
 
     public string nextLevel()
     {
-        int next = levels.IndexOf(currentlyPlayed) + 1;
-        if (next == levels.Count) return "Message about next level not being available";
+        int next = _levelDetails[currentlyPlayed] + 1;
+        if (next == levelDetails.Length) return "Message about next level not being available";
 
-        currentlyPlayed = levels[next];
-        Loader.Load(levels[next]);
+        currentlyPlayed = levelDetails[next].name;
+        Loader.Load(currentlyPlayed);
+        audioManager.PlayMusic(getCurrentLevelDetails().music_name);
+
         return "";
     }
-
-
-
-    //public delegate void OnLevelsChanged();
-    //public OnLevelsChanged OnLevelsChangedCallback;
 }
