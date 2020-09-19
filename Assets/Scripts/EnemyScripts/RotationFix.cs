@@ -15,7 +15,7 @@ public class RotationFix : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         transform.position = gameObject.transform.parent.transform.position + Vector3.up * translationFix;
         transform.rotation = startRotation;
