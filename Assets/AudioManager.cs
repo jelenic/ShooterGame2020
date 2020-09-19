@@ -5,6 +5,10 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioMixerGroup effects_group;
+    public AudioMixerGroup music_group;
+    public AudioMixer audioMixer;
+
 
     public Sound[] sound_effects;
     private Dictionary<string, int> _effects= new Dictionary<string, int>();
@@ -12,12 +16,14 @@ public class AudioManager : MonoBehaviour
     public Sound[] music;
     private Dictionary<string, int> _music = new Dictionary<string, int>();
 
-    private AudioSource currentlyPlayingMusic;
+    public AudioSource currentlyPlayingMusic;
 
     #region AudioManagerSingleton
     public static AudioManager instance;
     void Awake()
     {
+        
+
         if (instance != null)
         {
             Debug.Log("more than one instance of AudioManager found!");
@@ -32,7 +38,9 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            s.source.spatialBlend = 0.8f;
+            s.source.priority = 224;
+            //s.source.spatialBlend = 0.8f;
+            s.source.outputAudioMixerGroup = effects_group;
 
             _effects.Add(s.name, i++);
         }
@@ -42,9 +50,12 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume * PlayerPrefs.GetFloat("music_volume", 0.5f);
+            s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+
+            s.source.outputAudioMixerGroup = music_group;
+
 
 
             _music.Add(s.name, i++);
@@ -53,12 +64,32 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        float b1; audioMixer.GetFloat("master_volume", out b1);
+        float b2; audioMixer.GetFloat("effects_volume", out b2);
+        float b3; audioMixer.GetFloat("music_volume", out b3);
+
+        Debug.LogFormat("audio mixer results: {0}, {1}, {2}", b1, b2, b3);
+
+
+        bool a1 = audioMixer.SetFloat("master_volume", 27 * Mathf.Log10(PlayerPrefs.GetFloat("master_volume", 0.5f) + 0.001f));
+        bool a2 = audioMixer.SetFloat("effects_volume", 27 * Mathf.Log10(PlayerPrefs.GetFloat("effects_volume", 0.5f) + 0.001f));
+        bool a3 = audioMixer.SetFloat("music_volume", 27 * Mathf.Log10(PlayerPrefs.GetFloat("music_volume", 0.5f) + 0.001f));
+
+        audioMixer.GetFloat("master_volume", out b1);
+        audioMixer.GetFloat("effects_volume", out b2);
+        audioMixer.GetFloat("music_volume", out b3);
+
+        Debug.LogFormat("audio mixer results after: {0}, {1}, {2}", b1, b2, b3);
+    }
+
     public void PlayEffect(string sound_name)
     {
-        if (_effects.ContainsKey(sound_name))
+        if (!PlayerPrefs.GetFloat("effects_volume", 0.5f).Equals(0f) && _effects.ContainsKey(sound_name))
         {
             Sound s = sound_effects[_effects[sound_name]];
-            s.source.PlayOneShot(s.source.clip, PlayerPrefs.GetFloat("effects_volume", 0.5f));
+            s.source.Play();
         } else
         {
             Debug.LogWarning(sound_name + " doesn't exist");

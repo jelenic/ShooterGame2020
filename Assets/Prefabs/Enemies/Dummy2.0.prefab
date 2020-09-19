@@ -153,6 +153,7 @@ MonoBehaviour:
   immune: 0
   currentlyAfflicted: 
   hp_bar_object: {fileID: 7321334565646961744}
+  hideHP: 0
 --- !u!50 &-7697407632358830773
 Rigidbody2D:
   serializedVersion: 4
@@ -268,6 +269,10 @@ PrefabInstance:
     - target: {fileID: 5608504001825601949, guid: 620d298341a660745b0162f74eb67400, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118333336455648262, guid: 620d298341a660745b0162f74eb67400, type: 3}
+      propertyPath: translationFix
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620d298341a660745b0162f74eb67400, type: 3}

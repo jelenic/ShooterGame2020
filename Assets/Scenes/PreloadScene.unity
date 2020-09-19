@@ -277,33 +277,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af41c5bf9d261f34ab0f12a22f89484b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effects_group: {fileID: -409323970551620822, guid: 5d55d6cbe57478f4baf6f293477195b7, type: 2}
+  music_group: {fileID: -7255207634696472125, guid: 5d55d6cbe57478f4baf6f293477195b7, type: 2}
+  audioMixer: {fileID: 24100000, guid: 5d55d6cbe57478f4baf6f293477195b7, type: 2}
   sound_effects:
   - name: explosion1
-    volume: 0.427
+    volume: 0.727
     pitch: 0.9
     loop: 0
     clip: {fileID: 8300000, guid: a84bb117783d9e34dababed3d535b0ef, type: 3}
     source: {fileID: 0}
   - name: explosion2
-    volume: 0.459
+    volume: 1
     pitch: 0.8
     loop: 0
     clip: {fileID: 8300000, guid: 1bd7d8bd667875147969bcf0c9d94f55, type: 3}
     source: {fileID: 0}
   - name: bullet1
-    volume: 0.368
+    volume: 1
     pitch: 1.7
     loop: 0
     clip: {fileID: 8300000, guid: 1bd7d8bd667875147969bcf0c9d94f55, type: 3}
     source: {fileID: 0}
   - name: bullet2
-    volume: 0.368
+    volume: 1
     pitch: 2.3
     loop: 0
     clip: {fileID: 8300000, guid: 1bd7d8bd667875147969bcf0c9d94f55, type: 3}
     source: {fileID: 0}
   - name: bullet3
-    volume: 0.368
+    volume: 0.705
     pitch: 3
     loop: 0
     clip: {fileID: 8300000, guid: 1bd7d8bd667875147969bcf0c9d94f55, type: 3}
@@ -322,7 +325,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 002f59d277613c54297b2a7d5694cbda, type: 3}
     source: {fileID: 0}
   - name: performanceTestLevel
-    volume: 0.116
+    volume: 0.084
     pitch: 1.02
     loop: 1
     clip: {fileID: 8300000, guid: 4188c204f915d49429669e2f50545983, type: 3}
@@ -333,6 +336,7 @@ MonoBehaviour:
     loop: 1
     clip: {fileID: 8300000, guid: 8157d3c71328f3c4d8fa612d0a6a0445, type: 3}
     source: {fileID: 0}
+  currentlyPlayingMusic: {fileID: 0}
 --- !u!1 &1905954402
 GameObject:
   m_ObjectHideFlags: 0
