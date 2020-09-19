@@ -6,6 +6,8 @@ using UnityEngine;
 public class Finish : MonoBehaviour
 {
     public LevelManager levelManager;
+
+    [Range(0.5f, 60f)]
     public float duration;
     private float remaining;
     private bool playerIn;

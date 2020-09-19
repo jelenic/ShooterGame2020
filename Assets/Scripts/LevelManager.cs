@@ -20,8 +20,9 @@ public class LevelManager : MonoBehaviour
         instance = this;
 
         levels = Levels.instance;
-        levelName = levels.currentlyPlayed;
-        levelDifficultyModifier = levels.difficultyModifiers[levelName];
+        LevelDetails ld = levels.getCurrentLevelDetails();
+        levelName = ld.name;
+        levelDifficultyModifier = ld.difficultyModifier;
 
 
     }

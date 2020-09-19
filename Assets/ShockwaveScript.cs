@@ -16,7 +16,6 @@ public class ShockwaveScript : SpecialWeaponScript
     public void effectDamage(GameObject affected)
     {
         Damageable d = affected.GetComponent<Damageable>();
-        Debug.LogWarning("wave charge damage " + reachedChargeLevel);
         d.DecreaseHP((int)(stats.calculateFinalDmgModifier() * dmgBase * reachedChargeLevel), dmgType);
         CombatVariables cv = affected.GetComponent<CombatVariables>();
         if (cv != null) cv.inflictStatus(StatusEffect.Slowdown);
