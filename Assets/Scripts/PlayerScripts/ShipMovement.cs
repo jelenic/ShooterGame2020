@@ -68,7 +68,6 @@ public class ShipMovement : MonoBehaviour {
                     rb.AddForce(dir * stats.thrust);
                 }
             }
-            return;
 
 
             //if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
