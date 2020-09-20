@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5144521166840827099}
   - component: {fileID: 6342864361613277817}
   - component: {fileID: 6342864361613277816}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TurretModuleLaser
   m_TagString: Enemy
   m_Icon: {fileID: 0}
