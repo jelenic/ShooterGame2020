@@ -60,6 +60,8 @@ public class ChargeTurret : MonoBehaviour
         initialize();
     }
 
+    
+
     private void FixedUpdate()
     {
         updateStart();
@@ -67,7 +69,7 @@ public class ChargeTurret : MonoBehaviour
 
         if (timeTillUse.Equals(0f))
         {
-            if (Vector2.Distance(transform.position, target.position) <= stats.range) // if target(player) in range
+            if (target != null && Vector2.Distance(transform.position, target.position) <= stats.range) // if target(player) in range
             {
                 if (!isCharging) onChargeBegin();
                 isCharging = true;

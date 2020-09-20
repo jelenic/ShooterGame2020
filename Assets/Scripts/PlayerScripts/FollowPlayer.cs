@@ -6,6 +6,7 @@ public class FollowPlayer : MonoBehaviour {
 
     //public Transform player;
     public GameObject player;
+    private Transform playerTransform;
 
     public float scaleTime;
     public float maxSize;  // max zoom out size of our camera
@@ -30,6 +31,7 @@ public class FollowPlayer : MonoBehaviour {
         minSpeed = 8f;
         maxSpeed = 13f;
         playerRb = player.GetComponent<Rigidbody2D>();
+        playerTransform = player.GetComponent<Transform>();
         camera = GetComponent<Camera>();
 
         isScaling = false;
@@ -95,7 +97,7 @@ public class FollowPlayer : MonoBehaviour {
 	void Update () {
         //Debug.LogFormat("player position: {0}", player.transform.position);
 
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y,player.transform.position.z - 10f);
+        if (playerTransform != null) transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z - 10f);
 
         //Debug.LogFormat("player speed: {0}", player.GetComponent<Rigidbody2D>().velocity.magnitude);
 

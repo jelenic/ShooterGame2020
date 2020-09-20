@@ -2109,6 +2109,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9164938499969771808, guid: 2e6f70adbc6a588469dcc679eacd94a9, type: 3}
   m_PrefabInstance: {fileID: 504589534}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &588577246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8999125664658042669, guid: af7d346c2fd338f45a54fab9164f42f5, type: 3}
+  m_PrefabInstance: {fileID: 619986621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &591847330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3713,7 +3718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249265328867893741, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: _hp
-      value: 5000
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249265328867893741, guid: 93c3620488524c5448de57cb090d9554, type: 3}
+      propertyPath: thrust
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3249265328867893755, guid: 93c3620488524c5448de57cb090d9554, type: 3}
       propertyPath: m_Name
@@ -7379,6 +7388,10 @@ PrefabInstance:
       propertyPath: youDiedMenu
       value: 
       objectReference: {fileID: 703092096}
+    - target: {fileID: 7488769117669302302, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
+      propertyPath: mobileControls
+      value: 
+      objectReference: {fileID: 588577246}
     - target: {fileID: 7488769117669302303, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

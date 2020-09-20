@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 3249265328867893733}
   - component: {fileID: 3249265328867893741}
   - component: {fileID: 2537693317517817283}
-  - component: {fileID: 8757528778963825885}
   - component: {fileID: 5557718496890589826}
   - component: {fileID: 1345142533855782659}
   m_Layer: 0
@@ -154,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   android: 1
+  clamp: 0
 --- !u!50 &3249265328867893734
 Rigidbody2D:
   serializedVersion: 4
@@ -299,7 +299,7 @@ MonoBehaviour:
   _turretRotationSpeed: 0
   _speed: 0
   maxVelocity: 50
-  thrust: 10
+  thrust: 18
 --- !u!114 &2537693317517817283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,18 +314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   module_cdbar: {fileID: 0}
   special_weapon_cdbar: {fileID: 0}
---- !u!114 &8757528778963825885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3249265328867893755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5453f87f9dfb62d4599e88e150d15979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5557718496890589826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86e7bfa64d7d3f48afd9e4f605fffc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
   hp: 0
   hpBar: {fileID: 0}
   floatingNumberText: {fileID: 0}

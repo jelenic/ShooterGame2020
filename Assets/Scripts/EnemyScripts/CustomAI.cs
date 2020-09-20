@@ -39,7 +39,7 @@ public class CustomAI : MonoBehaviour
 
     void setTarget()
     {
-        if (Vector2.Distance(rb.position, player.transform.position) <= stats.range)
+        if (player != null && Vector2.Distance(rb.position, player.position) <= stats.range)
         {
             target = player;
         } else
@@ -100,6 +100,7 @@ public class CustomAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (target == null) return;
 
         timeTillDodge -= Time.deltaTime;
         #region pathfinder

@@ -994,6 +994,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7d346c2fd338f45a54fab9164f42f5, type: 3}
+--- !u!1 &619986622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8999125664658042669, guid: af7d346c2fd338f45a54fab9164f42f5, type: 3}
+  m_PrefabInstance: {fileID: 619986621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &643853551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,6 +2824,10 @@ PrefabInstance:
       propertyPath: youDiedMenu
       value: 
       objectReference: {fileID: 703092096}
+    - target: {fileID: 7488769117669302302, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
+      propertyPath: mobileControls
+      value: 
+      objectReference: {fileID: 619986622}
     - target: {fileID: 7488769117669302303, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

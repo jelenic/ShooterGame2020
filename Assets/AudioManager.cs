@@ -66,22 +66,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        float b1; audioMixer.GetFloat("master_volume", out b1);
-        float b2; audioMixer.GetFloat("effects_volume", out b2);
-        float b3; audioMixer.GetFloat("music_volume", out b3);
-
-        Debug.LogFormat("audio mixer results: {0}, {1}, {2}", b1, b2, b3);
+        
 
 
         bool a1 = audioMixer.SetFloat("master_volume", 27 * Mathf.Log10(PlayerPrefs.GetFloat("master_volume", 0.5f) + 0.001f));
         bool a2 = audioMixer.SetFloat("effects_volume", 27 * Mathf.Log10(PlayerPrefs.GetFloat("effects_volume", 0.5f) + 0.001f));
         bool a3 = audioMixer.SetFloat("music_volume", 27 * Mathf.Log10(PlayerPrefs.GetFloat("music_volume", 0.5f) + 0.001f));
-
-        audioMixer.GetFloat("master_volume", out b1);
-        audioMixer.GetFloat("effects_volume", out b2);
-        audioMixer.GetFloat("music_volume", out b3);
-
-        Debug.LogFormat("audio mixer results after: {0}, {1}, {2}", b1, b2, b3);
     }
 
     public void PlayEffect(string sound_name)

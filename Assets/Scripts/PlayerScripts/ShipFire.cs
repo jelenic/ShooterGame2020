@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ShipFire : MonoBehaviour
 {
 
-    private float timetillfire;
+    private bool fireWait;
+    //private float timeTillFire;
     public Transform firepoint;
     private bool autofire;
     private Stats stats;
@@ -39,7 +40,7 @@ public class ShipFire : MonoBehaviour
     void Start()
     {
         stats = GetComponent<Stats>();
-        timetillfire = stats.rateOfFire;
+        //timetillfire = stats.rateOfFire;
         autofire = false;
 
         activeWeapon = 1;
@@ -60,10 +61,17 @@ public class ShipFire : MonoBehaviour
 
     }
 
+    private IEnumerator fireCooldown()
+    {
+        fireWait = true;
+        yield return new WaitForSeconds(stats.rateOfFire * (activeWeapon == 1 ? w1_stats.rateOfFireModifier : w2_stats.rateOfFireModifier));
+        fireWait = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        timetillfire -= Time.deltaTime;
+        //timetillfire -= Time.deltaTime;
 
         if (Input.GetKeyDown("space"))
         {
@@ -77,12 +85,14 @@ public class ShipFire : MonoBehaviour
             }
         }
 
-        if (timetillfire<=0 && autofire)
+        if (!fireWait && autofire)
         {
             Shoot();
+            StartCoroutine(fireCooldown());
             //Debug.Log(stats.rateOfFire);
             //Debug.Log(timetillfire.ToString());
-            timetillfire = stats.rateOfFire * (activeWeapon == 1 ? w1_stats.rateOfFireModifier : w2_stats.rateOfFireModifier);
+            //timetillfire = stats.rateOfFire * (activeWeapon == 1 ? w1_stats.rateOfFireModifier : w2_stats.rateOfFireModifier);
+            
         }
 
         if (Input.GetKeyDown("1"))

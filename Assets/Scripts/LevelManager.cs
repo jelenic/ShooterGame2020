@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 {
     #region LevelManagerSingelot
     public static LevelManager instance;
+    public GameObject mobileControls;
     void Awake()
     {
         if (instance != null)
@@ -83,6 +84,7 @@ public class LevelManager : MonoBehaviour
         levelOver = true;
 
         Debug.Log("level is finished");
+        mobileControls.SetActive(false);
         finishMenu.SetActive(true);
         Time.timeScale = 0;
         ChangeTexts ct = finishMenu.GetComponent<ChangeTexts>();
@@ -97,6 +99,7 @@ public class LevelManager : MonoBehaviour
     {
         levelOver = true;
         Debug.Log("level is ded");
+        mobileControls.SetActive(false);
         youDiedMenu.SetActive(true);
         Time.timeScale = 0;
 

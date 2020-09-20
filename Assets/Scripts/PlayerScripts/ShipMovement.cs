@@ -11,6 +11,7 @@ public class ShipMovement : MonoBehaviour {
     private Stats stats;
 
     public bool android;
+    public bool clamp;
     private GameObject MobileControlMenu;
 
 
@@ -33,10 +34,11 @@ public class ShipMovement : MonoBehaviour {
         {
             //Debug.Log(joystickrotate);
             GameObject joystickSpeed = GameObject.Find("JoystickMovement");
-            GameObject joystickRotate = GameObject.Find("JoystickRotation");
+            //GameObject joystickRotate = GameObject.Find("JoystickRotation");
             //Debug.Log(joystickRotate);
-            joystickrotate = joystickRotate.GetComponent<Joystick>();
+            //joystickrotate = joystickRotate.GetComponent<Joystick>();
             joystickspeed = joystickSpeed.GetComponent<Joystick>();
+            android = true;
             //Debug.Log(joystickrotate);
         }
         //Debug.Log(MobileControlMenu.ToString());
@@ -45,26 +47,48 @@ public class ShipMovement : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
 
-        if (Application.platform == RuntimePlatform.Android || android)
+        if (android || Application.platform == RuntimePlatform.Android)
         {
-            if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
+            
+            Vector3 movement = new Vector3(joystickspeed.Horizontal, joystickspeed.Vertical, 0f);
+            float magnitude = movement.magnitude;
+
+            if (!magnitude.Equals(0f))
             {
-                float angle = Mathf.Atan2(joystickrotate.Horizontal, joystickrotate.Vertical) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+                float angle = Mathf.Atan2(joystickspeed.Horizontal, joystickspeed.Vertical) * Mathf.Rad2Deg;
+
+                if (magnitude <= 0.5f)
+                {
+                    transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+                }
+                else
+                {
+                    Vector3 dir = Quaternion.Euler(0f, 0f, -angle) * Vector3.up * magnitude;
+                    transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+                    rb.AddForce(dir * stats.thrust);
+                }
             }
-            if (joystickspeed.Horizontal != 0 && joystickspeed.Vertical != 0)
-            {
-                Vector3 movement = new Vector3(joystickspeed.Horizontal, joystickspeed.Vertical, 0f);
-                float angleSpeed = Mathf.Atan2(joystickspeed.Horizontal, joystickspeed.Vertical) * Mathf.Rad2Deg;
-                Vector3 dir = Quaternion.Euler(0f, 0f, -angleSpeed) * Vector3.up * movement.magnitude;
-                rb.AddForce(dir * stats.thrust);
-            }
+            return;
+
+
+            //if (joystickrotate.Vertical != 0 && joystickrotate.Horizontal != 0)
+            //{
+            //    float angle = Mathf.Atan2(joystickrotate.Horizontal, joystickrotate.Vertical) * Mathf.Rad2Deg;
+            //    transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+            //}
+            //if (joystickspeed.Horizontal != 0 && joystickspeed.Vertical != 0)
+            //{
+            //    Vector3 movement = new Vector3(joystickspeed.Horizontal, joystickspeed.Vertical, 0f);
+            //    float angleSpeed = Mathf.Atan2(joystickspeed.Horizontal, joystickspeed.Vertical) * Mathf.Rad2Deg;
+            //    Vector3 dir = Quaternion.Euler(0f, 0f, -angleSpeed) * Vector3.up * movement.magnitude;
+            //    rb.AddForce(dir * stats.thrust);
+            //}
         }
 
-        ClampVelocity();
+        if (clamp) ClampVelocity();
 
 
-        if (Application.platform != RuntimePlatform.Android && !android)
+        if (!android)
         {
             if (Input.GetKey("w"))
             {

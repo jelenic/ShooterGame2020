@@ -46,6 +46,12 @@ public class CombatVariables : MonoBehaviour, Damageable
 
     }
 
+    protected virtual void ifHPzero()
+    {
+        Destroy(gameObject);
+
+    }
+
 
     public int DecreaseHP(int amount, DamageType dmgType = DamageType.Default)
     {
@@ -62,7 +68,7 @@ public class CombatVariables : MonoBehaviour, Damageable
             createFloatingNumberText(transform.position, dmgColor[dmgType], receivedDmg.ToString());
             if (hp == 0)
             {
-                Destroy(gameObject);
+                ifHPzero();
                 return 0;
             }
 
@@ -113,7 +119,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         initialize();
     }
 
-    private IEnumerator sethp() { yield return new WaitForSeconds(0.5f); hp = stats.hp; } // since level modifier takes some time to set up
+    private IEnumerator sethp() { yield return new WaitForSeconds(0.2f); hp = stats.hp; } // since level modifier takes some time to set up
 
 
     IEnumerator stopStatus(StatusEffect status, float duration)

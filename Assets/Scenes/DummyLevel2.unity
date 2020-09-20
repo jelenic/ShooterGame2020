@@ -326,7 +326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.619, y: 0.09868133}
   m_AnchorMax: {x: 0.86700004, y: 0.18942843}
-  m_AnchoredPosition: {x: 1, y: 2.4999542}
+  m_AnchoredPosition: {x: 1, y: 2.5}
   m_SizeDelta: {x: -2, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112236187
@@ -3831,7 +3831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13100001, y: 0.09868133}
   m_AnchorMax: {x: 0.38081762, y: 0.18942843}
-  m_AnchoredPosition: {x: 1, y: 2.4999542}
+  m_AnchoredPosition: {x: 1, y: 2.5}
   m_SizeDelta: {x: -2, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433477402
@@ -4606,6 +4606,11 @@ PrefabInstance:
 --- !u!224 &1788527507 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8999125664658042668, guid: af7d346c2fd338f45a54fab9164f42f5, type: 3}
+  m_PrefabInstance: {fileID: 1788527506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1788527508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8999125664658042669, guid: af7d346c2fd338f45a54fab9164f42f5, type: 3}
   m_PrefabInstance: {fileID: 1788527506}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1799325387
@@ -5686,6 +5691,10 @@ PrefabInstance:
       propertyPath: youDiedMenu
       value: 
       objectReference: {fileID: 703092096}
+    - target: {fileID: 7488769117669302302, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
+      propertyPath: mobileControls
+      value: 
+      objectReference: {fileID: 1788527508}
     - target: {fileID: 7488769117669302303, guid: 6b9a4a5852fe225469317b367d5abd07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

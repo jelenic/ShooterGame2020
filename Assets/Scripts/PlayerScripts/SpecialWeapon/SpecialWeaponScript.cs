@@ -55,6 +55,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
         if (Application.platform == RuntimePlatform.Android || android)
         {
+            android = true;
             GameObject specialWBtnn = GameObject.Find("SpecialAttackBtn");
             specialWBtn = specialWBtnn.GetComponent<Button>();
             specialWBtn.onClick.AddListener(useWeapon);

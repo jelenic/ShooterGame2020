@@ -22,4 +22,17 @@ public class PlayerCombatVariables : CombatVariables
                 break;
         }
     }
+
+    protected override void ifHPzero()
+    {
+        StartCoroutine(playerDeath());
+    }
+
+    private IEnumerator playerDeath()
+    {
+        Debug.Log("player deathh");
+        yield return new WaitForSeconds(0.5f);
+        if (hp == 0) LevelManager.instance.die();
+        Destroy(gameObject);
+    }
 }
