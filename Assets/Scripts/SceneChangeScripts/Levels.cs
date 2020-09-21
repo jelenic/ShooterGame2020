@@ -58,7 +58,14 @@ public class Levels : MonoBehaviour
             Loader.Load(levelName);
             audioManager.PlayMusic(getCurrentLevelDetails().music_name);
 
+
         }
+    }
+
+    public void restartLevel()
+    {
+        Debug.Log("restarting " + currentlyPlayed);
+        loadLevel(currentlyPlayed);
     }
 
 

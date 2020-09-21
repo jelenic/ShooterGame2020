@@ -13,9 +13,9 @@ public class YouDiedMenu : MonoBehaviour
 
     public void Restart()
     {
-        Debug.Log("Scene:" + SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Levels.instance.restartLevel();
     }
+
     public void ReturnToMainMenu()
     {
         Debug.Log("MenuScene");

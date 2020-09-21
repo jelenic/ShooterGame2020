@@ -44,8 +44,7 @@ public class LevelManager : MonoBehaviour
 
     public void Restart()
     {
-        Debug.Log("Scene:" + SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Levels.instance.restartLevel();
     }
     public void ReturnToMainMenu()
     {
@@ -83,6 +82,9 @@ public class LevelManager : MonoBehaviour
 
         levelOver = true;
 
+        AudioManager.instance.PlayMusic("victory");
+
+
         Debug.Log("level is finished");
         mobileControls.SetActive(false);
         finishMenu.SetActive(true);
@@ -93,12 +95,15 @@ public class LevelManager : MonoBehaviour
         int highscore = levels.scoreLevel(currentScore);
         ct.displayhighscore(highscore);
 
+
     }
     
     public void die()
     {
         levelOver = true;
         Debug.Log("level is ded");
+        AudioManager.instance.PlayMusic("gameOver");
+
         mobileControls.SetActive(false);
         youDiedMenu.SetActive(true);
         Time.timeScale = 0;

@@ -62,7 +62,7 @@ public class Stats : MonoBehaviour
     private float _speed;
 
     public int scoreValue { get => (int) Mathf.Clamp((difficultyModifier * _scoreValue), 0f, 10000f); set => _scoreValue = value; }
-    public float range { get => Mathf.Clamp( difficultyModifier *  _range, 8f, 30f); set => range = value; }
+    public float range { get => Mathf.Clamp( difficultyModifier *  _range, 8f, 1000f); set => range = value; }
     public float angleSpeed { get => Mathf.Clamp( difficultyModifier *  _angleSpeed, 3f, 30f); set => _angleSpeed = value; }
     public float rateOfFire { get => Mathf.Clamp(  _rateOfFire / difficultyModifier, 0f, 10f); set => _rateOfFire = value; }
     public float turretRotationSpeed { get => Mathf.Clamp( difficultyModifier *  _turretRotationSpeed, 3f, 30f); set => _turretRotationSpeed = value; }
@@ -100,7 +100,13 @@ public class Stats : MonoBehaviour
 
         GetComponent<Rigidbody2D>().mass = mass;
 
+        refreshOriginal();
+    }
+
+    public void refreshOriginal()
+    {
         og = new OriginalStats(this);
+
     }
 
 }

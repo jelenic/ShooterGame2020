@@ -88,6 +88,7 @@ public class AudioManager : MonoBehaviour
     
     public void PlayMusic(string sound_name)
     {
+        Debug.Log("playing " + sound_name);
         if (_music.ContainsKey(sound_name))
         {
             if (currentlyPlayingMusic != null) currentlyPlayingMusic.Stop();

@@ -21,6 +21,8 @@ public class ShipFire : MonoBehaviour
     private Button toggleBtn;
     private Button switchBtn;
 
+    public bool android;
+
 
 
     public void setWeapons(GameObject weapon1, Weapon weapon_stats1, GameObject weapon2, Weapon weapon_stats2)
@@ -47,7 +49,7 @@ public class ShipFire : MonoBehaviour
         //w1 = Bullets;
         //w2 = MiniLaser;
 
-        if (Application.platform == RuntimePlatform.Android || true)
+        if (Application.platform == RuntimePlatform.Android || android)
         {
             GameObject toggleBtnn = GameObject.Find("ToggleAttackBtn");
             toggleBtn = toggleBtnn.GetComponent<Button>();

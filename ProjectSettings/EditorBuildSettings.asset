@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BaseLevelScene.unity
     guid: fec27d131c296824386100f2709131f4
+  - enabled: 1
+    path: Assets/Scenes/NewModeScene.unity
+    guid: 55733027f4b09f043892ac83d22b3b66
   m_configObjects: {}

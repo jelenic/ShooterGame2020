@@ -81,9 +81,13 @@ public class CombatVariables : MonoBehaviour, Damageable
 
     public int IncreaseHP(int amount)
     {
+        if (hp.Equals(stats.hp)) return 0; // in case hp is full
+
         hp = Math.Min(stats.hp, hp + amount);
         //Debug.LogFormat("object {0} hp increased by {1}, current hp: {2}", gameObject.tag, amount, hp);
         changeHpBar((float)hp / stats.hp);
+        createFloatingNumberText(transform.position, Color.green, amount.ToString());
+
         if (onHpChangedCallback != null) onHpChangedCallback.Invoke(amount);
 
         return hp;
@@ -146,6 +150,13 @@ public class CombatVariables : MonoBehaviour, Damageable
         levelManager.increaseScore(stats.scoreValue);
     }
 
+    protected virtual void handleStatBuff(StatBuff buff, float amount) { }
+    public void permanentStatBuff(StatBuff buff, float amount)
+    {
+        handleStatBuff(buff, amount);
+        stats.refreshOriginal();
+    }
+
     
 }
 
@@ -157,6 +168,8 @@ public enum StatusEffect
     Speedup,
     DamageDecrease,
     DamageIncrease,
+    Heal,
+    HealOverTime,
     None,
 }
 
@@ -167,3 +180,13 @@ public enum DamageType
     Projectile,
     Default
 }
+
+public enum StatBuff
+{
+    HP,
+    Damage,
+    MovementSpeed,
+    RateOfFire,
+    MagazineSize
+}
+
