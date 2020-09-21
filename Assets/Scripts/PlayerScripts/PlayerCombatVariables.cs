@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerCombatVariables : CombatVariables
 {
+    private EquipementScript es;
+
+    protected override void initialize()
+    {
+        es = GameObject.FindGameObjectWithTag("Player").GetComponent<EquipementScript>();
+    }
+
     Coroutine healingCoroutine = null;
     protected override void activateDeactivateStatus(StatusEffect status, bool activate, float value)
     {
@@ -77,4 +84,11 @@ public class PlayerCombatVariables : CombatVariables
                 break;
         }
     }
+
+    public override void handleEquipement(Equipement eq)
+    {
+        es.Equip(eq);
+    }
+
+
 }

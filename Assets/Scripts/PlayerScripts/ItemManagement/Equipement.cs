@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Equipement : Item
+public class Equipement : ConsumableItem
 {
+    public override void consume(CombatVariables cv)
+    {
+        cv.handleEquipement(this);
+    }
 }
 
 

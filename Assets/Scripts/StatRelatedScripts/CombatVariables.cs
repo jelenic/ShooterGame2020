@@ -147,7 +147,7 @@ public class CombatVariables : MonoBehaviour, Damageable
 
     private void OnDestroy()
     {
-        levelManager.increaseScore(stats.scoreValue);
+        if (hp.Equals(0)) levelManager.increaseScore(stats.scoreValue);
     }
 
     protected virtual void handleStatBuff(StatBuff buff, float amount) { }
@@ -156,6 +156,8 @@ public class CombatVariables : MonoBehaviour, Damageable
         handleStatBuff(buff, amount);
         stats.refreshOriginal();
     }
+
+    public virtual void handleEquipement(Equipement eq) { }
 
     
 }
