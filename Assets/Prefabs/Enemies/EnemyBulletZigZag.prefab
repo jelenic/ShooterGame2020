@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6373722828183997823}
   - component: {fileID: 9129062289220686554}
   - component: {fileID: 3142078864135072334}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyBulletZigZag
   m_TagString: Projectile
   m_Icon: {fileID: 0}

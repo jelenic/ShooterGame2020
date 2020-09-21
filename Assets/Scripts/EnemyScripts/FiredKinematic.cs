@@ -48,5 +48,7 @@ public class FiredKinematic : FiredProjectile
         passThrough.Remove("Enemy");
         passThrough.Add("Player");
         damageable.Add("Enemy");
+        gameObject.layer = LayerMask.NameToLayer("Projectile");
+
     }
 }

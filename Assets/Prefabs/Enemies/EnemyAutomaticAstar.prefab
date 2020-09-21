@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9041624062297404704}
   - component: {fileID: 2676998603099555522}
   - component: {fileID: 8726445945639911052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyAutomaticAstar
   m_TagString: Enemy
   m_Icon: {fileID: 0}

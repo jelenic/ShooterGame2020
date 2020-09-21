@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 9145183351227818082}
   - component: {fileID: 10296207148987291}
   - component: {fileID: -7354673342895541063}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: TurretHomingHP
   m_TagString: Enemy
   m_Icon: {fileID: 0}

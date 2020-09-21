@@ -44,9 +44,7 @@ public class ShockwaveScript : SpecialWeaponScript
         shockwaveController.setParams(effectDamage);
         activeFor = activeTime * (calculateCharge() / maxCharge);
 
-        Debug.LogWarning("charge end " + reachedChargeLevel);
         reachedChargeLevel = calculateCharge();
-        Debug.LogWarning("charge enddd " + reachedChargeLevel);
     }
 
     protected override void updateStart()

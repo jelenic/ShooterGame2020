@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 2537693317517817283}
   - component: {fileID: 5557718496890589826}
   - component: {fileID: 1345142533855782659}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ship_real
   m_TagString: Player
   m_Icon: {fileID: 0}

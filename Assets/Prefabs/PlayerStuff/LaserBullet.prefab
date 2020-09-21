@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5127391826224593734}
   - component: {fileID: 2523645270646869738}
   - component: {fileID: 1140974287318386054}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LaserBullet
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -145,10 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileDamage: 4
-  projectileDamageType: beam
+  projectileDamageType: 0
   lifeDuration: 5
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
   damageModifier: 0
+  velocityModifier: 0
   passThrough: []
   damageable: []
   destroyable: []

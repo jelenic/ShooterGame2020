@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 6498485919846972599}
   - component: {fileID: 8391705673984042714}
   - component: {fileID: 3082155066558025706}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MiniBossEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

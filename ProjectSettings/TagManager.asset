@@ -25,11 +25,11 @@ TagManager:
   - 
   - Walls
   - MiniMap
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Projectile
+  - EnemyProjectile
+  - Spawner
   - 
   - 
   - 

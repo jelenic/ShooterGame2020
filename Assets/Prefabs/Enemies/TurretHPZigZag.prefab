@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5977010676747076857}
   - component: {fileID: 2008777618249584944}
   - component: {fileID: -6039525189029244876}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: TurretHPZigZag
   m_TagString: Enemy
   m_Icon: {fileID: 0}

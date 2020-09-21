@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 6498485919846972599}
   - component: {fileID: 8391705673984042714}
   - component: {fileID: 920411308125105698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MiniBossEnemyLaser
   m_TagString: Enemy
   m_Icon: {fileID: 0}

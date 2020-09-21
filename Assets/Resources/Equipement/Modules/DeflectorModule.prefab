@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2993814786243384693}
   - component: {fileID: 4654311655499488095}
   - component: {fileID: 5777959832725925003}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shield
   m_TagString: Shield
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2572767515710117121}
   - component: {fileID: 3842339561006746434}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DeflectorModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,3 +158,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coooldown: 0
   duration: 2
+  android: 0

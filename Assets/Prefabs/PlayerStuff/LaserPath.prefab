@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3241238996482785683}
   - component: {fileID: 3241238996482785684}
   - component: {fileID: 3241238996482785685}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LaserPath
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

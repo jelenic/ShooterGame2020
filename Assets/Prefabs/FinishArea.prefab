@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5029111624430589842}
   - component: {fileID: 3299079099990454078}
   - component: {fileID: -6466162007366085973}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FinishArea
   m_TagString: Spawner
   m_Icon: {fileID: 0}

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7683340923841187789}
   - component: {fileID: 5166620151008841410}
   - component: {fileID: 7373500603060794433}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyBulletHoming
   m_TagString: Projectile
   m_Icon: {fileID: 0}

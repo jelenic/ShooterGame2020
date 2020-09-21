@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2333388346209934861}
   - component: {fileID: 6815134717579628870}
   - component: {fileID: 7050758766260181317}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shield
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5856770492584337886}
   - component: {fileID: 1995888625417090149}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyHPShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
