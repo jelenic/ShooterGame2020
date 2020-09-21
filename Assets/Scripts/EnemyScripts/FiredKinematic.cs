@@ -7,6 +7,7 @@ public class FiredKinematic : FiredProjectile
 {
     private float velocity;
     private bool deflected;
+    private float alive;
 
     public override void Initialize()
     {
@@ -15,7 +16,8 @@ public class FiredKinematic : FiredProjectile
         projectileDamageType = DamageType.Projectile;
 
         lifeDuration = 5f;
-        velocity = 9;
+        velocity = 20;
+        alive = 1f;
 
         passThrough.Add("Enemy");
         passThrough.Add("Spawner");
@@ -32,13 +34,14 @@ public class FiredKinematic : FiredProjectile
     // Update is called once per frame
     void Update()
     {
+        if ( alive <= lifeDuration) alive += Time.deltaTime*3;
         if (deflected)
         {
-            transform.Translate(- Vector2.up * Time.deltaTime * velocity * velocityModifier, Space.Self);
+            transform.Translate(- Vector2.up * Time.deltaTime * velocity * velocityModifier * (alive / lifeDuration), Space.Self);
         }
         else
         {
-            transform.Translate(Vector2.up * Time.deltaTime * velocity * velocityModifier, Space.Self);
+            transform.Translate(Vector2.up * Time.deltaTime * velocity * velocityModifier * (alive / lifeDuration), Space.Self);
         }
     }
 

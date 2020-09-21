@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PerformanceTestLevel.unity
     guid: 6306f5b2556a5b5449ee2e5d54bbc01f
+  - enabled: 1
+    path: Assets/Scenes/BaseLevelScene.unity
+    guid: fec27d131c296824386100f2709131f4
   m_configObjects: {}
