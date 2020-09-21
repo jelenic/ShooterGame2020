@@ -19,9 +19,10 @@ MonoBehaviour:
   description: beeeeam
   color: {r: 0.8018868, g: 0.72763526, b: 0.011347434, a: 1}
   codeName: Laser
+  magazineSize: 5
   damageBase: 300
   cooldown: 3
-  damageType: beam
+  damageType: 0
   specialEffect: destroys everything
   chargeSpeed: 2
   minCharge: 0.3

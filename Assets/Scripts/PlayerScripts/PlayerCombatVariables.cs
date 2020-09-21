@@ -1,14 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerCombatVariables : CombatVariables
 {
     private EquipementScript es;
+    public TextMeshProUGUI currentHPText;
+    public TextMeshProUGUI maxHPText;
 
     protected override void initialize()
     {
         es = GameObject.FindGameObjectWithTag("Player").GetComponent<EquipementScript>();
+        StartCoroutine(refreshHP());
+
+    }
+
+    IEnumerator refreshHP()
+    {
+        yield return new WaitForSeconds(0.2f);
+        changeHpBar(hp / stats.hp);
+    }
+
+    protected override void changeHpBar(float filled)
+    {
+        base.changeHpBar(filled);
+        currentHPText.text = hp.ToString();
+        maxHPText.text = stats.hp.ToString();
     }
 
     Coroutine healingCoroutine = null;
@@ -75,12 +93,16 @@ public class PlayerCombatVariables : CombatVariables
             case StatBuff.HP:
                 stats.hp = (int) (stats.hp * amount);
                 hp = (int) (hp * amount);
+                changeHpBar(hp / stats.hp);
                 break;
             case StatBuff.Damage:
                 stats.damageModifier *= amount;
                 break;
             case StatBuff.MovementSpeed:
                 stats.thrust *= amount;
+                break;
+            case StatBuff.MagazineSize:
+                stats.magazineModifier += (int) amount;
                 break;
         }
     }

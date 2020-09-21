@@ -31,9 +31,23 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
     public delegate void OnCooldownChanged(float filled);
     public OnCooldownChanged OnCooldownChangedCallback;
+    
+    public delegate void OnFired();
+    public OnFired OnFiredCallback;
 
-    public void setParams(SpecialWeapon sw)
+    public delegate bool CanFire();
+    private CanFire canFire;
+
+    private bool freeFire()
     {
+        return true;
+    }
+
+    public void setParams(SpecialWeapon sw, CanFire canFire = null )
+    {
+        if (canFire == null) this.canFire = freeFire;
+        else this.canFire = canFire;
+
         this.dmgBase = sw.damageBase;
         this.dmgType = sw.damageType;
         this.cooldown = sw.cooldown;
@@ -79,6 +93,12 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         {
             timeTillUse = cooldown;
             stuff();
+
+            if (OnFiredCallback != null)
+            {
+                OnFiredCallback.Invoke();
+            }
+
             chargeLevel = 0f;
             onChargeEnd();
         }
@@ -96,7 +116,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
         updateStart();
 
-        if (timeTillUse <= 0f && (Input.GetMouseButton(0) || clicked))
+        if (canFire() && timeTillUse <= 0f && (Input.GetMouseButton(0) || clicked))
         {
             if (!isCharging) onChargeBegin();
             isCharging = true;

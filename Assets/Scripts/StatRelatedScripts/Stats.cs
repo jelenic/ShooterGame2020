@@ -81,6 +81,7 @@ public class Stats : MonoBehaviour
     //player only
     public float maxVelocity;
     public float thrust;
+    public int magazineModifier;
 
 
     public float calculateFinalDmgModifier()
@@ -132,6 +133,7 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
     public float speed;
     public float maxVelocity;
     public float thrust;
+    public int magazineModifier;
     public OriginalStats(Stats stats)
     {
         this.hp = stats.hp;
@@ -151,5 +153,6 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
         this.speed = stats.speed;
         this.maxVelocity = stats.maxVelocity;
         this.thrust = stats.thrust;
+        this.magazineModifier = stats.magazineModifier;
 }
 }

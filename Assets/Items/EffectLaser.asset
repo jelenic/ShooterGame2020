@@ -19,9 +19,10 @@ MonoBehaviour:
   description: effect beeeeam
   color: {r: 0.8018868, g: 0.72763526, b: 0.011347434, a: 1}
   codeName: EffectLaser
+  magazineSize: 5
   damageBase: 10
   cooldown: 0.5
-  damageType: beam
+  damageType: 0
   specialEffect: affects everything
   chargeSpeed: 1
   minCharge: 0.5

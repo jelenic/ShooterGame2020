@@ -55,4 +55,5 @@ public class InitializePlayer : MonoBehaviour
 
         sf.setWeapons(w1, weapon1, w2, weapon2);
     }
+
 }

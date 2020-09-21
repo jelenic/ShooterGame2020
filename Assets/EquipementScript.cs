@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class EquipementScript : MonoBehaviour
 {
@@ -12,6 +14,51 @@ public class EquipementScript : MonoBehaviour
 
     private SpecialWeapon specialWeapon;
     private Transform specialWeaponTransform;
+
+    public Image weaponCD;
+    public TextMeshProUGUI weaponCurrentAmmoText;
+    public TextMeshProUGUI weaponTotalAmmoText;
+
+    public Image specialWeaponCD;
+    public TextMeshProUGUI specialWeaponCurrentAmmoText;
+    public TextMeshProUGUI specialWeaponTotalAmmoText;
+
+    private int weaponAmmo;
+    private int specialWeaponAmmo;
+
+    private void wCDCallback(float filled)
+    {
+        weaponCD.fillAmount = filled;
+    }
+    private void spwCDCallback(float filled)
+    {
+        specialWeaponCD.fillAmount = filled;
+    }
+
+    private void spwAmmoRefresh()
+    {
+        specialWeaponCurrentAmmoText.text = specialWeaponAmmo.ToString();
+        specialWeaponTotalAmmoText.text = (stats.magazineModifier * specialWeapon.magazineSize).ToString();
+    }
+
+    private bool spwAmmoCheck()
+    {
+        if (specialWeaponAmmo > 0)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    private void onSpwFired()
+    {
+        specialWeaponAmmo -= 1;
+        spwAmmoRefresh();
+    }
+
+
 
     private void Awake()
     {
@@ -25,17 +72,12 @@ public class EquipementScript : MonoBehaviour
         switch(eq.GetType().ToString())
         {
             case "Weapon":
-
+                WeaponEquip(eq);
                 break;
             case "SpecialWeapon":
                 SpecialWeaponEquip(eq);
                 break;
         }
-
-
-
-
-
     }
 
     private void WeaponEquip(Equipement eq)
@@ -60,7 +102,13 @@ public class EquipementScript : MonoBehaviour
         GameObject spw = Instantiate(specialWeapon_obj, player.position, player.rotation);
         specialWeaponTransform = spw.transform;
         spw.transform.parent = player;
-        spw.GetComponentInChildren<SpecialWeaponScript>().setParams(specialWeapon);
+        SpecialWeaponScript spwComponent = spw.GetComponentInChildren<SpecialWeaponScript>();
+        spwComponent.setParams(specialWeapon, spwAmmoCheck);
+        spwComponent.OnCooldownChangedCallback += spwCDCallback;
+        spwComponent.OnFiredCallback += onSpwFired;
+        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * specialWeapon.magazineSize * stats.magazineModifier);
+        Debug.Log("sp amo " + specialWeaponAmmo);
+        spwAmmoRefresh();
     }
 
     private void ModuleEquip(Equipement eq)

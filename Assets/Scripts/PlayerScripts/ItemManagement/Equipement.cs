@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Equipement : ConsumableItem
 {
+    public int magazineSize;
     public override void consume(CombatVariables cv)
     {
         cv.handleEquipement(this);
