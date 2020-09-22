@@ -7,12 +7,29 @@ public class ConsumeOnPickup : MonoBehaviour
     public ConsumableItem consumable;
     private CombatVariables cv;
     private SpriteRenderer sr;
+    private Transform transform;
+    private Coroutine rotateCor;
 
     private void Awake()
     {
+        transform = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
-        sr.color = consumable.color;
+        if (consumable.pickUpIcon != null) sr.sprite = consumable.pickUpIcon;
+        sr.color = consumable.pickUpIconColor;
         cv = GameObject.FindGameObjectWithTag("Player").GetComponent<CombatVariables>();
+
+        rotateCor = StartCoroutine(periodicRotate());
+
+    }
+
+
+    IEnumerator periodicRotate()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            transform.Rotate(0, 0, 45);
+        }
     }
 
 
@@ -20,9 +37,10 @@ public class ConsumeOnPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         consumable.consume(cv);
-
+        StopCoroutine(rotateCor);
         Destroy(gameObject);
     }
 
+   
 
 }
