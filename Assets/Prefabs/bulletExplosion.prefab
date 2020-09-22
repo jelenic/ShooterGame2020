@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4290944018230062}
   - component: {fileID: 212992282435995180}
   - component: {fileID: 95686353493368096}
-  - component: {fileID: 6934818496924436861}
+  - component: {fileID: 7491808040905449790}
   m_Layer: 0
   m_Name: bulletExplosion
   m_TagString: Untagged
@@ -103,7 +103,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6934818496924436861
+--- !u!114 &7491808040905449790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,6 +112,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1003493668187202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ef25af785c500a44be7ef0add33208f, type: 3}
+  m_Script: {fileID: 11500000, guid: 34e84213540f7e847b99f3016ea7b49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

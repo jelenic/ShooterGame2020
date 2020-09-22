@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 7472826865651126524}
   - component: {fileID: 7472826865651126527}
   - component: {fileID: 7472826865651126521}
-  - component: {fileID: 7472826865651126526}
   - component: {fileID: 7472826865651126520}
   - component: {fileID: 7472826865651126523}
   - component: {fileID: 7472826865651126522}
@@ -102,6 +101,7 @@ GameObject:
   - component: {fileID: 541450575628231581}
   - component: {fileID: 6343757582292112924}
   - component: {fileID: 7472826865651126507}
+  - component: {fileID: 3249265328528498120}
   m_Layer: 11
   m_Name: new_ship
   m_TagString: Player
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7472826865651126500}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -211,24 +211,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7472826865651126526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7472826865651126500}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c770398ba2920149b9d6e46653b7b5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firepoint: {fileID: 7472826866836980356}
-  w1: {fileID: 0}
-  w2: {fileID: 0}
-  w1_stats: {fileID: 0}
-  w2_stats: {fileID: 0}
-  android: 0
 --- !u!61 &7472826865651126520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -388,6 +370,22 @@ MonoBehaviour:
   specialWeaponCD: {fileID: 0}
   specialWeaponCurrentAmmoText: {fileID: 0}
   specialWeaponTotalAmmoText: {fileID: 0}
+--- !u!114 &3249265328528498120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7472826865651126500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143422b6405d0db4ab02a4dc6b87a83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo1: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
+  ammo2: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
+  ammo3: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
+  android: 0
 --- !u!1 &7472826866836980359
 GameObject:
   m_ObjectHideFlags: 0
