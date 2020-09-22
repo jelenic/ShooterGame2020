@@ -2016,18 +2016,6 @@ PrefabInstance:
       propertyPath: maxHPText
       value: 
       objectReference: {fileID: 915318605}
-    - target: {fileID: 3249265328528498120, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: ammo1
-      value: 
-      objectReference: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
-    - target: {fileID: 3249265328528498120, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: ammo2
-      value: 
-      objectReference: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
-    - target: {fileID: 3249265328528498120, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: ammo3
-      value: 
-      objectReference: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
     - target: {fileID: 7472826865651126500, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: m_Name
       value: new_ship
