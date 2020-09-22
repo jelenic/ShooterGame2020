@@ -9,6 +9,7 @@ public class ConsumeOnPickup : MonoBehaviour
     private SpriteRenderer sr;
     private Transform transform;
     private Coroutine rotateCor;
+    private bool consumed; // since trigger sometimes activates twice quickly
 
     private void Awake()
     {
@@ -36,6 +37,8 @@ public class ConsumeOnPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (consumed) return;
+        consumed = true;
         consumable.consume(cv);
         StopCoroutine(rotateCor);
         Destroy(gameObject);

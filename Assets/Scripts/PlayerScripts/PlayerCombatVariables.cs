@@ -25,8 +25,11 @@ public class PlayerCombatVariables : CombatVariables
     protected override void changeHpBar(float filled)
     {
         base.changeHpBar(filled);
-        currentHPText.text = hp.ToString();
-        maxHPText.text = stats.hp.ToString();
+        if (currentHPText != null)
+        { 
+            currentHPText.text = hp.ToString();
+            maxHPText.text = stats.hp.ToString();
+        }
     }
 
     Coroutine healingCoroutine = null;

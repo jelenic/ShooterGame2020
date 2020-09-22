@@ -12,7 +12,7 @@ public class ShipMovement : MonoBehaviour {
 
     public bool android;
     public bool clamp;
-    private GameObject MobileControlMenu;
+    public GameObject MobileControlMenu;
 
 
 
@@ -25,7 +25,7 @@ public class ShipMovement : MonoBehaviour {
     void Start() {
         stats = GetComponent<Stats>();
         rb = GetComponent<Rigidbody2D>();
-        MobileControlMenu = GameObject.Find("MobileControlls");
+        if(MobileControlMenu != null) MobileControlMenu = GameObject.Find("MobileControlls");
         if (Application.platform != RuntimePlatform.Android && !android)
         {
             MobileControlMenu.SetActive(false);
