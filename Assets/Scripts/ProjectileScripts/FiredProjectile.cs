@@ -31,7 +31,7 @@ public abstract class FiredProjectile : MonoBehaviour
         passThrough = new List<string>();
         damageable = new List<string>();
         passThrough.Add("Item");
-        AudioManager.instance.PlayEffect("bullet3");
+        //AudioManager.instance.PlayEffect("bullet3");
 
         Initialize();
     }
@@ -39,7 +39,7 @@ public abstract class FiredProjectile : MonoBehaviour
     private void OnDestroy()
     {
         Instantiate(explosion, transform.position, transform.rotation);
-        if (!LevelManager.instance.levelOver) AudioManager.instance.PlayEffect("explosion1");
+        //if (!LevelManager.instance.levelOver) AudioManager.instance.PlayEffect("explosion1");
 
     }
 

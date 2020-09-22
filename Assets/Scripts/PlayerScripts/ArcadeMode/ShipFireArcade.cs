@@ -40,6 +40,7 @@ public class ShipFireArcade : MonoBehaviour
         stats = GetComponent<Stats>();
         damageModifier = stats.damageModifier;
         activeWeapon = 1;
+        rateOfFire = stats.rateOfFire;
 
         if (Application.platform == RuntimePlatform.Android || android)
         {
