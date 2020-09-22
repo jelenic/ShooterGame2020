@@ -10,7 +10,7 @@ public class ArcadeManager : MonoBehaviour
     public float waveLenght;
 
     public GameObject waveDetailsPopup;
-    private TextMeshProUGUI popupText;
+    public TextMeshProUGUI popupText;
 
     #region ArcadeManagerSingelot
     public static ArcadeManager instance;
@@ -23,7 +23,6 @@ public class ArcadeManager : MonoBehaviour
         instance = this;
     #endregion
 
-        popupText = waveDetailsPopup.GetComponent<TextMeshProUGUI>();
 
         startNextWave();
     }

@@ -5620,6 +5620,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 776765378360659040, guid: 4edf45592a29a8f46a99003bb0a91388, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796266126948728622, guid: 4edf45592a29a8f46a99003bb0a91388, type: 3}
+      propertyPath: m_OverrideSorting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796266126948728622, guid: 4edf45592a29a8f46a99003bb0a91388, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5205258689366969488, guid: 4edf45592a29a8f46a99003bb0a91388, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5662,6 +5674,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5205258689366969488, guid: 4edf45592a29a8f46a99003bb0a91388, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482925460551201356, guid: 4edf45592a29a8f46a99003bb0a91388, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8736466720181468284, guid: 4edf45592a29a8f46a99003bb0a91388, type: 3}

@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChangeTexts : MonoBehaviour
 {
-    public Text levelComplete;
-    public Text levelScore;
-    public Text levelHighScore;
+    public TextMeshProUGUI levelComplete;
+    public TextMeshProUGUI levelScore;
+    public TextMeshProUGUI levelHighScore;
     // Start is called before the first frame update
 
 
