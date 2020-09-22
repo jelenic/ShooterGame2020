@@ -7,10 +7,18 @@ public class ArcadeManager : MonoBehaviour
 {
     public int currentWave;
 
-    public float waveLenght;
+    public int waveLenght;
+    public int pauseLenght;
+
+    private int currentWaveLenght;
+    private int currentPauseLenght;
 
     public GameObject waveDetailsPopup;
     public TextMeshProUGUI popupText;
+
+    public TextMeshProUGUI waveProgressText;
+
+    public delegate void VoidFunction();
 
     #region ArcadeManagerSingelot
     public static ArcadeManager instance;
@@ -21,8 +29,25 @@ public class ArcadeManager : MonoBehaviour
             Debug.Log("more than one instance of ArcadeManager found!");
         }
         instance = this;
-    #endregion
+        #endregion
 
+
+        startPause();
+    }
+
+    private void startPause()
+    {
+        currentPauseLenght = pauseLenght;
+        StartCoroutine(pauseTimer());
+    }
+
+    private IEnumerator pauseTimer()
+    {
+        while (currentPauseLenght > 0)
+        {
+            waveProgressText.text = string.Format("Wave {0} in {1}s", currentWave+1, currentPauseLenght--);
+            yield return new WaitForSeconds(1f);
+        }
 
         startNextWave();
     }
@@ -30,15 +55,35 @@ public class ArcadeManager : MonoBehaviour
     private void startNextWave()
     {
         currentWave += 1;
-        waveDetailsPopup.SetActive(true);
-        popupText.text = string.Format("WAVE {0} STARTING!", currentWave);
-        StartCoroutine(disablePopup(3f));
+        StartCoroutine(makePopup(string.Format("WAVE {0} STARTING!", currentWave), 1.5f, startWaveTimer));
     }
-
-    private IEnumerator disablePopup(float seconds)
+    private IEnumerator makePopup(string message, float duration, VoidFunction func)
     {
-        yield return new WaitForSeconds(seconds);
+        waveProgressText.text = "";
+        waveDetailsPopup.SetActive(true);
+        popupText.text = message;
+
+        yield return new WaitForSeconds(duration);
+
         popupText.text = "";
         waveDetailsPopup.SetActive(false);
+        func();
     }
+
+    private void startWaveTimer()
+    {
+        currentWaveLenght = waveLenght;
+        StartCoroutine(waveTimer());
+    }
+
+    private IEnumerator waveTimer()
+    {
+        while (currentWaveLenght > 0)
+        {
+            waveProgressText.text = string.Format("Wave {0} end in {1}s", currentWave, currentWaveLenght--);
+            yield return new WaitForSeconds(1f);
+        }
+        StartCoroutine(makePopup(string.Format("WAVE {0} FINISHED!", currentWave), 1f, startPause));
+    }
+
 }
