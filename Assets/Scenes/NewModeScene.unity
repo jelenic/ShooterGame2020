@@ -1344,6 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e618d2d4779e8da49afb494488737f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arcadeActive: 1
   currentWave: 0
   waveLenght: 10
   pauseLenght: 5
