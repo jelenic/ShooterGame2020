@@ -10,6 +10,7 @@ public class ChargeTurret : MonoBehaviour
     public float minCharge;
     public float maxCharge;
     public float chargeHold;
+    public float fireDelay;
     public float currentChargeHold;
     public float cooldown;
     public float timeTillUse;
@@ -17,11 +18,13 @@ public class ChargeTurret : MonoBehaviour
     public int dmgBase;
     public DamageType dmgType;
     public bool parentStats;
+    public bool inDelay;
 
     protected Transform transform;
     protected Transform target;
 
     protected Stats stats;
+    protected CombatVariables cv;
 
 
     protected virtual void initialize() { }
@@ -31,6 +34,7 @@ public class ChargeTurret : MonoBehaviour
     protected virtual void onChargeBegin() { }
     protected virtual void onChargeChange() { }
     protected virtual void onChargeEnd() { }
+    protected virtual void onFireDelay() { }
 
   
     protected float calculateCharge()
@@ -53,6 +57,7 @@ public class ChargeTurret : MonoBehaviour
     private void Awake()
     {
         stats = parentStats ? gameObject.GetComponentInParent<Stats>() : GetComponent<Stats>();
+        cv = parentStats ? gameObject.GetComponentInParent<CombatVariables>() : GetComponent<CombatVariables>();
         transform = GetComponent<Transform>();
         timeTillUse = 0.5f;
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -60,7 +65,17 @@ public class ChargeTurret : MonoBehaviour
         initialize();
     }
 
-    
+    private IEnumerator delayFire()
+    {
+        inDelay = true;
+        onFireDelay();
+        yield return new WaitForSeconds(fireDelay);
+        doStuff();
+        inDelay = false;
+
+    }
+
+
 
     private void FixedUpdate()
     {
@@ -69,23 +84,25 @@ public class ChargeTurret : MonoBehaviour
 
         if (timeTillUse.Equals(0f))
         {
+            if (isCharging) onChargeChange();
+            if (inDelay) return;
             if (target != null && Vector2.Distance(transform.position, target.position) <= stats.range) // if target(player) in range
             {
                 if (!isCharging) onChargeBegin();
                 isCharging = true;
                 chargeLevel = Mathf.Min(maxCharge, chargeLevel + Time.deltaTime * chargeSpeed * (stats.og.rateOfFire / stats.rateOfFire));
-                onChargeChange();
+                
 
                 if (calculateCharge().Equals(maxCharge))
                 {
                     currentChargeHold = Mathf.Max(0f, currentChargeHold - Time.deltaTime);
-                    if (currentChargeHold.Equals(0f)) doStuff();
+                    if (currentChargeHold.Equals(0f)) StartCoroutine(delayFire());
                     else
                     {
                         RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up * 1.5f, transform.up);
                         if (hit.collider.CompareTag("Player"))
                         {
-                            doStuff();
+                            StartCoroutine(delayFire());
                         }
                     }
                 }
@@ -95,7 +112,6 @@ public class ChargeTurret : MonoBehaviour
                 if (isCharging)
                 {
                     chargeLevel = Mathf.Max(0f, chargeLevel - Time.deltaTime * chargeSpeed * (stats.og.rateOfFire / stats.rateOfFire));
-                    onChargeChange();
                     currentChargeHold = chargeHold;
 
                     if (chargeLevel.Equals(0f))
