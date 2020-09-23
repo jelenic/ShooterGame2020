@@ -12,8 +12,8 @@ public class Stats : MonoBehaviour
 
     public float mass;
 
-    //defenses related
 
+    //defenses related
     [SerializeField]
     private int _hp;
 
@@ -61,6 +61,10 @@ public class Stats : MonoBehaviour
     [SerializeField]
     private float _speed;
 
+    [SerializeField]
+    private float _stoppingDistance;
+
+
     public int scoreValue { get => (int) Mathf.Clamp((difficultyModifier * _scoreValue), 0f, 10000f); set => _scoreValue = value; }
     public float range { get => Mathf.Clamp( difficultyModifier *  _range, 8f, 1000f); set => _range = value; }
     public float angleSpeed { get => Mathf.Clamp( difficultyModifier *  _angleSpeed, 0f, 30f); set => _angleSpeed = value; }
@@ -75,6 +79,7 @@ public class Stats : MonoBehaviour
     public float critChance { get => Mathf.Clamp( difficultyModifier * _critChance, 0f, 1f); set => _critChance = value; }
     public float critMultiplier { get => Mathf.Clamp( difficultyModifier * _critMultiplier, 1f, 5f); set => _critMultiplier = value; }
     public float projectileVelocityModifier { get => Mathf.Clamp( difficultyModifier * _projectileVelocityModifier, 0.1f, 15f); set => _projectileVelocityModifier = value; }
+    public float stoppingDistance { get => _stoppingDistance; set => _stoppingDistance = value; }
 
     private float difficultyModifier = 1f;
 

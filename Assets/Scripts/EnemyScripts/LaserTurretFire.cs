@@ -111,8 +111,6 @@ public class LaserTurretFire : ChargeTurret
         lineRenderer.enabled = true;
         activeFor = fireDelay;
 
-
-        Debug.Log("delaaaaaaaaaaying");
     }
 
     private void OnDestroy()

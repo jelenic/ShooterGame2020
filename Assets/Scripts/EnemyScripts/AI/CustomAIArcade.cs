@@ -10,7 +10,6 @@ public class CustomAIArcade : MonoBehaviour
     Stats stats;
     //private float speed;
     private float nextWaypontDistance;
-    public float minDistance;
 
     Path path;
     int currentWaypoint;
@@ -84,7 +83,6 @@ public class CustomAIArcade : MonoBehaviour
 
         nextWaypontDistance = 3f;
         currentWaypoint = 0;
-        minDistance = 10f;
 
         GameObject gb = new GameObject();
         gb.transform.position = rb.position + Random.insideUnitCircle*5;
@@ -124,7 +122,7 @@ public class CustomAIArcade : MonoBehaviour
                 Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
                 Vector2 force = direction * stats.speed * Time.deltaTime;
                 //Debug.Log("Adding force" + force.ToString());
-                if (player != null && Vector2.Distance(rb.position, player.position) >= minDistance)
+                if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance)
                 {
                     rb.AddForce(force);
                 }

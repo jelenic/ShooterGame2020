@@ -90,7 +90,7 @@ public class ChargeTurret : MonoBehaviour
             {
                 if (!isCharging) onChargeBegin();
                 isCharging = true;
-                chargeLevel = Mathf.Min(maxCharge, chargeLevel + Time.deltaTime * chargeSpeed * (stats.og.rateOfFire / stats.rateOfFire));
+                chargeLevel = Mathf.Min(maxCharge, chargeLevel + Time.deltaTime * (1 / stats.rateOfFire));
                 
 
                 if (calculateCharge().Equals(maxCharge))
