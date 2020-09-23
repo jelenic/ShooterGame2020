@@ -241,8 +241,10 @@ MonoBehaviour:
   _rateOfFire: 0.4
   _turretRotationSpeed: 0
   _speed: 650
+  _stoppingDistance: 0
   maxVelocity: 0
   thrust: 0
+  magazineModifier: 0
 --- !u!114 &1790024337216583337
 MonoBehaviour:
   m_ObjectHideFlags: 0

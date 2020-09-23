@@ -28,7 +28,7 @@ public class ShipFireArcade : MonoBehaviour
     private IEnumerator fireCooldown()
     {
         fireWait = true;
-        yield return new WaitForSeconds(stats.rateOfFire * (activeWeapon == 1 ? rateOfFire : rateOfFire*2));
+        yield return new WaitForSeconds(activeWeapon == 1 ? rateOfFire : rateOfFire*2);
         fireWait = false;
     }
 
@@ -110,9 +110,8 @@ public class ShipFireArcade : MonoBehaviour
         }
         else if (activeWeapon == 2)
         {
-            PlayerFiredBullet pfb = Instantiate(ammo2, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>();
+            PlayerFiredMine pfb = Instantiate(ammo2, transform.position + transform.up, transform.rotation).GetComponent<PlayerFiredMine>();
             pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier;
-            pfb.velocityModifier = stats.projectileVelocityModifier;
 
         }
         else 

@@ -526,7 +526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &386225198
 PrefabInstance:
@@ -1396,6 +1396,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &1103305862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103305860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a8450df2540f34b92cbd6fd7b0e9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1003493668187202, guid: 23df06d51e5328e4ea435a37fae1207d, type: 3}
 --- !u!1 &1114794576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,7 +1532,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1197727342
 GameObject:
@@ -1942,6 +1955,63 @@ Transform:
   m_Father: {fileID: 1769696271}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1379859905
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2842358434670938643, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_Name
+      value: TurretHP
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.183685
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.774971
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842358434670938647, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3967a1cc97a60d4e8772bfab614905c, type: 3}
 --- !u!1001 &1519460256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2324,7 +2394,7 @@ RectTransform:
   - {fileID: 973826138}
   - {fileID: 1339324468}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2683,6 +2753,10 @@ PrefabInstance:
       propertyPath: maxHPText
       value: 
       objectReference: {fileID: 915318605}
+    - target: {fileID: 3249265328528498120, guid: 670535054404f3040af5359baeb22be0, type: 3}
+      propertyPath: ammo2
+      value: 
+      objectReference: {fileID: 1104773745397654, guid: 3e62efc28db6adc4aa62b8f4b595173a, type: 3}
     - target: {fileID: 7472826865651126500, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: m_Name
       value: new_ship
