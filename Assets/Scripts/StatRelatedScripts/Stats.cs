@@ -62,11 +62,11 @@ public class Stats : MonoBehaviour
     private float _speed;
 
     public int scoreValue { get => (int) Mathf.Clamp((difficultyModifier * _scoreValue), 0f, 10000f); set => _scoreValue = value; }
-    public float range { get => Mathf.Clamp( difficultyModifier *  _range, 8f, 1000f); set => range = value; }
-    public float angleSpeed { get => Mathf.Clamp( difficultyModifier *  _angleSpeed, 3f, 30f); set => _angleSpeed = value; }
+    public float range { get => Mathf.Clamp( difficultyModifier *  _range, 8f, 1000f); set => _range = value; }
+    public float angleSpeed { get => Mathf.Clamp( difficultyModifier *  _angleSpeed, 0f, 30f); set => _angleSpeed = value; }
     public float rateOfFire { get => Mathf.Clamp(  _rateOfFire / difficultyModifier, 0f, 10f); set => _rateOfFire = value; }
-    public float turretRotationSpeed { get => Mathf.Clamp( difficultyModifier *  _turretRotationSpeed, 3f, 30f); set => _turretRotationSpeed = value; }
-    public float speed { get => Mathf.Clamp( difficultyModifier * _speed, 100f, 50000f); set => _speed = value; }
+    public float turretRotationSpeed { get => Mathf.Clamp( difficultyModifier *  _turretRotationSpeed, 0f, 30f); set => _turretRotationSpeed = value; }
+    public float speed { get => Mathf.Clamp( difficultyModifier * _speed, 0f, 50000f); set => _speed = value; }
     public int hp { get => (int) Mathf.Clamp((difficultyModifier * _hp), 20f, 50000f); set => _hp = value; }
     public float projectileResistance { get => Mathf.Clamp( difficultyModifier * _projectileResistance, 0f, 1f); set => _projectileResistance = value; }
     public float beamResistance { get => Mathf.Clamp( difficultyModifier * _beamResistance, 0f, 1f); set => _beamResistance = value; }

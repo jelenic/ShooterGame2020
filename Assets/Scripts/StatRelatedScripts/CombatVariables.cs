@@ -172,6 +172,7 @@ public enum StatusEffect
     DamageIncrease,
     Heal,
     HealOverTime,
+    NoMovement,
     None,
 }
 

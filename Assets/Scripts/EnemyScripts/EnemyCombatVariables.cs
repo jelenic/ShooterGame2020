@@ -17,6 +17,11 @@ public class EnemyCombatVariables : CombatVariables
                 stats.rateOfFire = activate ? value : stats.og.rateOfFire;
                 stats.turretRotationSpeed = activate ? 0f : stats.og.turretRotationSpeed;
                 break;
+            case StatusEffect.NoMovement:
+                stats.speed = activate ? 0f : stats.og.speed;
+                stats.angleSpeed = activate ? 0f : stats.og.angleSpeed;
+                stats.turretRotationSpeed = activate ? 0f : stats.og.turretRotationSpeed;
+                break;
             case StatusEffect.Slowdown:
                 float ratio = 2f;
                 float ratio2 = 5f;

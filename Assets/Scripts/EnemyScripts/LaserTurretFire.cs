@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class LaserTurretFire : ChargeTurret
 {
+    public LayerMask ignoredLayers;
+
+
     public GameObject chargeAnimation;
     private GameObject chargeAnimationInstance;
     private ChargeController chargeController;
 
     private float activeTime;
     private float activeFor;
+
+    private float calculatedMissChance;
 
     private LineRenderer lineRenderer;
     private Vector3 laserHitPoint;
@@ -31,10 +36,9 @@ public class LaserTurretFire : ChargeTurret
     protected override void stuff()
     {
         base.stuff();
-
         lineRenderer.widthMultiplier = calculateCharge() / 20f;
 
-        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up + transform.right * Random.Range(-chanceToMiss, chanceToMiss)); // moves the aim a chanceToMiss to left or right
+        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up); // moves the aim a chanceToMiss to left or right
         foreach (RaycastHit2D hit in allHit)
         {
             laserHitPoint = hit.point;
@@ -82,12 +86,33 @@ public class LaserTurretFire : ChargeTurret
     protected override void onChargeChange()
     {
         chargeController.refresh(calculateCharge() / 30f, transform.position + transform.up * 1.5f);
+        if (inDelay)
+        {
+            lineRenderer.SetPosition(0, transform.position + transform.up * 1.5f);
+            lineRenderer.SetPosition(1, transform.position + transform.up * 100f);
+        }
     }
 
     protected override void onChargeEnd()
     {
         Destroy(chargeAnimationInstance);
         chargeController = null;
+
+
+    }
+
+    protected override void onFireDelay()
+    {
+        cv.inflictStatus(StatusEffect.NoMovement, fireDelay);
+        
+        lineRenderer.widthMultiplier = calculateCharge() / 30f;
+        lineRenderer.SetPosition(0, transform.position + transform.up * 1.5f);
+        lineRenderer.SetPosition(1, transform.position + transform.up * 100f);
+        lineRenderer.enabled = true;
+        activeFor = fireDelay;
+
+
+        Debug.Log("delaaaaaaaaaaying");
     }
 
     private void OnDestroy()

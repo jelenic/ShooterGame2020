@@ -5,6 +5,8 @@ using TMPro;
 
 public class ArcadeManager : MonoBehaviour
 {
+    public bool arcadeActive;
+
     public int currentWave;
 
     public int waveLenght;
@@ -31,59 +33,58 @@ public class ArcadeManager : MonoBehaviour
         instance = this;
         #endregion
 
-
-        startPause();
+        startWaves();
     }
 
-    private void startPause()
+    private void startWaves()
     {
-        currentPauseLenght = pauseLenght;
-        StartCoroutine(pauseTimer());
+        StartCoroutine(arcadeLoop());
     }
 
-    private IEnumerator pauseTimer()
+
+    private IEnumerator arcadeLoop()
     {
-        while (currentPauseLenght > 0)
+        while (arcadeActive)
         {
-            waveProgressText.text = string.Format("Wave {0} in {1}s", currentWave+1, currentPauseLenght--);
-            yield return new WaitForSeconds(1f);
+            currentPauseLenght = pauseLenght;
+            while (currentPauseLenght > 0)
+            {
+                waveProgressText.text = string.Format("Wave {0} in {1}s", currentWave + 1, currentPauseLenght--);
+                yield return new WaitForSeconds(1f);
+            }
+
+            currentWave += 1;
+
+            makePopup(string.Format("WAVE {0} STARTING!", currentWave));
+            yield return new WaitForSeconds(1.5f);
+            removePopup();
+
+            currentWaveLenght = waveLenght;
+            while (currentWaveLenght > 0)
+            {
+                waveProgressText.text = string.Format("Wave {0} end in {1}s", currentWave, currentWaveLenght--);
+                yield return new WaitForSeconds(1f);
+            }
+
+            makePopup(string.Format("WAVE {0} FINISHED!", currentWave));
+            yield return new WaitForSeconds(1.5f);
+            removePopup();
         }
 
-        startNextWave();
     }
 
-    private void startNextWave()
-    {
-        currentWave += 1;
-        StartCoroutine(makePopup(string.Format("WAVE {0} STARTING!", currentWave), 1.5f, startWaveTimer));
-    }
-    private IEnumerator makePopup(string message, float duration, VoidFunction func)
+    private void makePopup(string message)
     {
         waveProgressText.text = "";
         waveDetailsPopup.SetActive(true);
         popupText.text = message;
+    }
 
-        yield return new WaitForSeconds(duration);
-
+    private void removePopup()
+    {
         popupText.text = "";
         waveDetailsPopup.SetActive(false);
-        func();
     }
 
-    private void startWaveTimer()
-    {
-        currentWaveLenght = waveLenght;
-        StartCoroutine(waveTimer());
-    }
-
-    private IEnumerator waveTimer()
-    {
-        while (currentWaveLenght > 0)
-        {
-            waveProgressText.text = string.Format("Wave {0} end in {1}s", currentWave, currentWaveLenght--);
-            yield return new WaitForSeconds(1f);
-        }
-        StartCoroutine(makePopup(string.Format("WAVE {0} FINISHED!", currentWave), 1f, startPause));
-    }
 
 }
