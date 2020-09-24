@@ -17,11 +17,26 @@ public class ShipMovement : MonoBehaviour {
     public bool boostUsed;
     public float boostVelThreshold;
     public float boostValue;
+    public float boostCooldown;
+    public float iframesDuration;
+
+    public Collider2D[] colliders;
+    
 
     IEnumerator boostCD()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(boostCooldown);
         boostUsed = false;
+    }
+
+    IEnumerator iframes()
+    {
+        gameObject.layer = 16;
+        //foreach (Collider2D c in colliders) c.enabled = false;
+        yield return new WaitForSeconds(iframesDuration);
+        //foreach (Collider2D c in colliders) c.enabled = true;
+        gameObject.layer = 11;
+
     }
 
 
@@ -33,6 +48,7 @@ public class ShipMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        colliders = GetComponents<Collider2D>();
         stats = GetComponent<Stats>();
         rb = GetComponent<Rigidbody2D>();
         if(MobileControlMenu != null) MobileControlMenu = GameObject.Find("MobileControlls");
@@ -129,6 +145,7 @@ public class ShipMovement : MonoBehaviour {
             {
                 if (rb.velocity.magnitude >= boostVelThreshold)
                 {
+                    StartCoroutine(iframes());
                     boostUsed = true;
                     Vector2 force = rb.velocity.normalized * stats.thrust * boostValue;
                     rb.AddForce(force);

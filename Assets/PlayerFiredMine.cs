@@ -8,8 +8,6 @@ public class PlayerFiredMine : FiredProjectile
     public override void Initialize()
     {
         base.Initialize();
-        projectileDamage = 10;
-        lifeDuration = 25f;
 
         movingTime = 1f;
 

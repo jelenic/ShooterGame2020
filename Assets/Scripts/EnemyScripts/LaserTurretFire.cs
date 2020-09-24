@@ -38,14 +38,21 @@ public class LaserTurretFire : ChargeTurret
         base.stuff();
         lineRenderer.widthMultiplier = calculateCharge() / 20f;
 
-        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up); // moves the aim a chanceToMiss to left or right
+        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up, 40f, ~ignoredLayers);
+        if (allHit.Length.Equals(0))
+        {
+            lineRenderer.SetPosition(0, transform.position + transform.up * 1.5f);
+            lineRenderer.SetPosition(1, transform.position + transform.up * 40f);
+            lineRenderer.enabled = true;
+            activeFor = activeTime;
+            return;
+        }
         foreach (RaycastHit2D hit in allHit)
         {
             laserHitPoint = hit.point;
             if (hit.collider.tag == "PlayerProjectile")
             {
-                Destroy(hit.collider.gameObject, 0f);
-
+                Destroy(hit.collider.gameObject);
             }
             else if (hit.collider.tag == "Player")
             {
@@ -107,7 +114,7 @@ public class LaserTurretFire : ChargeTurret
         
         lineRenderer.widthMultiplier = calculateCharge() / 30f;
         lineRenderer.SetPosition(0, transform.position + transform.up * 1.5f);
-        lineRenderer.SetPosition(1, transform.position + transform.up * 100f);
+        lineRenderer.SetPosition(1, transform.position + transform.up * 40f);
         lineRenderer.enabled = true;
         activeFor = fireDelay;
 

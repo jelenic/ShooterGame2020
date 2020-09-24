@@ -24,8 +24,6 @@ public abstract class FiredProjectile : MonoBehaviour
     void Awake()
     {
         damageModifier = 1f;
-        projectileDamage = 10;
-        lifeDuration = 5f;
         Destroy(gameObject, lifeDuration);
         transform = GetComponent<Transform>();
         passThrough = new List<string>();
