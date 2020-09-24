@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 734059200167185268}
   - component: {fileID: 5862626167514531625}
   - component: {fileID: 2328936863306461237}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: shockwave
   m_TagString: Spawner
   m_Icon: {fileID: 0}

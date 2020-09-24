@@ -20,7 +20,15 @@ public class ArcadeManager : MonoBehaviour
 
     public TextMeshProUGUI waveProgressText;
 
-    public delegate void VoidFunction();
+    public delegate void OnWaveStart(int wave);
+    public delegate void OnWaveEnd();
+
+    public OnWaveStart OnWaveStartedCallback;
+    public OnWaveEnd OnWaveEndedCallback;
+
+    private LevelManager levelManager;
+
+
 
     #region ArcadeManagerSingelot
     public static ArcadeManager instance;
@@ -32,6 +40,7 @@ public class ArcadeManager : MonoBehaviour
         }
         instance = this;
         #endregion
+        levelManager = LevelManager.instance;
 
         startWaves();
     }
@@ -59,12 +68,20 @@ public class ArcadeManager : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             removePopup();
 
+            levelManager.levelDifficultyModifier *= 1.03f;
+            if (OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(currentWave);
+
+            
+
             currentWaveLenght = waveLenght;
             while (currentWaveLenght > 0)
             {
                 waveProgressText.text = string.Format("Wave {0} end in {1}s", currentWave, currentWaveLenght--);
                 yield return new WaitForSeconds(1f);
             }
+
+            if (OnWaveEndedCallback != null) OnWaveEndedCallback.Invoke();
+
 
             makePopup(string.Format("WAVE {0} FINISHED!", currentWave));
             yield return new WaitForSeconds(1.5f);

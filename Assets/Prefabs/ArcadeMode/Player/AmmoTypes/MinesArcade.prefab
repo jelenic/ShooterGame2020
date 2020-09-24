@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 212903400224277466}
   - component: {fileID: 50872669203900846}
   - component: {fileID: 8596286355830578029}
+  - component: {fileID: 5351928476319130791}
   - component: {fileID: 2784335234271910600}
   m_Layer: 12
   m_Name: MinesArcade
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104773745397654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0012474, y: 0.51887, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.11052877, y: 0.11052877, z: 0.11052877}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,7 +114,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104773745397654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -122,6 +123,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3.38
+--- !u!58 &5351928476319130791
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104773745397654}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 8.98
 --- !u!114 &2784335234271910600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +160,5 @@ MonoBehaviour:
   passThrough: []
   damageable: []
   destroyable: []
+  mainCollider: {fileID: 8596286355830578029}
+  effectCollider: {fileID: 5351928476319130791}

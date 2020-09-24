@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 015e17b85afb32946b9b1a97d2dea1bf, type: 3}
-  m_Name: HealOverTime
+  m_Name: MediumHeal
   m_EditorClassIdentifier: 
-  name: HealOverTime
-  value: 1
+  name: MediumHeal
+  value: 5
   level: 1
   icon: {fileID: 0}
-  description: heals over time
-  color: {r: 0.2706924, g: 0.7264151, b: 0.27988988, a: 1}
+  description: heals 40%
+  color: {r: 0.23460546, g: 0.5471698, b: 0.13163047, a: 1}
   codeName: 
   pickUpIcon: {fileID: 21300000, guid: 3c0e1aeb9fcab9441b47faeb1dfa7abc, type: 3}
-  pickUpIconColor: {r: 0.12034548, g: 0.3679245, b: 0.029503385, a: 1}
-  effect: 6
-  duration: 5
-  amount: 0
+  pickUpIconColor: {r: 0.15474111, g: 0.6320754, b: 0.09838911, a: 1}
+  effect: 5
+  duration: 0
+  amount: 0.4

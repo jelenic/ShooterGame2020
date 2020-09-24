@@ -16,9 +16,11 @@ MonoBehaviour:
   value: 1
   level: 1
   icon: {fileID: 0}
-  description: heals small amount
+  description: heals 10%
   color: {r: 0.23460546, g: 0.5471698, b: 0.13163047, a: 1}
   codeName: 
+  pickUpIcon: {fileID: 21300000, guid: 3c0e1aeb9fcab9441b47faeb1dfa7abc, type: 3}
+  pickUpIconColor: {r: 0.28441656, g: 0.8490566, b: 0.22027414, a: 1}
   effect: 5
   duration: 0
-  amount: 50
+  amount: 0.1

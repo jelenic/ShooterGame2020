@@ -42,19 +42,24 @@ public abstract class FiredProjectile : MonoBehaviour
     }
 
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject hit = collision.gameObject;
-        //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
+        Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
         if (!passThrough.Contains(hit.tag))
         {
-            if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage*damageModifier), projectileDamageType);
-            if (destroyable.Contains(hit.tag))
-            {
-                Destroy(hit, 0f);
-            }
-            Destroy(gameObject, 0.0f);
-
+            activate(hit);
         }
     }
+
+    protected virtual void activate(GameObject hit)
+    {
+        if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage * damageModifier), projectileDamageType);
+        if (destroyable.Contains(hit.tag))
+        {
+            Destroy(hit, 0f);
+        }
+        Destroy(gameObject, 0.0f);
+    } 
 }

@@ -8,11 +8,11 @@ public class BuffItem : ConsumableItem
 {
     public StatusEffect effect;
     public float duration;
-    public int amount;
+    public float amount;
 
     public override void consume(CombatVariables cv)
     {
-        if (effect.Equals(StatusEffect.Heal)) cv.IncreaseHP(amount);
+        if (effect.Equals(StatusEffect.Heal)) cv.IncreaseHP((int)(amount*cv.stats.hp));
         else cv.inflictStatus(effect, duration);
     }
 }

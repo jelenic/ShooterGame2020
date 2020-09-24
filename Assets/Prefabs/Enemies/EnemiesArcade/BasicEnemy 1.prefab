@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1653472290370106324}
   - component: {fileID: 1790024337216583337}
   - component: {fileID: 7096877215784261997}
+  - component: {fileID: -42227214925867666}
   m_Layer: 10
   m_Name: BasicEnemy 1
   m_TagString: Enemy
@@ -35,6 +36,7 @@ Transform:
   m_Children:
   - {fileID: 1409384000237795037}
   - {fileID: 1903253533578276392}
+  - {fileID: 7014271887924842154}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,6 +145,7 @@ MonoBehaviour:
   _rateOfFire: 0.4
   _turretRotationSpeed: 0
   _speed: 650
+  _stoppingDistance: 5
   maxVelocity: 0
   thrust: 0
   magazineModifier: 0
@@ -178,8 +181,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8042e9d2e6a42d64cae4b7da7458b4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 0
   target: {fileID: 0}
+--- !u!114 &-42227214925867666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409383998877146089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a8450df2540f34b92cbd6fd7b0e9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1003493668187202, guid: 23df06d51e5328e4ea435a37fae1207d, type: 3}
 --- !u!1 &1409384000237795010
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +277,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &4872567334630059533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1409383998877146085}
+    m_Modifications:
+    - target: {fileID: 2506645935867502752, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502755, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_Name
+      value: TurretModule
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+--- !u!4 &7014271887924842154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2506645935867502759, guid: c6a7b1eab956fc649b44ce2a5d727bd7, type: 3}
+  m_PrefabInstance: {fileID: 4872567334630059533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6322173915009079221
 PrefabInstance:
   m_ObjectHideFlags: 0

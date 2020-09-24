@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerArcade : MonoBehaviour
+public class ItemSpawnerArcade : MonoBehaviour
 {
     private ArcadeManager arcadeManager;
-    public GameObject enemy;
+    public GameObject[] possibleItems;
 
     private Coroutine spawnerLoopCor;
 
@@ -37,6 +37,17 @@ public class SpawnerArcade : MonoBehaviour
         StopCoroutine(spawnerLoopCor);
     }
 
+    private void spawnRandomItem()
+    {
+        Vector3 randomPos = Random.insideUnitCircle * 5f;
+        Debug.Log("spawning enemy at " + (transform.position + randomPos));
+
+        GameObject item = possibleItems[Random.Range(0, possibleItems.Length)];
+
+        Instantiate(item, transform.position + randomPos, Quaternion.identity);
+
+    }
+
 
     IEnumerator spawnerLoop()
     {
@@ -44,9 +55,7 @@ public class SpawnerArcade : MonoBehaviour
 
         while (true)
         {
-            Vector3 randomPos = Random.insideUnitCircle*5f;
-            Debug.Log("spawning enemy at " + (transform.position + randomPos));
-            Instantiate(enemy, transform.position + randomPos, Quaternion.identity);
+            spawnRandomItem();
             yield return new WaitForSeconds(spawnRate);
         }
     }

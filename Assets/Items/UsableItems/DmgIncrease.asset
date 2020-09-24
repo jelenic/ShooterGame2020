@@ -19,6 +19,8 @@ MonoBehaviour:
   description: buffs damage for some time
   color: {r: 0.7075472, g: 0.23028658, b: 0.23028658, a: 1}
   codeName: 
+  pickUpIcon: {fileID: 21300000, guid: 3c0e1aeb9fcab9441b47faeb1dfa7abc, type: 3}
+  pickUpIconColor: {r: 0.6603774, g: 0.18378428, b: 0.18378428, a: 1}
   effect: 4
   duration: 10
   amount: 0
