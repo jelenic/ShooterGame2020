@@ -2833,6 +2833,14 @@ PrefabInstance:
       propertyPath: MobileControlMenu
       value: 
       objectReference: {fileID: 8999125664563268886}
+    - target: {fileID: 7472826865651126527, guid: 670535054404f3040af5359baeb22be0, type: 3}
+      propertyPath: boostVelThreshold
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472826865651126527, guid: 670535054404f3040af5359baeb22be0, type: 3}
+      propertyPath: boostValue
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 670535054404f3040af5359baeb22be0, type: 3}
 --- !u!222 &6072429487051647662

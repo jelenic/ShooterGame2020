@@ -14,6 +14,16 @@ public class ShipMovement : MonoBehaviour {
     public bool clamp;
     public GameObject MobileControlMenu;
 
+    public bool boostUsed;
+    public float boostVelThreshold;
+    public float boostValue;
+
+    IEnumerator boostCD()
+    {
+        yield return new WaitForSeconds(0.3f);
+        boostUsed = false;
+    }
+
 
 
 
@@ -113,6 +123,18 @@ public class ShipMovement : MonoBehaviour {
             {
                 Vector2 force = Vector3.right * stats.thrust;
                 rb.AddForce(force);
+            }
+
+            if (!boostUsed && Input.GetKey(KeyCode.LeftShift))
+            {
+                if (rb.velocity.magnitude >= boostVelThreshold)
+                {
+                    boostUsed = true;
+                    Vector2 force = rb.velocity.normalized * stats.thrust * boostValue;
+                    rb.AddForce(force);
+                    StartCoroutine(boostCD());
+                } 
+
             }
             //rotate to mouse
             mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
