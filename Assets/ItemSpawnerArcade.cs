@@ -40,7 +40,7 @@ public class ItemSpawnerArcade : MonoBehaviour
     private void spawnRandomItem()
     {
         Vector3 randomPos = Random.insideUnitCircle * 5f;
-        Debug.Log("spawning enemy at " + (transform.position + randomPos));
+        Debug.Log("spawning item at " + (transform.position + randomPos));
 
         GameObject item = possibleItems[Random.Range(0, possibleItems.Length)];
 

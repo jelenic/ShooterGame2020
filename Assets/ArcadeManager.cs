@@ -5,12 +5,29 @@ using TMPro;
 
 public class ArcadeManager : MonoBehaviour
 {
+    public GameObject[] enemies;
+    public WaveSettings[] waveSettings;
+
+    public Vector2Int[] waveToEnemy;
+    private Vector2Int waveRange;
+
+    [SerializeField]
+    [Range(2,50)]
+    private int bossEveryNthWave;
+    public GameObject[] bosses;
+
+
     public bool arcadeActive;
 
-    public int currentWave;
+    private int currentWave;
 
-    public int waveLenght;
-    public int pauseLenght;
+    [SerializeField]
+    [Range(10, 1200)]
+    private int waveLenght;
+
+    [SerializeField]
+    [Range(1, 300)]
+    private int pauseLenght;
 
     private int currentWaveLenght;
     private int currentPauseLenght;
@@ -43,6 +60,27 @@ public class ArcadeManager : MonoBehaviour
         levelManager = LevelManager.instance;
 
         startWaves();
+        populateWaveToEnemy();
+    }
+
+    private void populateWaveToEnemy()
+    {
+        foreach(WaveSettings w in waveSettings)
+        {
+            for(int j = w.minWave; j <= w.maxWave; j++)
+            {
+                waveToEnemy[j] = new Vector2Int(w.minEnemyRank, w.maxEnemyRank);
+            }
+        }
+    }
+
+    
+
+    public void summonRandomEnemy(Vector3 position)
+    {
+        
+        int pickedEnemy = Random.Range(waveRange.x, waveRange.y + 1);
+        Debug.Log(pickedEnemy + " summoning enemy in range " + waveRange);
     }
 
     private void startWaves()
@@ -53,23 +91,43 @@ public class ArcadeManager : MonoBehaviour
 
     private IEnumerator arcadeLoop()
     {
+        yield return new WaitForSeconds(1f);
+
+        float difficultyModifier = 1f;
         while (arcadeActive)
         {
+            if (currentWave < waveSettings.Length)
+            {
+                waveRange = waveToEnemy[currentWave];
+                difficultyModifier = waveSettings[currentWave].difficultyModifier;
+            } else
+            {
+                int maxRank = waveSettings[waveSettings.Length - 1].maxEnemyRank;
+                waveRange = new Vector2Int(maxRank, maxRank-1);
+                difficultyModifier = 2f;
+            }
+
+            bool bossWave = ++currentWave % bossEveryNthWave == 0;
+            if (bossWave) Debug.LogWarning("BOSS enemy!!!");
+            Debug.LogFormat("current wave {0}, enemy range: {1}", currentWave, waveRange);
+
+
             currentPauseLenght = pauseLenght;
             while (currentPauseLenght > 0)
             {
-                waveProgressText.text = string.Format("Wave {0} in {1}s", currentWave + 1, currentPauseLenght--);
+                string nextWaveText = bossWave ? string.Format("BOSS in {0}s", currentPauseLenght--) : string.Format("Wave {0} in {1}s", currentWave + 1, currentPauseLenght--);
+                waveProgressText.text = nextWaveText;
                 yield return new WaitForSeconds(1f);
             }
 
-            currentWave += 1;
 
             makePopup(string.Format("WAVE {0} STARTING!", currentWave));
             yield return new WaitForSeconds(1.5f);
             removePopup();
 
+
             levelManager.levelDifficultyModifier *= 1.03f;
-            if (OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(currentWave);
+            if (!bossWave && OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(currentWave);
 
             
 
@@ -80,7 +138,7 @@ public class ArcadeManager : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
 
-            if (OnWaveEndedCallback != null) OnWaveEndedCallback.Invoke();
+            if (!bossWave && OnWaveEndedCallback != null) OnWaveEndedCallback.Invoke();
 
 
             makePopup(string.Format("WAVE {0} FINISHED!", currentWave));
@@ -104,4 +162,14 @@ public class ArcadeManager : MonoBehaviour
     }
 
 
+}
+
+[System.Serializable]
+public class WaveSettings
+{
+    public int minWave;
+    public int maxWave;
+    public int minEnemyRank;
+    public int maxEnemyRank;
+    public float difficultyModifier;
 }

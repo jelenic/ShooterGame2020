@@ -45,8 +45,9 @@ public class SpawnerArcade : MonoBehaviour
         while (true)
         {
             Vector3 randomPos = Random.insideUnitCircle*5f;
-            Debug.Log("spawning enemy at " + (transform.position + randomPos));
-            Instantiate(enemy, transform.position + randomPos, Quaternion.identity);
+            randomPos += transform.position;
+            Debug.Log("spawning enemy at " + (randomPos));
+            arcadeManager.summonRandomEnemy(randomPos);
             yield return new WaitForSeconds(spawnRate);
         }
     }
