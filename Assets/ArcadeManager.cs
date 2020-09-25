@@ -22,7 +22,7 @@ public class ArcadeManager : MonoBehaviour
     private int currentWave;
 
     [SerializeField]
-    [Range(10, 1200)]
+    [Range(5, 1200)]
     private int waveLenght;
 
     [SerializeField]
@@ -79,7 +79,7 @@ public class ArcadeManager : MonoBehaviour
     public void summonRandomEnemy(Vector3 position)
     {
         
-        int pickedEnemy = Random.Range(waveRange.x, waveRange.y + 1);
+        int pickedEnemy = Random.Range(waveRange.x, waveRange.y + 1); // to actually spawn all enemies in rank, to counter arrays starting from 0
         Debug.Log(pickedEnemy + " summoning enemy in range " + waveRange);
     }
 
@@ -102,9 +102,9 @@ public class ArcadeManager : MonoBehaviour
                 difficultyModifier = waveSettings[currentWave].difficultyModifier;
             } else
             {
-                int maxRank = waveSettings[waveSettings.Length - 1].maxEnemyRank;
-                waveRange = new Vector2Int(maxRank, maxRank-1);
-                difficultyModifier = 2f;
+                int maxRank = waveSettings[waveSettings.Length - 1].maxEnemyRank; 
+                waveRange = new Vector2Int(maxRank, maxRank-1); // if currentWave is beyond what's specified only maxRank enemies spawn, -1 because the spawn function adds 1 to counter the range
+                difficultyModifier = 2f + (currentWave - waveSettings.Length) * 0.03f; // if currentWave is beyond what's specified the difficulty modifier increases by 0.03f every wave
             }
 
             bool bossWave = ++currentWave % bossEveryNthWave == 0;
