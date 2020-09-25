@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ArcadeManager : MonoBehaviour
@@ -45,6 +46,17 @@ public class ArcadeManager : MonoBehaviour
 
     private LevelManager levelManager;
 
+    public GameObject bossDetails;
+    public Image bossHP;
+    public TextMeshProUGUI bossHPText;
+    public TextMeshProUGUI bossName;
+
+    private int currentBoss;
+
+    private bool waveOnGoing;
+
+    private string boss_name;
+    private bool bossAlive;
 
 
     #region ArcadeManagerSingelot
@@ -63,6 +75,38 @@ public class ArcadeManager : MonoBehaviour
         populateWaveToEnemy();
     }
 
+    private void summonBoss()
+    {
+        bossDetails.SetActive(true);
+        Instantiate(bosses[currentBoss], new Vector3(10,0,0), Quaternion.identity);
+        currentBoss = (currentBoss + 1) % bosses.Length;
+    }
+
+    public void setBossDetails(string name)
+    {
+        boss_name = name;
+        bossName.text = name;
+        bossHP.fillAmount = 1f;
+    }
+
+    public void updateBossHP(int currentHP, int totalHP)
+    {
+        bossHP.fillAmount = (float) currentHP / totalHP;
+        bossHPText.text = string.Format("{0} / {1}", currentHP, totalHP);
+    }
+
+    public void bossDeath()
+    {
+        bossName.text = "";
+        bossHPText.text = "";
+        bossDetails.SetActive(false);
+        waveOnGoing = false;
+        boss_name = "";
+        bossAlive = false;
+
+        makePopup(string.Format("BOSS {0} DEFEATED!", boss_name), 1.5f);
+    }
+
     private void populateWaveToEnemy()
     {
         foreach(WaveSettings w in waveSettings)
@@ -73,8 +117,6 @@ public class ArcadeManager : MonoBehaviour
             }
         }
     }
-
-    
 
     public void summonRandomEnemy(Vector3 position)
     {
@@ -121,45 +163,59 @@ public class ArcadeManager : MonoBehaviour
             }
 
 
-            makePopup(string.Format("WAVE {0} STARTING!", currentWave));
-            yield return new WaitForSeconds(1.5f);
-            removePopup();
+            waveOnGoing = true;
+            makePopup(string.Format("WAVE {0} STARTING!", currentWave), 1.5f);
+
+            if (bossWave)
+            {
+                bossAlive = true;
+                yield return new WaitForSeconds(2f);
+                summonBoss();
+            }
 
 
             levelManager.levelDifficultyModifier *= 1.03f;
             if (!bossWave && OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(currentWave);
 
             
-
-            currentWaveLenght = waveLenght;
-            while (currentWaveLenght > 0)
+            if (!bossWave)
             {
-                waveProgressText.text = string.Format("Wave {0} end in {1}s", currentWave, currentWaveLenght--);
-                yield return new WaitForSeconds(1f);
+                currentWaveLenght = waveLenght;
+                while (currentWaveLenght > 0 && waveOnGoing)
+                {
+                    waveProgressText.text = string.Format("Wave {0} end in {1}s", currentWave, currentWaveLenght--);
+                    yield return new WaitForSeconds(1f);
+                }
+
+                if (OnWaveEndedCallback != null) OnWaveEndedCallback.Invoke();
+
+                makePopup(string.Format("WAVE {0} FINISHED!", currentWave), 1.5f);
+            } else
+            {
+                while (bossAlive)
+                {
+                    yield return new WaitForSeconds(5f);
+                }
             }
-
-            if (!bossWave && OnWaveEndedCallback != null) OnWaveEndedCallback.Invoke();
-
-
-            makePopup(string.Format("WAVE {0} FINISHED!", currentWave));
-            yield return new WaitForSeconds(1.5f);
-            removePopup();
         }
 
     }
 
-    private void makePopup(string message)
+    private void makePopup(string message, float duration)
     {
         waveProgressText.text = "";
         waveDetailsPopup.SetActive(true);
         popupText.text = message;
+        StartCoroutine(removePopup(duration));
     }
 
-    private void removePopup()
+    private IEnumerator removePopup(float duration)
     {
+        yield return new WaitForSeconds(duration);
         popupText.text = "";
         waveDetailsPopup.SetActive(false);
     }
+
 
 
 }

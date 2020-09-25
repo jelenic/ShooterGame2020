@@ -7,6 +7,9 @@ public class EnemyCombatVariables : CombatVariables
     public GameObject hp_bar_object;
     public float hideHP;
 
+    protected ArcadeManager arcadeManager;
+
+
     protected override void activateDeactivateStatus(StatusEffect status, bool activate, float value)
     {
         switch (status)
