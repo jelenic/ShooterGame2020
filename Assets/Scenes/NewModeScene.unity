@@ -5892,7 +5892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993840028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 11.9, z: 0}
+  m_LocalPosition: {x: -24.3, y: -3.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1361560007}
@@ -5911,7 +5911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1409383998877146089, guid: 98a24fa2c86a6c74f81252cf723da2e3, type: 3}
-  spawnRate: 5
+  spawnRate: 1
 --- !u!1 &1114794576
 GameObject:
   m_ObjectHideFlags: 0
@@ -6022,62 +6022,62 @@ MonoBehaviour:
     maxWave: 3
     minEnemyRank: 0
     maxEnemyRank: 2
-    difficultyModifier: 0
+    difficultyModifier: 1
   - minWave: 4
     maxWave: 7
     minEnemyRank: 1
     maxEnemyRank: 4
-    difficultyModifier: 0
+    difficultyModifier: 1.1
   - minWave: 8
     maxWave: 12
     minEnemyRank: 3
     maxEnemyRank: 7
-    difficultyModifier: 0
+    difficultyModifier: 1.17
   - minWave: 13
     maxWave: 20
     minEnemyRank: 5
     maxEnemyRank: 8
-    difficultyModifier: 0
+    difficultyModifier: 1.27
   - minWave: 21
     maxWave: 29
     minEnemyRank: 7
     maxEnemyRank: 10
-    difficultyModifier: 0
+    difficultyModifier: 1.5
   waveToEnemy:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   bossEveryNthWave: 5
   bosses: []
   arcadeActive: 1
-  waveLenght: 10
+  waveLenght: 5
   pauseLenght: 1
   waveDetailsPopup: {fileID: 973826137}
   popupText: {fileID: 569897460}

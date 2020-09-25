@@ -8,7 +8,7 @@ public class ArcadeManager : MonoBehaviour
     public GameObject[] enemies;
     public WaveSettings[] waveSettings;
 
-    public Vector2Int[] waveToEnemy;
+    public Vector3[] waveToEnemy;
     private Vector2Int waveRange;
 
     [SerializeField]
@@ -69,7 +69,7 @@ public class ArcadeManager : MonoBehaviour
         {
             for(int j = w.minWave; j <= w.maxWave; j++)
             {
-                waveToEnemy[j] = new Vector2Int(w.minEnemyRank, w.maxEnemyRank);
+                waveToEnemy[j] = new Vector3(w.minEnemyRank, w.maxEnemyRank, w.difficultyModifier);
             }
         }
     }
@@ -96,20 +96,20 @@ public class ArcadeManager : MonoBehaviour
         float difficultyModifier = 1f;
         while (arcadeActive)
         {
-            if (currentWave < waveSettings.Length)
+            if (currentWave < waveToEnemy.Length)
             {
-                waveRange = waveToEnemy[currentWave];
-                difficultyModifier = waveSettings[currentWave].difficultyModifier;
+                waveRange = new Vector2Int((int) waveToEnemy[currentWave].x, (int)waveToEnemy[currentWave].y);
+                difficultyModifier = waveToEnemy[currentWave].z;
             } else
             {
                 int maxRank = waveSettings[waveSettings.Length - 1].maxEnemyRank; 
                 waveRange = new Vector2Int(maxRank, maxRank-1); // if currentWave is beyond what's specified only maxRank enemies spawn, -1 because the spawn function adds 1 to counter the range
-                difficultyModifier = 2f + (currentWave - waveSettings.Length) * 0.03f; // if currentWave is beyond what's specified the difficulty modifier increases by 0.03f every wave
+                difficultyModifier = 2f + (currentWave - waveToEnemy.Length) * 0.03f; // if currentWave is beyond what's specified the difficulty modifier increases by 0.03f every wave
             }
 
             bool bossWave = ++currentWave % bossEveryNthWave == 0;
             if (bossWave) Debug.LogWarning("BOSS enemy!!!");
-            Debug.LogFormat("current wave {0}, enemy range: {1}", currentWave, waveRange);
+            Debug.LogFormat("current wave {0}, enemy range: {1}, difficlity: {2}", currentWave, waveRange, difficultyModifier);
 
 
             currentPauseLenght = pauseLenght;
