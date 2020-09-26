@@ -8,15 +8,11 @@ public class SpawnerArcade : MonoBehaviour
 
     private Coroutine spawnerLoopCor;
 
-    public float spawnRate;
-    private float spawnRandomOffset;
-
     private Transform transform;
 
     private void Awake()
     {
         transform = GetComponent<Transform>();
-        spawnRandomOffset = spawnRate * 0.2f;
         StartCoroutine(setArcadeManager());
     }
 
@@ -28,9 +24,9 @@ public class SpawnerArcade : MonoBehaviour
         arcadeManager.OnWaveEndedCallback += onWaveEnd;
     }
 
-    private void onWaveStart(int wave)
+    private void onWaveStart(float spawnRate, int maxSpawn)
     {
-        spawnerLoopCor = StartCoroutine(spawnerLoop());
+        spawnerLoopCor = StartCoroutine(spawnerLoop(spawnRate, maxSpawn));
     }
     private void onWaveEnd()
     {
@@ -38,17 +34,27 @@ public class SpawnerArcade : MonoBehaviour
     }
 
 
-    IEnumerator spawnerLoop()
+    IEnumerator spawnerLoop(float spawnRate, int maxSpawn)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(Random.Range(1f, 4f));
+        int spawned = 0;
 
-        while (true)
+        while (spawned < maxSpawn)
         {
-            Vector3 randomPos = Random.insideUnitCircle*5f;
-            randomPos += transform.position;
-            Debug.Log("spawning enemy at " + (randomPos));
-            arcadeManager.summonRandomEnemy(randomPos);
-            yield return new WaitForSeconds(spawnRate + Random.Range(-spawnRandomOffset, spawnRandomOffset));
+            for(int i = 0; i < 3; i++) // can spawn 3 enemies at once if lucky
+            {
+                if (Random.Range(0f,1f) <= spawnRate)
+                {
+                    Vector3 randomPos = Random.insideUnitCircle * 5f;
+                    randomPos += transform.position;
+                    Debug.Log("spawning enemy at " + (randomPos));
+                    arcadeManager.summonRandomEnemy(randomPos);
+                }
+                
+                yield return new WaitForSeconds(1f);
+            }
+            
+            yield return new WaitForSeconds(Random.Range(3f, 10f));
         }
     }
 

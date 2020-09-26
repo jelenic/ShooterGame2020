@@ -19,7 +19,6 @@ public class CustomAIArcade : MonoBehaviour
     Rigidbody2D rb;
     public Transform target;
     private Transform player;
-    private Transform startPosition;
 
     private Coroutine updatePathCor;
     private bool findingPath;
@@ -38,14 +37,6 @@ public class CustomAIArcade : MonoBehaviour
 
     void setTarget()
     {
-        /*if (player != null && Vector2.Distance(rb.position, player.position) <= stats.range)
-        {
-            target = player;
-        }
-        else
-        {
-            target = startPosition;
-        }*/
         target = player;
     }
 
@@ -87,7 +78,6 @@ public class CustomAIArcade : MonoBehaviour
         GameObject gb = new GameObject();
         gb.transform.position = rb.position + Random.insideUnitCircle*5;
         gb.transform.rotation = rb.transform.rotation;
-        startPosition = gb.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         updatePathCor = StartCoroutine(UpdatePath());

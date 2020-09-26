@@ -43,7 +43,7 @@ public class ArcadeManager : MonoBehaviour
 
     public TextMeshProUGUI waveProgressText;
 
-    public delegate void OnWaveStart(int wave);
+    public delegate void OnWaveStart(float spawnRate, int maxSpawns);
     public delegate void OnWaveEnd();
 
     public OnWaveStart OnWaveStartedCallback;
@@ -200,7 +200,7 @@ public class ArcadeManager : MonoBehaviour
 
 
             levelManager.levelDifficultyModifier *= 1.03f;
-            if (!bossWave && OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(currentWave);
+            if (!bossWave && OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(0.25f, 3);
 
             
             if (!bossWave)

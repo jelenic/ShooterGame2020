@@ -31,7 +31,7 @@ public class ItemSpawnerArcade : MonoBehaviour
         arcadeManager.OnWaveEndedCallback += onWaveEnd;
     }
 
-    private void onWaveStart(int wave)
+    private void onWaveStart(float spawnRate, int maxSpawn)
     {
         spawnRate *= 2f;
 
