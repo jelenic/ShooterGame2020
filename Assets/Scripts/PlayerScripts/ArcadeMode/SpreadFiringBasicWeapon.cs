@@ -12,10 +12,8 @@ public class SpreadFiringBasicWeapon : BasicWeaponArcade
     public override void fire(float playerDamagerModifier = 1, float speedModifier = 1)
     {
 
-        Debug.LogWarning("firing spread " + shotNumber);
         for (int i=0; i < shotNumber; i++)
         {
-            Debug.LogWarning("firing " + i);
             float current = (i + 1f) / shotNumber;
             PlayerFiredBullet pfb = Instantiate(projectile, playerTransform.position + playerTransform.up + playerTransform.right * Mathf.Lerp(-0.7f,0.7f, current),
                 playerTransform.rotation * Quaternion.Euler(0f, 0f, Mathf.Lerp(15f, -15f, current))).GetComponent<PlayerFiredBullet>();

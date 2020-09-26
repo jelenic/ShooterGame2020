@@ -145,8 +145,8 @@ public class ArcadeManager : MonoBehaviour
     public void summonRandomEnemy(Vector3 position)
     {
         
-        int pickedEnemy = Random.Range(waveRange.x, Mathf.Min(enemies.Length-1, waveRange.y + 1)); // to actually spawn all enemies in rank, to counter arrays starting from 0
-        Debug.Log(pickedEnemy + " summoning enemy in range " + waveRange);
+        int pickedEnemy = Random.Range(Mathf.Min(enemies.Length - 2, waveRange.x), Mathf.Min(enemies.Length-1, waveRange.y + 1)); // to actually spawn all enemies in rank, to counter arrays starting from 0
+        Debug.LogFormat("summoning enemy {0} in range {1}, {2}, {3}", pickedEnemy, waveRange, Mathf.Min(enemies.Length - 1, waveRange.x), Mathf.Min(enemies.Length - 1, waveRange.y + 1));
         Instantiate(enemies[pickedEnemy], position, Quaternion.identity);
     }
 
@@ -179,7 +179,7 @@ public class ArcadeManager : MonoBehaviour
             Debug.LogFormat("current wave {0}, enemy range: {1}, difficlity: {2}", currentWave, waveRange, difficultyModifier);
 
 
-            currentPauseLenght = pauseLenght;
+            currentPauseLenght = currentWave == 1 ? 5 : pauseLenght;
             while (currentPauseLenght > 0)
             {
                 string nextWaveText = bossWave ? string.Format("BOSS in {0}s", currentPauseLenght--) : string.Format("Wave {0} in {1}s", currentWave, currentPauseLenght--);

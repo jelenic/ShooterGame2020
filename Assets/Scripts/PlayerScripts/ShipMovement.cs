@@ -12,7 +12,7 @@ public class ShipMovement : MonoBehaviour {
 
     public bool android;
     public bool clamp;
-    public GameObject MobileControlMenu;
+    //public GameObject MobileControlMenu;
 
     public bool boostUsed;
     public float boostVelThreshold;
@@ -51,10 +51,10 @@ public class ShipMovement : MonoBehaviour {
         colliders = GetComponents<Collider2D>();
         stats = GetComponent<Stats>();
         rb = GetComponent<Rigidbody2D>();
-        if(MobileControlMenu != null) MobileControlMenu = GameObject.Find("MobileControlls");
+        //if(MobileControlMenu != null) MobileControlMenu = GameObject.Find("MobileControlls");
         if (Application.platform != RuntimePlatform.Android && !android)
         {
-            MobileControlMenu.SetActive(false);
+            //MobileControlMenu.SetActive(false);
         }
         else
         {
