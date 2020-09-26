@@ -18,6 +18,9 @@ public class ItemSpawnerArcade : MonoBehaviour
         transform = GetComponent<Transform>();
 
         StartCoroutine(setArcadeManager());
+
+        spawnRate /= 2f;
+        spawnerLoopCor = StartCoroutine(spawnerLoop());
     }
 
     private IEnumerator setArcadeManager() // necessary since arcade manager is created after spawners
@@ -30,11 +33,12 @@ public class ItemSpawnerArcade : MonoBehaviour
 
     private void onWaveStart(int wave)
     {
-        spawnerLoopCor = StartCoroutine(spawnerLoop());
+        spawnRate *= 2f;
+
     }
     private void onWaveEnd()
     {
-        StopCoroutine(spawnerLoopCor);
+        spawnRate /= 2f;
     }
 
     private void spawnRandomItem()
@@ -51,7 +55,7 @@ public class ItemSpawnerArcade : MonoBehaviour
 
     IEnumerator spawnerLoop()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(10f);
 
         while (true)
         {

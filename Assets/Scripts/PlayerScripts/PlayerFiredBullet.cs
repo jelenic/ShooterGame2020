@@ -10,7 +10,6 @@ public class PlayerFiredBullet : FiredProjectile
     public override void Initialize()
     {
         base.Initialize();
-        projectileDamage = 3;
         lifeDuration = 5f;
 
         passThrough.Add("Player");

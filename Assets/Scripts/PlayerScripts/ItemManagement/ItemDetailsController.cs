@@ -46,7 +46,7 @@ public class ItemDetailsController : MonoBehaviour
             case "SpecialWeapon":
                 eq = (Equipement)item;
                 SpecialWeapon specialWeapon = (SpecialWeapon)item;
-                stats = string.Format("Base damage : {0}\nDamage type: {1}\nSpecial Effect : {2}\nCooldown : {3}", specialWeapon.damageBase, specialWeapon.damageType, specialWeapon.specialEffect, specialWeapon.cooldown);
+                stats = string.Format("Base damage : {0}\nDamage type: {1}\nSpecial Effect : {2}\nCooldown : {3}", specialWeapon.damageBase, specialWeapon.damageType, specialWeapon.statusEffect.ToString(), specialWeapon.cooldown);
                 break;
             default:
                 stats = "";

@@ -5,18 +5,18 @@ using UnityEngine;
 public class SpawnerArcade : MonoBehaviour
 {
     private ArcadeManager arcadeManager;
-    public GameObject enemy;
 
     private Coroutine spawnerLoopCor;
 
     public float spawnRate;
+    private float spawnRandomOffset;
 
     private Transform transform;
 
     private void Awake()
     {
         transform = GetComponent<Transform>();
-
+        spawnRandomOffset = spawnRate * 0.2f;
         StartCoroutine(setArcadeManager());
     }
 
@@ -48,7 +48,7 @@ public class SpawnerArcade : MonoBehaviour
             randomPos += transform.position;
             Debug.Log("spawning enemy at " + (randomPos));
             arcadeManager.summonRandomEnemy(randomPos);
-            yield return new WaitForSeconds(spawnRate);
+            yield return new WaitForSeconds(spawnRate + Random.Range(-spawnRandomOffset, spawnRandomOffset));
         }
     }
 

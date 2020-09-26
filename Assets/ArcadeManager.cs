@@ -17,7 +17,6 @@ public class ArcadeManager : MonoBehaviour
     private int bossEveryNthWave;
     public GameObject[] bosses;
 
-
     public bool arcadeActive;
 
     private int currentWave;
@@ -58,6 +57,8 @@ public class ArcadeManager : MonoBehaviour
     private string boss_name;
     private bool bossAlive;
 
+    private Transform transform;
+
 
     #region ArcadeManagerSingelot
     public static ArcadeManager instance;
@@ -71,6 +72,7 @@ public class ArcadeManager : MonoBehaviour
         #endregion
         levelManager = LevelManager.instance;
 
+        transform = GetComponent<Transform>();
         startWaves();
         populateWaveToEnemy();
     }
@@ -78,7 +80,9 @@ public class ArcadeManager : MonoBehaviour
     private void summonBoss()
     {
         bossDetails.SetActive(true);
-        Instantiate(bosses[currentBoss], new Vector3(10,0,0), Quaternion.identity);
+        Vector3 randomPos = 12f * Random.insideUnitCircle;
+        randomPos += transform.position;
+        Instantiate(bosses[currentBoss], randomPos , Quaternion.identity);
         currentBoss = (currentBoss + 1) % bosses.Length;
     }
 
@@ -123,6 +127,7 @@ public class ArcadeManager : MonoBehaviour
         
         int pickedEnemy = Random.Range(waveRange.x, waveRange.y + 1); // to actually spawn all enemies in rank, to counter arrays starting from 0
         Debug.Log(pickedEnemy + " summoning enemy in range " + waveRange);
+        Instantiate(enemies[pickedEnemy], position, Quaternion.identity);
     }
 
     private void startWaves()
@@ -157,7 +162,7 @@ public class ArcadeManager : MonoBehaviour
             currentPauseLenght = pauseLenght;
             while (currentPauseLenght > 0)
             {
-                string nextWaveText = bossWave ? string.Format("BOSS in {0}s", currentPauseLenght--) : string.Format("Wave {0} in {1}s", currentWave + 1, currentPauseLenght--);
+                string nextWaveText = bossWave ? string.Format("BOSS in {0}s", currentPauseLenght--) : string.Format("Wave {0} in {1}s", currentWave, currentPauseLenght--);
                 waveProgressText.text = nextWaveText;
                 yield return new WaitForSeconds(1f);
             }

@@ -25,7 +25,8 @@ MonoBehaviour:
   damageBase: 15
   cooldown: 2
   damageType: 0
-  specialEffect: aoe status effect shockwave around the player
+  statusEffect: 1
+  statusEffectDuration: 5
   chargeSpeed: 3
   minCharge: 3
   maxCharge: 10

@@ -18,7 +18,7 @@ public class ShockwaveScript : SpecialWeaponScript
         Damageable d = affected.GetComponent<Damageable>();
         d.DecreaseHP((int)(stats.calculateFinalDmgModifier() * dmgBase * reachedChargeLevel), dmgType);
         CombatVariables cv = affected.GetComponent<CombatVariables>();
-        if (cv != null) cv.inflictStatus(StatusEffect.Slowdown);
+        if (cv != null) cv.inflictStatus(statusEffect, statusDuration);
     }
 
     protected override void initialize()

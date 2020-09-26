@@ -26,6 +26,8 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected float chargeSpeed;
     protected float minCharge;
     protected float maxCharge;
+    protected StatusEffect statusEffect;
+    protected float statusDuration;
 
     protected Transform transform;
 
@@ -54,6 +56,8 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         this.chargeSpeed = sw.chargeSpeed;
         this.minCharge = sw.minCharge;
         this.maxCharge = sw.maxCharge;
+        this.statusEffect = sw.statusEffect;
+        this.statusDuration = sw.statusEffectDuration;
     }
 
     // Start is called before the first frame update

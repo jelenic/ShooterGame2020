@@ -22,10 +22,11 @@ MonoBehaviour:
   pickUpIcon: {fileID: 21300000, guid: 75609eede80f6a747886e4d65675340d, type: 3}
   pickUpIconColor: {r: 0.7830189, g: 0.1735938, b: 0.1735938, a: 1}
   magazineSize: 5
-  damageBase: 300
+  damageBase: 100
   cooldown: 3
   damageType: 0
-  specialEffect: destroys everything
+  statusEffect: 8
+  statusEffectDuration: 0
   chargeSpeed: 2
   minCharge: 0.3
   maxCharge: 7

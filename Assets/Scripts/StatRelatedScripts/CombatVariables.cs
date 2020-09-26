@@ -145,9 +145,12 @@ public class CombatVariables : MonoBehaviour, Damageable
         }
     }
 
+    protected virtual void onDestroy() { }
+
     private void OnDestroy()
     {
         if (hp.Equals(0)) levelManager.increaseScore(stats.scoreValue);
+        onDestroy();
     }
 
     protected virtual void handleStatBuff(StatBuff buff, float amount) { }

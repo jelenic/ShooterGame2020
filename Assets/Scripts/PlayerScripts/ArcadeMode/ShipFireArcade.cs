@@ -28,7 +28,7 @@ public class ShipFireArcade : MonoBehaviour
     private IEnumerator fireCooldown()
     {
         fireWait = true;
-        yield return new WaitForSeconds(activeWeapon == 1 ? rateOfFire : rateOfFire*2);
+        yield return new WaitForSeconds(activeWeapon == 1 ? rateOfFire/5 : rateOfFire*2);
         fireWait = false;
     }
 
@@ -102,7 +102,7 @@ public class ShipFireArcade : MonoBehaviour
         if (activeWeapon == 1)
         {
             PlayerFiredBullet pfb = Instantiate(ammo1, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>();
-            pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier;
+            pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*0.5f;
             Debug.Log(pfb.damageModifier);
             pfb.velocityModifier = stats.projectileVelocityModifier;
             Debug.Log(pfb.velocityModifier);
@@ -110,16 +110,21 @@ public class ShipFireArcade : MonoBehaviour
         }
         else if (activeWeapon == 2)
         {
-            PlayerFiredMine pfb = Instantiate(ammo2, transform.position + transform.up, transform.rotation).GetComponent<PlayerFiredMine>();
-            pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier;
+            PlayerFiredMine pfm = Instantiate(ammo2, transform.position + transform.up, transform.rotation).GetComponent<PlayerFiredMine>();
+            pfm.damageModifier = stats.calculateFinalDmgModifier() * damageModifier;
 
         }
         else 
         {
-            Debug.Log(activeWeapon);
-            PlayerFiredBullet pfb = Instantiate(ammo3, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>();
-            pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier;
+            PlayerFiredBullet pfb = Instantiate(ammo3, transform.position + transform.up, transform.rotation).GetComponent<PlayerFiredBullet>();
+            PlayerFiredBullet pfb2 = Instantiate(ammo3, transform.position + transform.up + transform.right * -0.5f, transform.rotation * Quaternion.Euler(0f, 0f, 15f)).GetComponent<PlayerFiredBullet>();
+            PlayerFiredBullet pfb3 = Instantiate(ammo3, transform.position + transform.up + transform.right*0.5f, transform.rotation * Quaternion.Euler(0f, 0f, -15f)).GetComponent<PlayerFiredBullet>();
+            pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*2f;
             pfb.velocityModifier = stats.projectileVelocityModifier;
+            pfb2.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*2f;
+            pfb2.velocityModifier = stats.projectileVelocityModifier;
+            pfb3.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*2f;
+            pfb3.velocityModifier = stats.projectileVelocityModifier;
 
         }
     }

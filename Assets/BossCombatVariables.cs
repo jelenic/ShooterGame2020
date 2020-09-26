@@ -24,4 +24,9 @@ public class BossCombatVariables : EnemyCombatVariables
         arcadeManager.updateBossHP(hp, stats.hp);
     }
 
+    protected override void onDestroy()
+    {
+        arcadeManager.bossDeath();
+    }
+
 }
