@@ -15,9 +15,12 @@ MonoBehaviour:
   name: PermanentMagazineBuff
   value: 1
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7bbd537668346bd4fa886d438eca6461, type: 3}
   description: permanently increases magazine stat
-  color: {r: 1, g: 1, b: 1, a: 1}
+  color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   codeName: 
+  pickUpIcon: {fileID: 21300000, guid: 7bbd537668346bd4fa886d438eca6461, type: 3}
+  pickUpIconColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+  disappearTime: 60
   buff: 4
   amount: 1

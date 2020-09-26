@@ -21,6 +21,7 @@ MonoBehaviour:
   codeName: 
   pickUpIcon: {fileID: 21300000, guid: 3c0e1aeb9fcab9441b47faeb1dfa7abc, type: 3}
   pickUpIconColor: {r: 0.12034548, g: 0.3679245, b: 0.029503385, a: 1}
+  disappearTime: 30
   effect: 6
   duration: 5
   amount: 0

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d15f1f2d4c645a8498a5b35470cdc190, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b89abda3b67407049b121f0a509f9da0, type: 3}
   m_Color: {r: 0.16316223, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,7 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d2595e3a4112843b97ce365b61eefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDamage: 6
+  projectileDamage: 12
+  projectileSpeed: 55
   projectileDamageType: 0
   lifeDuration: 7
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}

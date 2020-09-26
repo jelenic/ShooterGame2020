@@ -223,7 +223,7 @@ MonoBehaviour:
   _damageModifier: 1.15
   _critChance: 0.4
   _critMultiplier: 1.8
-  _projectileVelocityModifier: 1.9
+  _projectileVelocityModifier: 2.6
   _scoreValue: 15
   _range: 19
   _angleSpeed: 14

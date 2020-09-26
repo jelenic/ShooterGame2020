@@ -52,6 +52,8 @@ public class CombatVariables : MonoBehaviour, Damageable
 
     }
 
+    public virtual void weaponUpgrade() { }
+
 
     public int DecreaseHP(int amount, DamageType dmgType = DamageType.Default)
     {

@@ -8,12 +8,19 @@ public class PlayerCombatVariables : CombatVariables
     private EquipementScript es;
     public TextMeshProUGUI currentHPText;
     public TextMeshProUGUI maxHPText;
+    private ShipFireArcade sfa;
 
     protected override void initialize()
     {
-        es = GameObject.FindGameObjectWithTag("Player").GetComponent<EquipementScript>();
+        es = GetComponent<EquipementScript>();
+        sfa = GetComponent<ShipFireArcade>();
         StartCoroutine(refreshHP());
 
+    }
+
+    public override void weaponUpgrade()
+    {
+        sfa.weaponUpgrade();
     }
 
     IEnumerator refreshHP()
@@ -24,12 +31,12 @@ public class PlayerCombatVariables : CombatVariables
 
     protected override void changeHpBar(float filled)
     {
-        base.changeHpBar(filled);
         if (currentHPText != null)
         { 
             currentHPText.text = hp.ToString();
             maxHPText.text = stats.hp.ToString();
         }
+        base.changeHpBar(filled);
     }
 
     Coroutine healingCoroutine = null;
@@ -96,7 +103,7 @@ public class PlayerCombatVariables : CombatVariables
             case StatBuff.HP:
                 stats.hp = (int) (stats.hp * amount);
                 hp = (int) (hp * amount);
-                changeHpBar(hp / stats.hp);
+                changeHpBar((float) hp / stats.hp);
                 break;
             case StatBuff.Damage:
                 stats.damageModifier *= amount;

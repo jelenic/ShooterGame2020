@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class FiredProjectile : MonoBehaviour
 {
     public int projectileDamage;
+    public float projectileSpeed;
     public DamageType projectileDamageType;
     public float lifeDuration;
     public GameObject explosion;

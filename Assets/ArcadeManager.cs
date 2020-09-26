@@ -7,6 +7,12 @@ using TMPro;
 public class ArcadeManager : MonoBehaviour
 {
     public GameObject[] enemies;
+    public GameObject[] upgradeItems;
+
+    [SerializeField]
+    [Range(1, 50)]
+    private int upgradesEveryNthWave;
+
     public WaveSettings[] waveSettings;
 
     public Vector3[] waveToEnemy;
@@ -86,6 +92,20 @@ public class ArcadeManager : MonoBehaviour
         currentBoss = (currentBoss + 1) % bosses.Length;
     }
 
+    private void spawnUpgradeItems()
+    {
+        int howMany = Random.Range(3, 5 + 1);
+        Debug.Log("spawning upgrade items " + howMany);
+
+        for(int i = 0; i < howMany; i++)
+        {
+            int whichItem = Random.Range(0, upgradeItems.Length);
+            Vector3 randomPos = 6f * Random.insideUnitCircle;
+            randomPos += transform.position;
+            Instantiate(upgradeItems[whichItem], randomPos, Quaternion.identity);
+        }
+    }
+
     public void setBossDetails(string name)
     {
         boss_name = name;
@@ -125,7 +145,7 @@ public class ArcadeManager : MonoBehaviour
     public void summonRandomEnemy(Vector3 position)
     {
         
-        int pickedEnemy = Random.Range(waveRange.x, waveRange.y + 1); // to actually spawn all enemies in rank, to counter arrays starting from 0
+        int pickedEnemy = Random.Range(waveRange.x, Mathf.Min(enemies.Length-1, waveRange.y + 1)); // to actually spawn all enemies in rank, to counter arrays starting from 0
         Debug.Log(pickedEnemy + " summoning enemy in range " + waveRange);
         Instantiate(enemies[pickedEnemy], position, Quaternion.identity);
     }
@@ -201,7 +221,9 @@ public class ArcadeManager : MonoBehaviour
                 {
                     yield return new WaitForSeconds(5f);
                 }
+
             }
+            if ((currentWave % upgradesEveryNthWave) == 0) spawnUpgradeItems();
         }
 
     }

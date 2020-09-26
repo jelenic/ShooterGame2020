@@ -21,7 +21,7 @@ public class ConsumeOnPickup : MonoBehaviour
 
         rotateCor = StartCoroutine(periodicRotate());
 
-        Destroy(gameObject, 30f);
+        Destroy(gameObject, consumable.disappearTime);
 
     }
 

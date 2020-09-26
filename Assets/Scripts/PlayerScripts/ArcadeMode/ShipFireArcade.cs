@@ -12,12 +12,17 @@ public class ShipFireArcade : MonoBehaviour
     private Stats stats;
     private int activeWeapon;
 
-    public GameObject ammo1;
-    public GameObject ammo2;
-    public GameObject ammo3;
+
+    public GameObject weapon1Object;
+    public GameObject weapon2Object;
+    public GameObject weapon3Object;
+
+    private BasicWeaponArcade weapon1;
+    private BasicWeaponArcade weapon2;
+    private BasicWeaponArcade weapon3; 
+
 
     private float damageModifier;
-    private float rateOfFire;
 
     private Button specialAttack;
     private Button switchBtn;
@@ -28,19 +33,40 @@ public class ShipFireArcade : MonoBehaviour
     private IEnumerator fireCooldown()
     {
         fireWait = true;
-        yield return new WaitForSeconds(activeWeapon == 1 ? rateOfFire/5 : rateOfFire*2);
+        yield return new WaitForSeconds(stats.rateOfFire * (activeWeapon == 1 ? weapon1.rateOfFire : (activeWeapon == 2 ? weapon2.rateOfFire : weapon3.rateOfFire)));
         fireWait = false;
     }
 
-
+    public void weaponUpgrade()
+    {
+        if (activeWeapon == 1)
+        {
+            weapon1.upgrade();
+        }
+        else if (activeWeapon == 2)
+        {
+            weapon2.upgrade();
+        }
+        else
+        {
+            weapon3.upgrade();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        weapon1 = Instantiate(weapon1Object).GetComponent<BasicWeaponArcade>();
+        weapon2 = Instantiate(weapon2Object).GetComponent<BasicWeaponArcade>();
+        weapon3 = Instantiate(weapon3Object).GetComponent<BasicWeaponArcade>();
+
+        weapon1.setPlayerTransform(transform);
+        weapon2.setPlayerTransform(transform);
+        weapon3.setPlayerTransform(transform);
+
         stats = GetComponent<Stats>();
         damageModifier = stats.damageModifier;
         activeWeapon = 1;
-        rateOfFire = stats.rateOfFire;
 
         if (Application.platform == RuntimePlatform.Android || android)
         {
@@ -101,31 +127,15 @@ public class ShipFireArcade : MonoBehaviour
 
         if (activeWeapon == 1)
         {
-            PlayerFiredBullet pfb = Instantiate(ammo1, transform.position, transform.rotation).GetComponent<PlayerFiredBullet>();
-            pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*0.5f;
-            Debug.Log(pfb.damageModifier);
-            pfb.velocityModifier = stats.projectileVelocityModifier;
-            Debug.Log(pfb.velocityModifier);
-
+            weapon1.fire(stats.calculateFinalDmgModifier(), stats.projectileVelocityModifier);
         }
         else if (activeWeapon == 2)
         {
-            PlayerFiredMine pfm = Instantiate(ammo2, transform.position + transform.up, transform.rotation).GetComponent<PlayerFiredMine>();
-            pfm.damageModifier = stats.calculateFinalDmgModifier() * damageModifier;
-
+            weapon2.fire(stats.calculateFinalDmgModifier(), stats.projectileVelocityModifier);
         }
         else 
         {
-            PlayerFiredBullet pfb = Instantiate(ammo3, transform.position + transform.up, transform.rotation).GetComponent<PlayerFiredBullet>();
-            PlayerFiredBullet pfb2 = Instantiate(ammo3, transform.position + transform.up + transform.right * -0.5f, transform.rotation * Quaternion.Euler(0f, 0f, 15f)).GetComponent<PlayerFiredBullet>();
-            PlayerFiredBullet pfb3 = Instantiate(ammo3, transform.position + transform.up + transform.right*0.5f, transform.rotation * Quaternion.Euler(0f, 0f, -15f)).GetComponent<PlayerFiredBullet>();
-            pfb.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*2f;
-            pfb.velocityModifier = stats.projectileVelocityModifier;
-            pfb2.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*2f;
-            pfb2.velocityModifier = stats.projectileVelocityModifier;
-            pfb3.damageModifier = stats.calculateFinalDmgModifier() * damageModifier*2f;
-            pfb3.velocityModifier = stats.projectileVelocityModifier;
-
+            weapon3.fire(stats.calculateFinalDmgModifier(), stats.projectileVelocityModifier);
         }
     }
 
