@@ -190,6 +190,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   android: 0
   clamp: 0
+  MobileControlMenu: {fileID: 0}
+  boostUsed: 0
+  boostVelThreshold: 5
+  boostValue: 45
+  boostCooldown: 1
+  iframesDuration: 1
+  colliders: []
 --- !u!50 &7472826865651126521
 Rigidbody2D:
   serializedVersion: 4
@@ -317,6 +324,7 @@ MonoBehaviour:
   _rateOfFire: 0.3
   _turretRotationSpeed: 0
   _speed: 0
+  _stoppingDistance: 0
   maxVelocity: 50
   thrust: 18
   magazineModifier: 1
@@ -383,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo1: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
-  ammo2: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
+  ammo2: {fileID: 1104773745397654, guid: 3e62efc28db6adc4aa62b8f4b595173a, type: 3}
   ammo3: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
   android: 0
 --- !u!1 &7472826866836980359
