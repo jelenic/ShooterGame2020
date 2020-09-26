@@ -98,6 +98,19 @@ public class CustomAIArcade : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance)
+        {
+            state = State.maintainRangeAttackState;
+        }
+        else if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance *10)
+        {
+            state = State.goToTargetState;
+        }
+        //rotate towards player
+        Vector2 directionPlayer = target.position - transform.position;
+        float angle = Mathf.Atan2(directionPlayer.y, directionPlayer.x) * Mathf.Rad2Deg - 90;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.angleSpeed * Time.deltaTime);
 
         switch (state)
         {
@@ -135,17 +148,28 @@ public class CustomAIArcade : MonoBehaviour
 
                 #endregion
 
-                //rotate towards player
-                Vector2 directionPlayer = target.position - transform.position;
-                float angle = Mathf.Atan2(directionPlayer.y, directionPlayer.x) * Mathf.Rad2Deg - 90;
-                Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, stats.angleSpeed * Time.deltaTime);
-
                 break;
             case State.maintainRangeAttackState:
+                if (player != null && Vector2.Distance(rb.position, player.position) >= (stats.stoppingDistance))
+                {
+                    Vector2 dir = ((Vector2)player.position - rb.position).normalized;
+                    Vector2 f = dir * stats.speed * Time.deltaTime / 4;
+                    rb.AddForce(f);
+                }
+
+                else if (player != null && Vector2.Distance(rb.position, player.position) <= (stats.stoppingDistance))
+                {
+                    Vector2 dir = ((Vector2)player.position - rb.position).normalized;
+                    Vector2 f = dir * stats.speed * Time.deltaTime / 4;
+                    rb.AddForce(-f);
+                }
+
+
                 break;
             case State.disabled:
                 break;
+
+        
         }
     }
 }

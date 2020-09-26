@@ -6299,7 +6299,6 @@ MonoBehaviour:
   bossEveryNthWave: 2
   bosses:
   - {fileID: 4890951475787712177, guid: eb4422460fe19c44fb07c80eda740359, type: 3}
-  bossSpawnLocation: {x: 0, y: 0, z: 0}
   arcadeActive: 1
   waveLenght: 60
   pauseLenght: 15
@@ -7964,10 +7963,6 @@ PrefabInstance:
       propertyPath: maxHPText
       value: 
       objectReference: {fileID: 915318605}
-    - target: {fileID: 3249265328528498120, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: ammo2
-      value: 
-      objectReference: {fileID: 1104773745397654, guid: 3e62efc28db6adc4aa62b8f4b595173a, type: 3}
     - target: {fileID: 7472826865651126500, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: m_Name
       value: new_ship
@@ -7996,10 +7991,6 @@ PrefabInstance:
       propertyPath: specialWeaponTotalAmmoText
       value: 
       objectReference: {fileID: 915318599}
-    - target: {fileID: 7472826865651126524, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7472826865651126525, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8048,22 +8039,6 @@ PrefabInstance:
       propertyPath: MobileControlMenu
       value: 
       objectReference: {fileID: 8999125664563268886}
-    - target: {fileID: 7472826865651126527, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: boostVelThreshold
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7472826865651126527, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: boostValue
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7472826865651126527, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: boostCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7472826865651126527, guid: 670535054404f3040af5359baeb22be0, type: 3}
-      propertyPath: iframesDuration
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 670535054404f3040af5359baeb22be0, type: 3}
 --- !u!222 &6072429487051647662

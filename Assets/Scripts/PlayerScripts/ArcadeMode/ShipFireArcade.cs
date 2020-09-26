@@ -28,7 +28,21 @@ public class ShipFireArcade : MonoBehaviour
     private IEnumerator fireCooldown()
     {
         fireWait = true;
-        yield return new WaitForSeconds(activeWeapon == 1 ? rateOfFire/5 : rateOfFire*2);
+        float returnValue;
+        if (activeWeapon == 1)
+        {
+            returnValue = rateOfFire / 5;
+        }
+        else if (activeWeapon == 2)
+        {
+            returnValue = rateOfFire * 2;
+        }
+        else
+        {
+            returnValue = rateOfFire;
+        }
+        //yield return new WaitForSeconds(activeWeapon == 1 ? rateOfFire/5 : rateOfFire*2);
+        yield return new WaitForSeconds(returnValue);
         fireWait = false;
     }
 
