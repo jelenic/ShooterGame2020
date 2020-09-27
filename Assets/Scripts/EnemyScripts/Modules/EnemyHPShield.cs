@@ -33,6 +33,7 @@ public class EnemyHPShield : EnemyShield
     {
         base.activateShield();
         shield.SetActive(true);
+        cv.immune = true;
         //Debug.Log("enemy hp shield active");
     }
 
@@ -40,6 +41,7 @@ public class EnemyHPShield : EnemyShield
     {
         shield.SetActive(false);
         //Debug.Log("enemy hp shield ded");
+        cv.immune = false;
         base.deactivateShield();
 
     }

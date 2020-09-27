@@ -25,7 +25,6 @@ public abstract class FiredProjectile : MonoBehaviour
     void Awake()
     {
         damageModifier = 1f;
-        Destroy(gameObject, lifeDuration);
         transform = GetComponent<Transform>();
         passThrough = new List<string>();
         damageable = new List<string>();
@@ -33,11 +32,12 @@ public abstract class FiredProjectile : MonoBehaviour
         //AudioManager.instance.PlayEffect("bullet3");
 
         Initialize();
+        Destroy(gameObject, lifeDuration);
     }
 
     private void OnDestroy()
     {
-        Instantiate(explosion, transform.position, transform.rotation);
+        if (Time.timeScale != 0f) Instantiate(explosion, transform.position, transform.rotation);
         //if (!LevelManager.instance.levelOver) AudioManager.instance.PlayEffect("explosion1");
 
     }

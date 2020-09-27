@@ -1417,8 +1417,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.1715023, g: 0.7735849, b: 0.3611166, a: 1}
-      maxColor: {r: 0.1745283, g: 0.55294126, b: 1, a: 1}
+      minColor: {r: 0.9529412, g: 0.6117647, b: 0.07058824, a: 1}
+      maxColor: {r: 0.94509804, g: 0.76862746, b: 0.05882353, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7550,8 +7550,8 @@ MonoBehaviour:
   - {fileID: 4890951475787712177, guid: 729ebe722f5da164f978ea628fc5c38a, type: 3}
   - {fileID: 4890951475787712177, guid: eb4422460fe19c44fb07c80eda740359, type: 3}
   arcadeActive: 1
-  waveLenght: 60
-  pauseLenght: 15
+  waveLenght: 5
+  pauseLenght: 1
   waveDetailsPopup: {fileID: 973826137}
   popupText: {fileID: 569897460}
   waveProgressText: {fileID: 1214483475}
@@ -8497,7 +8497,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 1}
+  m_BackGroundColor: {r: 0.20392157, g: 0.28627452, b: 0.36862746, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9268,13 +9268,13 @@ MonoBehaviour:
   m_margin: {x: -7.078665, y: 5.663046, z: -7.078759, w: 1.4156659}
   m_textInfo:
     textComponent: {fileID: 2101773813}
-    characterCount: 2
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -10620,6 +10620,18 @@ PrefabInstance:
     - target: {fileID: 7472826865651126524, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472826865651126524, guid: 670535054404f3040af5359baeb22be0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472826865651126524, guid: 670535054404f3040af5359baeb22be0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472826865651126524, guid: 670535054404f3040af5359baeb22be0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.94509804
       objectReference: {fileID: 0}
     - target: {fileID: 7472826865651126525, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: m_LocalPosition.x

@@ -242,9 +242,9 @@ MonoBehaviour:
   name: Zzzigy
   mass: 2
   _hp: 2500
-  _projectileResistance: 0.65
-  _beamResistance: 0.65
-  _physicalResistance: 0.65
+  _projectileResistance: 0.4
+  _beamResistance: 0.35
+  _physicalResistance: 0.6
   _damageModifier: 2.3
   _critChance: 0.5
   _critMultiplier: 2.3

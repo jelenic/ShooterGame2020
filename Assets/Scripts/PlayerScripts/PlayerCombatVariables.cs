@@ -91,7 +91,11 @@ public class PlayerCombatVariables : CombatVariables
     {
         Debug.Log("player deathh");
         yield return new WaitForSeconds(0.5f);
-        if (hp == 0) LevelManager.instance.die();
+        if (hp == 0)
+        {
+            changeHpBar(0f);
+            LevelManager.instance.die();
+        }
         Destroy(gameObject);
     }
 

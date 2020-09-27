@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpreadFiringBasicWeapon : BasicWeaponArcade
 {
     public int shotNumber;
+    public float range;
 
     protected override void init()
     {
@@ -19,6 +20,7 @@ public class SpreadFiringBasicWeapon : BasicWeaponArcade
                 playerTransform.rotation * Quaternion.Euler(0f, 0f, Mathf.Lerp(15f, -15f, current))).GetComponent<PlayerFiredBullet>();
             pfb.damageModifier = playerDamagerModifier * weaponDamageModifier;
             pfb.velocityModifier = speedModifier;
+            pfb.lifeDuration = range;
 
         }
     }
@@ -27,6 +29,7 @@ public class SpreadFiringBasicWeapon : BasicWeaponArcade
     {
         rateOfFire /= 1.05f;
         weaponDamageModifier *= 1.07f;
+        range = Mathf.Clamp(range * 1.05f, 0.3f, 0.8f);
         shotNumber = Mathf.Min(10, shotNumber + 1);
     }
 

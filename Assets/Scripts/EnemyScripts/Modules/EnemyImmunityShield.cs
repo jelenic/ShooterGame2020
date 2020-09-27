@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class EnemyImmunityShield : EnemyShield
 {
+    protected int dmgStack;
 
     protected override void reactToDmg(int receivedDmg)
     {
         Debug.LogFormat("enemy received {0} dmg, hp is {1}", receivedDmg, cv.stats.og.hp);
 
         base.reactToDmg(receivedDmg);
-        if (-receivedDmg / dmgThreshold > cv.stats.og.hp)
+        if (!active) dmgStack -= receivedDmg; // since its negative
+
+        if (!active && dmgStack >= dmgThreshold * cv.stats.og.hp)
         {
             activate();
-            Debug.Log("enemy shield activated");
+            dmgStack = 0;
+            //Debug.Log("enemy shield activated");
         }
     }
 
@@ -29,7 +33,7 @@ public class EnemyImmunityShield : EnemyShield
         base.activateShield();
         shield.SetActive(true);
         cv.immune = true;
-        Debug.Log("enemy immune");
+        //Debug.Log("enemy immune");
     }
 
     protected override void deactivateShield()
@@ -37,7 +41,7 @@ public class EnemyImmunityShield : EnemyShield
         base.deactivateShield();
         shield.SetActive(false);
         cv.immune = false;
-        Debug.Log("enemy mune");
+        //Debug.Log("enemy mune");
         base.deactivateShield();
     }
 
