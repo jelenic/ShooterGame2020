@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class EnemyShield : EnemyModule
 {
+    public bool noSprite;
     public float duration;
     public float remainingTime;
     protected CombatVariables cv;
@@ -17,8 +18,11 @@ public abstract class EnemyShield : EnemyModule
         base.initialize();
         cv = GetComponentInParent<CombatVariables>();
         cv.onHpChangedCallback += damageFilter;
-        shield = gameObject.transform.Find("Shield").gameObject;
-        shield_sprite = shield.GetComponent<SpriteRenderer>();
+        if (!noSprite)
+        {
+            shield = gameObject.transform.Find("Shield").gameObject;
+            shield_sprite = shield.GetComponent<SpriteRenderer>();
+        }
         remainingTime = duration;
     }
 

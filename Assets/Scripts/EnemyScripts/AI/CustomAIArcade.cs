@@ -88,6 +88,8 @@ public class CustomAIArcade : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (player == null) return;
+
         if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance)
         {
             state = State.maintainRangeAttackState;

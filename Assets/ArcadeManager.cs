@@ -42,28 +42,34 @@ public class ArcadeManager : MonoBehaviour
     public TextMeshProUGUI popupText;
 
     public TextMeshProUGUI waveProgressText;
+    public TextMeshProUGUI enemiesRemainingText;
+    public Image enemiesRemainingBar;
+    private int enemiesKilled;
+    private int totalSpawnedEnemies;
 
-    public delegate void OnWaveStart(float spawnRate, int maxSpawns);
-    public delegate void OnWaveEnd();
+    
 
-    public OnWaveStart OnWaveStartedCallback;
-    public OnWaveEnd OnWaveEndedCallback;
-
+    private Transform transform;
     private LevelManager levelManager;
 
     public GameObject bossDetails;
     public Image bossHP;
     public TextMeshProUGUI bossHPText;
     public TextMeshProUGUI bossName;
+    private string boss_name;
+    private bool bossAlive;
 
     private int currentBoss;
 
     private bool waveOnGoing;
 
-    private string boss_name;
-    private bool bossAlive;
 
-    private Transform transform;
+
+    public delegate void OnWaveStart(float spawnRate, int maxSpawns);
+    public delegate void OnWaveEnd();
+
+    public OnWaveStart OnWaveStartedCallback;
+    public OnWaveEnd OnWaveEndedCallback;
 
 
     #region ArcadeManagerSingelot
@@ -79,8 +85,23 @@ public class ArcadeManager : MonoBehaviour
         levelManager = LevelManager.instance;
 
         transform = GetComponent<Transform>();
+        enemiesKilled = 0;
         startWaves();
         populateWaveToEnemy();
+    }
+
+    public void enemyDeath()
+    {
+        enemiesKilled++;
+        enemiesRemainingBar.fillAmount = (float)enemiesKilled / totalSpawnedEnemies;
+        enemiesRemainingText.text = string.Format("{0} / {1}", enemiesKilled, totalSpawnedEnemies);
+    }
+
+    private void enemySpawn()
+    {
+        totalSpawnedEnemies++;
+        enemiesRemainingBar.fillAmount = enemiesKilled / totalSpawnedEnemies;
+        enemiesRemainingText.text = string.Format("{0} / {1}", enemiesKilled, totalSpawnedEnemies);
     }
 
     private void summonBoss()
@@ -90,6 +111,8 @@ public class ArcadeManager : MonoBehaviour
         randomPos += transform.position;
         Instantiate(bosses[currentBoss], randomPos , Quaternion.identity);
         currentBoss = (currentBoss + 1) % bosses.Length;
+
+        enemySpawn();
     }
 
     private void spawnUpgradeItems()
@@ -127,6 +150,7 @@ public class ArcadeManager : MonoBehaviour
         waveOnGoing = false;
         boss_name = "";
         bossAlive = false;
+        enemyDeath();
 
         makePopup(string.Format("BOSS {0} DEFEATED!", boss_name), 1.5f);
     }
@@ -148,6 +172,8 @@ public class ArcadeManager : MonoBehaviour
         int pickedEnemy = Random.Range(Mathf.Min(enemies.Length - 2, waveRange.x), Mathf.Min(enemies.Length-1, waveRange.y + 1)); // to actually spawn all enemies in rank, to counter arrays starting from 0
         Debug.LogFormat("summoning enemy {0} in range {1}, {2}, {3}", pickedEnemy, waveRange, Mathf.Min(enemies.Length - 1, waveRange.x), Mathf.Min(enemies.Length - 1, waveRange.y + 1));
         Instantiate(enemies[pickedEnemy], position, Quaternion.identity);
+
+        enemySpawn();
     }
 
     private void startWaves()
@@ -200,7 +226,7 @@ public class ArcadeManager : MonoBehaviour
 
 
             levelManager.levelDifficultyModifier *= 1.03f;
-            if (!bossWave && OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(0.25f, 3);
+            if (!bossWave && OnWaveStartedCallback != null) OnWaveStartedCallback.Invoke(0.12f, 3);
 
             
             if (!bossWave)

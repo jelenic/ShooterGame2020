@@ -9,6 +9,8 @@ public abstract class EnemyModule : MonoBehaviour
     public float remainingCooldown;
     public bool active;
     public bool cooldownActive;
+    public Transform parentTransform;
+
 
 
     protected virtual void initialize() { }

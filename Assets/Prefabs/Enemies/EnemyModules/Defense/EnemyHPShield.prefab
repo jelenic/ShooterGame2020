@@ -160,7 +160,8 @@ MonoBehaviour:
   remainingCooldown: 0
   active: 0
   cooldownActive: 0
-  duration: 100
+  noSprite: 0
+  duration: 0.35
   remainingTime: 0
   dmgStack: 0
   dmgThreshold: 25

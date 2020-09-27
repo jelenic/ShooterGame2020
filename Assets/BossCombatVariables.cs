@@ -8,7 +8,6 @@ public class BossCombatVariables : EnemyCombatVariables
     protected override void initialize()
     {
         hp = 10000000;
-        arcadeManager = ArcadeManager.instance;
 
         arcadeManager.setBossDetails(stats.name);
     }

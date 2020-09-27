@@ -106,7 +106,7 @@ public class EquipementScript : MonoBehaviour
         spwComponent.setParams(specialWeapon, spwAmmoCheck);
         spwComponent.OnCooldownChangedCallback += spwCDCallback;
         spwComponent.OnFiredCallback += onSpwFired;
-        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * specialWeapon.magazineSize * stats.magazineModifier);
+        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier*2));
         Debug.Log("sp amo " + specialWeaponAmmo);
         spwAmmoRefresh();
     }

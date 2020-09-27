@@ -24,10 +24,10 @@ MonoBehaviour:
   disappearTime: 45
   magazineSize: 5
   damageBase: 100
-  cooldown: 3
+  cooldown: 1.5
   damageType: 0
   statusEffect: 8
   statusEffectDuration: 0
-  chargeSpeed: 2
+  chargeSpeed: 4
   minCharge: 0.3
   maxCharge: 7

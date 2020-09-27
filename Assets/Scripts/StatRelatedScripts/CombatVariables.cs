@@ -23,6 +23,8 @@ public class CombatVariables : MonoBehaviour, Damageable
     Transform transform;
 
     private LevelManager levelManager;
+    protected ArcadeManager arcadeManager;
+
 
     public bool immune;
 
@@ -118,6 +120,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         resistances.Add(DamageType.Physical, stats.physicalResistance);
         resistances.Add(DamageType.Default, 0f);
         levelManager = LevelManager.instance;
+        arcadeManager = ArcadeManager.instance;
         immune = false;
 
         StartCoroutine(sethp());

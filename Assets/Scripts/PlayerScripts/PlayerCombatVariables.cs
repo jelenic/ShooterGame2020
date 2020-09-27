@@ -78,7 +78,7 @@ public class PlayerCombatVariables : CombatVariables
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            IncreaseHP((int)(0.05f * stats.og.hp));
+            IncreaseHP((int)(0.07f * stats.og.hp));
         }
     }
 

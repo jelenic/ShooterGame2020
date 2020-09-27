@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyHPShield : EnemyShield
 {
-    public int dmgStack = 0;
-    public int dmgThreshold;
+    protected int dmgStack;
+    public float dmgThreshold;
     protected override void reactToDmg(int receivedDmg)
     {
 
         base.reactToDmg(receivedDmg);
         if (!active) dmgStack -= receivedDmg; // since its negative
-        if (!active && dmgStack >= dmgThreshold)
+        if (!active && dmgStack >= dmgThreshold*cv.stats.og.hp)
         {
             activate();
             dmgStack = 0;
@@ -50,7 +50,7 @@ public class EnemyHPShield : EnemyShield
     protected override void activateModule()
     {
         base.activateModule();
-        remainingTime = duration;
+        remainingTime = duration*cv.stats.og.hp;
         activateShield();
     }
 

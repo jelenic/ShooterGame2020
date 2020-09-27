@@ -47,6 +47,8 @@ MonoBehaviour:
   remainingCooldown: 0
   active: 0
   cooldownActive: 0
+  parentTransform: {fileID: 4890951475787712189}
+  noSprite: 1
   duration: 0
   remainingTime: 0
 --- !u!1 &3675374281086599653

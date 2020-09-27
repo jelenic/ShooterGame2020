@@ -7,7 +7,6 @@ public class EnemyCombatVariables : CombatVariables
     public GameObject hp_bar_object;
     public float hideHP;
 
-    protected ArcadeManager arcadeManager;
 
 
     protected override void activateDeactivateStatus(StatusEffect status, bool activate, float value)
@@ -79,5 +78,10 @@ public class EnemyCombatVariables : CombatVariables
             yield return new WaitForSeconds(0.5f);
         }
         
+    }
+
+    protected override void onDestroy()
+    {
+        arcadeManager.enemyDeath();
     }
 }
