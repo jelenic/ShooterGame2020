@@ -205,9 +205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Destructo
   mass: 4
-  _hp: 1700
-  _projectileResistance: 0.6
-  _beamResistance: 0.7
+  _hp: 3000
+  _projectileResistance: 0.75
+  _beamResistance: 0.75
   _physicalResistance: 0.8
   _damageModifier: 2
   _critChance: 0.3
@@ -361,6 +361,14 @@ PrefabInstance:
     - target: {fileID: 1055153783809203516, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189853341678870548, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
+      propertyPath: duration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189853341678870548, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
+      propertyPath: dmgThreshold
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5856770492584337886, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: m_LocalPosition.x

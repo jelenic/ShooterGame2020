@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyHPShield : EnemyShield
 {
     protected int dmgStack;
-    public float dmgThreshold;
     protected override void reactToDmg(int receivedDmg)
     {
 
@@ -15,7 +14,7 @@ public class EnemyHPShield : EnemyShield
         {
             activate();
             dmgStack = 0;
-            Debug.Log("enemy hp shield activated");
+            //Debug.Log("enemy hp shield activated");
         }
 
     }
@@ -34,16 +33,14 @@ public class EnemyHPShield : EnemyShield
     {
         base.activateShield();
         shield.SetActive(true);
-        Debug.Log("enemy hp shield active");
+        //Debug.Log("enemy hp shield active");
     }
 
     protected override void deactivateShield()
     {
-        base.deactivateShield();
         shield.SetActive(false);
-        Debug.Log("enemy hp shield ded");
-        cooldownActive = true;
-        active = false;
+        //Debug.Log("enemy hp shield ded");
+        base.deactivateShield();
 
     }
 
@@ -52,6 +49,17 @@ public class EnemyHPShield : EnemyShield
         base.activateModule();
         remainingTime = duration*cv.stats.og.hp;
         activateShield();
+    }
+
+    protected override void updateEnd()
+    {
+        base.updateEnd();
+        if (active)
+        {
+            Color c = shield_sprite.color;
+            c.a = remainingTime / (duration * cv.stats.og.hp);
+            shield_sprite.color = c;
+        }
     }
 
 

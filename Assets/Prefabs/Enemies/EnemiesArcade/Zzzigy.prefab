@@ -47,10 +47,12 @@ MonoBehaviour:
   remainingCooldown: 0
   active: 0
   cooldownActive: 0
+  inCooldown: 0
   parentTransform: {fileID: 4890951475787712189}
   noSprite: 1
   duration: 0
   remainingTime: 0
+  dmgThreshold: 0.02
 --- !u!1 &3675374281086599653
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,18 +241,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Zzzigy
   mass: 2
-  _hp: 1400
-  _projectileResistance: 0.5
-  _beamResistance: 0.6
-  _physicalResistance: 0.5
+  _hp: 2500
+  _projectileResistance: 0.65
+  _beamResistance: 0.65
+  _physicalResistance: 0.65
   _damageModifier: 2.3
   _critChance: 0.5
   _critMultiplier: 2.3
-  _projectileVelocityModifier: 3.4
+  _projectileVelocityModifier: 2.5
   _scoreValue: 700
   _range: 200
   _angleSpeed: 16
-  _rateOfFire: 0.17
+  _rateOfFire: 0.23
   _turretRotationSpeed: 0.08
   _speed: 5000
   _stoppingDistance: 6

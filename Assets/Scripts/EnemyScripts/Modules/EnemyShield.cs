@@ -8,6 +8,8 @@ public abstract class EnemyShield : EnemyModule
     public float duration;
     public float remainingTime;
     protected CombatVariables cv;
+    public float dmgThreshold;
+
 
     protected GameObject shield;
     protected SpriteRenderer shield_sprite;
@@ -28,7 +30,11 @@ public abstract class EnemyShield : EnemyModule
 
     protected virtual void reactToDmg(int receivedDmg) { }
     protected virtual void activateShield() { }
-    protected virtual void deactivateShield() { }
+    protected virtual void deactivateShield()
+    {
+        active = false;
+        StartCoroutine(cooldownCoroutine());
+    }
 
     protected void damageFilter(int amount)
     {

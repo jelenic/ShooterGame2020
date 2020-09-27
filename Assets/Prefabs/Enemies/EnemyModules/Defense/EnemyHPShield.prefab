@@ -160,8 +160,8 @@ MonoBehaviour:
   remainingCooldown: 0
   active: 0
   cooldownActive: 0
+  parentTransform: {fileID: 0}
   noSprite: 0
   duration: 0.35
   remainingTime: 0
-  dmgStack: 0
-  dmgThreshold: 25
+  dmgThreshold: 0.1

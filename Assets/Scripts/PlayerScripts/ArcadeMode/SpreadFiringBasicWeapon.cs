@@ -25,8 +25,8 @@ public class SpreadFiringBasicWeapon : BasicWeaponArcade
 
     public override void upgrade()
     {
-        rateOfFire /= 1.2f;
-        weaponDamageModifier *= 1.2f;
+        rateOfFire /= 1.05f;
+        weaponDamageModifier *= 1.07f;
         shotNumber = Mathf.Min(10, shotNumber + 1);
     }
 

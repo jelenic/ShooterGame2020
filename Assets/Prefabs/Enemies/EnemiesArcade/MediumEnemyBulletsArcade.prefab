@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6035712693617296105
 Transform:
   m_ObjectHideFlags: 0
@@ -641,6 +641,10 @@ PrefabInstance:
     - target: {fileID: 1055153783809203516, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: m_TagString
       value: EnemyShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189853341678870548, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
+      propertyPath: dmgThreshold
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5856770492584337886, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: m_LocalPosition.x

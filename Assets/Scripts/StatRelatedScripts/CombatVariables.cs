@@ -141,7 +141,7 @@ public class CombatVariables : MonoBehaviour, Damageable
     protected virtual void activateDeactivateStatus(StatusEffect status, bool activate, float value) { }
     public void inflictStatus(StatusEffect status, float duration = 20f)
     {
-        Debug.Log(gameObject.name + " getting inflicted by " + status.ToString());
+        //Debug.Log(gameObject.name + " getting inflicted by " + status.ToString());
         if (!currentlyAfflicted.Contains(status))
         {
             currentlyAfflicted.Add(status);

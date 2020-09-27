@@ -10,7 +10,7 @@ public class EnemyImmunityShield : EnemyShield
         Debug.LogFormat("enemy received {0} dmg, hp is {1}", receivedDmg, cv.stats.og.hp);
 
         base.reactToDmg(receivedDmg);
-        if (-10 * receivedDmg > cv.stats.og.hp)
+        if (-receivedDmg / dmgThreshold > cv.stats.og.hp)
         {
             activate();
             Debug.Log("enemy shield activated");
@@ -38,10 +38,7 @@ public class EnemyImmunityShield : EnemyShield
         shield.SetActive(false);
         cv.immune = false;
         Debug.Log("enemy mune");
-        cooldownActive = true;
-        active = false;
-
-
+        base.deactivateShield();
     }
 
     protected override void updateStart()

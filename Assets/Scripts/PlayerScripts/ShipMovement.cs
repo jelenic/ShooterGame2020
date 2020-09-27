@@ -21,7 +21,7 @@ public class ShipMovement : MonoBehaviour {
     public float iframesDuration;
 
     public Collider2D[] colliders;
-    
+
 
     IEnumerator boostCD()
     {
@@ -70,6 +70,10 @@ public class ShipMovement : MonoBehaviour {
         //Debug.Log(MobileControlMenu.ToString());
     }
 
+
+
+    
+
     // Update is called once per frame
     void FixedUpdate() {
 
@@ -115,6 +119,7 @@ public class ShipMovement : MonoBehaviour {
 
         if (!android)
         {
+            
             if (Input.GetKey("w"))
             {
                 Vector2 force = Vector3.up * stats.thrust;

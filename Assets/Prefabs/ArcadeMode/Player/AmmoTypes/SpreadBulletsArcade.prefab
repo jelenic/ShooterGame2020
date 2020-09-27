@@ -121,7 +121,7 @@ MonoBehaviour:
   projectileDamage: 1
   projectileSpeed: 30
   projectileDamageType: 2
-  lifeDuration: 3
+  lifeDuration: 0.3
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
   damageModifier: 0
   velocityModifier: 0

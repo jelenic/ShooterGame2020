@@ -38,7 +38,7 @@ public class EquipementScript : MonoBehaviour
     private void spwAmmoRefresh()
     {
         specialWeaponCurrentAmmoText.text = specialWeaponAmmo.ToString();
-        specialWeaponTotalAmmoText.text = (stats.magazineModifier * specialWeapon.magazineSize).ToString();
+        specialWeaponTotalAmmoText.text = (specialWeapon.magazineSize + stats.magazineModifier*2).ToString();
     }
 
     private bool spwAmmoCheck()

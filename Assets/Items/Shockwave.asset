@@ -23,7 +23,7 @@ MonoBehaviour:
   pickUpIconColor: {r: 1, g: 1, b: 1, a: 1}
   disappearTime: 45
   magazineSize: 7
-  damageBase: 15
+  damageBase: 8
   cooldown: 2.5
   damageType: 0
   statusEffect: 1

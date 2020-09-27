@@ -27,11 +27,11 @@ public class ItemSpawnerArcade : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         arcadeManager = ArcadeManager.instance;
-        arcadeManager.OnWaveStartedCallback += onWaveStart;
-        arcadeManager.OnWaveEndedCallback += onWaveEnd;
+        arcadeManager.OnWaveStartCallback += onWaveStart;
+        arcadeManager.OnWaveStopCallback += onWaveEnd;
     }
 
-    private void onWaveStart(float spawnRate, int maxSpawn)
+    private void onWaveStart()
     {
         spawnRate *= 2f;
 
@@ -44,7 +44,7 @@ public class ItemSpawnerArcade : MonoBehaviour
     private void spawnRandomItem()
     {
         Vector3 randomPos = Random.insideUnitCircle * 5f;
-        Debug.Log("spawning item at " + (transform.position + randomPos));
+        //Debug.Log("spawning item at " + (transform.position + randomPos));
 
         GameObject item = possibleItems[Random.Range(0, possibleItems.Length)];
 

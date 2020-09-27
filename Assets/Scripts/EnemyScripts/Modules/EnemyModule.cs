@@ -9,6 +9,7 @@ public abstract class EnemyModule : MonoBehaviour
     public float remainingCooldown;
     public bool active;
     public bool cooldownActive;
+    public bool inCooldown;
     public Transform parentTransform;
 
 
@@ -26,15 +27,17 @@ public abstract class EnemyModule : MonoBehaviour
         initialize();
     }
 
-    private void Update()
+    protected IEnumerator cooldownCoroutine()
+    {
+        inCooldown = true;
+        yield return new WaitForSeconds(cooldown);
+        inCooldown = false;
+
+    }
+
+    private void FixedUpdate()
     {
         updateStart();
-
-        if (cooldownActive)
-        {
-            remainingCooldown = Math.Max(0f, remainingCooldown - Time.deltaTime);
-            if (remainingCooldown.Equals(0f)) cooldownActive = false;
-        }
 
         updateEnd();
     }
@@ -42,10 +45,9 @@ public abstract class EnemyModule : MonoBehaviour
 
     protected void activate()
     {
-        if (remainingCooldown.Equals(0f))
+        if (!inCooldown)
         {
             active = true;
-            remainingCooldown = cooldown;
             activateModule();
         }
 

@@ -21,7 +21,7 @@ public class Refresher : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(1f);
             if (player != null) gg.center = player.position;
             active.Scan();
         }

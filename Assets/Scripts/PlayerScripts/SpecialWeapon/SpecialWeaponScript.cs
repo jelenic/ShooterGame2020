@@ -92,7 +92,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     private void doStuff()
     {
 
-        Debug.Log("charged up " + chargeLevel);
+        //Debug.Log("charged up " + chargeLevel);
         if (timeTillUse <= 0)
         {
             timeTillUse = cooldown;
