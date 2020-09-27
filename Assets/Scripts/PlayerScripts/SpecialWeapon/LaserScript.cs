@@ -9,6 +9,7 @@ public class LaserScript : SpecialWeaponScript
     
     private float activeTime;
     private float activeFor;
+    public LayerMask ignoredLayers;
 
     private LineRenderer lineRenderer;
     public Transform laserHitPoint;
@@ -40,47 +41,32 @@ public class LaserScript : SpecialWeaponScript
     protected override void stuff(float modifier = 1f)
     {
         lineRenderer.widthMultiplier = calculateCharge() / 20f;
-        //Debug.Log("I'ma fireing my lazer");
         Instantiate(invisible, transform.position, transform.rotation);
 
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
-
-
-        //this is a slim hitbox
-        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up);
+        laserHitPoint.position = transform.position + transform.up * 50f;
+        RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up, 50f, ~ignoredLayers);
         foreach (RaycastHit2D hit in allHit)
         {
-            //Debug.DrawLine(transform.position, hit.point);
+            Debug.Log("laser hit " + hit.collider.tag);
             laserHitPoint.position = hit.point;
-            //lineRenderer.enabled = true;
-            //activeFor = activeTime;
-            //Debug.Log("lazer hit " + hit.collider.tag);
             if (hit.collider.tag == "Projectile")
             {
-                //Debug.Log("should Destroy");
                 Destroy(hit.collider.gameObject, 0f);
-
             }
             else if (hit.collider.tag == "Enemy")
             {
                 int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(modifier * dmgBase * calculateCharge() * stats.calculateFinalDmgModifier()), dmgType);
                 specialEffect(hit.collider.gameObject);
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, laserHitPoint.position);
-                lineRenderer.enabled = true;
-                activeFor = activeTime;
-                if (target_hp.Equals(0)) stuff(modifier * 0.9f);
-                break;
             }
             else if (hit.collider.CompareTag("Terrain") || hit.collider.CompareTag("EnemyShield"))
             {
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, laserHitPoint.position);
-                lineRenderer.enabled = true;
-                activeFor = activeTime;
                 break;
             }
         }
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, laserHitPoint.position);
+        lineRenderer.enabled = true;
+        activeFor = activeTime;
 
     }
 
