@@ -9,7 +9,7 @@ public class LaserScript : SpecialWeaponScript
     
     private float activeTime;
     private float activeFor;
-    public LayerMask ignoredLayers;
+    public LayerMask affectedLayers;
 
     private LineRenderer lineRenderer;
     public Transform laserHitPoint;
@@ -47,7 +47,7 @@ public class LaserScript : SpecialWeaponScript
 
 
         laserHitPoint.position = transform.position + transform.up * range;
-            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up, range, ~ignoredLayers);
+            RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up, range, affectedLayers);
             foreach (RaycastHit2D hit in allHit)
             {
                 Debug.Log("laser hit " + hit.collider.tag);

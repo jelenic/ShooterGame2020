@@ -14,6 +14,6 @@ public class ExplodeOnDeath : MonoBehaviour
 
     private void OnDestroy()
     {
-        Instantiate(explosion, transform.position, transform.rotation);
+        if(Time.timeScale != 0) Instantiate(explosion, transform.position, transform.rotation);
     }
 }

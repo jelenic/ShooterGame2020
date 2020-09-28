@@ -7,6 +7,7 @@ using TMPro;
 public class ArcadeManager : MonoBehaviour
 {
     #region VARIABLES
+    public bool arcadeActive;
 
     public GameObject[] enemies;
     public GameObject[] upgradeItems;
@@ -22,11 +23,10 @@ public class ArcadeManager : MonoBehaviour
     private Vector2Int waveRange;
 
     [SerializeField]
-    [Range(2,50)]
+    [Range(1,50)]
     private int bossEveryNthWave;
     public GameObject[] bosses;
 
-    public bool arcadeActive;
 
     private int currentWave;
 

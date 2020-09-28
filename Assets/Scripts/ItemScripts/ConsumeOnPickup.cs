@@ -40,6 +40,7 @@ public class ConsumeOnPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (consumed) return;
+        if (!collision.CompareTag("Player")) return;
         consumed = true;
         consumable.consume(cv);
         StopCoroutine(rotateCor);

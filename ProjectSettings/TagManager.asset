@@ -34,8 +34,8 @@ TagManager:
   - PlayerIframe
   - PostProcessing
   - Shockwave
-  - 
-  - 
+  - EnemyGravity
+  - ItemGravity
   - 
   - 
   - 

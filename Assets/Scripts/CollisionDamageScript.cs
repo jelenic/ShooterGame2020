@@ -16,6 +16,7 @@ public class CollisionDamageScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("player collided with " + collision.gameObject.tag);
         int dmg = (int) (rb.mass * rb.velocity.magnitude * 2f);
         if (dmg >= 10)
         {

@@ -311,6 +311,9 @@ MonoBehaviour:
   - name: NewModeScene
     difficultyModifier: 1
     music_name: performanceTestLevel
+  - name: NewModeTestScene
+    difficultyModifier: 1
+    music_name: dummyLevel
   - name: BaseLevelScene
     difficultyModifier: 1
     music_name: performanceTestLevel

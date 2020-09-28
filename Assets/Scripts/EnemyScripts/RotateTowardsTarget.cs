@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 public class RotateTowardsTarget : MonoBehaviour
 {
@@ -11,11 +8,13 @@ public class RotateTowardsTarget : MonoBehaviour
     public Transform target;
     public GameObject bullet;
     public bool fireWait;
+    protected float distance;
+    public bool parentStats;
 
     // Use this for initialization
     protected virtual void Initialize()
     {
-        stats = GetComponent<Stats>();
+        stats = parentStats ? GetComponentInParent<Stats>() : GetComponent<Stats>();
     }
     protected virtual void fire()
     {
@@ -37,23 +36,26 @@ public class RotateTowardsTarget : MonoBehaviour
 
     }
 
-    private IEnumerator fireCooldown()
+    protected IEnumerator fireCooldown()
     {
         fireWait = true;
-        yield return new WaitForSeconds(stats.rateOfFire);
+        yield return new WaitForSeconds(cooldownFunc());
         fireWait = false;
     }
+
+    protected virtual float cooldownFunc() { return stats.rateOfFire; }
 
     protected virtual void updateStart() { }
     protected virtual void updateEnd() { }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         updateStart();
         //TO DO add checkign line of fire for non homing projectiles, just copy from CustomAI and delete it there
         //fireWait = Math.Max(0.0f, fireWait - Time.deltaTime);
-        if (target != null && Vector2.Distance(transform.position, target.position) <= stats.range)
+        distance = Vector2.Distance(transform.position, target.position);
+        if (target != null && distance <= stats.range)
         {
             Vector2 direction = target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
@@ -62,6 +64,7 @@ public class RotateTowardsTarget : MonoBehaviour
             if (!fireWait)
             {
                 fire();
+                distance = 0f;
             }
         }
         else

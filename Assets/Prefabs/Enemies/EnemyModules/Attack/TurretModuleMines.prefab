@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6317421593552024830
+--- !u!1 &6813284394253513175
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 718729865218587126}
-  - component: {fileID: 7396329830637086003}
-  - component: {fileID: -9086492895721140005}
-  - component: {fileID: -7558746688589851828}
-  - component: {fileID: -2961721624608450327}
-  m_Layer: 15
-  m_Name: DamageIncreaseItem
-  m_TagString: Item
+  - component: {fileID: 6813284394253513171}
+  - component: {fileID: 6813284394253513172}
+  - component: {fileID: 6818321327474452079}
+  m_Layer: 14
+  m_Name: TurretModuleMines
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &718729865218587126
+--- !u!4 &6813284394253513171
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317421593552024830}
+  m_GameObject: {fileID: 6813284394253513175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.185, y: 0, z: 0}
-  m_LocalScale: {x: 0.3197, y: 0.3197, z: 0.3197}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.081940964, y: 0.081940964, z: 0.081940964}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7396329830637086003
+--- !u!212 &6813284394253513172
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317421593552024830}
+  m_GameObject: {fileID: 6813284394253513175}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2111c5c33a6c7ba418ee4c00d38fc943, type: 3}
-  m_Color: {r: 0.77254903, g: 0.119927004, b: 0.6100383, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 95b9add146f0fb8468e931960a5da37c, type: 3}
+  m_Color: {r: 0.2880918, g: 0.5066889, b: 0.735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85,53 +83,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-9086492895721140005
+--- !u!114 &6818321327474452079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317421593552024830}
+  m_GameObject: {fileID: 6813284394253513175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4993c1ed2ff302147983cd9556725630, type: 3}
+  m_Script: {fileID: 11500000, guid: d30ad1b08b8b7224b857dd714d30186e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumable: {fileID: 11400000, guid: 96a34c878bacbd9439f39693653f855d, type: 2}
---- !u!50 &-7558746688589851828
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317421593552024830}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.4
-  m_LinearDrag: 1
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &-2961721624608450327
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317421593552024830}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3.5
+  defaultRotation: {x: 0, y: 0, z: 0, w: 0}
+  target: {fileID: 0}
+  bullet: {fileID: 6373722828183997816, guid: 4b1f1e858d237cd449d1b0fc6457ba83, type: 3}
+  fireWait: 0
+  parentStats: 1

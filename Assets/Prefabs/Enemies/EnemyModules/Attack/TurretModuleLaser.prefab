@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5144521166840827099}
   - component: {fileID: 6342864361613277817}
   - component: {fileID: 6342864361613277816}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TurretModuleLaser
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -199,6 +199,7 @@ MonoBehaviour:
   target: {fileID: 0}
   bullet: {fileID: 0}
   fireWait: 0
+  parentStats: 0
 --- !u!114 &6342864361613277816
 MonoBehaviour:
   m_ObjectHideFlags: 0

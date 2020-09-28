@@ -109,9 +109,9 @@ MonoBehaviour:
   android: 0
   isCharging: 0
   chargeLevel: 0
-  ignoredLayers:
+  affectedLayers:
     serializedVersion: 2
-    m_Bits: 514615
+    m_Bits: 9472
   laserHitPoint: {fileID: 5841364601772684826}
   invisible: {fileID: 3241238996482785686, guid: 3d584a7db25d0414aacb2e55d0674aa2, type: 3}
   chargeAnimation: {fileID: 734059200167185266, guid: 678c4969b4dc48b41829bc15c55f18dd, type: 3}

@@ -32,7 +32,7 @@ public class FiredKinematic : FiredProjectile
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if ( alive <= lifeDuration) alive += Time.deltaTime*3;
         if (deflected)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7508159457734652973}
   - component: {fileID: 7508159457734652970}
   - component: {fileID: -7738834897879395425}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TurretHomingModule
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -99,3 +99,4 @@ MonoBehaviour:
   target: {fileID: 0}
   bullet: {fileID: 8880536212983783795, guid: 3c6e350d65c701543bb4d0cba21ff20d, type: 3}
   fireWait: 0
+  parentStats: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2067617562774831875}
   - component: {fileID: 1724026599953357095}
   - component: {fileID: 4796224392569388548}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: TurretModuleZigZag
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -121,3 +121,4 @@ MonoBehaviour:
   target: {fileID: 0}
   bullet: {fileID: 6373722828183997816, guid: b067b7c3b631a1f44b99f443eb637b76, type: 3}
   fireWait: 0
+  parentStats: 0

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 718729865218587126}
   - component: {fileID: 7396329830637086003}
   - component: {fileID: -9086492895721140005}
-  - component: {fileID: 910159706754052292}
+  - component: {fileID: 2385734759196259171}
+  - component: {fileID: 1370747290569910544}
   m_Layer: 15
-  m_Name: HealItem
+  m_Name: SmallHealItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,8 +98,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumable: {fileID: 11400000, guid: f000ca73df8586b47ae7f5a089d3db5f, type: 2}
---- !u!60 &910159706754052292
-PolygonCollider2D:
+--- !u!50 &2385734759196259171
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317421593552024830}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.4
+  m_LinearDrag: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &1370747290569910544
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,19 +133,5 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 3, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.2328874, y: -0.0032341704}
-      - {x: 0.010386586, y: -1.5141606}
-      - {x: 0.81, y: -0.53}
-      - {x: 1.2270947, y: 0.014029235}
-      - {x: 0.018720508, y: 1.4695023}
+  serializedVersion: 2
+  m_Radius: 3.5
