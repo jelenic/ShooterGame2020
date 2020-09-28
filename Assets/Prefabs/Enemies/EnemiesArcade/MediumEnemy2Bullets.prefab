@@ -231,7 +231,8 @@ MonoBehaviour:
   _rateOfFire: 0.15
   _turretRotationSpeed: 0.05
   _speed: 4500
-  _stoppingDistance: 5
+  _stoppingDistance: 10
+  _flyby: 1
   maxVelocity: 0
   thrust: 0
   magazineModifier: 0

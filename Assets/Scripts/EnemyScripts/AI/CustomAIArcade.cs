@@ -96,20 +96,6 @@ public class CustomAIArcade : MonoBehaviour
         cooldownFlyby -= Time.deltaTime;
 
         if (player == null) return;
-
-        if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance)
-        {
-            state = State.maintainRangeAttackState;
-            int rand = Random.Range(0, 10);
-            if (rand >= 6 && cooldownFlyby<=0)
-            {
-                state = State.flyby;
-            }
-        }
-        else if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance * 4)
-        {
-            state = State.goToTargetState;
-        }
         //rotate towards player
         Vector2 directionPlayer = target.position - transform.position;
         float angle = Mathf.Atan2(directionPlayer.y, directionPlayer.x) * Mathf.Rad2Deg - 90;
@@ -118,7 +104,11 @@ public class CustomAIArcade : MonoBehaviour
 
         switch (state)
         {
+
+            #region caseSwitchStateMachine
             default:
+                state = State.goToTargetState;
+                break;
             case State.goToTargetState:
                 #region pathfinder
                 //plot path
@@ -152,6 +142,11 @@ public class CustomAIArcade : MonoBehaviour
 
                 #endregion
 
+                if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance)
+                {
+                    state = State.maintainRangeAttackState;
+                }
+
                 break;
             case State.maintainRangeAttackState:
                 if (player != null && Vector2.Distance(rb.position, player.position) >= (stats.stoppingDistance))
@@ -168,18 +163,48 @@ public class CustomAIArcade : MonoBehaviour
                     rb.AddForce(-f);
                 }
 
+                if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance && stats.flyby )
+                {
+                    int rand = Random.Range(0, 10);
+                    if (rand >= 4 && cooldownFlyby <= 0)
+                    {
+                        cooldownFlyby = rand;
+                        state = State.flyby;
+                    }
+                }
+
+                else if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance * 3)
+                {
+                    state = State.goToTargetState;
+                }
 
                 break;
             case State.disabled:
                 break;
 
             case State.flyby:
-                Vector2 dirF = ((Vector2)player.position - rb.position).normalized;
-                rb.AddForce(dirF * stats.speed * Time.deltaTime *35);
-                cooldownFlyby = 4;
+
+                if (stats.flyby)
+                {
+                    Vector2 dirF = ((Vector2)player.position - rb.position).normalized;
+                    rb.AddForce(dirF * stats.speed * Time.deltaTime * 35);
+                }
+
+                if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance)
+                {
+                    state = State.maintainRangeAttackState;
+                }
+
+                else if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance * 3)
+                {
+                    state = State.goToTargetState;
+                }
+
                 break;
 
-        
+                #endregion
+
+
         }
     }
 }

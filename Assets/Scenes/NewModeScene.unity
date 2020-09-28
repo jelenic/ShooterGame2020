@@ -7462,7 +7462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1409383998877146089, guid: 98a24fa2c86a6c74f81252cf723da2e3, type: 3}
-  - {fileID: 1409383998877146089, guid: 98a24fa2c86a6c74f81252cf723da2e3, type: 3}
+  - {fileID: 1409383998877146089, guid: 179067bac23680a488d0a052e3946ba8, type: 3}
   - {fileID: 4890951475787712177, guid: 9ee65624162968c46809c2af9c1d1a23, type: 3}
   - {fileID: 4357311710668017312, guid: abb151735f4f8f84db07225dd555278c, type: 3}
   - {fileID: 4890951475787712177, guid: f7a5e402d53b1c14b8e3a8cdbeb3dc69, type: 3}
@@ -7471,6 +7471,7 @@ MonoBehaviour:
   - {fileID: 4890951475787712177, guid: f7a5e402d53b1c14b8e3a8cdbeb3dc69, type: 3}
   - {fileID: 4890951475787712177, guid: 9ee65624162968c46809c2af9c1d1a23, type: 3}
   - {fileID: 4357311710668017312, guid: abb151735f4f8f84db07225dd555278c, type: 3}
+  - {fileID: 1409383998877146089, guid: 179067bac23680a488d0a052e3946ba8, type: 3}
   upgradeItems:
   - {fileID: 6317421593552024830, guid: 5a82ea206c7a8314f98917f876b2319c, type: 3}
   - {fileID: 6317421593552024830, guid: 1a9ffa2852bef0949a244eace8d53b85, type: 3}
