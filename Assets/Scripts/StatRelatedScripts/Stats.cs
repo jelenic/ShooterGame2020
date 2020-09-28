@@ -64,6 +64,9 @@ public class Stats : MonoBehaviour
     [SerializeField]
     private float _stoppingDistance;
 
+    [SerializeField]
+    private bool _flyby;
+
 
     public int scoreValue { get => (int) Mathf.Clamp((difficultyModifier * _scoreValue), 0f, 10000f); set => _scoreValue = value; }
     public float range { get => Mathf.Clamp( difficultyModifier *  _range, 8f, 1000f); set => _range = value; }
@@ -80,6 +83,7 @@ public class Stats : MonoBehaviour
     public float critMultiplier { get => Mathf.Clamp( difficultyModifier * _critMultiplier, 1f, 5f); set => _critMultiplier = value; }
     public float projectileVelocityModifier { get => Mathf.Clamp( difficultyModifier * _projectileVelocityModifier, 0.1f, 15f); set => _projectileVelocityModifier = value; }
     public float stoppingDistance { get => _stoppingDistance; set => _stoppingDistance = value; }
+    public bool flyby { get => _flyby; set => _flyby = value; }
 
     private float difficultyModifier = 1f;
 
@@ -139,6 +143,7 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
     public float maxVelocity;
     public float thrust;
     public int magazineModifier;
+    public bool flyby;
     public OriginalStats(Stats stats)
     {
         this.hp = stats.hp;
@@ -159,5 +164,6 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
         this.maxVelocity = stats.maxVelocity;
         this.thrust = stats.thrust;
         this.magazineModifier = stats.magazineModifier;
+        this.flyby = stats.flyby;
 }
 }
