@@ -23,6 +23,8 @@ public class CustomAIArcade : MonoBehaviour
     private Coroutine updatePathCor;
     private bool findingPath;
 
+    private float cooldownFlyby;
+
 
 
 
@@ -30,7 +32,8 @@ public class CustomAIArcade : MonoBehaviour
     {
         goToTargetState,
         maintainRangeAttackState,
-        disabled
+        disabled,
+        flyby
     }
 
     private State state;
@@ -83,18 +86,27 @@ public class CustomAIArcade : MonoBehaviour
         updatePathCor = StartCoroutine(UpdatePath());
         findingPath = true;
 
+        cooldownFlyby = 0;
+
         setTarget();
     }
 
     private void FixedUpdate()
     {
+        cooldownFlyby -= Time.deltaTime;
+
         if (player == null) return;
 
         if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance)
         {
             state = State.maintainRangeAttackState;
+            int rand = Random.Range(0, 10);
+            if (rand >= 6 && cooldownFlyby<=0)
+            {
+                state = State.flyby;
+            }
         }
-        else if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance *10)
+        else if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance * 4)
         {
             state = State.goToTargetState;
         }
@@ -159,6 +171,12 @@ public class CustomAIArcade : MonoBehaviour
 
                 break;
             case State.disabled:
+                break;
+
+            case State.flyby:
+                Vector2 dirF = ((Vector2)player.position - rb.position).normalized;
+                rb.AddForce(dirF * stats.speed * Time.deltaTime *35);
+                cooldownFlyby = 4;
                 break;
 
         
