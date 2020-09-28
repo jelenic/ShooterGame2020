@@ -231,7 +231,7 @@ MonoBehaviour:
   _turretRotationSpeed: 0
   _speed: 3700
   _stoppingDistance: 8
-  _flyby: 0
+  _flyby: 1
   maxVelocity: 0
   thrust: 0
   magazineModifier: 0
@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  state: 0
 --- !u!1 &4357311710927758219
 GameObject:
   m_ObjectHideFlags: 0

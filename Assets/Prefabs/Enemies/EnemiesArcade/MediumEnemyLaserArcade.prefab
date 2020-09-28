@@ -231,7 +231,7 @@ MonoBehaviour:
   _turretRotationSpeed: 0.03
   _speed: 3300
   _stoppingDistance: 8
-  _flyby: 0
+  _flyby: 1
   maxVelocity: 0
   thrust: 0
   magazineModifier: 0
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  state: 0
 --- !u!114 &4890951475787712178
 MonoBehaviour:
   m_ObjectHideFlags: 0

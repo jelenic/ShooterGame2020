@@ -24,11 +24,10 @@ public class CustomAIArcade : MonoBehaviour
     private bool findingPath;
 
     private float cooldownFlyby;
+    private bool flybyReady;
 
 
-
-
-    private enum State
+    public enum State
     {
         goToTargetState,
         maintainRangeAttackState,
@@ -36,7 +35,7 @@ public class CustomAIArcade : MonoBehaviour
         flyby
     }
 
-    private State state;
+    public State state;
 
     void setTarget()
     {
@@ -66,8 +65,20 @@ public class CustomAIArcade : MonoBehaviour
         }
     }
 
+    private IEnumerator flyByCD()
+    {
+        flybyReady = false;
+        gameObject.layer = 14;
+        yield return new WaitForSeconds(0.2f);
+        gameObject.layer = 10;
+        yield return new WaitForSeconds(Random.Range(3f, 8f));
+        flybyReady = true;
+
+    }
+
     private void Start()
     {
+        flybyReady = true;
 
         stats = GetComponent<Stats>();
         state = State.goToTargetState;
@@ -93,7 +104,7 @@ public class CustomAIArcade : MonoBehaviour
 
     private void FixedUpdate()
     {
-        cooldownFlyby -= Time.deltaTime;
+        //cooldownFlyby -= Time.deltaTime;
 
         if (player == null) return;
         //rotate towards player
@@ -149,31 +160,36 @@ public class CustomAIArcade : MonoBehaviour
 
                 break;
             case State.maintainRangeAttackState:
-                if (player != null && Vector2.Distance(rb.position, player.position) >= (stats.stoppingDistance))
+                float distanceToPlayer = Vector2.Distance(rb.position, player.position);
+                if (distanceToPlayer >= (stats.stoppingDistance))
                 {
                     Vector2 dir = ((Vector2)player.position - rb.position).normalized;
                     Vector2 f = dir * stats.speed * Time.deltaTime / 4;
                     rb.AddForce(f);
                 }
 
-                else if (player != null && Vector2.Distance(rb.position, player.position) <= (stats.stoppingDistance))
+                else if (player != null && distanceToPlayer <= (stats.stoppingDistance))
                 {
+                    if (stats.flyby && flybyReady)
+                    {
+                        state = State.flyby;
+                    }
                     Vector2 dir = ((Vector2)player.position - rb.position).normalized;
                     Vector2 f = dir * stats.speed * Time.deltaTime / 4;
                     rb.AddForce(-f);
                 }
 
-                if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance && stats.flyby )
-                {
-                    int rand = Random.Range(0, 10);
-                    if (rand >= 4 && cooldownFlyby <= 0)
-                    {
-                        cooldownFlyby = rand;
-                        state = State.flyby;
-                    }
-                }
+                //if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance && stats.flyby )
+                //{
+                //    int rand = Random.Range(0, 10);
+                //    if (flybyReady)
+                //    {
+                //        //cooldownFlyby = rand;
+                //        state = State.flyby;
+                //    }
+                //}
 
-                else if (player != null && Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance * 3)
+                if (Vector2.Distance(rb.position, player.position) >= stats.stoppingDistance * 3)
                 {
                     state = State.goToTargetState;
                 }
@@ -183,12 +199,12 @@ public class CustomAIArcade : MonoBehaviour
                 break;
 
             case State.flyby:
-
-                if (stats.flyby)
-                {
-                    Vector2 dirF = ((Vector2)player.position - rb.position).normalized;
-                    rb.AddForce(dirF * stats.speed * Time.deltaTime * 35);
-                }
+                Vector3 dirF = (player.position - transform.position).normalized;
+                Debug.Log("flying by1 " + dirF);
+                dirF += Vector3.Cross(dirF, new Vector3(0, 0, 1)) * 0.6f * (Random.value > 0.5 ? 1f : -1f);
+                Debug.Log("flying by2 " + dirF);
+                StartCoroutine(flyByCD());
+                rb.AddForce(dirF * stats.speed * Time.deltaTime * 35);
 
                 if (player != null && Vector2.Distance(rb.position, player.position) <= stats.stoppingDistance)
                 {
