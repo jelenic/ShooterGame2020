@@ -9,6 +9,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 {
     protected float cooldown;
     protected float timeTillUse;
+    protected float calculatedCooldown;
     protected int dmgBase;
     protected DamageType dmgType;
 
@@ -99,7 +100,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         //Debug.Log("charged up " + chargeLevel);
         if (timeTillUse <= 0)
         {
-            timeTillUse = cooldown;
+            calculatedCooldown = timeTillUse = Mathf.Clamp(cooldown * (-1f + Mathf.Pow(1.4f, calculateCharge())), cooldown / 10f, cooldown * 2f);
             stuff();
 
             if (OnFiredCallback != null)
@@ -119,7 +120,7 @@ public abstract class SpecialWeaponScript : MonoBehaviour
 
         if (OnCooldownChangedCallback != null)
         {
-            OnCooldownChangedCallback.Invoke((cooldown - timeTillUse) / cooldown);
+            OnCooldownChangedCallback.Invoke((calculatedCooldown - timeTillUse) / calculatedCooldown);
         }
 
         updateStart();

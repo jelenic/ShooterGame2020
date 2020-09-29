@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093615eac7e9b7948a3c0cb284c4aaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: BasicEnemy
+  name: Cool enemy
   mass: 0.5
   _hp: 70
   _projectileResistance: 0.2
@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  state: 0
 --- !u!114 &-42227214925867666
 MonoBehaviour:
   m_ObjectHideFlags: 0

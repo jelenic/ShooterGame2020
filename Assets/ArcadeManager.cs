@@ -244,9 +244,12 @@ public class ArcadeManager : MonoBehaviour
 
     public void enemyDeath()
     {
-        enemiesKilled++;
-        enemiesRemainingBar.fillAmount = (float)enemiesKilled / totalSpawnedEnemies;
-        enemiesRemainingText.text = string.Format("{0} / {1}", enemiesKilled, totalSpawnedEnemies);
+        if (!levelManager.levelOver)
+        {
+            enemiesKilled++;
+            enemiesRemainingBar.fillAmount = (float)enemiesKilled / totalSpawnedEnemies;
+            enemiesRemainingText.text = string.Format("{0} / {1}", enemiesKilled, totalSpawnedEnemies);
+        }
     }
 
     private void enemySpawn()

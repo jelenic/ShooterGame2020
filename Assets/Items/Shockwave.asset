@@ -24,7 +24,7 @@ MonoBehaviour:
   disappearTime: 45
   magazineSize: 7
   damageBase: 8
-  cooldown: 2.5
+  cooldown: 2
   damageType: 0
   statusEffect: 1
   statusEffectDuration: 5

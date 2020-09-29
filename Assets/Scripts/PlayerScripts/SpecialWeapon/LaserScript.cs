@@ -42,10 +42,12 @@ public class LaserScript : SpecialWeaponScript
     protected override void stuff(float modifier = 1f)
     {
         float reachedCharge = calculateCharge();
-        lineRenderer.widthMultiplier = reachedCharge / 20f;
+        lineRenderer.widthMultiplier = Mathf.Min(reachedCharge / 20f, 1f);
 
-        range = Mathf.Clamp(15f * reachedCharge, 10f, 100f);
-        activeFor = reachedCharge / 3f;
+        range = Mathf.Clamp(15f * reachedCharge, 10f, 120f);
+        activeFor = Mathf.Clamp(reachedCharge / 3f, 0.4f, 3f);
+        timeTillUse += activeFor;
+        calculatedCooldown += activeFor;
 
 
         laserHitPoint.position = transform.position + transform.up * range;
@@ -69,7 +71,7 @@ public class LaserScript : SpecialWeaponScript
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
-                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.1f * stats.calculateFinalDmgModifier()), dmgType);
+                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.02f * stats.calculateFinalDmgModifier()), dmgType);
                     if (target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(specialWeaponName);
                     specialEffect(hit.collider.gameObject);
                 }
@@ -79,7 +81,7 @@ public class LaserScript : SpecialWeaponScript
                     break;
                 }
             }
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -105,7 +107,7 @@ public class LaserScript : SpecialWeaponScript
 
     protected override void onChargeChange()
     {
-        chargeController.refresh(calculateCharge() / 30f, transform.position + transform.up);
+        chargeController.refresh(Mathf.Min(calculateCharge() / 30f, 0.5f), transform.position + transform.up);
 
     }
 

@@ -20,9 +20,14 @@ public class LevelManager : MonoBehaviour
         instance = this;
 
         levels = Levels.instance;
-        LevelDetails ld = levels.getCurrentLevelDetails();
-        levelName = ld.name;
-        levelDifficultyModifier = ld.difficultyModifier;
+        levelDifficultyModifier = 1f;
+
+        if (levels != null)
+        {
+            LevelDetails ld = levels.getCurrentLevelDetails();
+            levelName = ld.name;
+            levelDifficultyModifier = ld.difficultyModifier;
+        }
 
 
     }
@@ -126,8 +131,9 @@ public class LevelManager : MonoBehaviour
     public void weaponKill(string weaponName = "")
     {
         if (!weaponName.Equals(""))
+            Debug.Log("KILL WEAPON" + weaponName);
             if (!killsPerWeapon.ContainsKey(weaponName)) killsPerWeapon[weaponName] = 0;
-        killsPerWeapon[weaponName]++;
+            killsPerWeapon[weaponName]++;
     }
     
 
@@ -139,8 +145,9 @@ public class LevelManager : MonoBehaviour
             score.text = "Score:" + currentScore.ToString();
 
             if (!enemyName.Equals(""))
+                Debug.Log("KILL ENEMY" + enemyName);
                 if (!killsPerEnemy.ContainsKey(enemyName)) killsPerEnemy[enemyName] = 0;
-                killsPerEnemy[enemyName]++;
+                    killsPerEnemy[enemyName]++;
         }
     }
 
@@ -174,6 +181,7 @@ public class LevelManager : MonoBehaviour
 
         mobileControls.SetActive(false);
         youDiedMenu.SetActive(true);
+        popupText.SetActive(false);
         scoreObject.SetActive(false);
         playerHPObject.SetActive(false);
         waveProgressDetails.SetActive(false);
@@ -191,24 +199,39 @@ public class LevelManager : MonoBehaviour
         YOU_DIED.enabled = false;
         gameDetails.SetActive(true);
 
-        string enemyKills = "Enemies \n\n";
+        string enemyKills = "";
         int i = 0;
+        int j = 0;
         foreach(var s in killsPerEnemy.OrderBy(e => -e.Value))
         {
             enemyKills += string.Format("{0} : {1}\n", s.Key, s.Value);
+            j += s.Value;
             if (++i == 5) break;
         }
-        enemyDetailsText.text = enemyKills;
+        enemyDetailsText.text = string.Format("Enemies : {0}\n\n", j) + enemyKills;
 
 
-        string weaponKills = "Weapons \n\n";
+        string weaponKills = "";
         i = 0;
+        int k = 0;
+        string topWeaponName = "";
+        int topWeaponKills = 0;
         foreach (var s in killsPerWeapon.OrderBy(e => -e.Value))
         {
+            if (i == 0)
+            {
+                topWeaponName = s.Key;
+                topWeaponKills = s.Value;
+            }
             weaponKills += string.Format("{0} : {1}\n", s.Key, s.Value);
+            k += s.Value;
             if (++i == 5) break;
         }
-        weaponDetailsText.text = weaponKills;
+        Debug.LogWarningFormat("ERROR CORRECTION {0}, {1}, {2}", topWeaponName, topWeaponKills, k);
+        topWeaponKills -= (k - j);
+        k -= (k - j);
+        Debug.LogWarningFormat("ERROR CORRECTION2 {0}, {1}, {2}", topWeaponName, topWeaponKills, k);
+        weaponDetailsText.text = string.Format("Weapons : {0}\n\n{1} : {2}\n", k, topWeaponName, topWeaponKills) + weaponKills;
 
     }
 
