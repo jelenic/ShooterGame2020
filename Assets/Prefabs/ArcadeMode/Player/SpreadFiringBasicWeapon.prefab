@@ -46,5 +46,6 @@ MonoBehaviour:
   projectile: {fileID: 1104773745397654, guid: 259e5f18523cacc449ce447fa351260c, type: 3}
   rateOfFire: 1.5
   weaponDamageModifier: 18
+  destroyableNumber: 3
   shotNumber: 2
   range: 0.3

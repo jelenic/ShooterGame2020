@@ -128,6 +128,8 @@ MonoBehaviour:
   passThrough: []
   damageable: []
   destroyable: []
+  destroyableNumber: 0
+  destroyed: 0
 --- !u!58 &1582843536664810308
 CircleCollider2D:
   m_ObjectHideFlags: 0

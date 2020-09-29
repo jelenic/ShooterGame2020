@@ -17,6 +17,10 @@ public abstract class FiredProjectile : MonoBehaviour
     public List<String> damageable;
     public List<String> destroyable;
 
+    [HideInInspector]
+    public int destroyableNumber;
+    public int destroyed;
+
     public virtual void Initialize()
     {
         
@@ -24,6 +28,8 @@ public abstract class FiredProjectile : MonoBehaviour
 
     void Awake()
     {
+        destroyableNumber = Mathf.Max(destroyableNumber, 1);
+        destroyed = 0;
         damageModifier = 1f;
         transform = GetComponent<Transform>();
         passThrough = new List<string>();
@@ -56,11 +62,16 @@ public abstract class FiredProjectile : MonoBehaviour
 
     protected virtual void activate(GameObject hit)
     {
-        if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage * damageModifier), projectileDamageType);
         if (destroyable.Contains(hit.tag))
         {
             Destroy(hit, 0f);
+            if (++destroyed < destroyableNumber)
+            {
+                Debug.Log(destroyed + " destroyed, remaining: " + (destroyableNumber - destroyed));
+                return;
+            }
         }
+        if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage * damageModifier), projectileDamageType);
         Destroy(gameObject, 0.0f);
     } 
 }

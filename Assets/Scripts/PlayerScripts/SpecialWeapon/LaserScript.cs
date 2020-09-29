@@ -20,6 +20,7 @@ public class LaserScript : SpecialWeaponScript
     private GameObject chargeAnimationInstance;
     private ChargeController chargeController;
 
+    float range;
 
     protected override void initialize()
     {
@@ -40,37 +41,45 @@ public class LaserScript : SpecialWeaponScript
 
     protected override void stuff(float modifier = 1f)
     {
-        lineRenderer.widthMultiplier = calculateCharge() / 20f;
-        Instantiate(invisible, transform.position, transform.rotation);
+        float reachedCharge = calculateCharge();
+        lineRenderer.widthMultiplier = reachedCharge / 20f;
 
-        float range = Mathf.Clamp(15f * calculateCharge(), 10f, 100f);
+        range = Mathf.Clamp(15f * reachedCharge, 10f, 100f);
+        activeFor = reachedCharge / 3f;
 
 
         laserHitPoint.position = transform.position + transform.up * range;
+
+        StartCoroutine(doDamage(reachedCharge));
+    }
+
+    private IEnumerator doDamage(float reachedCharge)
+    {
+        while (activeFor > 0)
+        {
+            Instantiate(invisible, transform.position, transform.rotation);
+
             RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up, range, affectedLayers);
             foreach (RaycastHit2D hit in allHit)
             {
                 Debug.Log("laser hit " + hit.collider.tag);
-                laserHitPoint.position = hit.point;
                 if (hit.collider.tag == "Projectile")
                 {
                     Destroy(hit.collider.gameObject, 0f);
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
-                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(modifier * dmgBase * calculateCharge() * stats.calculateFinalDmgModifier()), dmgType);
+                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.1f * stats.calculateFinalDmgModifier()), dmgType);
                     specialEffect(hit.collider.gameObject);
                 }
                 else if (hit.collider.CompareTag("Terrain") || hit.collider.CompareTag("EnemyShield"))
                 {
+                    laserHitPoint.position = hit.point;
                     break;
                 }
             }
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, laserHitPoint.position);
-            lineRenderer.enabled = true;
-            activeFor = activeTime;
-
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 
     protected override void updateFinish()
@@ -79,6 +88,11 @@ public class LaserScript : SpecialWeaponScript
         if (activeFor <= 0)
         {
             lineRenderer.enabled = false;
+        } else
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, laserHitPoint.position);
+            lineRenderer.enabled = true;
         }
     }
 

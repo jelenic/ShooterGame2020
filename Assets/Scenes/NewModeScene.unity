@@ -7491,28 +7491,28 @@ MonoBehaviour:
     maxWave: 7
     minEnemyRank: 1
     maxEnemyRank: 4
-    difficultyModifier: 1.6
+    difficultyModifier: 1.2
     spawnRate: 0.12
     maxSpawnPerWave: 30
   - minWave: 8
     maxWave: 12
     minEnemyRank: 3
     maxEnemyRank: 7
-    difficultyModifier: 2.5
+    difficultyModifier: 1.6
     spawnRate: 0.12
     maxSpawnPerWave: 30
   - minWave: 13
     maxWave: 20
     minEnemyRank: 5
     maxEnemyRank: 8
-    difficultyModifier: 4
+    difficultyModifier: 2
     spawnRate: 0.12
     maxSpawnPerWave: 30
   - minWave: 21
     maxWave: 29
     minEnemyRank: 7
     maxEnemyRank: 10
-    difficultyModifier: 6
+    difficultyModifier: 3
     spawnRate: 0.12
     maxSpawnPerWave: 30
   waveToEnemy:
@@ -7547,13 +7547,13 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   waveToModifier: []
-  bossEveryNthWave: 1
+  bossEveryNthWave: 5
   bosses:
   - {fileID: 4890951475787712177, guid: 6f26124f33e0acf4a87f4c75e49dd1c4, type: 3}
   - {fileID: 4890951475787712177, guid: 729ebe722f5da164f978ea628fc5c38a, type: 3}
   - {fileID: 4890951475787712177, guid: eb4422460fe19c44fb07c80eda740359, type: 3}
-  waveLenght: 5
-  pauseLenght: 1
+  waveLenght: 60
+  pauseLenght: 15
   waveDetailsPopup: {fileID: 973826137}
   popupText: {fileID: 569897460}
   waveProgressText: {fileID: 1214483475}
@@ -10609,7 +10609,7 @@ PrefabInstance:
       objectReference: {fileID: 915318599}
     - target: {fileID: 7472826865651126514, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: _hp
-      value: 15000
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7472826865651126514, guid: 670535054404f3040af5359baeb22be0, type: 3}
       propertyPath: _physicalResistance

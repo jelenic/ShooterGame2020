@@ -161,5 +161,7 @@ MonoBehaviour:
   passThrough: []
   damageable: []
   destroyable: []
+  destroyableNumber: 0
+  destroyed: 0
   mainCollider: {fileID: 8596286355830578029}
   effectCollider: {fileID: 5351928476319130791}

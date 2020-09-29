@@ -206,8 +206,8 @@ MonoBehaviour:
   mass: 4
   _hp: 3000
   _projectileResistance: 0.65
-  _beamResistance: 0.7
-  _physicalResistance: 0.8
+  _beamResistance: 0.6
+  _physicalResistance: 0.75
   _damageModifier: 1.6
   _critChance: 0.3
   _critMultiplier: 2

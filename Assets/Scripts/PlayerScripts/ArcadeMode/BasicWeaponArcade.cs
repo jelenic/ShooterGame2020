@@ -7,12 +7,13 @@ public abstract class BasicWeaponArcade : MonoBehaviour
     public GameObject projectile;
     public float rateOfFire;
     public float weaponDamageModifier;
-
+    public float destroyableNumber;
 
     protected virtual void init() { }
 
     private void Awake()
     {
+        destroyableNumber = Mathf.Max(1f, destroyableNumber);
         init();
     }
 

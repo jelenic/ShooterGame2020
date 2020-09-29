@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df4967292f6d1c4b878b385971f5d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDamage: 20
+  projectileDamage: 15
   projectileSpeed: 0
   projectileDamageType: 2
   lifeDuration: 25
@@ -144,4 +144,6 @@ MonoBehaviour:
   passThrough: []
   damageable: []
   destroyable: []
+  destroyableNumber: 0
+  destroyed: 0
   movingTime: 2

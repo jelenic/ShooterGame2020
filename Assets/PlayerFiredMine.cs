@@ -26,6 +26,8 @@ public class PlayerFiredMine : FiredProjectile
         passThrough.Add("PlayerProjectile");
         passThrough.Add("Item");
 
+        destroyable.Add("Projectile");
+
         damageable.Add("Enemy");
     }
 
@@ -42,19 +44,23 @@ public class PlayerFiredMine : FiredProjectile
     {
         if (!activated)
         {
-            activated = true;
-            mainCollider.enabled = false;
-            effectCollider.enabled = true;
-            Destroy(gameObject, 0.02f);
+            if (destroyable.Contains(hit.tag) && ++destroyed < destroyableNumber)
+            {
+                Destroy(hit);
+
+            } else
+            {
+                activated = true;
+                mainCollider.enabled = false;
+                effectCollider.enabled = true;
+                Destroy(gameObject, 0.02f);
+            }
+
         }
         else
         {
-
+            if (destroyable.Contains(hit.tag)) Destroy(hit, 0f);
             if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Mathf.Round(projectileDamage * damageModifier), projectileDamageType);
-            if (destroyable.Contains(hit.tag))
-            {
-                Destroy(hit, 0f);
-            }
         }
     }
 

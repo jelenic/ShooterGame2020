@@ -102,7 +102,7 @@ public class Stats : MonoBehaviour
     {
         levelManager = LevelManager.instance;
 
-        if (gameObject.CompareTag("Enemy"))
+        if (gameObject.CompareTag("Enemy") && levelManager != null)
         {
             difficultyModifier = levelManager.levelDifficultyModifier;
 
