@@ -18,7 +18,6 @@ public abstract class FiredProjectile : MonoBehaviour
     public List<String> damageable;
     public List<String> destroyable;
 
-    [HideInInspector]
     public int destroyableNumber;
     public int destroyed;
 
@@ -40,6 +39,9 @@ public abstract class FiredProjectile : MonoBehaviour
         passThrough = new List<string>();
         damageable = new List<string>();
         passThrough.Add("Item");
+        destroyable.Add("Projectile");
+        destroyable.Add("PlayerProjectile");
+
         //AudioManager.instance.PlayEffect("bullet3");
 
         Initialize();
@@ -69,7 +71,7 @@ public abstract class FiredProjectile : MonoBehaviour
     {
         if (destroyable.Contains(hit.tag))
         {
-            Destroy(hit, 0f);
+            //Destroy(hit, 0f);
             if (++destroyed < destroyableNumber)
             {
                 Debug.Log(destroyed + " destroyed, remaining: " + (destroyableNumber - destroyed));

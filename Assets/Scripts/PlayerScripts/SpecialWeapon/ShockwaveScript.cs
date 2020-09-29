@@ -61,6 +61,7 @@ public class ShockwaveScript : SpecialWeaponScript
         {
             if (waveBoundsInstance != null && shockwaveController.effectActive)
             {
+                active = false;
                 Destroy(waveBoundsInstance);
                 shockwaveController = null;
             }

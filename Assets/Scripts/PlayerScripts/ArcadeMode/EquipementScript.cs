@@ -9,10 +9,8 @@ public class EquipementScript : MonoBehaviour
     private Transform player;
     private Stats stats;
 
-    private Weapon weapon;
-    private Transform weaponTransform;
-
     private SpecialWeapon specialWeapon;
+    private SpecialWeaponScript specialWeaponScript;
     private Transform specialWeaponTransform;
 
     public Image weaponCD;
@@ -23,7 +21,7 @@ public class EquipementScript : MonoBehaviour
     public TextMeshProUGUI specialWeaponCurrentAmmoText;
     public TextMeshProUGUI specialWeaponTotalAmmoText;
 
-    private int weaponAmmo;
+
     private int specialWeaponAmmo;
 
     private void wCDCallback(float filled)
@@ -67,31 +65,25 @@ public class EquipementScript : MonoBehaviour
     }
     public void Equip(Equipement eq)
     {
-        Debug.Log(eq.GetType().ToString() + " eq script equping " + eq.name);
-
-        switch(eq.GetType().ToString())
-        {
-            case "Weapon":
-                WeaponEquip(eq);
-                break;
-            case "SpecialWeapon":
-                SpecialWeaponEquip(eq);
-                break;
-        }
+        //Debug.Log(eq.GetType().ToString() + " eq script equping " + eq.name);
+        SpecialWeaponEquip(eq);
     }
 
-    private void WeaponEquip(Equipement eq)
-    {
-        if (weapon != null)
-        {
-
-        }
-        weapon = eq as Weapon;
-    }
     private void SpecialWeaponEquip(Equipement eq)
     {
         if (specialWeapon != null)
         {
+            if (eq.name.Equals(specialWeapon.name))
+            {
+                int ammoAmount = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier * 2));
+                specialWeaponAmmo = Mathf.Min(specialWeaponAmmo + ammoAmount, (specialWeapon.magazineSize + stats.magazineModifier * 2));
+                spwAmmoRefresh();
+
+                return;
+            } else if (specialWeaponScript.isActiveOrCharging())
+            {
+                Debug.LogError("rip, it is active or charging");
+            }
             specialWeaponTransform.parent = null;
             Destroy(specialWeaponTransform.gameObject);
         }
@@ -106,9 +98,11 @@ public class EquipementScript : MonoBehaviour
         spwComponent.setParams(specialWeapon, spwAmmoCheck);
         spwComponent.OnCooldownChangedCallback += spwCDCallback;
         spwComponent.OnFiredCallback += onSpwFired;
-        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier*2));
+        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier * 2));
         //Debug.Log("sp amo " + specialWeaponAmmo);
         spwAmmoRefresh();
+
+        specialWeaponScript = GetComponentInChildren<SpecialWeaponScript>();
     }
 
     private void ModuleEquip(Equipement eq)

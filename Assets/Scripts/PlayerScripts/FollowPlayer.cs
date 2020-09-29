@@ -8,6 +8,8 @@ public class FollowPlayer : MonoBehaviour {
     public GameObject player;
     private Transform playerTransform;
 
+    public EdgeCollider2D edges;
+
     public float scaleTime;
     public float maxSize;  // max zoom out size of our camera
     public float minSize;  // min zoom out size of our camera
@@ -46,68 +48,33 @@ public class FollowPlayer : MonoBehaviour {
 
     }
 
-    void CheckSize(float speed)
-    {
-        // clamp our speed between min and max
-        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
-        // normalize the speed between a value of 0 and 1 for lerp
-        speed = speed - minSpeed;  // this sets our speed in the range from 0->speedRange
-        speed /= speedRange;  // now speed is Normalized between 0->1
-
-        targetSize = Mathf.Lerp(minSize, maxSize, speed);
-        if (targetSize != currentSize)
-            StartCoroutine(ChangeSize());
-    }
-
-    IEnumerator ChangeSize()
-    {
-
-        bool zoomOut = false;
-        if (currentSize < targetSize)
-            zoomOut = true;
-        if (currentSize > targetSize)
-            zoomOut = false;
-        isScaling = true;
-        while (currentSize != targetSize)
-        {
-            if (zoomOut)
-            {
-                currentSize += sizeDelta * Time.deltaTime;
-                if (currentSize > targetSize)
-                    currentSize = targetSize;
-            }
-            else
-            {
-                currentSize -= sizeDelta * Time.deltaTime;
-                if (currentSize < targetSize)
-                    currentSize = targetSize;
-            }
-            camera.orthographicSize = currentSize;
-            yield return null;
-        }
-        isScaling = false;
-    }
 
     // Use this for initialization
     void Start () {
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z - 10f);
+
+        edges = GetComponentInChildren<EdgeCollider2D>(); 
+
+        var bottomLeft = (Vector2)camera.ScreenToWorldPoint(new Vector3(0, 0, camera.nearClipPlane)) + Vector2.one * 0.3f;
+        var topLeft = (Vector2)camera.ScreenToWorldPoint(new Vector3(0, camera.pixelHeight, camera.nearClipPlane)) + new Vector2(1,-1) * 0.3f;
+        var topRight = (Vector2)camera.ScreenToWorldPoint(new Vector3(camera.pixelWidth, camera.pixelHeight, camera.nearClipPlane)) - Vector2.one * 0.3f;
+        var bottomRight = (Vector2)camera.ScreenToWorldPoint(new Vector3(camera.pixelWidth, 0, camera.nearClipPlane)) + new Vector2(-1,1) * 0.3f;
+
+        var edgePoints = new[] { bottomLeft, topLeft, topRight, bottomRight, bottomLeft };
+        edges.points = edgePoints;
         //Debug.LogFormat("camera, player: {0}", player.ToString());
     }
-	
-	// Update is called once per frame
-	void Update () {
-        //Debug.LogFormat("player position: {0}", player.transform.position);
+
+    // Update is called once per frame
+    void Update () {
 
         if (playerTransform != null) transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z - 10f);
 
-        //Debug.LogFormat("player speed: {0}", player.GetComponent<Rigidbody2D>().velocity.magnitude);
+        
+
+        
 
 
-
-        //if we are currently scaling don't check movement
-        //if (isScaling)
-        //    return;
-        //CheckSize(playerRb.velocity.magnitude);
     }
 
 }

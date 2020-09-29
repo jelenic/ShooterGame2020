@@ -17,8 +17,6 @@ public class PlayerFiredBullet : FiredProjectile
         passThrough.Add("Item");
 
         damageable.Add("Enemy");
-
-        destroyable.Add("Projectile");
     }
 
     void Start()

@@ -98,19 +98,16 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     {
 
         //Debug.Log("charged up " + chargeLevel);
-        if (timeTillUse <= 0)
+        calculatedCooldown = timeTillUse = Mathf.Clamp(cooldown * (-1f + Mathf.Pow(1.4f, calculateCharge())), cooldown / 10f, cooldown * 2f);
+        stuff();
+
+        if (OnFiredCallback != null)
         {
-            calculatedCooldown = timeTillUse = Mathf.Clamp(cooldown * (-1f + Mathf.Pow(1.4f, calculateCharge())), cooldown / 10f, cooldown * 2f);
-            stuff();
-
-            if (OnFiredCallback != null)
-            {
-                OnFiredCallback.Invoke();
-            }
-
-            chargeLevel = 0f;
-            onChargeEnd();
+            OnFiredCallback.Invoke();
         }
+
+        chargeLevel = 0f;
+        onChargeEnd();
     }
 
     // Update is called once per frame
@@ -139,8 +136,6 @@ public abstract class SpecialWeaponScript : MonoBehaviour
             isCharging = false;
             active = true;
             doStuff();
-            active = false;
-
         }
 
 
@@ -158,5 +153,12 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected float calculateCharge()
     {
         return Mathf.Min(maxCharge, minCharge + chargeLevel);
+    }
+
+
+
+    public bool isActiveOrCharging()
+    {
+        return (isCharging || active);
     }
 }

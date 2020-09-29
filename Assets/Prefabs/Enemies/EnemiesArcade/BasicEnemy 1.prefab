@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf5bc704372c814a9c7e1e41ae8a849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicator: {fileID: 297009590717025009}
+  indicator: {fileID: 5443015383580810680, guid: 76b3b1d9a23416a4893e7679a65bb96d, type: 3}
   affectedLayers:
     serializedVersion: 2
     m_Bits: 2097152
@@ -432,11 +432,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76b3b1d9a23416a4893e7679a65bb96d, type: 3}
---- !u!1 &297009590717025009 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5443015383580810680, guid: 76b3b1d9a23416a4893e7679a65bb96d, type: 3}
-  m_PrefabInstance: {fileID: 5734851444159321929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &297009590717025010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5443015383580810683, guid: 76b3b1d9a23416a4893e7679a65bb96d, type: 3}

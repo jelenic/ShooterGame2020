@@ -218,14 +218,15 @@ public class LevelManager : MonoBehaviour
         int topWeaponKills = 0;
         foreach (var s in killsPerWeapon.OrderBy(e => -e.Value))
         {
-            if (i == 0)
+            k += s.Value;
+            if (++i == 1)
             {
                 topWeaponName = s.Key;
                 topWeaponKills = s.Value;
+                continue;
             }
             weaponKills += string.Format("{0} : {1}\n", s.Key, s.Value);
-            k += s.Value;
-            if (++i == 5) break;
+            if (i == 5) break;
         }
         Debug.LogWarningFormat("ERROR CORRECTION {0}, {1}, {2}", topWeaponName, topWeaponKills, k);
         topWeaponKills -= (k - j);

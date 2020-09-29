@@ -244,7 +244,7 @@ public class ArcadeManager : MonoBehaviour
 
     public void enemyDeath()
     {
-        if (!levelManager.levelOver)
+        if (enemiesRemainingBar != null && enemiesRemainingBar.IsActive())
         {
             enemiesKilled++;
             enemiesRemainingBar.fillAmount = (float)enemiesKilled / totalSpawnedEnemies;

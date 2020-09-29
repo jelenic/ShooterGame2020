@@ -91,7 +91,9 @@ public class LaserScript : SpecialWeaponScript
         if (activeFor <= 0)
         {
             lineRenderer.enabled = false;
-        } else
+            active = false;
+        }
+        else
         {
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, laserHitPoint.position);
