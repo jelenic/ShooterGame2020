@@ -28,6 +28,7 @@ public class PlayerFiredMine : FiredProjectile
 
         destroyable.Add("Projectile");
 
+
         damageable.Add("Enemy");
     }
 
@@ -59,8 +60,11 @@ public class PlayerFiredMine : FiredProjectile
         }
         else
         {
-            if (destroyable.Contains(hit.tag)) Destroy(hit, 0f);
-            if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Mathf.Round(projectileDamage * damageModifier), projectileDamageType);
+            if (damageable.Contains(hit.tag))
+            {
+                int target_hp = hit.GetComponent<Damageable>().DecreaseHP((int)Mathf.Round(projectileDamage * damageModifier), projectileDamageType);
+                if (target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(weaponName);
+            }
         }
     }
 

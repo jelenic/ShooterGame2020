@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7cc86588fbc204ca6cf415fd8a8c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Machine Gun
   projectile: {fileID: 1104773745397654, guid: 6abfd4b8949f9a5438cf770183f90a83, type: 3}
   rateOfFire: 0.5
   weaponDamageModifier: 10
+  destroyableNumber: 0

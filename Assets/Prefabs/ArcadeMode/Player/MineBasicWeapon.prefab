@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed88b606956eb342a5eee07c8866490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Miner
   projectile: {fileID: 1104773745397654, guid: 3e62efc28db6adc4aa62b8f4b595173a, type: 3}
   rateOfFire: 3
   weaponDamageModifier: 30

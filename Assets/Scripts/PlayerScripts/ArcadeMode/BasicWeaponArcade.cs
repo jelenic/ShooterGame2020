@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class BasicWeaponArcade : MonoBehaviour
 {
+    public string weaponName;
     public GameObject projectile;
     public float rateOfFire;
     public float weaponDamageModifier;

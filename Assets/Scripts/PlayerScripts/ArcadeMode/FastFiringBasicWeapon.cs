@@ -9,6 +9,7 @@ public class FastFiringBasicWeapon : BasicWeaponArcade
         PlayerFiredBullet pfb = Instantiate(projectile, playerTransform.position, playerTransform.rotation).GetComponent<PlayerFiredBullet>();
         pfb.damageModifier = playerDamagerModifier * weaponDamageModifier;
         pfb.velocityModifier = speedModifier;
+        pfb.weaponName = weaponName;
     }
 
     public override void upgrade()

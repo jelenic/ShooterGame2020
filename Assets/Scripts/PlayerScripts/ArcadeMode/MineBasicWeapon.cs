@@ -9,6 +9,7 @@ public class MineBasicWeapon : BasicWeaponArcade
         PlayerFiredMine pfm = Instantiate(projectile, playerTransform.position + playerTransform.up, playerTransform.rotation).GetComponent<PlayerFiredMine>();
         pfm.damageModifier = playerDamagerModifier * weaponDamageModifier;
         pfm.destroyableNumber = (int) destroyableNumber;
+        pfm.weaponName = weaponName;
     }
 
     public override void upgrade()

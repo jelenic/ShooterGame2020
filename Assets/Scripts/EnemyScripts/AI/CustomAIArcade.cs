@@ -202,7 +202,7 @@ public class CustomAIArcade : MonoBehaviour
                 Vector3 dirF = (player.position - transform.position).normalized;
                 Debug.Log("flying by1 " + dirF);
                 dirF += Vector3.Cross(dirF, new Vector3(0, 0, 1)) * 0.6f * (Random.value > 0.5 ? 1f : -1f);
-                Debug.Log("flying by2 " + dirF);
+                //Debug.Log("flying by2 " + dirF);
                 StartCoroutine(flyByCD());
                 rb.AddForce(dirF * stats.speed * Time.deltaTime * 35);
 

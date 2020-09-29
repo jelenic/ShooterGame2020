@@ -29,6 +29,9 @@ public abstract class SpecialWeaponScript : MonoBehaviour
     protected StatusEffect statusEffect;
     protected float statusDuration;
 
+    protected LevelManager levelManager;
+    protected string specialWeaponName;
+
     protected Transform transform;
 
     public delegate void OnCooldownChanged(float filled);
@@ -58,12 +61,13 @@ public abstract class SpecialWeaponScript : MonoBehaviour
         this.maxCharge = sw.maxCharge;
         this.statusEffect = sw.statusEffect;
         this.statusDuration = sw.statusEffectDuration;
+        this.specialWeaponName = sw.name;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        levelManager = LevelManager.instance;
         stats = GetComponentInParent<Stats>();
 
         timeTillUse = 0f;

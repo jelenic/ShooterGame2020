@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCharging: 0
   chargeLevel: 0
-  chargeSpeed: 1
+  chargeSpeed: 2
   minCharge: 0.5
   maxCharge: 3
   chargeHold: 4
@@ -223,11 +223,11 @@ MonoBehaviour:
   cooldown: 2
   timeTillUse: 0
   chanceToMiss: 0.085
-  dmgBase: 7
+  dmgBase: 20
   dmgType: 0
   parentStats: 1
   inDelay: 0
   ignoredLayers:
     serializedVersion: 2
-    m_Bits: 124471
+    m_Bits: 2090551
   chargeAnimation: {fileID: 734059200167185266, guid: 678c4969b4dc48b41829bc15c55f18dd, type: 3}

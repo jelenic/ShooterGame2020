@@ -27,7 +27,6 @@ public class ArcadeManager : MonoBehaviour
     private int bossEveryNthWave;
     public GameObject[] bosses;
 
-
     private int currentWave;
 
     [SerializeField]
@@ -50,8 +49,6 @@ public class ArcadeManager : MonoBehaviour
     private int enemiesKilled;
     private int totalSpawnedEnemies;
 
-    
-
     private Transform transform;
     private LevelManager levelManager;
 
@@ -64,7 +61,6 @@ public class ArcadeManager : MonoBehaviour
 
     private int currentBoss;
 
-
     public delegate void OnEnemySpawnStart(float spawnRate);
     public delegate void OnEnemySpawnStop();
 
@@ -73,7 +69,6 @@ public class ArcadeManager : MonoBehaviour
 
     public OnEnemySpawnStart OnEnemySpawnStartCallback;
     public OnEnemySpawnStop OnEnemySpawnStopCallback;
-
 
     public delegate void OnWaveStart();
     public delegate void OnWaveStop();
@@ -261,8 +256,6 @@ public class ArcadeManager : MonoBehaviour
         enemiesRemainingText.text = string.Format("{0} / {1}", enemiesKilled, totalSpawnedEnemies);
     }
 
-    
-
     public void setBossDetails(string name)
     {
         boss_name = name;
@@ -288,8 +281,6 @@ public class ArcadeManager : MonoBehaviour
         makePopup(string.Format("BOSS {0} DEFEATED!", boss_name), 1.5f);
     }
 
-    
-
     private void makePopup(string message, float duration)
     {
         waveProgressText.text = "";
@@ -304,9 +295,6 @@ public class ArcadeManager : MonoBehaviour
         popupText.text = "";
         waveDetailsPopup.SetActive(false);
     }
-
-
-
 }
 
 [System.Serializable]

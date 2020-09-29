@@ -54,8 +54,9 @@ public class RotateTowardsTarget : MonoBehaviour
         updateStart();
         //TO DO add checkign line of fire for non homing projectiles, just copy from CustomAI and delete it there
         //fireWait = Math.Max(0.0f, fireWait - Time.deltaTime);
+        if (target == null) return;
         distance = Vector2.Distance(transform.position, target.position);
-        if (target != null && distance <= stats.range)
+        if (distance <= stats.range)
         {
             Vector2 direction = target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;

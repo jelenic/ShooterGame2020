@@ -9,6 +9,7 @@ public class PlayerCombatVariables : CombatVariables
     public TextMeshProUGUI currentHPText;
     public TextMeshProUGUI maxHPText;
     private ShipFireArcade sfa;
+    private bool playerDied;
 
     protected override void initialize()
     {
@@ -84,12 +85,13 @@ public class PlayerCombatVariables : CombatVariables
 
     protected override void ifHPzero()
     {
-        StartCoroutine(playerDeath());
+        if (!playerDied) StartCoroutine(playerDeath());
     }
 
     private IEnumerator playerDeath()
     {
-        Debug.Log("player deathh");
+        playerDied = true;
+        //Debug.Log("player deathh");
         yield return new WaitForSeconds(0.5f);
         if (hp == 0)
         {

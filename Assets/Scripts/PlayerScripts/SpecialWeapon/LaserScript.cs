@@ -70,6 +70,7 @@ public class LaserScript : SpecialWeaponScript
                 else if (hit.collider.tag == "Enemy")
                 {
                     int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.1f * stats.calculateFinalDmgModifier()), dmgType);
+                    if (target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(specialWeaponName);
                     specialEffect(hit.collider.gameObject);
                 }
                 else if (hit.collider.CompareTag("Terrain") || hit.collider.CompareTag("EnemyShield"))

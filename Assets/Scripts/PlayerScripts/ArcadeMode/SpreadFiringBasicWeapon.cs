@@ -22,6 +22,7 @@ public class SpreadFiringBasicWeapon : BasicWeaponArcade
             pfb.velocityModifier = speedModifier;
             pfb.lifeDuration = range;
             pfb.destroyableNumber = (int) destroyableNumber;
+            pfb.weaponName = weaponName;
 
         }
     }

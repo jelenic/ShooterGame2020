@@ -85,5 +85,6 @@ public class EnemyCombatVariables : CombatVariables
     protected override void onDestroy()
     {
         arcadeManager.enemyDeath();
+        if (hp.Equals(0)) levelManager.increaseScore(stats.scoreValue, stats.name);
     }
 }

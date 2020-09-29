@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647e6de0602882140bddeceb6a9f0e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Shotgun
   projectile: {fileID: 1104773745397654, guid: 259e5f18523cacc449ce447fa351260c, type: 3}
   rateOfFire: 1.5
   weaponDamageModifier: 18

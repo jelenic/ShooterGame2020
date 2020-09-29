@@ -16,7 +16,8 @@ public class ShockwaveScript : SpecialWeaponScript
     public void effectDamage(GameObject affected)
     {
         Damageable d = affected.GetComponent<Damageable>();
-        d.DecreaseHP((int)(stats.calculateFinalDmgModifier() * dmgBase * reachedChargeLevel), dmgType);
+        int target_hp = d.DecreaseHP((int)(stats.calculateFinalDmgModifier() * dmgBase * reachedChargeLevel), dmgType);
+        if (target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(specialWeaponName);
         CombatVariables cv = affected.GetComponent<CombatVariables>();
         if (cv != null) cv.inflictStatus(statusEffect, statusDuration);
     }

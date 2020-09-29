@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class FiredProjectile : MonoBehaviour
 {
+    public string weaponName;
     public int projectileDamage;
     public float projectileSpeed;
     public DamageType projectileDamageType;
@@ -21,6 +22,8 @@ public abstract class FiredProjectile : MonoBehaviour
     public int destroyableNumber;
     public int destroyed;
 
+    protected LevelManager levelManager;
+
     public virtual void Initialize()
     {
         
@@ -28,6 +31,8 @@ public abstract class FiredProjectile : MonoBehaviour
 
     void Awake()
     {
+        levelManager = LevelManager.instance;
+
         destroyableNumber = Mathf.Max(destroyableNumber, 1);
         destroyed = 0;
         damageModifier = 1f;
@@ -71,7 +76,12 @@ public abstract class FiredProjectile : MonoBehaviour
                 return;
             }
         }
-        if (damageable.Contains(hit.tag)) hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage * damageModifier), projectileDamageType);
+        if (damageable.Contains(hit.tag))
+        {
+            int target_hp = hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage * damageModifier), projectileDamageType);
+            if (hit.CompareTag("Enemy") && target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(weaponName);
+        }
+            
         Destroy(gameObject, 0.0f);
     } 
 }

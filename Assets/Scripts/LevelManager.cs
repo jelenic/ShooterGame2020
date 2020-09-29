@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
+using System.Linq;
 
 
 public class LevelManager : MonoBehaviour
@@ -29,10 +28,20 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
+    #region UI_STUFF
+
+    public GameObject youDiedMenu;
+    public TextMeshProUGUI YOU_DIED;
+    public GameObject gameDetails;
+    public TextMeshProUGUI weaponDetailsText;
+    public TextMeshProUGUI enemyDetailsText;
+    public GameObject playerHPObject;
+    public GameObject waveProgressDetails;
+
+
 
     public GameObject pauseMenu;
     public GameObject finishMenu;
-    public GameObject youDiedMenu;
     public GameObject settingsMenu;
     public GameObject scoreObject;
     public GameObject popupText;
@@ -40,11 +49,16 @@ public class LevelManager : MonoBehaviour
     private TextMeshProUGUI score;
     private Levels levels;
 
+    #endregion
+
     public int currentScore;
     public string levelName;
     public float levelDifficultyModifier;
     public int levelScore;
     public bool levelOver = false;
+
+    private SortedDictionary<string, int> killsPerWeapon = new SortedDictionary<string, int>();
+    private SortedDictionary<string, int> killsPerEnemy = new SortedDictionary<string, int>();
 
     private void Start()
     {
@@ -109,15 +123,24 @@ public class LevelManager : MonoBehaviour
 
     }
 
-
+    public void weaponKill(string weaponName = "")
+    {
+        if (!weaponName.Equals(""))
+            if (!killsPerWeapon.ContainsKey(weaponName)) killsPerWeapon[weaponName] = 0;
+        killsPerWeapon[weaponName]++;
+    }
     
 
-    public void increaseScore(int n)
+    public void increaseScore(int n, string enemyName = "")
     {
         if (!levelOver)
         {
             currentScore += n;
             score.text = "Score:" + currentScore.ToString();
+
+            if (!enemyName.Equals(""))
+                if (!killsPerEnemy.ContainsKey(enemyName)) killsPerEnemy[enemyName] = 0;
+                killsPerEnemy[enemyName]++;
         }
     }
 
@@ -151,7 +174,41 @@ public class LevelManager : MonoBehaviour
 
         mobileControls.SetActive(false);
         youDiedMenu.SetActive(true);
+        scoreObject.SetActive(false);
+        playerHPObject.SetActive(false);
+        waveProgressDetails.SetActive(false);
+
         Time.timeScale = 0;
+        StartCoroutine(showGameDetails());
+
+
+    }
+
+  
+    private IEnumerator showGameDetails()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        YOU_DIED.enabled = false;
+        gameDetails.SetActive(true);
+
+        string enemyKills = "Enemies \n\n";
+        int i = 0;
+        foreach(var s in killsPerEnemy.OrderBy(e => -e.Value))
+        {
+            enemyKills += string.Format("{0} : {1}\n", s.Key, s.Value);
+            if (++i == 5) break;
+        }
+        enemyDetailsText.text = enemyKills;
+
+
+        string weaponKills = "Weapons \n\n";
+        i = 0;
+        foreach (var s in killsPerWeapon.OrderBy(e => -e.Value))
+        {
+            weaponKills += string.Format("{0} : {1}\n", s.Key, s.Value);
+            if (++i == 5) break;
+        }
+        weaponDetailsText.text = weaponKills;
 
     }
 

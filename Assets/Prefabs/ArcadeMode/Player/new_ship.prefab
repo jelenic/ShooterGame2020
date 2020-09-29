@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 7472826865651126522}
   - component: {fileID: 7472826865651126514}
   - component: {fileID: 541450575628231581}
-  - component: {fileID: 6343757582292112924}
   - component: {fileID: 7472826865651126507}
   - component: {fileID: 3249265328528498120}
   m_Layer: 11
@@ -325,6 +324,7 @@ MonoBehaviour:
   _turretRotationSpeed: 0
   _speed: 0
   _stoppingDistance: 0
+  _flyby: 0
   maxVelocity: 50
   thrust: 18
   magazineModifier: 1
@@ -348,18 +348,6 @@ MonoBehaviour:
   currentlyAfflicted: 
   currentHPText: {fileID: 0}
   maxHPText: {fileID: 0}
---- !u!114 &6343757582292112924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7472826865651126500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b373ab52e9c8449af430360a4e87f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7472826865651126507
 MonoBehaviour:
   m_ObjectHideFlags: 0
