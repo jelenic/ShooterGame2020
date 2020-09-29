@@ -165,7 +165,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         stats.refreshOriginal();
     }
 
-    public virtual void handleEquipement(Equipement eq) { }
+    public virtual bool handleEquipement(Equipement eq) { return false; }
 
     
 }

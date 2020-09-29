@@ -9,8 +9,9 @@ public class PermanentBuffItem : ConsumableItem
     public StatBuff buff;
     public float amount;
 
-    public override void consume(CombatVariables cv)
+    public override bool consume(CombatVariables cv)
     {
         cv.permanentStatBuff(buff, amount);
+        return true;
     }
 }

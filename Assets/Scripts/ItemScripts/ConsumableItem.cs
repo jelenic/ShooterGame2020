@@ -6,6 +6,6 @@ public abstract class ConsumableItem : Item
     public Color pickUpIconColor = Color.white;
     public float disappearTime;
 
-    public virtual void consume(CombatVariables cv) { }
+    public virtual bool consume(CombatVariables cv) { return false; }
 }
 

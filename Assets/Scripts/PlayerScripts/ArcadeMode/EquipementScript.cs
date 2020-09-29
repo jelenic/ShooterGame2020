@@ -63,13 +63,13 @@ public class EquipementScript : MonoBehaviour
         player = GetComponent<Transform>();
         stats = GetComponent<Stats>();
     }
-    public void Equip(Equipement eq)
+    public bool Equip(Equipement eq)
     {
         //Debug.Log(eq.GetType().ToString() + " eq script equping " + eq.name);
-        SpecialWeaponEquip(eq);
+        return SpecialWeaponEquip(eq);
     }
 
-    private void SpecialWeaponEquip(Equipement eq)
+    private bool SpecialWeaponEquip(Equipement eq)
     {
         if (specialWeapon != null)
         {
@@ -79,10 +79,11 @@ public class EquipementScript : MonoBehaviour
                 specialWeaponAmmo = Mathf.Min(specialWeaponAmmo + ammoAmount, (specialWeapon.magazineSize + stats.magazineModifier * 2));
                 spwAmmoRefresh();
 
-                return;
+                return true;
             } else if (specialWeaponScript.isActiveOrCharging())
             {
                 Debug.LogError("rip, it is active or charging");
+                return false;
             }
             specialWeaponTransform.parent = null;
             Destroy(specialWeaponTransform.gameObject);
@@ -103,10 +104,6 @@ public class EquipementScript : MonoBehaviour
         spwAmmoRefresh();
 
         specialWeaponScript = GetComponentInChildren<SpecialWeaponScript>();
-    }
-
-    private void ModuleEquip(Equipement eq)
-    {
-
+        return true;
     }
 }

@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Kamikaze
   mass: 0.5
-  _hp: 30
+  _hp: 20
   _projectileResistance: 0.2
   _beamResistance: 0.2
   _physicalResistance: 0.2

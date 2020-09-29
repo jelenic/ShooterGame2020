@@ -187,7 +187,7 @@ public class LevelManager : MonoBehaviour
         waveProgressDetails.SetActive(false);
 
         Time.timeScale = 0;
-        StartCoroutine(showGameDetails());
+        if (killsPerWeapon.Count > 0) StartCoroutine(showGameDetails());
 
 
     }

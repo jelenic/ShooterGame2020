@@ -41,10 +41,13 @@ public class ConsumeOnPickup : MonoBehaviour
     {
         if (consumed) return;
         if (!collision.CompareTag("Player")) return;
-        consumed = true;
-        consumable.consume(cv);
-        StopCoroutine(rotateCor);
-        Destroy(gameObject);
+
+        if (consumable.consume(cv))
+        {
+            consumed = true;
+            StopCoroutine(rotateCor);
+            Destroy(gameObject);
+        }
     }
 
    

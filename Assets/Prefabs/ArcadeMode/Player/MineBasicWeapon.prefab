@@ -46,5 +46,5 @@ MonoBehaviour:
   weaponName: Miner
   projectile: {fileID: 1104773745397654, guid: 3e62efc28db6adc4aa62b8f4b595173a, type: 3}
   rateOfFire: 3
-  weaponDamageModifier: 30
+  weaponDamageModifier: 45
   destroyableNumber: 4

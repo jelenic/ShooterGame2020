@@ -10,9 +10,10 @@ public class BuffItem : ConsumableItem
     public float duration;
     public float amount;
 
-    public override void consume(CombatVariables cv)
+    public override bool consume(CombatVariables cv)
     {
         if (effect.Equals(StatusEffect.Heal)) cv.IncreaseHP((int)(amount*cv.stats.hp));
         else cv.inflictStatus(effect, duration);
+        return true;
     }
 }

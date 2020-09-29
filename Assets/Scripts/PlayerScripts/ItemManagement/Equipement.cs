@@ -7,9 +7,9 @@ using UnityEngine;
 public class Equipement : ConsumableItem
 {
     public int magazineSize;
-    public override void consume(CombatVariables cv)
+    public override bool consume(CombatVariables cv)
     {
-        cv.handleEquipement(this);
+        return cv.handleEquipement(this);
     }
 }
 

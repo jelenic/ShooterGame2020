@@ -123,9 +123,9 @@ public class PlayerCombatVariables : CombatVariables
         }
     }
 
-    public override void handleEquipement(Equipement eq)
+    public override bool handleEquipement(Equipement eq)
     {
-        es.Equip(eq);
+        return es.Equip(eq);
     }
 
 

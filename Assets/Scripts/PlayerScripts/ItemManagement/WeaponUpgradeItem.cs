@@ -4,8 +4,9 @@
 
 public class WeaponUpgradeItem : ConsumableItem
 {
-    public override void consume(CombatVariables cv)
+    public override bool consume(CombatVariables cv)
     {
         cv.weaponUpgrade();
+        return true;
     }
 }

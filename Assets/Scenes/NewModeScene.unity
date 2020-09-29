@@ -805,6 +805,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0308a1640d7908a43afeeb445bdbf302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &720182669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3897276988620052944, guid: f10e18416abd8324a84b7c6186b1284e, type: 3}
+  m_PrefabInstance: {fileID: 3897276988242261468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &720182673
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720182669}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -15.386448, y: 2.374092}
+  - {x: -3.9930477, y: -8.108462}
+  - {x: 1.7949581, y: -2.0503519}
+  - {x: -9.320105, y: 9.2805395}
+  - {x: -15.47116, y: 2.5899196}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &785056030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &988078055
 Transform:
   m_ObjectHideFlags: 0
