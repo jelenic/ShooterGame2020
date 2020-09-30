@@ -29,9 +29,9 @@ public class EnemyCombatVariables : CombatVariables
                 float ratio2 = 5f;
                 stats.speed = activate ? stats.og.speed / ratio : stats.og.speed;
                 stats.angleSpeed = activate ? stats.og.angleSpeed / ratio : stats.og.angleSpeed;
-                Debug.LogWarningFormat("slowdown check: {0}, {1}, {2} at {3}", activate, stats.rateOfFire, stats.og.rateOfFire, stats.name);
+                //Debug.LogWarningFormat("slowdown check: {0}, {1}, {2} at {3}", activate, stats.rateOfFire, stats.og.rateOfFire, stats.name);
                 stats.rateOfFire = activate ? stats.og.rateOfFire * ratio2 : stats.og.rateOfFire;
-                Debug.LogWarningFormat("slowdown check2: {0}, {1}, {2} at {3}", activate, stats.rateOfFire, stats.og.rateOfFire, stats.name);
+                //Debug.LogWarningFormat("slowdown check2: {0}, {1}, {2} at {3}", activate, stats.rateOfFire, stats.og.rateOfFire, stats.name);
                 stats.turretRotationSpeed = activate ? stats.og.turretRotationSpeed / ratio : stats.og.turretRotationSpeed;
                 stats.projectileVelocityModifier = activate ? stats.og.projectileVelocityModifier / ratio2 : stats.og.projectileVelocityModifier;
                 break;

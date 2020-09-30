@@ -42,7 +42,7 @@ public class LaserScript : SpecialWeaponScript
     protected override void stuff(float modifier = 1f)
     {
         float reachedCharge = calculateCharge();
-        lineRenderer.widthMultiplier = Mathf.Min(reachedCharge / 20f, 1f);
+        lineRenderer.widthMultiplier = Mathf.Min(reachedCharge / 20f, 0.5f);
 
         range = Mathf.Clamp(15f * reachedCharge, 10f, 120f);
         activeFor = Mathf.Clamp(reachedCharge / 3f, 0.4f, 2f);
@@ -71,7 +71,7 @@ public class LaserScript : SpecialWeaponScript
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
-                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.016f * stats.calculateFinalDmgModifier()), dmgType);
+                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.013f * stats.calculateFinalDmgModifier()), dmgType);
                     if (target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(specialWeaponName);
                     specialEffect(hit.collider.gameObject);
                 }
