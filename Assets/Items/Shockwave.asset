@@ -29,5 +29,5 @@ MonoBehaviour:
   statusEffect: 1
   statusEffectDuration: 5
   chargeSpeed: 3
-  minCharge: 3
+  minCharge: 1
   maxCharge: 10

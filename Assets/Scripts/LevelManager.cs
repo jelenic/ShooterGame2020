@@ -211,28 +211,15 @@ public class LevelManager : MonoBehaviour
         enemyDetailsText.text = string.Format("Enemies : {0}\n\n", j) + enemyKills;
 
 
-        string weaponKills = "";
+        string weaponKills = "Weapons\n\n";
         i = 0;
-        int k = 0;
-        string topWeaponName = "";
-        int topWeaponKills = 0;
+        float totalWeaponKills = killsPerWeapon.Values.Sum();
         foreach (var s in killsPerWeapon.OrderBy(e => -e.Value))
         {
-            k += s.Value;
-            if (++i == 1)
-            {
-                topWeaponName = s.Key;
-                topWeaponKills = s.Value;
-                continue;
-            }
-            weaponKills += string.Format("{0} : {1}\n", s.Key, s.Value);
+            weaponKills += string.Format("{0} : {1:0.00}%\n", s.Key, 100*s.Value / totalWeaponKills);
             if (i == 5) break;
         }
-        Debug.LogWarningFormat("ERROR CORRECTION {0}, {1}, {2}", topWeaponName, topWeaponKills, k);
-        topWeaponKills -= (k - j);
-        k -= (k - j);
-        Debug.LogWarningFormat("ERROR CORRECTION2 {0}, {1}, {2}", topWeaponName, topWeaponKills, k);
-        weaponDetailsText.text = string.Format("Weapons : {0}\n\n{1} : {2}\n", k, topWeaponName, topWeaponKills) + weaponKills;
+        weaponDetailsText.text = weaponKills;
 
     }
 

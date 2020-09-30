@@ -82,7 +82,6 @@ public class EquipementScript : MonoBehaviour
                 return true;
             } else if (specialWeaponScript.isActiveOrCharging())
             {
-                Debug.LogError("rip, it is active or charging");
                 return false;
             }
             specialWeaponTransform.parent = null;

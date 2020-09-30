@@ -89,9 +89,6 @@ public class CustomAIArcade : MonoBehaviour
         nextWaypontDistance = 3f;
         currentWaypoint = 0;
 
-        GameObject gb = new GameObject();
-        gb.transform.position = rb.position + Random.insideUnitCircle*5;
-        gb.transform.rotation = rb.transform.rotation;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         updatePathCor = StartCoroutine(UpdatePath());

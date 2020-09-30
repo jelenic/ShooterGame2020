@@ -45,7 +45,7 @@ public class LaserScript : SpecialWeaponScript
         lineRenderer.widthMultiplier = Mathf.Min(reachedCharge / 20f, 1f);
 
         range = Mathf.Clamp(15f * reachedCharge, 10f, 120f);
-        activeFor = Mathf.Clamp(reachedCharge / 3f, 0.4f, 3f);
+        activeFor = Mathf.Clamp(reachedCharge / 3f, 0.4f, 2f);
         timeTillUse += activeFor;
         calculatedCooldown += activeFor;
 
@@ -71,7 +71,7 @@ public class LaserScript : SpecialWeaponScript
                 }
                 else if (hit.collider.tag == "Enemy")
                 {
-                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.02f * stats.calculateFinalDmgModifier()), dmgType);
+                    int target_hp = hit.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int)Math.Round(dmgBase * reachedCharge * 0.016f * stats.calculateFinalDmgModifier()), dmgType);
                     if (target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(specialWeaponName);
                     specialEffect(hit.collider.gameObject);
                 }

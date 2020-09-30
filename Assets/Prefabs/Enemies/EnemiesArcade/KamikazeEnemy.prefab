@@ -135,7 +135,7 @@ MonoBehaviour:
   _projectileResistance: 0.2
   _beamResistance: 0.2
   _physicalResistance: 0.2
-  _damageModifier: 1
+  _damageModifier: 0.75
   _critChance: 0.4
   _critMultiplier: 1.3
   _projectileVelocityModifier: 1.7

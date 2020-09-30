@@ -43,7 +43,7 @@ public class ShockwaveScript : SpecialWeaponScript
     {
 
         shockwaveController.setParams(effectDamage);
-        activeFor = activeTime * (calculateCharge() / maxCharge);
+        activeFor = Mathf.Max(activeTime/1.7f, activeTime * 0.96f * (calculateCharge() / maxCharge));
 
         reachedChargeLevel = calculateCharge();
     }
