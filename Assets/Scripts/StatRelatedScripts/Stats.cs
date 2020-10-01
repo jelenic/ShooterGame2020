@@ -91,6 +91,8 @@ public class Stats : MonoBehaviour
     public float maxVelocity;
     public float thrust;
     public int magazineModifier;
+    public float totalEnergy;
+    public float energyRechargeSpeed;
 
 
     public float calculateFinalDmgModifier()
@@ -144,6 +146,9 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
     public float thrust;
     public int magazineModifier;
     public bool flyby;
+    public float stoppingDistance;
+    public float totalEnergy;
+    public float energyRechargeSpeed;
     public OriginalStats(Stats stats)
     {
         this.hp = stats.hp;
@@ -165,5 +170,8 @@ public struct OriginalStats // for making duplicates which is annoyingly hard wi
         this.thrust = stats.thrust;
         this.magazineModifier = stats.magazineModifier;
         this.flyby = stats.flyby;
+        this.stoppingDistance = stats.stoppingDistance;
+        this.totalEnergy = stats.totalEnergy;
+        this.energyRechargeSpeed = stats.energyRechargeSpeed;
 }
 }

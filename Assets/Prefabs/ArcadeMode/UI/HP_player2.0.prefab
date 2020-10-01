@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6830639481267070573
 RectTransform:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1672965880682021255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -878,7 +878,7 @@ GameObject:
   - component: {fileID: 7230774528906694988}
   - component: {fileID: 7308864134692106252}
   m_Layer: 5
-  m_Name: hex_weapon
+  m_Name: hex_energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

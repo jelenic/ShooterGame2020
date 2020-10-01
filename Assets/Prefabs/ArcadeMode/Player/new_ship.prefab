@@ -111,8 +111,12 @@ MonoBehaviour:
   boostVelThreshold: 5
   boostValue: 45
   boostCooldown: 1
-  iframesDuration: 1
-  colliders: []
+  iframesDuration: 0.5
+  energyUse: 25
+  currentEnergy: 0
+  recharge: 0
+  enoughEnergy: 0
+  energyBar: {fileID: 0}
 --- !u!50 &7472826865651126521
 Rigidbody2D:
   serializedVersion: 4
@@ -245,6 +249,8 @@ MonoBehaviour:
   maxVelocity: 50
   thrust: 18
   magazineModifier: 1
+  totalEnergy: 100
+  energyRechargeSpeed: 20
 --- !u!114 &541450575628231581
 MonoBehaviour:
   m_ObjectHideFlags: 0

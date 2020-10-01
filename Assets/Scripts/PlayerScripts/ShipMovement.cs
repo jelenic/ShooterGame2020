@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //using UnityEngine.Experimental.UIElements;
 
 public class ShipMovement : MonoBehaviour {
@@ -20,13 +21,19 @@ public class ShipMovement : MonoBehaviour {
     public float boostCooldown;
     public float iframesDuration;
 
-    public Collider2D[] colliders;
+    
+    public float energyUse;
+    public float currentEnergy;
+    public bool recharge;
+    public bool enoughEnergy;
 
+    public Image energyBar;
 
     IEnumerator boostCD()
     {
         yield return new WaitForSeconds(boostCooldown);
         boostUsed = false;
+        recharge = true;
     }
 
     IEnumerator iframes()
@@ -38,6 +45,21 @@ public class ShipMovement : MonoBehaviour {
         gameObject.layer = 11;
 
     }
+    
+    private void energyCalculation()
+    {
+        currentEnergy -= energyUse;
+        if (energyBar != null) energyBar.fillAmount = currentEnergy / stats.totalEnergy;
+
+        if ((currentEnergy - energyUse) < 0f)
+        {
+            enoughEnergy = false;
+        }
+        else
+        {
+            enoughEnergy = true;
+        }
+    }
 
 
 
@@ -48,7 +70,6 @@ public class ShipMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        colliders = GetComponents<Collider2D>();
         stats = GetComponent<Stats>();
         rb = GetComponent<Rigidbody2D>();
         //if(MobileControlMenu != null) MobileControlMenu = GameObject.Find("MobileControlls");
@@ -67,6 +88,9 @@ public class ShipMovement : MonoBehaviour {
             android = true;
             //Debug.Log(joystickrotate);
         }
+
+        currentEnergy = stats.totalEnergy;
+        enoughEnergy = true;
         //Debug.Log(MobileControlMenu.ToString());
     }
 
@@ -76,6 +100,16 @@ public class ShipMovement : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (recharge)
+        {
+            currentEnergy = Mathf.Min(stats.totalEnergy, currentEnergy + Time.deltaTime * stats.energyRechargeSpeed);
+            if (energyBar != null) energyBar.fillAmount = currentEnergy / stats.totalEnergy;
+            if ((currentEnergy - energyUse) > 0f)
+            {
+                enoughEnergy = true;
+            }
+        }
+
 
         if (android || Application.platform == RuntimePlatform.Android)
         {
@@ -148,10 +182,12 @@ public class ShipMovement : MonoBehaviour {
 
             if (!boostUsed && Input.GetKey(KeyCode.LeftShift))
             {
-                if (rb.velocity.magnitude >= boostVelThreshold)
+                if (enoughEnergy && rb.velocity.magnitude >= boostVelThreshold)
                 {
+                    energyCalculation();
                     StartCoroutine(iframes());
                     boostUsed = true;
+                    recharge = false;
                     Vector2 force = rb.velocity.normalized * stats.thrust * boostValue;
                     rb.AddForce(force);
                     StartCoroutine(boostCD());

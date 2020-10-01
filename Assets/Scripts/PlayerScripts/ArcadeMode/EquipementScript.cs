@@ -36,7 +36,7 @@ public class EquipementScript : MonoBehaviour
     private void spwAmmoRefresh()
     {
         specialWeaponCurrentAmmoText.text = specialWeaponAmmo.ToString();
-        specialWeaponTotalAmmoText.text = (specialWeapon.magazineSize + stats.magazineModifier*2).ToString();
+        specialWeaponTotalAmmoText.text = (specialWeapon.magazineSize + stats.magazineModifier).ToString();
     }
 
     private bool spwAmmoCheck()
@@ -75,8 +75,9 @@ public class EquipementScript : MonoBehaviour
         {
             if (eq.name.Equals(specialWeapon.name))
             {
-                int ammoAmount = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier * 2));
-                specialWeaponAmmo = Mathf.Min(specialWeaponAmmo + ammoAmount, (specialWeapon.magazineSize + stats.magazineModifier * 2));
+                if (specialWeaponAmmo.Equals(specialWeapon.magazineSize + stats.magazineModifier)) return false;
+                int ammoAmount = Mathf.CeilToInt((Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier)));
+                specialWeaponAmmo = Mathf.Min(specialWeaponAmmo + ammoAmount, (specialWeapon.magazineSize + stats.magazineModifier));
                 spwAmmoRefresh();
 
                 return true;
@@ -98,7 +99,7 @@ public class EquipementScript : MonoBehaviour
         spwComponent.setParams(specialWeapon, spwAmmoCheck);
         spwComponent.OnCooldownChangedCallback += spwCDCallback;
         spwComponent.OnFiredCallback += onSpwFired;
-        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier * 2));
+        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier));
         //Debug.Log("sp amo " + specialWeaponAmmo);
         spwAmmoRefresh();
 

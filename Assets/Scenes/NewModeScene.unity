@@ -3094,6 +3094,10 @@ PrefabInstance:
       propertyPath: iframesDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7472826865651126527, guid: 670535054404f3040af5359baeb22be0, type: 3}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 915318604}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 670535054404f3040af5359baeb22be0, type: 3}
 --- !u!1001 &5612258946469981363

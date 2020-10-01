@@ -144,8 +144,8 @@ MonoBehaviour:
   _critMultiplier: 1.8
   _projectileVelocityModifier: 2.6
   _scoreValue: 15
-  _range: 19
-  _angleSpeed: 14
+  _range: 300
+  _angleSpeed: 22
   _rateOfFire: 0.5
   _turretRotationSpeed: 0
   _speed: 3700
@@ -154,6 +154,8 @@ MonoBehaviour:
   maxVelocity: 0
   thrust: 0
   magazineModifier: 0
+  totalEnergy: 0
+  energyRechargeSpeed: 0
 --- !u!114 &7550562428066976054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  stateUpdateTime: 0.3
+  mainLoopFrequency: 0.01
   state: 0
 --- !u!212 &9140810786221957339
 SpriteRenderer:

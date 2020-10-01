@@ -131,7 +131,6 @@ public class LevelManager : MonoBehaviour
     public void weaponKill(string weaponName = "")
     {
         if (!weaponName.Equals(""))
-            Debug.Log("KILL WEAPON" + weaponName);
             if (!killsPerWeapon.ContainsKey(weaponName)) killsPerWeapon[weaponName] = 0;
             killsPerWeapon[weaponName]++;
     }
@@ -145,7 +144,7 @@ public class LevelManager : MonoBehaviour
             score.text = "Score:" + currentScore.ToString();
 
             if (!enemyName.Equals(""))
-                Debug.Log("KILL ENEMY" + enemyName);
+
                 if (!killsPerEnemy.ContainsKey(enemyName)) killsPerEnemy[enemyName] = 0;
                     killsPerEnemy[enemyName]++;
         }

@@ -23,7 +23,7 @@ public class ConstantRotation : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(0.5f * rotationAvgDuration, 2f * rotationAvgDuration));
-            Debug.LogWarning("direction changing");
+
             int beforeSpeed = currentSpeed;
             currentSpeed = 0;
             yield return new WaitForSeconds(Random.Range(0.5f, 1f));
