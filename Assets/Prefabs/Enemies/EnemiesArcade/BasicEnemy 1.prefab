@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Indicator
       objectReference: {fileID: 0}
+    - target: {fileID: 5443015383580810680, guid: 76b3b1d9a23416a4893e7679a65bb96d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5443015383580810683, guid: 76b3b1d9a23416a4893e7679a65bb96d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
