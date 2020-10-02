@@ -24,7 +24,7 @@ public class CustomAIArcade : MonoBehaviour
     private bool findingPath;
 
     private float cooldownFlyby;
-    private bool flybyReady;
+    public bool flybyReady;
 
     public float stateUpdateTime;
     public float mainLoopFrequency;
@@ -34,17 +34,12 @@ public class CustomAIArcade : MonoBehaviour
     {
         WaitForSeconds waitingTime = new WaitForSeconds(frequency);
         yield return waitingTime;
-
-
         while (true)
         {
             if (player == null) break;
-
             checkHP();
-
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             //Debug.Log("distance to player " + distanceToPlayer);
-
             if (state.Equals(State.goToTargetState) && distanceToPlayer <= 1.3f*stats.stoppingDistance) state = State.maintainRangeAttackState;
             else if (state.Equals(State.maintainRangeAttackState))
             {
@@ -56,22 +51,8 @@ public class CustomAIArcade : MonoBehaviour
                 if (distanceToPlayer >= 0.6f * stats.stoppingDistance) state = State.maintainRangeAttackState;
                 else if (distanceToPlayer >= 1.3f * stats.stoppingDistance) state = State.goToTargetState;
             }
-
             yield return waitingTime;
         }
-    }
-
-    protected void checkHP()
-    {
-        stats.stoppingDistance = stats.og.stoppingDistance * (1f + (1f - (float) cv.hp / stats.og.hp)); // moves up to 2x further depending on how damaged it is
-    }
-
-    private void flyByPlayer()
-    {
-        Vector3 dirF = (player.position - transform.position).normalized;
-        dirF += Vector3.Cross(dirF, new Vector3(0, 0, 1)) * 0.6f * (Random.value > 0.5 ? 1f : -1f);
-        StartCoroutine(flyByCD());
-        rb.AddForce(dirF * stats.speed * Time.deltaTime * 35);
     }
 
     protected IEnumerator mainLoop(float frequency) {
@@ -84,9 +65,10 @@ public class CustomAIArcade : MonoBehaviour
         {
             if (player == null) break;
 
+            if (rb.velocity.sqrMagnitude > 175f) yield return waitingTime;
+
             Vector3 directionToPlayer = (player.position - transform.position);
             float distanceToPlayer = directionToPlayer.magnitude;
-
             switch (state)
             {
                 case State.goToTargetState:
@@ -106,7 +88,56 @@ public class CustomAIArcade : MonoBehaviour
             yield return waitingTime;
         }
     }
+    protected void checkHP()
+    {
+        stats.stoppingDistance = stats.og.stoppingDistance * (1f + (1f - (float)cv.hp / stats.og.hp)); // moves up to 2x further depending on how damaged it is
+    }
 
+    private void flyByPlayer(Vector3 direction)
+    {
+        direction += Vector3.Cross(direction, new Vector3(0, 0, 1)) * 0.3f * (Random.value > 0.5 ? 1f : -1f);
+        StartCoroutine(flyByCD());
+        rb.AddForce(direction * stats.speed * Time.deltaTime * 35);
+    }
+
+    private IEnumerator flyByCD()
+    {
+        flybyReady = false;
+        gameObject.layer = 14;
+        yield return new WaitForSeconds(0.2f);
+        gameObject.layer = 10;
+        yield return new WaitForSeconds(Random.Range(3f, 8f));
+        flybyReady = true;
+
+    }
+
+    private void Start()
+    {
+        flybyReady = true;
+
+        stats = GetComponent<Stats>();
+        state = State.goToTargetState;
+        reachedEndOfPath = false;
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+
+        nextWaypontDistance = 3f;
+        currentWaypoint = 0;
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        //updatePathCor = StartCoroutine(UpdatePath());
+        findingPath = true;
+
+        cooldownFlyby = 0;
+
+        setTarget();
+
+        cv = GetComponent<CombatVariables>();
+        StartCoroutine(updateState(stateUpdateTime));
+        StartCoroutine(mainLoop(mainLoopFrequency));
+
+    }
 
 
     public enum State
@@ -148,44 +179,7 @@ public class CustomAIArcade : MonoBehaviour
         }
     }
 
-    private IEnumerator flyByCD()
-    {
-        flybyReady = false;
-        gameObject.layer = 14;
-        yield return new WaitForSeconds(0.2f);
-        gameObject.layer = 10;
-        yield return new WaitForSeconds(Random.Range(3f, 8f));
-        flybyReady = true;
-
-    }
-
-    private void Start()
-    {
-        flybyReady = true;
-
-        stats = GetComponent<Stats>();
-        state = State.goToTargetState;
-        reachedEndOfPath = false;
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
-
-        nextWaypontDistance = 3f;
-        currentWaypoint = 0;
-
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        //updatePathCor = StartCoroutine(UpdatePath());
-        findingPath = true;
-
-        cooldownFlyby = 0;
-
-        setTarget();
-
-        cv = GetComponent<CombatVariables>();
-        StartCoroutine(updateState(stateUpdateTime));
-        StartCoroutine(mainLoop(mainLoopFrequency));
-
-    }
+    
 
     private void FixedUpdate()
     {

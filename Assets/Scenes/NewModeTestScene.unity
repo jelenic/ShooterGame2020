@@ -31777,6 +31777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  flybyReady: 0
   stateUpdateTime: 0
   mainLoopFrequency: 0
   state: 0
