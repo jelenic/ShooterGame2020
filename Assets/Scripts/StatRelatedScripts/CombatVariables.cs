@@ -30,7 +30,7 @@ public class CombatVariables : MonoBehaviour, Damageable
 
     public List<StatusEffect> currentlyAfflicted = new List<StatusEffect>();
 
-    public delegate void onHpChanged(int amount);
+    public delegate void onHpChanged(int amount, int currentHp);
     public onHpChanged onHpChangedCallback;
 
     public void createFloatingNumberText(Vector2 position, Color color, string text = "oops")
@@ -78,7 +78,7 @@ public class CombatVariables : MonoBehaviour, Damageable
 
             changeHpBar((float)hp / stats.hp);
 
-            if (onHpChangedCallback != null) onHpChangedCallback.Invoke(receivedDmg * (-1));
+            if (onHpChangedCallback != null) onHpChangedCallback.Invoke(receivedDmg * (-1), hp);
             return hp;
         }
     }
@@ -92,7 +92,7 @@ public class CombatVariables : MonoBehaviour, Damageable
         changeHpBar((float)hp / stats.hp);
         createFloatingNumberText(transform.position, Color.green, amount.ToString());
 
-        if (onHpChangedCallback != null) onHpChangedCallback.Invoke(amount);
+        if (onHpChangedCallback != null) onHpChangedCallback.Invoke(amount, hp);
 
         return hp;
     }

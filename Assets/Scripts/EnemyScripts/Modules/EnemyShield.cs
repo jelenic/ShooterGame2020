@@ -36,7 +36,7 @@ public abstract class EnemyShield : EnemyModule
         StartCoroutine(cooldownCoroutine());
     }
 
-    protected void damageFilter(int amount)
+    protected void damageFilter(int amount, int current)
     {
         if (amount < 0)
         {
