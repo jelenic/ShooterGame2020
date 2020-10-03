@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4507311151098392}
   - component: {fileID: 212903400224277466}
   - component: {fileID: 50872669203900846}
-  - component: {fileID: 60119270134355204}
   - component: {fileID: -2148010992747414403}
+  - component: {fileID: 3469856644892814938}
+  - component: {fileID: 586282511047616723}
   m_Layer: 12
   m_Name: BulletsArcade
   m_TagString: PlayerProjectile
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1104773745397654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.001247555, y: 0.5188715, z: 0}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalScale: {x: 4, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 15e3078a1237e17488acdd2e23e99f0d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5a769d5a39d31448a0b03c0a7652adf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,39 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &60119270134355204
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104773745397654}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.18350703, y: 0.055985905}
-      - {x: -0.19314083, y: 0.021309884}
-      - {x: -0.1840845, y: 0.0004366152}
-      - {x: -0.16685915, y: 0.022042245}
-    - - {x: 0.18371831, y: 0.047225352}
-      - {x: 0.16685915, y: 0.02605634}
-      - {x: 0.18167606, y: 0.0012394497}
-      - {x: 0.19, y: 0.021309884}
 --- !u!114 &-2148010992747414403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd8ca160201cf44bb5ec45761267005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: 
   projectileDamage: 1
   projectileSpeed: 40
   projectileDamageType: 2
@@ -161,3 +130,57 @@ MonoBehaviour:
   passThrough: []
   damageable: []
   destroyable: []
+  destroyableNumber: 0
+  destroyed: 0
+--- !u!61 &3469856644892814938
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104773745397654}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05308397, y: 0.011722593}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.029215321, y: 0.08644329}
+  m_EdgeRadius: 0
+--- !u!61 &586282511047616723
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104773745397654}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04177994, y: 0.011532666}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.030334838, y: 0.086823106}
+  m_EdgeRadius: 0

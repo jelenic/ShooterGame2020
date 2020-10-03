@@ -3603,6 +3603,14 @@ PrefabInstance:
       propertyPath: bossName
       value: 
       objectReference: {fileID: 1407332970}
+    - target: {fileID: 7191477279951551707, guid: 33ddecbc599933e49a4b20b15b9f5b49, type: 3}
+      propertyPath: waveSettings.Array.data[0].maxEnemyRank
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191477279951551707, guid: 33ddecbc599933e49a4b20b15b9f5b49, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 1409383998877146089, guid: a16d281ff6149e145b1ebdc89027723d, type: 3}
     - target: {fileID: 7191477279951551708, guid: 33ddecbc599933e49a4b20b15b9f5b49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

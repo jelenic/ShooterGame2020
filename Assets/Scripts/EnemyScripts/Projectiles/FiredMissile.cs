@@ -10,6 +10,7 @@ public class FiredMissile : FiredProjectile
     private bool deflected;
     private float alive;
     private Transform player;
+    //private Transform target;
     private float angleSpeed;
     private bool armed;
 
@@ -21,7 +22,7 @@ public class FiredMissile : FiredProjectile
 
         lifeDuration = 10f;
         velocity = 10;
-        maxVelocity = 60;
+        maxVelocity = 200;
         alive = 1f;
         armingDistance = 30f;
         armed = false;
@@ -35,6 +36,7 @@ public class FiredMissile : FiredProjectile
 
         damageable.Add("Player");
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = player;
         angleSpeed = 0.1f;
         deflected = false;
     }
@@ -49,12 +51,12 @@ public class FiredMissile : FiredProjectile
         {
             armed = true;
             angleSpeed = 6f;
-            Debug.Log("armed");
+            //Debug.Log("armed");
         }
 
         if (armed && velocity <= maxVelocity)
         {
-            velocity += 25 * Time.deltaTime;
+            velocity += 35 * Time.deltaTime;
             if (angleSpeed >= 0.2)
             {
                 angleSpeed -= 4 * Time.deltaTime;
@@ -62,6 +64,7 @@ public class FiredMissile : FiredProjectile
             //Debug.Log("increase velocity");
         }
 
+        //consider aiming at the specific point instead of following a player
 
         Vector2 directionPlayer = player.position - transform.position;
         float angle = Mathf.Atan2(directionPlayer.y, directionPlayer.x) * Mathf.Rad2Deg - 90;
