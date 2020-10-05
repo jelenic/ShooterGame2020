@@ -15,7 +15,7 @@ public class MineBasicWeapon : BasicWeaponArcade
     public override void upgrade()
     {
         rateOfFire /= 1.1f;
-        weaponDamageModifier *= 1.3f;
-        destroyableNumber *= 1.7f;
+        weaponDamageModifier *= 1.07f;
+        destroyableNumber *= 1.5f;
     }
 }

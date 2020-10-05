@@ -29,8 +29,8 @@ public class SpreadFiringBasicWeapon : BasicWeaponArcade
 
     public override void upgrade()
     {
-        rateOfFire /= 1.05f;
-        weaponDamageModifier *= 1.07f;
+        rateOfFire /= 1.03f;
+        weaponDamageModifier *= 1.04f;
         range = Mathf.Clamp(range * 1.05f, 0.3f, 0.8f);
         shotNumber = Mathf.Min(10, shotNumber + 1);
         destroyableNumber *= 1.3f;

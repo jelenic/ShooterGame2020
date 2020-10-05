@@ -9,6 +9,10 @@ public class ArcadeManager : MonoBehaviour
     #region VARIABLES
     public bool arcadeActive;
 
+    public int currentWave;
+
+    private int lastSpecifiedWave;
+
     public GameObject[] enemies;
     public GameObject[] upgradeItems;
 
@@ -27,7 +31,6 @@ public class ArcadeManager : MonoBehaviour
     private int bossEveryNthWave;
     public GameObject[] bosses;
 
-    private int currentWave;
 
     [SerializeField]
     [Range(5, 1200)]
@@ -50,7 +53,7 @@ public class ArcadeManager : MonoBehaviour
     private int totalSpawnedEnemies;
 
     private Transform transform;
-    private LevelManager levelManager;
+    public LevelManager levelManager;
 
     public GameObject bossDetails;
     public Image bossHP;
@@ -94,7 +97,7 @@ public class ArcadeManager : MonoBehaviour
         transform = GetComponent<Transform>();
         enemiesKilled = 0;
 
-        int lastSpecifiedWave = waveSettings[waveSettings.Length - 1].maxWave + 1;
+        lastSpecifiedWave = waveSettings[waveSettings.Length - 1].maxWave + 1;
         waveToEnemy = new Vector2Int[lastSpecifiedWave];
         waveToModifier = new Vector3[lastSpecifiedWave];
 
@@ -121,10 +124,24 @@ public class ArcadeManager : MonoBehaviour
 
     private IEnumerator arcadeLoop()
     {
+        while (levelManager == null)
+        {
+            levelManager = LevelManager.instance;
+            yield return new WaitForSeconds(0.1f);
+        }
+            
         yield return new WaitForSeconds(1f);
 
-        float difficultyModifier = 1f;
-        float spawnRate = 0.12f;
+        float difficultyModifier = waveToModifier[Mathf.Min(currentWave, lastSpecifiedWave-1)].x;
+        float spawnRate = waveToModifier[Mathf.Min(currentWave, lastSpecifiedWave-1)].y;
+
+
+        for (int i = 0; i < currentWave / upgradesEveryNthWave; i++)
+        {
+            spawnUpgradeItems();
+        }
+
+
         while (arcadeActive)
         {
             spawnedThisWave = 0;
@@ -167,7 +184,6 @@ public class ArcadeManager : MonoBehaviour
                 yield return new WaitForSeconds(2f);
                 summonBoss();
             }
-
 
             if (levelManager != null) levelManager.levelDifficultyModifier *= difficultyModifier;
             if (!bossWave && OnEnemySpawnStartCallback != null) OnEnemySpawnStartCallback.Invoke(0.12f);
@@ -229,7 +245,6 @@ public class ArcadeManager : MonoBehaviour
     private void spawnUpgradeItems()
     {
         int howMany = Random.Range(3, 5 + 1);
-        Debug.Log("spawning upgrade items " + howMany);
 
         for (int i = 0; i < howMany; i++)
         {

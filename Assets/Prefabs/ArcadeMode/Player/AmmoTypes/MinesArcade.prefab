@@ -151,10 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c9af4a89bf18044bcae2ea4bac4574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: 
   projectileDamage: 1
   projectileSpeed: 0
   projectileDamageType: 2
-  lifeDuration: 20
+  lifeDuration: 10
   explosion: {fileID: 1003493668187202, guid: b9e707c8fbfbcbf438251d558f5abe56, type: 3}
   damageModifier: 0
   velocityModifier: 0

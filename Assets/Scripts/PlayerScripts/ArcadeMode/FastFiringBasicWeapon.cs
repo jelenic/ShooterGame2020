@@ -15,6 +15,6 @@ public class FastFiringBasicWeapon : BasicWeaponArcade
     public override void upgrade()
     {
         rateOfFire /= 1.2f;
-        weaponDamageModifier *= 1.07f;
+        weaponDamageModifier *= 1.03f;
     }
 }

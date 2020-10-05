@@ -122,13 +122,11 @@ public class CombatVariables : MonoBehaviour, Damageable
         levelManager = LevelManager.instance;
         arcadeManager = ArcadeManager.instance;
         immune = false;
-
-        StartCoroutine(sethp());
+        hp = stats.hp;
 
         initialize();
     }
 
-    private IEnumerator sethp() { yield return new WaitForSeconds(0.2f); hp = stats.hp; } // since level modifier takes some time to set up
 
 
     IEnumerator stopStatus(StatusEffect status, float duration)

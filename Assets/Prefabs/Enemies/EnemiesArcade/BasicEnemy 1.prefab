@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5669947223231555690}
   - component: {fileID: 4023642028144670498}
   - component: {fileID: 1653472290370106324}
-  - component: {fileID: 1790024337216583337}
   - component: {fileID: 7096877215784261997}
+  - component: {fileID: 1790024337216583337}
   - component: {fileID: -42227214925867666}
   - component: {fileID: 2882527566672562833}
   - component: {fileID: 6488860675415868684}
@@ -154,6 +154,23 @@ MonoBehaviour:
   magazineModifier: 0
   totalEnergy: 0
   energyRechargeSpeed: 0
+--- !u!114 &7096877215784261997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409383998877146089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8042e9d2e6a42d64cae4b7da7458b4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  flybyReady: 0
+  stateUpdateTime: 0.3
+  mainLoopFrequency: 0.01
+  state: 0
 --- !u!114 &1790024337216583337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,22 +191,6 @@ MonoBehaviour:
   currentlyAfflicted: 
   hp_bar_object: {fileID: 8768294026667183605}
   hideHP: 0
---- !u!114 &7096877215784261997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409383998877146089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8042e9d2e6a42d64cae4b7da7458b4d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  stateUpdateTime: 0.3
-  mainLoopFrequency: 0.01
-  state: 0
 --- !u!114 &-42227214925867666
 MonoBehaviour:
   m_ObjectHideFlags: 0

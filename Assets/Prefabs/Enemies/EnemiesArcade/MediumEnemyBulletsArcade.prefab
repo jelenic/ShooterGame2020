@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7014592096713096483}
   - component: {fileID: 1738879522969772651}
   - component: {fileID: 3925921631993182214}
-  - component: {fileID: 7550562428066976054}
   - component: {fileID: 4357311710668017314}
+  - component: {fileID: 7550562428066976054}
   - component: {fileID: 4357311710668017313}
   - component: {fileID: 9140810786221957339}
   - component: {fileID: 3102487151464361505}
@@ -156,6 +156,19 @@ MonoBehaviour:
   magazineModifier: 0
   totalEnergy: 0
   energyRechargeSpeed: 0
+--- !u!114 &4357311710668017314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357311710668017312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a8450df2540f34b92cbd6fd7b0e9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1003493668187202, guid: 23df06d51e5328e4ea435a37fae1207d, type: 3}
 --- !u!114 &7550562428066976054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,19 +189,6 @@ MonoBehaviour:
   currentlyAfflicted: 
   hp_bar_object: {fileID: 2552314070767589045}
   hideHP: 0
---- !u!114 &4357311710668017314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4357311710668017312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a8450df2540f34b92cbd6fd7b0e9fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 1003493668187202, guid: 23df06d51e5328e4ea435a37fae1207d, type: 3}
 --- !u!114 &4357311710668017313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  flybyReady: 0
   stateUpdateTime: 0.3
   mainLoopFrequency: 0.01
   state: 0
@@ -286,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5189853341678870548, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: dmgThreshold
-      value: 0.05
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5189853341678870548, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: cooldown

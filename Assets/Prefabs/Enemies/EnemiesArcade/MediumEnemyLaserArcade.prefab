@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2215973081005110578}
   - component: {fileID: 7474247123306539642}
   - component: {fileID: 5324325076659744791}
-  - component: {fileID: 3554302860470286575}
   - component: {fileID: 4890951475787712179}
+  - component: {fileID: 3554302860470286575}
   - component: {fileID: 4890951475787712178}
   - component: {fileID: 6096324627073979938}
   - component: {fileID: 4133918436033645657}
@@ -156,6 +156,23 @@ MonoBehaviour:
   magazineModifier: 0
   totalEnergy: 0
   energyRechargeSpeed: 0
+--- !u!114 &4890951475787712179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890951475787712177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8042e9d2e6a42d64cae4b7da7458b4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  flybyReady: 0
+  stateUpdateTime: 0.3
+  mainLoopFrequency: 0.01
+  state: 0
 --- !u!114 &3554302860470286575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,22 +193,6 @@ MonoBehaviour:
   currentlyAfflicted: 
   hp_bar_object: {fileID: 197734522340165682}
   hideHP: 0
---- !u!114 &4890951475787712179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890951475787712177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8042e9d2e6a42d64cae4b7da7458b4d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  stateUpdateTime: 0.3
-  mainLoopFrequency: 0.01
-  state: 0
 --- !u!114 &4890951475787712178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5189853341678870548, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: dmgThreshold
-      value: 0.05
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5189853341678870548, guid: 7e3d91aee983bd244b9e52e95b49189d, type: 3}
       propertyPath: cooldown

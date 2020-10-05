@@ -76,7 +76,7 @@ public class EquipementScript : MonoBehaviour
             if (eq.name.Equals(specialWeapon.name))
             {
                 if (specialWeaponAmmo.Equals(specialWeapon.magazineSize + stats.magazineModifier)) return false;
-                int ammoAmount = Mathf.CeilToInt((Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier)));
+                int ammoAmount = Mathf.CeilToInt((Random.Range(0.5f, 1f) * specialWeapon.magazineSize));
                 specialWeaponAmmo = Mathf.Min(specialWeaponAmmo + ammoAmount, (specialWeapon.magazineSize + stats.magazineModifier));
                 spwAmmoRefresh();
 
@@ -99,7 +99,7 @@ public class EquipementScript : MonoBehaviour
         spwComponent.setParams(specialWeapon, spwAmmoCheck);
         spwComponent.OnCooldownChangedCallback += spwCDCallback;
         spwComponent.OnFiredCallback += onSpwFired;
-        specialWeaponAmmo = (int)(Random.Range(0.5f, 1f) * (specialWeapon.magazineSize + stats.magazineModifier));
+        specialWeaponAmmo = Mathf.CeilToInt((Random.Range(0.5f, 1f) * specialWeapon.magazineSize));
         //Debug.Log("sp amo " + specialWeaponAmmo);
         spwAmmoRefresh();
 
