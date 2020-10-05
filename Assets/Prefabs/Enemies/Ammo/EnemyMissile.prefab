@@ -149,7 +149,7 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileDamageType: 0
   lifeDuration: 0
-  explosion: {fileID: 0}
+  explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
   damageModifier: 0
   velocityModifier: 0
   passThrough: []

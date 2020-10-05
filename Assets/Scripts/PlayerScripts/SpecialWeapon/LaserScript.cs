@@ -20,6 +20,7 @@ public class LaserScript : SpecialWeaponScript
     private GameObject chargeAnimationInstance;
     private ChargeController chargeController;
 
+
     float range;
 
     protected override void initialize()
@@ -57,14 +58,17 @@ public class LaserScript : SpecialWeaponScript
 
     private IEnumerator doDamage(float reachedCharge)
     {
+        //laserHitPoint.position = transform.position + transform.up * range;
         while (activeFor > 0)
         {
             Instantiate(invisible, transform.position, transform.rotation);
+            laserHitPoint.position = transform.position + transform.up * range;
 
             RaycastHit2D[] allHit = Physics2D.RaycastAll(transform.position, transform.up, range, affectedLayers);
             foreach (RaycastHit2D hit in allHit)
             {
-                Debug.Log("laser hit " + hit.collider.tag);
+
+                Debug.Log("laser hit " + hit.collider.tag + ",range:" + range.ToString());
                 if (hit.collider.tag == "Projectile")
                 {
                     Destroy(hit.collider.gameObject, 0f);
