@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015e17b85afb32946b9b1a97d2dea1bf, type: 3}
+  m_Name: SpeedIncrease
+  m_EditorClassIdentifier: 
+  name: SpeedIncrease
+  value: 5
+  level: 5
+  icon: {fileID: 0}
+  description: buffs movement speed for some time
+  color: {r: 0.94509804, g: 0.76862746, b: 0.05882353, a: 1}
+  codeName: 
+  pickUpIcon: {fileID: 21300000, guid: 3c0e1aeb9fcab9441b47faeb1dfa7abc, type: 3}
+  pickUpIconColor: {r: 0.94509804, g: 0.76862746, b: 0.05882353, a: 1}
+  disappearTime: 30
+  effect: 2
+  duration: 10
+  amount: 1.4

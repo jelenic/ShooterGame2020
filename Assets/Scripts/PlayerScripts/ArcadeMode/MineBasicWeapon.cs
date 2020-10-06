@@ -16,6 +16,6 @@ public class MineBasicWeapon : BasicWeaponArcade
     {
         rateOfFire /= 1.1f;
         weaponDamageModifier *= 1.07f;
-        destroyableNumber *= 1.5f;
+        if (destroyableNumber <= 20f) destroyableNumber *= 1.5f;
     }
 }

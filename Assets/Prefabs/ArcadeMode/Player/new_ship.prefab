@@ -12,12 +12,9 @@ GameObject:
   - component: {fileID: 7472826865651126524}
   - component: {fileID: 7472826865651126527}
   - component: {fileID: 7472826865651126521}
-  - component: {fileID: 7472826865651126520}
-  - component: {fileID: 7472826865651126523}
-  - component: {fileID: 7472826865651126522}
   - component: {fileID: 7472826865651126514}
-  - component: {fileID: 541450575628231581}
   - component: {fileID: 7472826865651126507}
+  - component: {fileID: 541450575628231581}
   - component: {fileID: 3249265328528498120}
   - component: {fileID: 660765106688011945}
   m_Layer: 11
@@ -138,84 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &7472826865651126520
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7472826865651126500}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.009395331, y: -0.11274433}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.058603704, y: 0.92297673}
-  m_EdgeRadius: 0
---- !u!61 &7472826865651126523
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7472826865651126500}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.014093071, y: -0.2583723}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.38744122, y: 0.51897645}
-  m_EdgeRadius: 0
---- !u!61 &7472826865651126522
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7472826865651126500}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: -0.46976805}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6974877, y: 0.09618497}
-  m_EdgeRadius: 0
 --- !u!114 &7472826865651126514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +170,24 @@ MonoBehaviour:
   magazineModifier: 1
   totalEnergy: 100
   energyRechargeSpeed: 20
+--- !u!114 &7472826865651126507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7472826865651126500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51ca40c82b5c2e46a255f8a1f45a4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCD: {fileID: 0}
+  weaponCurrentAmmoText: {fileID: 0}
+  weaponTotalAmmoText: {fileID: 0}
+  specialWeaponCD: {fileID: 0}
+  specialWeaponCurrentAmmoText: {fileID: 0}
+  specialWeaponTotalAmmoText: {fileID: 0}
 --- !u!114 &541450575628231581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,24 +208,6 @@ MonoBehaviour:
   currentlyAfflicted: 
   currentHPText: {fileID: 0}
   maxHPText: {fileID: 0}
---- !u!114 &7472826865651126507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7472826865651126500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c51ca40c82b5c2e46a255f8a1f45a4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponCD: {fileID: 0}
-  weaponCurrentAmmoText: {fileID: 0}
-  weaponTotalAmmoText: {fileID: 0}
-  specialWeaponCD: {fileID: 0}
-  specialWeaponCurrentAmmoText: {fileID: 0}
-  specialWeaponTotalAmmoText: {fileID: 0}
 --- !u!114 &3249265328528498120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,9 +249,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.79339886, y: -1.1589242}
-      - {x: 0.7457216, y: -1.1907085}
-      - {x: -0.017113209, y: 0.793399}
+    - - {x: -0.3450784, y: -0.5224694}
+      - {x: 0.3614469, y: -0.53023636}
+      - {x: -0.0017224699, y: 0.3840051}
 --- !u!1001 &2122770490771233859
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -74,7 +74,7 @@ public abstract class FiredProjectile : MonoBehaviour
             //Destroy(hit, 0f);
             if (++destroyed < destroyableNumber)
             {
-                Debug.Log(destroyed + " destroyed, remaining: " + (destroyableNumber - destroyed));
+                //Debug.Log(destroyed + " destroyed, remaining: " + (destroyableNumber - destroyed));
                 return;
             }
         }

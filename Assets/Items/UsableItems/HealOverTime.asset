@@ -17,11 +17,11 @@ MonoBehaviour:
   level: 1
   icon: {fileID: 0}
   description: heals over time
-  color: {r: 0.2706924, g: 0.7264151, b: 0.27988988, a: 1}
+  color: {r: 0.15686275, g: 0.4039216, b: 0.07058824, a: 1}
   codeName: 
   pickUpIcon: {fileID: 21300000, guid: 3c0e1aeb9fcab9441b47faeb1dfa7abc, type: 3}
-  pickUpIconColor: {r: 0.0760435, g: 0.254717, b: 0.010813452, a: 1}
+  pickUpIconColor: {r: 0.157215, g: 0.4056604, b: 0.07079922, a: 1}
   disappearTime: 30
-  effect: 6
+  effect: 10
   duration: 10
-  amount: 0
+  amount: 0.07

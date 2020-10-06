@@ -16,7 +16,7 @@ public class FollowPlayer : MonoBehaviour {
         playerRb = player.GetComponent<Rigidbody2D>();
         playerTransform = player.GetComponent<Transform>();
         camera = GetComponent<Camera>();
-        camera.orthographicSize = 16f - PlayerPrefs.GetFloat("camera_zoom", 0.5f) * (16f - 1f);
+        camera.orthographicSize = 30f - PlayerPrefs.GetFloat("camera_zoom", 0.5f) * (30f - 1f);
     }
 
 

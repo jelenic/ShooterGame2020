@@ -61,7 +61,6 @@ public class CombatVariables : MonoBehaviour, Damageable
     {
         if (immune)
         {
-            Debug.Log("involunrable");
             return hp;
         }
         else
@@ -136,15 +135,15 @@ public class CombatVariables : MonoBehaviour, Damageable
         activateDeactivateStatus(status, false, 0f);
     }
 
-    protected virtual void activateDeactivateStatus(StatusEffect status, bool activate, float value) { }
-    public void inflictStatus(StatusEffect status, float duration = 20f)
+    protected virtual void activateDeactivateStatus(StatusEffect status, bool activate, float amount) { }
+    public void inflictStatus(StatusEffect status, float amount, float duration = 20f)
     {
         //Debug.Log(gameObject.name + " getting inflicted by " + status.ToString());
         if (!currentlyAfflicted.Contains(status))
         {
             currentlyAfflicted.Add(status);
             StartCoroutine(stopStatus(status, duration));
-            activateDeactivateStatus(status, true, duration);
+            activateDeactivateStatus(status, true, amount);
         }
     }
 
@@ -173,7 +172,11 @@ public enum StatusEffect
 {
     Stun,
     Slowdown,
-    Speedup,
+    MovementSpeedup,
+    RateOfFireUp,
+    ProjectileSpeedup,
+    EnergyUp,
+    DefenseUp,
     DamageDecrease,
     DamageIncrease,
     Heal,
@@ -196,6 +199,9 @@ public enum StatBuff
     Damage,
     MovementSpeed,
     RateOfFire,
-    MagazineSize
+    ProjectileSpeed,
+    MagazineSize,
+    Energy,
+    Defense
 }
 

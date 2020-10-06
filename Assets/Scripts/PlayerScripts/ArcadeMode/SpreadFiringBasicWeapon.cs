@@ -33,7 +33,7 @@ public class SpreadFiringBasicWeapon : BasicWeaponArcade
         weaponDamageModifier *= 1.04f;
         range = Mathf.Clamp(range * 1.05f, 0.3f, 0.8f);
         shotNumber = Mathf.Min(10, shotNumber + 1);
-        destroyableNumber *= 1.3f;
+        if (destroyableNumber <= 7f) destroyableNumber *= 1.3f;
     }
 
 }

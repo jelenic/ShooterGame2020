@@ -24,16 +24,20 @@ public class ShipMovement : MonoBehaviour {
     
     public float energyUse;
     public float currentEnergy;
-    public bool recharge;
+    public int recharge;
     public bool enoughEnergy;
 
     public Image energyBar;
 
     IEnumerator boostCD()
     {
-        yield return new WaitForSeconds(boostCooldown);
+        yield return new WaitForSeconds(0.25f*boostCooldown);
         boostUsed = false;
-        recharge = true;
+    }
+    IEnumerator energyCD()
+    {
+        yield return new WaitForSeconds(boostCooldown);
+        recharge--;
     }
 
     IEnumerator iframes()
@@ -100,7 +104,7 @@ public class ShipMovement : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (recharge)
+        if (recharge == 0)
         {
             currentEnergy = Mathf.Min(stats.totalEnergy, currentEnergy + Time.deltaTime * stats.energyRechargeSpeed);
             if (energyBar != null) energyBar.fillAmount = currentEnergy / stats.totalEnergy;
@@ -187,10 +191,11 @@ public class ShipMovement : MonoBehaviour {
                     energyCalculation();
                     StartCoroutine(iframes());
                     boostUsed = true;
-                    recharge = false;
+                    recharge++;
                     Vector2 force = rb.velocity.normalized * stats.thrust * boostValue;
                     rb.AddForce(force);
                     StartCoroutine(boostCD());
+                    StartCoroutine(energyCD());
                 } 
 
             }

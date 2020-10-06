@@ -88,6 +88,6 @@ public class SettingsController : MonoBehaviour
     private void onCameraZoomChangedCallback()
     {
         PlayerPrefs.SetFloat("camera_zoom", cameraSlider.value);
-        if (camera != null) camera.orthographicSize = 16f - cameraSlider.value * (16f - 1f);
+        if (camera != null) camera.orthographicSize = 30f - cameraSlider.value * (30f - 1f);
     }
 }

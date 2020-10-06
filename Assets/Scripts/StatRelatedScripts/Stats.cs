@@ -75,9 +75,9 @@ public class Stats : MonoBehaviour
     public float turretRotationSpeed { get => Mathf.Clamp( difficultyModifier *  _turretRotationSpeed, 0f, 30f); set => _turretRotationSpeed = value; }
     public float speed { get => Mathf.Clamp( difficultyModifier * _speed, 0f, 50000f); set => _speed = value; }
     public int hp { get => (int) Mathf.Clamp((difficultyModifier * _hp), 20f, 50000f); set => _hp = value; }
-    public float projectileResistance { get => Mathf.Clamp( Mathf.Log(Mathf.Max(5f, difficultyModifier), 5f) * _projectileResistance, 0f, 1f); set => _projectileResistance = value; }
-    public float beamResistance { get => Mathf.Clamp(Mathf.Log(Mathf.Max(5f, difficultyModifier), 5f) * _beamResistance, 0f, 1f); set => _beamResistance = value; }
-    public float physicalResistance { get => Mathf.Clamp(Mathf.Log(Mathf.Max(5f, difficultyModifier), 5f) * _physicalResistance, 0f, 1f); set => _physicalResistance = value; }
+    public float projectileResistance { get => Mathf.Clamp( Mathf.Log(Mathf.Max(10f, difficultyModifier), 10f) * _projectileResistance, 0f, 1f); set => _projectileResistance = value; }
+    public float beamResistance { get => Mathf.Clamp(Mathf.Log(Mathf.Max(10f, difficultyModifier), 10f) * _beamResistance, 0f, 1f); set => _beamResistance = value; }
+    public float physicalResistance { get => Mathf.Clamp(Mathf.Log(Mathf.Max(10f, difficultyModifier), 10f) * _physicalResistance, 0f, 1f); set => _physicalResistance = value; }
     public float damageModifier { get => Mathf.Clamp( difficultyModifier * _damageModifier, 0.1f, 10f); set => _damageModifier = value; }
     public float critChance { get => Mathf.Clamp( difficultyModifier * _critChance, 0f, 1f); set => _critChance = value; }
     public float critMultiplier { get => Mathf.Clamp( difficultyModifier * _critMultiplier, 1f, 5f); set => _critMultiplier = value; }

@@ -16,5 +16,8 @@ public class FastFiringBasicWeapon : BasicWeaponArcade
     {
         rateOfFire /= 1.2f;
         weaponDamageModifier *= 1.03f;
+        if (destroyableNumber <= 7f) destroyableNumber *= 1.3f;
+
+
     }
 }

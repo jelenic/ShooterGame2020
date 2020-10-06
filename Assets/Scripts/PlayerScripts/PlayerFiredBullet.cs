@@ -27,7 +27,7 @@ public class PlayerFiredBullet : FiredProjectile
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position += transform.up * Time.deltaTime * projectileSpeed * velocityModifier);
+        rb.MovePosition(rb.position + (Vector2) transform.up * Time.deltaTime * projectileSpeed * velocityModifier);
     }
 
 

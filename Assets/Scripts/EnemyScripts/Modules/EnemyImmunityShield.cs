@@ -8,7 +8,7 @@ public class EnemyImmunityShield : EnemyShield
 
     protected override void reactToDmg(int receivedDmg)
     {
-        Debug.LogFormat("enemy received {0} dmg, hp is {1}", receivedDmg, cv.stats.og.hp);
+        //Debug.LogFormat("enemy received {0} dmg, hp is {1}", receivedDmg, cv.stats.og.hp);
 
         base.reactToDmg(receivedDmg);
         if (!active) dmgStack -= receivedDmg; // since its negative

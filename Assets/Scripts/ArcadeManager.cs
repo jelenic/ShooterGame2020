@@ -157,14 +157,14 @@ public class ArcadeManager : MonoBehaviour
             {
                 int maxRank = waveSettings[waveSettings.Length - 1].maxEnemyRank;
                 waveRange = new Vector2Int(maxRank, maxRank - 1); // if currentWave is beyond what's specified only maxRank enemies spawn, -1 because the spawn function adds 1 to counter the range
-                difficultyModifier += 0.25f; // if currentWave is beyond what's specified the difficulty modifier increases by 0.25f every wave
-                spawnRate += 0.01f;
-                maxSpawnPerWave += 5;
+                difficultyModifier += 0.25f * (currentWave - lastSpecifiedWave); // if currentWave is beyond what's specified the difficulty modifier increases by 0.25f every wave
+                if (spawnRate <= 0.88f) spawnRate += 0.01f * (currentWave - lastSpecifiedWave);
+                maxSpawnPerWave += 5 * (currentWave - lastSpecifiedWave);
             }
 
             bool bossWave = ++currentWave % bossEveryNthWave == 0;
             if (bossWave) Debug.LogWarning("BOSS enemy!!!");
-            Debug.LogFormat("current wave {0}, enemy range: {1}, difficlity: {2}", currentWave, waveRange, difficultyModifier);
+            Debug.LogFormat("current wave {0}, enemy range: {1}, difficlity: {2}, spawnRate: {3}, maxSpawn: {4}", currentWave, waveRange, difficultyModifier, spawnRate, maxSpawnPerWave);
 
 
             currentPauseLenght = currentWave == 1 ? 5 : pauseLenght;
@@ -186,7 +186,7 @@ public class ArcadeManager : MonoBehaviour
             }
 
             if (levelManager != null) levelManager.levelDifficultyModifier *= difficultyModifier;
-            if (!bossWave && OnEnemySpawnStartCallback != null) OnEnemySpawnStartCallback.Invoke(0.12f);
+            if (!bossWave && OnEnemySpawnStartCallback != null) OnEnemySpawnStartCallback.Invoke(spawnRate);
             if (OnWaveStartCallback != null) OnWaveStartCallback.Invoke();
 
 

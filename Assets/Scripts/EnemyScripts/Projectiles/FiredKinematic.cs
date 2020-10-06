@@ -8,6 +8,7 @@ public class FiredKinematic : FiredProjectile
     private float velocity;
     private bool deflected;
     private float alive;
+    private Vector2 projectileSpeed;
 
     public override void Initialize()
     {
@@ -28,6 +29,9 @@ public class FiredKinematic : FiredProjectile
 
         damageable.Add("Player");
         deflected = false;
+
+        projectileSpeed = Vector2.up * velocity;
+
     }
 
 
@@ -37,11 +41,11 @@ public class FiredKinematic : FiredProjectile
         if ( alive <= lifeDuration) alive += Time.deltaTime*3;
         if (deflected)
         {
-            transform.Translate(- Vector2.up * Time.deltaTime * velocity * velocityModifier * (alive / lifeDuration), Space.Self);
+            transform.Translate(-projectileSpeed * velocityModifier * Time.deltaTime * (alive / lifeDuration), Space.Self);
         }
         else
         {
-            transform.Translate(Vector2.up * Time.deltaTime * velocity * velocityModifier * (alive / lifeDuration), Space.Self);
+            transform.Translate(projectileSpeed * velocityModifier * Time.deltaTime * (alive / lifeDuration), Space.Self);
         }
     }
 

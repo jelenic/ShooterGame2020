@@ -13,7 +13,7 @@ public class BuffItem : ConsumableItem
     public override bool consume(CombatVariables cv)
     {
         if (effect.Equals(StatusEffect.Heal)) cv.IncreaseHP((int)(amount*cv.stats.hp));
-        else cv.inflictStatus(effect, duration);
+        else cv.inflictStatus(effect, amount, duration);
         return true;
     }
 }

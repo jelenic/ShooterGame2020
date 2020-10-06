@@ -9,14 +9,14 @@ public class EnemyCombatVariables : CombatVariables
 
 
 
-    protected override void activateDeactivateStatus(StatusEffect status, bool activate, float value)
+    protected override void activateDeactivateStatus(StatusEffect status, bool activate, float amount = 1f) // amounts need to be changed in places where statuses are applied
     {
         switch (status)
         {
             case StatusEffect.Stun:
                 stats.speed = activate ? 0 : stats.og.speed;
                 stats.angleSpeed = activate ? 0 : stats.og.angleSpeed;
-                stats.rateOfFire = activate ? value : stats.og.rateOfFire;
+                stats.rateOfFire = activate ? 5f : stats.og.rateOfFire; // special way to stun is needed, perhaps as a state on enemyAI
                 stats.turretRotationSpeed = activate ? 0f : stats.og.turretRotationSpeed;
                 break;
             case StatusEffect.NoMovement:
@@ -29,18 +29,20 @@ public class EnemyCombatVariables : CombatVariables
                 float ratio2 = 5f;
                 stats.speed = activate ? stats.og.speed / ratio : stats.og.speed;
                 stats.angleSpeed = activate ? stats.og.angleSpeed / ratio : stats.og.angleSpeed;
-                //Debug.LogWarningFormat("slowdown check: {0}, {1}, {2} at {3}", activate, stats.rateOfFire, stats.og.rateOfFire, stats.name);
                 stats.rateOfFire = activate ? stats.og.rateOfFire * ratio2 : stats.og.rateOfFire;
-                //Debug.LogWarningFormat("slowdown check2: {0}, {1}, {2} at {3}", activate, stats.rateOfFire, stats.og.rateOfFire, stats.name);
                 stats.turretRotationSpeed = activate ? stats.og.turretRotationSpeed / ratio : stats.og.turretRotationSpeed;
                 stats.projectileVelocityModifier = activate ? stats.og.projectileVelocityModifier / ratio2 : stats.og.projectileVelocityModifier;
                 break;
-            case StatusEffect.Speedup:
+            case StatusEffect.MovementSpeedup:
                 stats.speed = activate ? stats.og.speed * 2 : stats.og.speed;
                 stats.angleSpeed = activate ? stats.og.angleSpeed * 2 : stats.og.angleSpeed;
-                stats.rateOfFire = activate ? stats.og.rateOfFire / 2 : stats.og.rateOfFire;
                 stats.turretRotationSpeed = activate ? stats.og.turretRotationSpeed * 2 : stats.og.turretRotationSpeed;
+                break;
+            case StatusEffect.ProjectileSpeedup:
                 stats.projectileVelocityModifier = activate ? stats.og.projectileVelocityModifier * 2 : stats.og.projectileVelocityModifier;
+                break;
+            case StatusEffect.RateOfFireUp:
+                stats.rateOfFire = activate ? stats.og.rateOfFire / 2 : stats.og.rateOfFire;
                 break;
             case StatusEffect.DamageDecrease:
                 stats.damageModifier = activate ? stats.og.damageModifier / 2 : stats.og.damageModifier;

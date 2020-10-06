@@ -41,45 +41,57 @@ public class PlayerCombatVariables : CombatVariables
     }
 
     Coroutine healingCoroutine = null;
-    protected override void activateDeactivateStatus(StatusEffect status, bool activate, float value)
+    protected override void activateDeactivateStatus(StatusEffect status, bool activate, float amount)
     {
         switch (status)
         {
             case StatusEffect.Stun:
                 break;
             case StatusEffect.Slowdown:
-                stats.thrust = activate ? stats.og.thrust / 2 : stats.og.thrust;
-                stats.rateOfFire = activate ? stats.og.rateOfFire * 2 : stats.og.rateOfFire;
-                stats.projectileVelocityModifier = activate ? stats.og.projectileVelocityModifier / 2 : stats.og.projectileVelocityModifier;
+                stats.thrust = activate ? stats.og.thrust / amount : stats.og.thrust;
+                stats.rateOfFire = activate ? stats.og.rateOfFire * amount : stats.og.rateOfFire;
+                stats.projectileVelocityModifier = activate ? stats.og.projectileVelocityModifier / amount : stats.og.projectileVelocityModifier;
                 break;
-            case StatusEffect.Speedup:
-                stats.thrust = activate ? stats.og.thrust * 2 : stats.og.thrust;
-                stats.rateOfFire = activate ? stats.og.rateOfFire / 2 : stats.og.rateOfFire;
-                stats.projectileVelocityModifier = activate ? stats.og.projectileVelocityModifier * 2 : stats.og.projectileVelocityModifier;
+            case StatusEffect.MovementSpeedup:
+                stats.thrust = activate ? stats.og.thrust * amount : stats.og.thrust;
+                break;
+            case StatusEffect.RateOfFireUp:
+                stats.rateOfFire = activate ? stats.og.rateOfFire / amount : stats.og.rateOfFire;
+                break;
+            case StatusEffect.EnergyUp:
+                stats.energyRechargeSpeed = activate ? stats.og.energyRechargeSpeed * amount : stats.og.energyRechargeSpeed;
+                break;
+            case StatusEffect.ProjectileSpeedup:
+                stats.projectileVelocityModifier = activate ? stats.og.projectileVelocityModifier * amount : stats.og.projectileVelocityModifier;
                 break;
             case StatusEffect.DamageDecrease:
-                stats.damageModifier = activate ? stats.og.damageModifier / 2 : stats.og.damageModifier;
+                stats.damageModifier = activate ? stats.og.damageModifier / amount : stats.og.damageModifier;
                 break;
             case StatusEffect.DamageIncrease:
-                stats.damageModifier = activate ? stats.og.damageModifier * 2 : stats.og.damageModifier;
+                stats.damageModifier = activate ? stats.og.damageModifier * amount : stats.og.damageModifier;
+                break;
+            case StatusEffect.DefenseUp:
+                stats.beamResistance = activate ? stats.og.beamResistance * amount : stats.og.beamResistance;
+                stats.physicalResistance = activate ? stats.og.physicalResistance * amount : stats.og.physicalResistance;
+                stats.projectileResistance = activate ? stats.og.projectileResistance * amount : stats.og.projectileResistance;
                 break;
             case StatusEffect.HealOverTime:
                 
                 if (activate)
                 {
-                    healingCoroutine = StartCoroutine(healOverTime());
+                    healingCoroutine = StartCoroutine(healOverTime(amount));
                 }
                 else StopCoroutine(healingCoroutine);
                 break;
         }
     }
 
-    private IEnumerator healOverTime()
+    private IEnumerator healOverTime(float amount = 0.07f)
     {
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            IncreaseHP((int)(0.07f * stats.og.hp));
+            IncreaseHP((int)(amount * stats.og.hp));
         }
     }
 
@@ -93,11 +105,8 @@ public class PlayerCombatVariables : CombatVariables
         playerDied = true;
         //Debug.Log("player deathh");
         yield return new WaitForSeconds(0.5f);
-        if (hp == 0)
-        {
-            changeHpBar(0f);
-            LevelManager.instance.die();
-        }
+        changeHpBar(0f);
+        LevelManager.instance.die();
         Destroy(gameObject);
     }
 
@@ -120,6 +129,22 @@ public class PlayerCombatVariables : CombatVariables
             case StatBuff.MagazineSize:
                 stats.magazineModifier += (int) amount;
                 break;
+            case StatBuff.Energy:
+                stats.energyRechargeSpeed *= amount;
+                stats.totalEnergy *= amount;
+                break;
+            case StatBuff.ProjectileSpeed:
+                stats.projectileVelocityModifier *= amount;
+                break;
+            case StatBuff.RateOfFire:
+                stats.rateOfFire /= amount;
+                break;
+            case StatBuff.Defense:
+                stats.beamResistance *= amount;
+                stats.projectileResistance *= amount;
+                stats.physicalResistance *= amount;
+                break;
+
         }
     }
 

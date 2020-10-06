@@ -30,7 +30,7 @@ public class SpawnerArcade : MonoBehaviour
     }
     private void onWaveEnd()
     {
-        Debug.Log("stopped spawnin genemies");
+        //Debug.Log("stopped spawnin genemies");
         StopCoroutine(spawnerLoopCor);
     }
 

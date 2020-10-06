@@ -68,7 +68,7 @@ public class LaserScript : SpecialWeaponScript
             foreach (RaycastHit2D hit in allHit)
             {
 
-                Debug.Log("laser hit " + hit.collider.tag + ",range:" + range.ToString());
+                //Debug.Log("laser hit " + hit.collider.tag + ",range:" + range.ToString());
                 if (hit.collider.tag == "Projectile")
                 {
                     Destroy(hit.collider.gameObject, 0f);

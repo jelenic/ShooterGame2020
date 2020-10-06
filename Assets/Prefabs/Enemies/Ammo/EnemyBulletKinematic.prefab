@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b83aa745da54646841dd0ed98f5436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: 
   projectileDamage: 10
   projectileSpeed: 40
   projectileDamageType: 2
@@ -133,6 +134,8 @@ MonoBehaviour:
   passThrough: []
   damageable: []
   destroyable: []
+  destroyableNumber: 0
+  destroyed: 0
 --- !u!50 &9129062289220686554
 Rigidbody2D:
   serializedVersion: 4
