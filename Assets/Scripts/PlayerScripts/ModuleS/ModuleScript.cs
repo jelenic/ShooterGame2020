@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ModuleScript : MonoBehaviour
+public abstract class ModuleScript : MonoBehaviour, IActiveOrCharging
 {
     //defence, movement, ofense
-    private enum type{WithSprite, WithParticles, NoEffect};
-    [SerializeField] protected float coooldown;
-    [SerializeField] protected float duration;
+    protected Module module;
 
     //this part is for btns
     protected Button moduleBtn;
@@ -26,21 +24,24 @@ public abstract class ModuleScript : MonoBehaviour
     public delegate void OnCooldownChanged(float filled);
     public OnCooldownChanged OnCooldownChangedCallback;
 
+    public delegate void OnActivated();
+    public OnActivated OnActivatedCallback;
+
     protected virtual void initialize() { }
     protected virtual void activeAction() { }
     protected virtual void inactiveAction() { }
     protected virtual void activeUpdate() { }
 
-    public void setParams(float cooldown, float duration)
+
+    public void setParams(Module module)
     {
-        if (cooldown >= 0) coooldown = cooldown;
-        if (duration >= 0) this.duration = duration;
+        this.module = module;
     }
 
     void Start()
     {
         android = false;
-        remainingCooldown = coooldown / 10f;
+        remainingCooldown = module.cooldown / 10f;
         active = false;
         clicked = false;
         ship = GameObject.FindGameObjectWithTag("Player");
@@ -62,13 +63,14 @@ public abstract class ModuleScript : MonoBehaviour
         if (active) activeUpdate();
         remainingCooldown = Math.Max(0f, remainingCooldown - Time.deltaTime);
         remainingTime -= Time.deltaTime;
-        if (remainingCooldown <= 0 && (Input.GetMouseButtonDown(1) || clicked))
+        if (remainingCooldown <= 0 && (Input.GetMouseButtonDown(0) || clicked))
         {
-            remainingCooldown = coooldown + duration;
-            remainingTime = duration;
+            remainingCooldown = module.cooldown + module.duration;
+            remainingTime = module.duration;
             activeAction();
             active = true;
             clicked = false;
+            if (OnActivatedCallback != null) OnActivatedCallback.Invoke();
             //moduleBtn.onClick.RemoveListener(useModule);
 
         }
@@ -81,7 +83,7 @@ public abstract class ModuleScript : MonoBehaviour
 
         if (OnCooldownChangedCallback != null)
         {
-            OnCooldownChangedCallback.Invoke((coooldown - remainingCooldown) / coooldown);
+            OnCooldownChangedCallback.Invoke((module.cooldown - remainingCooldown) / module.cooldown);
         }
     }
 
@@ -93,5 +95,12 @@ public abstract class ModuleScript : MonoBehaviour
         }
     }
 
+    public bool isActiveOrCharging()
+    {
+        return active;
+    }
+
 
 }
+
+

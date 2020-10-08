@@ -9,39 +9,32 @@ public class EquipementScript : MonoBehaviour
     private Transform player;
     private Stats stats;
 
-    private SpecialWeapon specialWeapon;
-    private SpecialWeaponScript specialWeaponScript;
-    private Transform specialWeaponTransform;
+    private Equipement specialEquip;
+    private IActiveOrCharging specialEquipScript;
+    private Transform specialEquipTransform;
 
-    public Image weaponCD;
-    public TextMeshProUGUI weaponCurrentAmmoText;
-    public TextMeshProUGUI weaponTotalAmmoText;
-
-    public Image specialWeaponCD;
-    public TextMeshProUGUI specialWeaponCurrentAmmoText;
-    public TextMeshProUGUI specialWeaponTotalAmmoText;
+    public Image specialEquipCD;
+    public TextMeshProUGUI specialEquipCurrentAmmoText;
+    public TextMeshProUGUI specialEquipTotalAmmoText;
 
 
-    private int specialWeaponAmmo;
+    private int specialEquipAmmo;
 
-    private void wCDCallback(float filled)
+    private void speCDCallback(float filled)
     {
-        weaponCD.fillAmount = filled;
-    }
-    private void spwCDCallback(float filled)
-    {
-        specialWeaponCD.fillAmount = filled;
+        specialEquipCD.fillAmount = filled;
     }
 
-    private void spwAmmoRefresh()
+    private void speAmmoRefresh()
     {
-        specialWeaponCurrentAmmoText.text = specialWeaponAmmo.ToString();
-        specialWeaponTotalAmmoText.text = (specialWeapon.magazineSize + stats.magazineModifier).ToString();
+        specialEquipCurrentAmmoText.text = specialEquipAmmo.ToString();
+        Debug.Log($"mag size:{5+5}, stat mag: {stats.magazineModifier}, null: {specialEquipTotalAmmoText == null}");
+        specialEquipTotalAmmoText.text = (specialEquip.magazineSize + stats.magazineModifier).ToString();
     }
 
-    private bool spwAmmoCheck()
+    private bool speAmmoCheck()
     {
-        if (specialWeaponAmmo > 0)
+        if (specialEquipAmmo > 0)
         {
             return true;
         } else
@@ -50,13 +43,11 @@ public class EquipementScript : MonoBehaviour
         }
     }
 
-    private void onSpwFired()
+    private void onSpeActivated()
     {
-        specialWeaponAmmo -= 1;
-        spwAmmoRefresh();
+        specialEquipAmmo -= 1;
+        speAmmoRefresh();
     }
-
-
 
     private void Awake()
     {
@@ -71,39 +62,65 @@ public class EquipementScript : MonoBehaviour
 
     private bool SpecialWeaponEquip(Equipement eq)
     {
-        if (specialWeapon != null)
+        if (specialEquip != null)
         {
-            if (eq.name.Equals(specialWeapon.name))
+            if (eq.name.Equals(specialEquip.name))
             {
-                if (specialWeaponAmmo.Equals(specialWeapon.magazineSize + stats.magazineModifier)) return false;
-                int ammoAmount = Mathf.CeilToInt((Random.Range(0.5f, 1f) * specialWeapon.magazineSize));
-                specialWeaponAmmo = Mathf.Min(specialWeaponAmmo + ammoAmount, (specialWeapon.magazineSize + stats.magazineModifier));
-                spwAmmoRefresh();
+                if (specialEquipAmmo.Equals(specialEquip.magazineSize + stats.magazineModifier)) return false;
+                int ammoAmount = Mathf.CeilToInt((Random.Range(0.5f, 1f) * specialEquip.magazineSize));
+                specialEquipAmmo = Mathf.Min(specialEquipAmmo + ammoAmount, (specialEquip.magazineSize + stats.magazineModifier));
+                speAmmoRefresh();
 
                 return true;
-            } else if (specialWeaponScript.isActiveOrCharging())
+            } else if (specialEquipScript.isActiveOrCharging())
             {
                 return false;
             }
-            specialWeaponTransform.parent = null;
-            Destroy(specialWeaponTransform.gameObject);
+            specialEquipTransform.parent = null;
+            Destroy(specialEquipTransform.gameObject);
         }
 
-        specialWeapon = eq as SpecialWeapon;
+        specialEquipAmmo = Mathf.CeilToInt((Random.Range(0.5f, 1f) * eq.magazineSize));
 
-        GameObject specialWeapon_obj = Resources.Load<GameObject>("Equipement/SpecialWeapons/" + specialWeapon.codeName);
-        GameObject spw = Instantiate(specialWeapon_obj, player.position, player.rotation);
-        specialWeaponTransform = spw.transform;
-        spw.transform.parent = player;
-        SpecialWeaponScript spwComponent = spw.GetComponentInChildren<SpecialWeaponScript>();
-        spwComponent.setParams(specialWeapon, spwAmmoCheck);
-        spwComponent.OnCooldownChangedCallback += spwCDCallback;
-        spwComponent.OnFiredCallback += onSpwFired;
-        specialWeaponAmmo = Mathf.CeilToInt((Random.Range(0.5f, 1f) * specialWeapon.magazineSize));
-        //Debug.Log("sp amo " + specialWeaponAmmo);
-        spwAmmoRefresh();
+        if (eq.GetType().Equals(typeof(SpecialWeapon)))
+        {
+            SpecialWeapon specialWeapon = eq as SpecialWeapon;
+            specialEquip = specialWeapon;
 
-        specialWeaponScript = GetComponentInChildren<SpecialWeaponScript>();
+            GameObject specialWeapon_obj = Resources.Load<GameObject>("Equipement/SpecialWeapons/" + specialWeapon.codeName);
+            GameObject spw = Instantiate(specialWeapon_obj, player.position, player.rotation);
+            specialEquipTransform = spw.transform;
+            spw.transform.parent = player;
+            SpecialWeaponScript spwComponent = spw.GetComponentInChildren<SpecialWeaponScript>();
+            spwComponent.setParams(specialWeapon, speAmmoCheck);
+            spwComponent.OnCooldownChangedCallback += speCDCallback;
+            spwComponent.OnFiredCallback += onSpeActivated;
+
+            specialEquipScript = spwComponent;
+        }
+        else
+        {
+            Module module = eq as Module;
+            specialEquip = module;
+
+            GameObject module_obj = Resources.Load<GameObject>("Equipement/Modules/" + module.codeName);
+            GameObject module_instance = Instantiate(module_obj, player.position, player.rotation);
+            specialEquipTransform = module_instance.transform;
+            module_instance.transform.parent = player;
+            ModuleScript moduleComponent = module_instance.GetComponentInChildren<ModuleScript>();
+            moduleComponent.setParams(module);
+            moduleComponent.OnCooldownChangedCallback += speCDCallback;
+            moduleComponent.OnActivatedCallback += onSpeActivated;
+
+
+            specialEquipScript = moduleComponent;
+        }
+        speAmmoRefresh();
         return true;
     }
+}
+
+public interface IActiveOrCharging
+{
+    bool isActiveOrCharging();
 }

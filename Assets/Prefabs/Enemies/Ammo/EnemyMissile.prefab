@@ -145,15 +145,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: 
-  projectileDamage: 0
-  projectileSpeed: 0
-  projectileDamageType: 0
-  lifeDuration: 0
+  projectileDamage: 5
+  projectileSpeed: 10
+  projectileDamageType: 2
+  lifeDuration: 10
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
   damageModifier: 0
   velocityModifier: 0
-  passThrough: []
-  damageable: []
-  destroyable: []
-  destroyableNumber: 0
-  destroyed: 0
+  damageable:
+  - Player
+  destroyable:
+  - PlayerProjectile
+  destroyableNumber: 2
+  maxVelocity: 200
+  armingDistance: 30
+  angleSpeed: 0.1

@@ -4,30 +4,14 @@ using UnityEngine;
 
 public class PlayerFiredBullet : FiredProjectile
 {
-
-    private Rigidbody2D rb;
-    public override void Initialize()
+    private Vector2 speedConstant;
+    private void Start()
     {
-        base.Initialize();
-
-        passThrough.Add("Player");
-        passThrough.Add("Spawner");
-        passThrough.Add("Shield");
-        passThrough.Add("PlayerProjectile");
-        passThrough.Add("Item");
-
-        damageable.Add("Enemy");
+        speedConstant = Vector2.up * projectileSpeed;
     }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-
-    }
-
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + (Vector2) transform.up * Time.deltaTime * projectileSpeed * velocityModifier);
+        transform.Translate(speedConstant * velocityModifier * Time.deltaTime, Space.Self);
     }
 
 

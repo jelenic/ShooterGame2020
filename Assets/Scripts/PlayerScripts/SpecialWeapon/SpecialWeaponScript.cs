@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public abstract class SpecialWeaponScript : MonoBehaviour
+public abstract class SpecialWeaponScript : MonoBehaviour, IActiveOrCharging
 {
     protected float cooldown;
     protected float timeTillUse;

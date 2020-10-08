@@ -5,18 +5,6 @@ using UnityEngine;
 public class FiredMine : FiredProjectile
 {
     public float movingTime;
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        passThrough.Add("Enemy");
-        passThrough.Add("Spawner");
-        passThrough.Add("Shield");
-        passThrough.Add("Projectile");
-        passThrough.Add("EnemyShield");
-
-        damageable.Add("Player");
-    }
 
     private void FixedUpdate()
     {

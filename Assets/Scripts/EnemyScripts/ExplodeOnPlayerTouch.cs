@@ -14,10 +14,13 @@ public class ExplodeOnPlayerTouch : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.collider.CompareTag("Player"))
         {
-            Destroy(gameObject, 0f);
+            Destroy(gameObject);
             collision.collider.gameObject.GetComponent<Damageable>().DecreaseHP((int) (rb.velocity.magnitude*stats.damageModifier), DamageType.Projectile);
+        } else if (collision.collider.CompareTag("Shield"))
+        {
+            Destroy(gameObject);
         }
     }
 }

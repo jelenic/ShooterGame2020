@@ -17,20 +17,19 @@ public class ShieldModule : ModuleScript
     protected override void activeAction()
     {
         base.activeAction();
-        ship.GetComponent<CombatVariables>().immune = true;
+        //ship.GetComponent<CombatVariables>().immune = true;
         shield.SetActive(true);
     }
     
     protected override void inactiveAction()
     {
-        ship.GetComponent<CombatVariables>().immune = false;
         shield.SetActive(false);
     }
 
     protected override void activeUpdate()
     {
         Color c = shield_renderer.color;
-        c.a = remainingTime / duration + 0.1f;
+        c.a = remainingTime / module.duration + 0.1f;
         shield_renderer.color = c;
     }
 

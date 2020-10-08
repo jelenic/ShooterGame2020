@@ -27,6 +27,7 @@ public class Levels : MonoBehaviour
     private void Start()
     {
         audioManager = AudioManager.instance;
+        loadScores();
 
     }
 

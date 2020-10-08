@@ -46,7 +46,6 @@ public class LevelManager : MonoBehaviour
 
 
     public GameObject pauseMenu;
-    public GameObject finishMenu;
     public GameObject settingsMenu;
     public GameObject scoreObject;
     public GameObject popupText;
@@ -149,34 +148,17 @@ public class LevelManager : MonoBehaviour
                     killsPerEnemy[enemyName]++;
         }
     }
-
-    public void finishLevel()
-    {
-        increaseScore(levelScore);
-
-        levelOver = true;
-
-        AudioManager.instance.PlayMusic("victory");
-
-
-        Debug.Log("level is finished");
-        mobileControls.SetActive(false);
-        finishMenu.SetActive(true);
-        Time.timeScale = 0;
-        ChangeTexts ct = finishMenu.GetComponent<ChangeTexts>();
-        ct.completed(levelName);
-        ct.scored(currentScore);
-        int highscore = levels.scoreLevel(currentScore);
-        ct.displayhighscore(highscore);
-
-
-    }
     
     public void die()
     {
         levelOver = true;
         Debug.Log("level is ded");
         AudioManager.instance.PlayMusic("gameOver");
+        //AudioManager.instance.PlayMusic("victory");
+
+
+        int highscore = levels.scoreLevel(currentScore);
+
 
         mobileControls.SetActive(false);
         youDiedMenu.SetActive(true);

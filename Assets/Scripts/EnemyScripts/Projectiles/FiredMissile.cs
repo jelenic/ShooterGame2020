@@ -5,40 +5,25 @@ using UnityEngine;
 public class FiredMissile : FiredProjectile
 {
     private float velocity;
+    [SerializeField]
     private float maxVelocity;
+    [SerializeField]
     private float armingDistance;
     private bool deflected;
     private float alive;
     private Transform player;
-    //private Transform target;
+    [SerializeField]
     private float angleSpeed;
     private bool armed;
 
     public override void Initialize()
     {
         base.Initialize();
-        projectileDamage = 5;
-        projectileDamageType = DamageType.Projectile;
-
-        lifeDuration = 10f;
-        velocity = 10;
-        maxVelocity = 200;
+        velocity = projectileSpeed;
         alive = 1f;
-        armingDistance = 30f;
         armed = false;
 
-        passThrough.Add("Enemy");
-        passThrough.Add("Spawner");
-        passThrough.Add("Shield");
-        passThrough.Add("Projectile");
-        passThrough.Add("EnemyShield");
-
-
-        damageable.Add("Player");
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //target = player;
-        angleSpeed = 0.1f;
-        deflected = false;
     }
 
 
@@ -71,19 +56,15 @@ public class FiredMissile : FiredProjectile
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, angleSpeed * Time.deltaTime);
 
-
-
         if (alive <= lifeDuration) alive += Time.deltaTime * 3;
 
-
-
-
-        transform.Translate(Vector2.up * Time.deltaTime * velocity * velocityModifier, Space.Self);
+        transform.Translate(speedConstant * Time.deltaTime * velocity * velocityModifier, Space.Self);
     }
 
-    public void Deflect()
+    public override void Deflect()
     {
-        Destroy(gameObject, 0f);
-
+        speedConstant *= -1f;
+        damageable.Add("Enemy");
+        gameObject.layer = LayerMask.NameToLayer("Projectile");
     }
 }

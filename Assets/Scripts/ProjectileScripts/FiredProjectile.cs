@@ -14,12 +14,14 @@ public abstract class FiredProjectile : MonoBehaviour
     private Transform transform;
     public float damageModifier;
     public float velocityModifier;
-    public List<String> passThrough;
+
+    protected Vector2 speedConstant;
+
     public List<String> damageable;
     public List<String> destroyable;
 
     public int destroyableNumber;
-    public int destroyed;
+    protected int destroyed;
 
     protected LevelManager levelManager;
 
@@ -31,18 +33,16 @@ public abstract class FiredProjectile : MonoBehaviour
     void Awake()
     {
         levelManager = LevelManager.instance;
+        transform = GetComponent<Transform>();
 
         destroyableNumber = Mathf.Max(destroyableNumber, 1);
         destroyed = 0;
         damageModifier = 1f;
-        transform = GetComponent<Transform>();
-        passThrough = new List<string>();
-        damageable = new List<string>();
-        passThrough.Add("Item");
-        destroyable.Add("Projectile");
-        destroyable.Add("PlayerProjectile");
 
         //AudioManager.instance.PlayEffect("bullet3");
+
+        speedConstant = Vector2.up * projectileSpeed;
+
 
         Initialize();
         Destroy(gameObject, lifeDuration);
@@ -61,10 +61,7 @@ public abstract class FiredProjectile : MonoBehaviour
     {
         GameObject hit = collision.gameObject;
         //Debug.LogFormat("kinematic bullet hit:{0}", hit.tag);
-        if (!passThrough.Contains(hit.tag))
-        {
-            activate(hit);
-        }
+        activate(hit);
     }
 
     protected virtual void activate(GameObject hit)
@@ -78,12 +75,31 @@ public abstract class FiredProjectile : MonoBehaviour
                 return;
             }
         }
-        if (damageable.Contains(hit.tag))
+        else if (damageable.Contains(hit.tag))
         {
             int target_hp = hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage * damageModifier), projectileDamageType);
             if (hit.CompareTag("Enemy") && target_hp.Equals(0) && levelManager != null) levelManager.weaponKill(weaponName);
         }
+        else
+        {
+            IShield im = hit.GetComponent<IShield>();
+            if (im != null)
+            {
+                if (im.getShieldType().Equals(ShieldType.DeflectorShield))
+                {
+                    Deflect();
+                    return;
+                }
+                else if (im.getShieldType().Equals(ShieldType.HPShield))
+                {
+                    hit.GetComponent<Damageable>().DecreaseHP((int)Math.Round(projectileDamage * damageModifier), projectileDamageType);
+                }
+            }
+        }
             
-        Destroy(gameObject, 0.0f);
-    } 
+        Destroy(gameObject);
+    }
+
+
+    public virtual void Deflect() { }
 }

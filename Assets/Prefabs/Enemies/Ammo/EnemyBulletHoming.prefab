@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be93fb1c6554b7f4da878fbb997d57b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: 
   projectileDamage: 6
   projectileSpeed: 40
   projectileDamageType: 2
@@ -246,6 +247,8 @@ MonoBehaviour:
   explosion: {fileID: 1003493668187202, guid: 15f50c281a5cf204f9f1564987e29e6e, type: 3}
   damageModifier: 0
   velocityModifier: 0
-  passThrough: []
-  damageable: []
-  destroyable: []
+  damageable:
+  - Player
+  destroyable:
+  - PlayerProjectile
+  destroyableNumber: 0

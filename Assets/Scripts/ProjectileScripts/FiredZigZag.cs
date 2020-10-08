@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FiredZigZag : FiredProjectile
 {
-    private float velocity;
     private bool deflected;
     public int zig;
     public bool zag;
@@ -19,20 +18,6 @@ public class FiredZigZag : FiredProjectile
     public override void Initialize()
     {
         base.Initialize();
-        projectileDamage = 5;
-        projectileDamageType = DamageType.Projectile;
-
-        lifeDuration = 8f;
-        velocity = 9;
-
-        passThrough.Add("Enemy");
-        passThrough.Add("Spawner");
-        passThrough.Add("Shield");
-        passThrough.Add("Projectile");
-        passThrough.Add("EnemyShield");
-
-
-        damageable.Add("Player");
         deflected = false;
         zag = true;
     }
@@ -41,8 +26,7 @@ public class FiredZigZag : FiredProjectile
     {
         if (zag)
         {
-            if (zig.Equals(0)) transform.Rotate(0, 0, angle / 2);
-            zig += 1;
+            if (zig++.Equals(0)) transform.Rotate(0, 0, angle / 2);
             if (zig.Equals(frequency/2))
             {
                 zag = false;
@@ -59,25 +43,18 @@ public class FiredZigZag : FiredProjectile
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         zigZag();
 
-        if (deflected)
-        {
-            transform.Translate(-Vector2.up * Time.deltaTime * velocity * velocityModifier, Space.Self);
-        }
-        else
-        {
-            transform.Translate(Vector2.up * Time.deltaTime * velocity * velocityModifier, Space.Self);
-        }
+        transform.Translate(speedConstant * Time.deltaTime * velocityModifier, Space.Self);
     }
 
-    public void Deflect()
+    public override void Deflect()
     {
-        deflected = true;
-        passThrough.Remove("Enemy");
-        passThrough.Add("Player");
+        speedConstant *= -1f;
         damageable.Add("Enemy");
+        gameObject.layer = LayerMask.NameToLayer("Projectile");
     }
+
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8960805643291607623}
   - component: {fileID: 8960805643291607621}
   - component: {fileID: 8960805643291607620}
-  - component: {fileID: 6809519379274874898}
+  - component: {fileID: 1515495051542056251}
   m_Layer: 11
   m_Name: Shield
   m_TagString: Shield
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8960805643291607622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.15, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8960805644648673730}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ CircleCollider2D:
   m_Offset: {x: -0.02, y: 0}
   serializedVersion: 2
   m_Radius: 1.11
---- !u!114 &6809519379274874898
+--- !u!114 &1515495051542056251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8960805643291607622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa00896e5b0fbf4ab3e9dbb822e7047, type: 3}
+  m_Script: {fileID: 11500000, guid: 98e818f86ef707c49b92682877341328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8960805644648673733
@@ -156,6 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb28d1c01cefa43ab1e4bd831157ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coooldown: 0
-  duration: 0
   android: 0

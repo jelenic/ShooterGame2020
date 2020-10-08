@@ -19,17 +19,6 @@ public class PlayerFiredMine : FiredProjectile
         mainCollider.enabled = true;
         effectCollider.enabled = false;
         activated = false;
-
-        passThrough.Add("Player");
-        passThrough.Add("Spawner");
-        passThrough.Add("Shield");
-        passThrough.Add("PlayerProjectile");
-        passThrough.Add("Item");
-
-        destroyable.Add("Projectile");
-
-
-        damageable.Add("Enemy");
     }
 
     private void FixedUpdate()
@@ -45,18 +34,13 @@ public class PlayerFiredMine : FiredProjectile
     {
         if (!activated)
         {
-            if (destroyable.Contains(hit.tag) && ++destroyed < destroyableNumber)
-            {
-                Destroy(hit);
-
-            } else
+            if (destroyable.Contains(hit.tag) && ++destroyed == destroyableNumber)
             {
                 activated = true;
                 mainCollider.enabled = false;
                 effectCollider.enabled = true;
                 Destroy(gameObject, 0.02f);
             }
-
         }
         else
         {

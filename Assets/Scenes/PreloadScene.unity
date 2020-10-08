@@ -190,10 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1826424465}
   - component: {fileID: 1826424464}
-  - component: {fileID: 1826424463}
-  - component: {fileID: 1826424466}
   - component: {fileID: 1826424470}
-  - component: {fileID: 1826424467}
   - component: {fileID: 1826424468}
   - component: {fileID: 1826424469}
   m_Layer: 0
@@ -203,27 +200,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1826424463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826424462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e3d83d5708c444c88a76ca6efa9c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemToId:
-  - {fileID: 11400000, guid: 8f1ece5de1635964b9af87a45c025815, type: 2}
-  - {fileID: 11400000, guid: 47cff82ff34c28c43b2a15e875ec1f6b, type: 2}
-  - {fileID: 11400000, guid: 8c48a98754d80a14880d4563ba8bc8f4, type: 2}
-  - {fileID: 11400000, guid: 482df2e84dd9e3548a56cb1a13491a7b, type: 2}
-  - {fileID: 11400000, guid: 791cafad33cd83c4f81734a6105ff947, type: 2}
-  - {fileID: 11400000, guid: 9f196924fac7730468367456183b505e, type: 2}
-  - {fileID: 11400000, guid: 1308cc8d614dbd74bb1d1f057c240439, type: 2}
-  items: []
 --- !u!114 &1826424464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,40 +228,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1826424466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826424462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28387552305e3534eade3cd8a531760d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentlyEquiped: []
-  currentlySelected: 0
---- !u!114 &1826424467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826424462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25aba56d5caca29428baa8cdea750530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addToInventory:
-  - {fileID: 11400000, guid: 47cff82ff34c28c43b2a15e875ec1f6b, type: 2}
-  - {fileID: 11400000, guid: 791cafad33cd83c4f81734a6105ff947, type: 2}
-  - {fileID: 11400000, guid: 482df2e84dd9e3548a56cb1a13491a7b, type: 2}
-  - {fileID: 11400000, guid: 8c48a98754d80a14880d4563ba8bc8f4, type: 2}
-  - {fileID: 11400000, guid: 8f1ece5de1635964b9af87a45c025815, type: 2}
-  - {fileID: 11400000, guid: 9f196924fac7730468367456183b505e, type: 2}
-  - {fileID: 11400000, guid: 1308cc8d614dbd74bb1d1f057c240439, type: 2}
 --- !u!114 &1826424468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,24 +241,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelDetails:
-  - name: DummyLevel
-    difficultyModifier: 1
-    music_name: dummyLevel
-  - name: DummyLevel2
-    difficultyModifier: 0.7
-    music_name: dummyLevel2
-  - name: PerformanceTestLevel
-    difficultyModifier: 1.3
-    music_name: performanceTestLevel
   - name: NewModeScene
     difficultyModifier: 1
-    music_name: performanceTestLevel
+    music_name: rain_of_lasers
   - name: NewModeTestScene
     difficultyModifier: 1
-    music_name: dummyLevel
-  - name: BaseLevelScene
-    difficultyModifier: 1
-    music_name: performanceTestLevel
+    music_name: space_heroes
   currentlyPlayed: 0
   audioManager: {fileID: 0}
 --- !u!114 &1826424469
@@ -378,13 +308,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1bd7d8bd667875147969bcf0c9d94f55, type: 3}
     source: {fileID: 0}
   music:
-  - name: dummyLevel
+  - name: space_heroes
     volume: 0.084
     pitch: 1.02
     loop: 1
     clip: {fileID: 8300000, guid: fc731ecfd1d3e9145874332cc0e482f4, type: 3}
     source: {fileID: 0}
-  - name: dummyLevel2
+  - name: rain_of_lasers
     volume: 0.084
     pitch: 1.02
     loop: 1
